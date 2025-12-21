@@ -1,0 +1,11 @@
+sentence,true_label,svm_prediction,true_sentiment,svm_sentiment
+descending fibres of the lateral funiculus lf of the spinal cord have been mapped in the adult bullfrog rana catesbeiana,1,1,positive,positive
+,0,0,negative,negative
+"Out of the 100 samples, Anaplasma species were detected in 7% (4/57) of the cattle and 24% (10/43) of the sable antelope samples.",0,0,negative,negative
+dicrostonyx rubricatus and d stevensoni exhibited identical patterns different from the microtus species,1,1,positive,positive
+"A novel GoldNano Carb test for rapid phenotypic detection of carbapenemases, particularly OXA type, in Enterobacteriaceae, Pseudomonas aeruginosa and Acinetobacter spp.",0,1,negative,positive
+,0,0,negative,negative
+the identification of human hy antigen and testicular transformation induced by its interaction with the receptor site of bovine fetal ovarian cells,1,1,positive,positive
+,0,0,negative,negative
+,0,0,negative,negative
+studies were made of the synthesis of the coupling factor complex f1f0 of oxidative phosphorylation after prophage induction of a set of escherichia coli strains lysogenic for defective transducing phage lambda asn lambda unca or lambda bglc,1,1,positive,positive

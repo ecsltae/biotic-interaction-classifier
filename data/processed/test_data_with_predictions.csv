@@ -1,0 +1,11 @@
+sample_index,true_label,svm_prediction,true_sentiment,svm_sentiment
+0,1,1,positive,positive
+1,0,0,negative,negative
+2,0,0,negative,negative
+3,1,1,positive,positive
+4,0,1,negative,positive
+5,0,0,negative,negative
+6,1,1,positive,positive
+7,0,0,negative,negative
+8,0,0,negative,negative
+9,1,1,positive,positive
