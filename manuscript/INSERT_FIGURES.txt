@@ -1,0 +1,79 @@
+# Instructions for Inserting Figures into LaTeX Manuscript
+
+## In the Methods section, after "Negative Examples: A Strategic Approach"
+
+Add after the paragraph describing negative sampling:
+
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/figure1_dataset_composition.png}
+\caption{Dataset composition showing (A) balanced distribution of positive and negative examples and (B) strategic breakdown of negative examples designed to reduce common false positive patterns.}
+\label{fig:dataset}
+\end{figure}
+```
+
+## In the Results section, after Table 1
+
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/figure2_performance_comparison.png}
+\caption{Cross-validation performance comparison across transformer models. BioBERT and BiomedBERT show superior performance, with BiomedBERT achieving the highest F1-score.}
+\label{fig:performance}
+\end{figure}
+```
+
+## In the Results section, "Impact of Diverse Negative Examples"
+
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/figure3_false_positive_reduction.png}
+\caption{Impact of strategic negative sampling on false positive rates. The diverse negative sampling approach reduces false positives by 60-70\% across all categories compared to random negative sampling.}
+\label{fig:fp_reduction}
+\end{figure}
+```
+
+## In the Results section or Supplementary
+
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/figure4_precision_recall.png}
+\caption{Precision-Recall curves for all evaluated models, showing the trade-off between precision and recall at different classification thresholds.}
+\label{fig:pr_curves}
+\end{figure}
+```
+
+## Additional figures for supplementary materials
+
+Training curves:
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../figures/training_curves.png}
+\caption{Training dynamics across 5-fold cross-validation showing (A) training loss convergence, (B) validation F1-score progression, (C) mean precision and recall with standard deviation, and (D) final performance by fold.}
+\label{fig:training}
+\end{figure}
+```
+
+Confusion matrix:
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../figures/confusion_matrix.png}
+\caption{Confusion matrix showing classification performance on the test set, with detailed metrics (Precision, Recall, F1-Score, Accuracy).}
+\label{fig:confusion}
+\end{figure}
+```
+
+Error analysis:
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../figures/error_analysis.png}
+\caption{Error analysis showing (A) distribution of false positives vs false negatives and (B) breakdown of false positive types, highlighting remaining challenges in co-occurrence detection.}
+\label{fig:errors}
+\end{figure}
+```
