@@ -132,11 +132,11 @@ manuscript/*.toc
 manuscript/*.fls
 manuscript/*.fdb_latexmk
 
-# Trained model directories
-models/
-ensemble_model_v3/
-transformer_BiomedBERT_model/
-transformer_roberta_model/
+# Trained model directories (root-level only)
+/models/
+/ensemble_model_v3/
+/transformer_BiomedBERT_model/
+/transformer_roberta_model/
 
 # Old top-level API scripts (replaced by api/ directory)
 api_ensemble.py

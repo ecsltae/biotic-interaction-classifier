@@ -14,7 +14,7 @@ from ensemble_classifier import OptimizedEnsembleClassifier
 print("Loading eval_100.tsv...")
 test_df = pd.read_csv('/home/egaillac/MetaP/classifier/data/evaluation/eval_100.tsv', sep='\t')
 test_texts = test_df['sentence'].tolist()
-test_labels = test_df['evaluation_interaction_identified'].tolist()
+test_labels = test_df['evaluation_pair_interacting'].tolist()
 
 print(f"Loaded {len(test_df)} samples\n")
 
