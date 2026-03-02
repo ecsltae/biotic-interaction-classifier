@@ -95,3 +95,60 @@ Thumbs.db
 *_test.py
 apitryout.py
 archive_old_files/*.txt
+
+# Cache directories
+data/pmc_cache/
+data/sibils_cache/
+data/external_db_cache/
+data/article_cache/
+data/external/
+data/globi/
+data/schemas/
+
+# Training data (large versioned CSVs/JSONs — not suited for git)
+data/training/*.csv
+data/training/*.json
+
+# Reference data
+data/species_names_cache.json
+data/domain_rules.json
+ncbi_taxon_viruses_full_v3.json
+globi-relax_passages-triplets_2024-02-28_curation_EP.tsv
+
+# Generated prediction/evaluation outputs
+data/evaluation/*.csv
+data/evaluation/*.xlsx
+data/processed/*.csv
+
+# Figures (generated)
+figures/
+
+# Manuscript build outputs
+manuscript/*.aux
+manuscript/*.out
+manuscript/*.pdf
+manuscript/*.log
+manuscript/*.toc
+manuscript/*.fls
+manuscript/*.fdb_latexmk
+
+# Trained model directories
+models/
+ensemble_model_v3/
+transformer_BiomedBERT_model/
+transformer_roberta_model/
+
+# Old top-level API scripts (replaced by api/ directory)
+api_ensemble.py
+api_scibert.py
+
+# Generated analysis outputs
+analysis/
+
+# Training results (large, generated)
+transformer_cv_results.csv
+transformer_eval_results.csv
+results/flan_t5*/
+
+# Presentation materials
+presentation/
