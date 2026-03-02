@@ -100,7 +100,7 @@ def load_training_data(csv_path):
 def load_evaluation_set(tsv_path, encoding='latin-1'):
     df = pd.read_csv(tsv_path, sep='\t', encoding=encoding)
     sentences = df['sentence'].apply(lambda x: x.lower().strip()).tolist()
-    labels = df['evaluation_interaction_identified'].values
+    labels = df['evaluation_pair_interacting'].values
     print(f"External evaluation: {len(sentences)} samples")
     print(f"  Label 0: {np.sum(labels == 0)}, Label 1: {np.sum(labels == 1)}")
     return sentences, labels, df

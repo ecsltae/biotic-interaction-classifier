@@ -46,13 +46,12 @@ sentence = df.iloc[:, 18]
 field = df.iloc[:, 19]
 evaluation_species_identified = df.iloc[:, 20]
 evaluation_pair_interacting = df.iloc[:, 21] 
-evaluation_interaction_identified = df.iloc[:, 22]
 comment = df.iloc[:, 23]
 
 
 # Define X (features) and y (target/label)
-# Depending on your setup, you might include or exclude 'interaction_identified' as a feature
-X = df[['evaluation_species_identified', 'evaluation_interaction_identified']]
+# Use evaluation_pair_interacting as ground truth
+X = df[['evaluation_species_identified']]
 y = df['evaluation_pair_interacting']
 
 

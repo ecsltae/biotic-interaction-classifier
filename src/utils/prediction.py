@@ -58,13 +58,13 @@ def main():
     predictions = predict_sentences(model, tokenizer, df['sentence'], device)
 
     # Map numerical labels to 'positive' and 'negative' for sentiment
-    df['true_sentiment'] = df['evaluation_interaction_identified'].map({1: 'positive', 0: 'negative'})
+    df['true_sentiment'] = df['evaluation_pair_interacting'].map({1: 'positive', 0: 'negative'})
     df['BiomedBERT_prediction'] = predictions
     df['BiomedBERT_sentiment'] = df['BiomedBERT_prediction'].map({1: 'positive', 0: 'negative'})
 
     # Save the results to a CSV file
     output_file = 'predictions_with_BiomedBERT.csv'
-    df.to_csv(output_file, columns=['sentence', 'evaluation_interaction_identified', 'BiomedBERT_prediction', 'true_sentiment', 'BiomedBERT_sentiment'], index=False)
+    df.to_csv(output_file, columns=['sentence', 'evaluation_pair_interacting', 'BiomedBERT_prediction', 'true_sentiment', 'BiomedBERT_sentiment'], index=False)
     print(f"Predictions saved to {output_file}")
 
 if __name__ == "__main__":

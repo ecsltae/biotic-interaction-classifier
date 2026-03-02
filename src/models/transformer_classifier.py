@@ -130,7 +130,8 @@ class BioticInteractionDataset(Dataset):
 def load_training_data(csv_path):
     """Load training data"""
     df = pd.read_csv(csv_path)
-    texts = df['passage'].tolist()
+    text_col = 'passage' if 'passage' in df.columns else 'text'
+    texts = df[text_col].tolist()
     labels = df['label'].values
     print(f"Training data: {len(texts)} samples")
     print(f"  Label 0: {np.sum(labels == 0)}, Label 1: {np.sum(labels == 1)}")
@@ -141,7 +142,7 @@ def load_evaluation_set(tsv_path, encoding='latin-1'):
     """Load external evaluation set"""
     df = pd.read_csv(tsv_path, sep='\t', encoding=encoding)
     texts = df['sentence'].apply(lambda x: str(x).lower().strip()).tolist()
-    labels = df['evaluation_interaction_identified'].values
+    labels = df['evaluation_pair_interacting'].values
     print(f"External evaluation: {len(texts)} samples")
     print(f"  Label 0: {np.sum(labels == 0)}, Label 1: {np.sum(labels == 1)}")
     return texts, labels
