@@ -108,6 +108,8 @@ data/schemas/
 # Training data (large versioned CSVs/JSONs — not suited for git)
 data/training/*.csv
 data/training/*.json
+data/training/v*/*.csv
+data/training/v*/*.json
 
 # Reference data
 data/species_names_cache.json
@@ -149,6 +151,16 @@ analysis/
 transformer_cv_results.csv
 transformer_eval_results.csv
 results/flan_t5*/
+results/flan-t5-*/
+results/bart-large*/
+results/biobart-large*/
+results/biogpt*/
+results/overnight*/
+results/research_agent/
+results/predictions/
+results/figures/
+results/reports/
 
 # Presentation materials
 presentation/
+data/training/curation.db

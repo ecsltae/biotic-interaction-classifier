@@ -101,6 +101,11 @@ def main() -> None:
                         help="Max epmc positives per interaction_type (default: 300)")
     parser.add_argument("--max-epmc-neg", type=int, default=1500,
                         help="Max epmc negatives to include (default: 1500)")
+    parser.add_argument("--extra-sources", nargs="+", default=[],
+                        help="Additional pre-validated CSV files to include "
+                             "(e.g. ep_curation_2024.csv sibils_triplets_mined.csv). "
+                             "Must have columns: text, label, interaction_type. "
+                             "No score>0 filter applied — assumed pre-validated.")
     args = parser.parse_args()
 
     print("=" * 70)
@@ -284,19 +289,64 @@ def main() -> None:
     print(f"   After filter+dedup: {len(extdb_out)} ({sum(extdb_out['label']==1)} pos, "
           f"{sum(extdb_out['label']==0)} neg)  [removed {before - len(extdb_out)}]")
 
-    # ---- Step 5: Merge and shuffle ----
-    print("\n5. Merging and shuffling...")
-    combined = pd.concat([v7, epmc_out, v2_out, extdb_out], ignore_index=True)
+    # ---- Step 5: Load extra pre-validated sources (e.g. ep_curation_2024, sibils mined) ----
+    extra_parts = []
+    if args.extra_sources:
+        all_existing_texts = set()
+        for part in [v7, epmc_out, v2_out, extdb_out]:
+            all_existing_texts.update(part['text'].str.lower().str.strip())
+
+        for src_path in args.extra_sources:
+            p = Path(src_path)
+            if not p.exists():
+                print(f"\nWARNING: --extra-sources file not found, skipping: {p}")
+                continue
+            print(f"\n5+. Loading extra source: {p.name}")
+            extra = pd.read_csv(str(p))
+
+            # Normalise column names (some extra sources use 'sentence' not 'text')
+            if 'sentence' in extra.columns and 'text' not in extra.columns:
+                extra = extra.rename(columns={'sentence': 'text'})
+
+            required = {'text', 'label'}
+            missing = required - set(extra.columns)
+            if missing:
+                print(f"   SKIP: missing required columns {missing}")
+                continue
+
+            for col in ['interaction_type', 'source_species', 'target_species']:
+                if col not in extra.columns:
+                    extra[col] = ''
+            if 'source' not in extra.columns:
+                extra['source'] = p.stem
+
+            extra = extra[['text', 'label', 'interaction_type',
+                           'source_species', 'target_species', 'source']].copy()
+
+            # Dedup against all existing texts
+            before_extra = len(extra)
+            extra = extra[~extra['text'].str.lower().str.strip().isin(all_existing_texts)].copy()
+            all_existing_texts.update(extra['text'].str.lower().str.strip())
+            n_pos = int((extra['label'] == 1).sum())
+            n_neg = int((extra['label'] == 0).sum())
+            print(f"   {len(extra)}/{before_extra} rows after dedup "
+                  f"({n_pos} pos, {n_neg} neg)")
+            extra_parts.append(extra)
+
+    # ---- Step 6: Merge and shuffle ----
+    print("\n6. Merging and shuffling...")
+    parts_to_merge = [v7, epmc_out, v2_out, extdb_out] + extra_parts
+    combined = pd.concat(parts_to_merge, ignore_index=True)
     combined = combined.sample(frac=1, random_state=42).reset_index(drop=True)
 
-    # ---- Step 6: Save ----
+    # ---- Step 7: Save ----
     combined.to_csv(args.output, index=False)
 
     # ---- Summary ----
     total_pos = sum(combined['label'] == 1)
     total_neg = sum(combined['label'] == 0)
     print("\n" + "=" * 70)
-    print("V12 DATASET SUMMARY")
+    print("DATASET SUMMARY")
     print("=" * 70)
     print(f"\nTotal: {len(combined)}")
     print(f"  Positives: {total_pos} ({100 * total_pos / len(combined):.1f}%)")

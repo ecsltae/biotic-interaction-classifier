@@ -35,7 +35,11 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import (
+    AutoModelForSequenceClassification,
+    AutoModelForSeq2SeqLM,
+    AutoTokenizer,
+)
 
 # ---------------------------------------------------------------------------
 # Path setup (allow running from project root or classifier/ subdir)
@@ -54,6 +58,7 @@ from data.interaction_taxonomy import (                       # noqa: E402
     classify_interaction_type,
     get_interaction_category_for_sentence,
 )
+from models.flan_t5_enriched import build_prompt, get_yes_no_ids  # noqa: E402
 from data.ott_lookup import lookup as ott_lookup, preload as ott_preload  # noqa: E402
 from utils.outcome_codes import synthesize_outcome            # noqa: E402
 
@@ -73,6 +78,14 @@ MODEL_CONFIG = {
         "weight": 0.30,
     },
 }
+# Generative Layer 3 — FLAN-T5 enriched model (preferred over discriminative ensemble)
+# Set GENERATIVE_MODEL_PATH env var to override, or leave empty to auto-detect.
+import os as _os
+GENERATIVE_MODEL_PATH = _os.environ.get(
+    "GENERATIVE_MODEL_PATH",
+    "/home/egaillac/MetaP/classifier/models/flan_t5_enriched",
+)
+
 ML_THRESHOLD = 0.5
 MAX_LENGTH = 256
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -220,6 +233,13 @@ _models: dict = {}
 _tokenizers: dict = {}
 _models_loaded: bool = False
 
+# Generative model (FLAN-T5 enriched) — preferred Layer 3 when available
+_gen_model = None
+_gen_tokenizer = None
+_is_generative: bool = False
+_gen_yes_id: int = None
+_gen_no_id: int = None
+
 
 def _preprocess(text: str) -> str:
     text = text.lower()
@@ -228,54 +248,116 @@ def _preprocess(text: str) -> str:
 
 
 def _load_models() -> None:
-    global _models_loaded
+    global _models_loaded, _gen_model, _gen_tokenizer, _is_generative, _gen_yes_id, _gen_no_id
+
     if _models_loaded:
         return
-    logger.info(f"Loading ML models on {DEVICE}...")
-    for name, cfg in MODEL_CONFIG.items():
-        model_path = cfg["path"]
-        if not Path(model_path).exists():
-            logger.warning(f"Model not found: {model_path} — skipping {name}")
-            continue
-        logger.info(f"  {name} (weight {cfg['weight']}) from {model_path}")
-        _tokenizers[name] = AutoTokenizer.from_pretrained(model_path)
-        _models[name] = AutoModelForSequenceClassification.from_pretrained(model_path)
-        _models[name].to(DEVICE)
-        _models[name].eval()
+
+    # ── Try generative model first ────────────────────────────────────────────
+    gen_path = Path(GENERATIVE_MODEL_PATH)
+    if gen_path.exists() and (gen_path / "config.json").exists():
+        logger.info(f"Loading FLAN-T5 enriched model from {gen_path} ...")
+        try:
+            _gen_tokenizer = AutoTokenizer.from_pretrained(str(gen_path))
+            _gen_model = AutoModelForSeq2SeqLM.from_pretrained(str(gen_path))
+            _gen_model.to(DEVICE)
+            _gen_model.eval()
+            _gen_yes_id, _gen_no_id = get_yes_no_ids(_gen_tokenizer)
+            _is_generative = True
+            logger.info("  Generative Layer 3 active (FLAN-T5 enriched)")
+        except Exception as e:
+            logger.warning(f"  Failed to load generative model: {e} — falling back to ensemble")
+            _gen_model = None
+            _is_generative = False
+
+    # ── Fall back to discriminative ensemble ──────────────────────────────────
+    if not _is_generative:
+        logger.info(f"Loading discriminative ensemble on {DEVICE}...")
+        for name, cfg in MODEL_CONFIG.items():
+            model_path = cfg["path"]
+            if not Path(model_path).exists():
+                logger.warning(f"Model not found: {model_path} — skipping {name}")
+                continue
+            logger.info(f"  {name} (weight {cfg['weight']}) from {model_path}")
+            _tokenizers[name] = AutoTokenizer.from_pretrained(model_path)
+            _models[name] = AutoModelForSequenceClassification.from_pretrained(model_path)
+            _models[name].to(DEVICE)
+            _models[name].eval()
+        logger.info(f"Discriminative models loaded: {list(_models.keys())}")
+
     _models_loaded = True
-    logger.info(f"Models loaded: {list(_models.keys())}")
 
 
-def _ml_predict(sentences: List[str]) -> List[float]:
-    """Return ensemble probabilities for label=1 for each sentence."""
+def _ml_predict(
+    sentences: List[str],
+    species_strs: Optional[List[str]] = None,
+    terms_strs: Optional[List[str]] = None,
+) -> List[float]:
+    """Return probabilities for label=1.
+
+    Uses FLAN-T5 enriched model if available (preferred), else discriminative ensemble.
+    species_strs and terms_strs are injected into the enriched prompt when using FLAN-T5.
+    """
+    if _is_generative and _gen_model is not None:
+        # Build enriched prompts and score with log P(yes)/P(no)
+        sp = species_strs or ["none"] * len(sentences)
+        tr = terms_strs or ["none"] * len(sentences)
+        prompts = [build_prompt(t, s, r) for t, s, r in zip(sentences, sp, tr)]
+
+        _gen_model.eval()
+        scores = []
+        batch_size = 16
+        with torch.no_grad():
+            for i in range(0, len(prompts), batch_size):
+                batch = prompts[i:i + batch_size]
+                enc = _gen_tokenizer(
+                    batch, max_length=320, padding=True, truncation=True, return_tensors="pt"
+                ).to(DEVICE)
+                bos = torch.full(
+                    (len(batch), 1),
+                    _gen_model.config.decoder_start_token_id,
+                    dtype=torch.long,
+                ).to(DEVICE)
+                out = _gen_model(
+                    input_ids=enc["input_ids"],
+                    attention_mask=enc["attention_mask"],
+                    decoder_input_ids=bos,
+                )
+                logits = out.logits[:, 0, :]
+                log_p = torch.log_softmax(logits.float(), dim=-1)
+                yes_lp = log_p[:, _gen_yes_id].cpu().numpy()
+                no_lp  = log_p[:, _gen_no_id].cpu().numpy()
+                prob_yes = np.exp(yes_lp) / (np.exp(yes_lp) + np.exp(no_lp))
+                scores.extend(prob_yes.tolist())
+        return scores
+
+    # Discriminative ensemble fallback
     if not _models:
-        # No models available — return neutral 0.5
         return [0.5] * len(sentences)
 
     preprocessed = [_preprocess(s) for s in sentences]
     all_weighted_probs = []
-
     for name, model in _models.items():
         tokenizer = _tokenizers[name]
         weight = MODEL_CONFIG[name]["weight"]
         inputs = tokenizer(
-            preprocessed,
-            padding=True,
-            truncation=True,
-            max_length=MAX_LENGTH,
-            return_tensors="pt",
+            preprocessed, padding=True, truncation=True,
+            max_length=MAX_LENGTH, return_tensors="pt",
         ).to(DEVICE)
         with torch.no_grad():
             logits = model(**inputs).logits
             probs = torch.softmax(logits, dim=-1)[:, 1].cpu().numpy()
         all_weighted_probs.append(probs * weight)
 
-    ensemble = np.sum(all_weighted_probs, axis=0)
-    return ensemble.tolist()
+    return np.sum(all_weighted_probs, axis=0).tolist()
 
 
 def _run_pipeline(text: str, prob: float) -> PipelinePredictionResponse:
-    """Run all pipeline layers for a single sentence given an ML probability."""
+    """Run all pipeline layers for a single sentence given an ML probability.
+
+    Note: prob is already computed by _ml_predict() using the enriched prompt
+    (species + GloBI terms injected) when the generative model is active.
+    """
     # Layer 1: NER
     species_raw = extract_species(text)
     n_species = len(species_raw)
@@ -363,15 +445,21 @@ def root():
 
 @app.get("/health")
 def health():
+    layer3 = (
+        f"FLAN-T5 enriched ({GENERATIVE_MODEL_PATH})"
+        if _is_generative
+        else f"Discriminative ensemble: {list(_models.keys()) or 'none loaded'}"
+    )
     return {
         "status": "ok",
         "device": DEVICE,
-        "models_loaded": list(_models.keys()),
+        "layer3_backend": "generative" if _is_generative else "discriminative",
+        "layer3_detail": layer3,
         "pipeline_layers": [
             "NER (regex + OTT)",
             "GloBI term scan (591 terms)",
             "Interaction lexicon (STRONG/WEAK)",
-            "ML ensemble",
+            layer3,
             "Outcome synthesis",
         ],
     }
@@ -379,15 +467,28 @@ def health():
 
 @app.post("/predict", response_model=PipelinePredictionResponse)
 def predict(request: PredictRequest):
-    probs = _ml_predict([request.text])
-    return _run_pipeline(request.text, probs[0])
+    text = request.text
+    # Pre-compute enrichment for the generative Layer 3 prompt
+    species_raw = extract_species(text)
+    matched_globi = scan_globi_terms(text)
+    species_str = ", ".join(s["text"] for s in species_raw) or "none"
+    terms_str   = ", ".join(matched_globi) or "none"
+    probs = _ml_predict([text], [species_str], [terms_str])
+    return _run_pipeline(text, probs[0])
 
 
 @app.post("/predict_batch", response_model=BatchPredictionResponse)
 def predict_batch(request: BatchPredictRequest):
     if not request.sentences:
         return BatchPredictionResponse(predictions=[])
-    probs = _ml_predict(request.sentences)
+    # Pre-compute enrichment context for all sentences
+    species_strs, terms_strs = [], []
+    for text in request.sentences:
+        sp = extract_species(text)
+        gl = scan_globi_terms(text)
+        species_strs.append(", ".join(s["text"] for s in sp) or "none")
+        terms_strs.append(", ".join(gl) or "none")
+    probs = _ml_predict(request.sentences, species_strs, terms_strs)
     results = [
         _run_pipeline(text, prob)
         for text, prob in zip(request.sentences, probs)

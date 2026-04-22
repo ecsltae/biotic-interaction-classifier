@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 Cross-Validation Training with Regularization
-- Merges v7 + eval_100 (gold data with higher weight)
 - 5-fold CV to prevent overfitting
 - Label smoothing and dropout for regularization
 - Trains BiomedBERT and SciBERT
@@ -45,7 +44,6 @@ LEARNING_RATE = 2e-5
 LABEL_SMOOTHING = 0.1  # Regularization
 WEIGHT_DECAY = 0.01
 DROPOUT = 0.2  # Extra dropout
-GOLD_WEIGHT = 5  # How many times to oversample gold eval_100 data
 
 
 class TextDataset(Dataset):
@@ -85,33 +83,15 @@ def compute_metrics(pred):
 
 
 def load_data(train_file: str = None):
-    """Load and merge training data + eval_100 (oversampled for weight)."""
+    """Load training data."""
     print("Loading datasets...")
-
     train_path = train_file or DEFAULT_TRAIN_FILE
-    # Load training data
-    v7_df = pd.read_csv(train_path)
-    v7_df = v7_df[['text', 'label']].copy()
-    v7_df['source'] = 'train'
-    print(f"  Training data ({os.path.basename(train_path)}): {len(v7_df)} samples ({sum(v7_df['label']==1)} pos)")
-
-    # Load eval_100 as gold data
-    eval_df = pd.read_csv(EVAL100_FILE, sep='\t')
-    eval_df = eval_df[['sentence', 'evaluation_pair_interacting']].copy()
-    eval_df.columns = ['text', 'label']
-    eval_df['source'] = 'gold'
-    print(f"  eval_100: {len(eval_df)} samples ({sum(eval_df['label']==1)} pos)")
-
-    # Oversample gold data for higher weight
-    gold_oversampled = pd.concat([eval_df] * GOLD_WEIGHT, ignore_index=True)
-    print(f"  gold oversampled {GOLD_WEIGHT}x: {len(gold_oversampled)} samples")
-
-    # Merge
-    combined = pd.concat([v7_df, gold_oversampled], ignore_index=True)
-    combined = combined.sample(frac=1, random_state=42).reset_index(drop=True)  # Shuffle
-    print(f"  Combined: {len(combined)} samples ({sum(combined['label']==1)} pos)")
-
-    return combined
+    df = pd.read_csv(train_path)
+    df = df[['text', 'label']].copy()
+    df['source'] = 'train'
+    df = df.sample(frac=1, random_state=42).reset_index(drop=True)
+    print(f"  Training data ({os.path.basename(train_path)}): {len(df)} samples ({sum(df['label']==1)} pos)")
+    return df
 
 
 def load_test_set():

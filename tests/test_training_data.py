@@ -28,7 +28,7 @@ from data.robi_validator import RobiValidator
 
 
 # Configuration
-TRAINING_DATA_PATH = Path(__file__).parent.parent / "data/training/training_data_v11_1.csv"
+TRAINING_DATA_PATH = Path(__file__).parent.parent / "data/training/training_data_v14.csv"
 
 # Thresholds
 GATE1_MAX_INVALID_RATE = 0.01       # Max 1% invalid species

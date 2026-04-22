@@ -30,7 +30,7 @@ import pandas as pd
 import torch
 from pathlib import Path
 from torch.utils.data import Dataset, DataLoader
-from transformers import T5ForConditionalGeneration, T5Tokenizer, AutoTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 from sklearn.model_selection import StratifiedKFold
 
@@ -211,21 +211,13 @@ def evaluate(model, tokenizer, texts, labels, yes_id, no_id, label: str = ""):
 # ── data loading ───────────────────────────────────────────────────────────────
 
 def load_data(train_file: str = None) -> pd.DataFrame:
-    """Load training data + eval_100 (gold, oversampled)."""
+    """Load training data."""
     path = Path(train_file) if train_file else TRAIN_FILE
     df = pd.read_csv(path)[['text', 'label']].dropna()
     df['source'] = 'train'
+    df = df.sample(frac=1, random_state=42).reset_index(drop=True)
     print(f"  Training data: {len(df)} ({sum(df['label']==1)} pos)")
-
-    eval_df = pd.read_csv(EVAL100_FILE, sep='\t')[['sentence', 'evaluation_pair_interacting']]
-    eval_df.columns = ['text', 'label']
-    eval_df['source'] = 'gold'
-    gold = pd.concat([eval_df] * GOLD_WEIGHT, ignore_index=True)
-    print(f"  eval_100 gold (×{GOLD_WEIGHT}): {len(gold)}")
-
-    combined = pd.concat([df, gold], ignore_index=True).sample(frac=1, random_state=42).reset_index(drop=True)
-    print(f"  Combined: {len(combined)} ({sum(combined['label']==1)} pos)")
-    return combined
+    return df
 
 
 def load_ep_test() -> tuple:
@@ -245,7 +237,7 @@ def zero_shot_eval(model_name: str) -> dict:
     print(f"{'='*70}")
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = T5ForConditionalGeneration.from_pretrained(model_name)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
     model.to(DEVICE)
     model.eval()
 
@@ -290,13 +282,13 @@ def train_cv(model_name: str, data_df: pd.DataFrame, ep_texts: list, ep_labels: 
         print(f"Train: {len(tr_texts)} | Val: {len(va_texts)}")
 
         tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = T5ForConditionalGeneration.from_pretrained(model_name)
+        model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
         model.to(DEVICE)
 
         yes_id, no_id = get_yes_no_ids(tokenizer)
 
         train_ds = BioticT5Dataset(tr_texts, tr_labels, tokenizer)
-        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=2)
+        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=0)
 
         # T5 works well with AdaFactor; fall back to AdamW
         try:
@@ -420,7 +412,7 @@ def main():
 
     # ── Save best model ───────────────────────────────────────────────────────
     print(f"\nSaving best model to {out_dir}...")
-    model_to_save = T5ForConditionalGeneration.from_pretrained(args.model)
+    model_to_save = AutoModelForSeq2SeqLM.from_pretrained(args.model)
     model_to_save.load_state_dict(best_state)
     model_to_save.save_pretrained(out_dir)
     best_tokenizer.save_pretrained(out_dir)

@@ -184,6 +184,58 @@ Evaluation is always on the EP test set (48/100 positives) via `train_cv_regular
 - Slightly below v11 (0.745) — signal filter alone not sufficient to beat v7.
 - Build script: `build_v12_dataset.py`
 **EP Test F1: 0.729** (BiomedBERT regularized, Prec=0.651, Rec=0.829)
+**FLAN-T5-large: avg=0.780 / best fold=0.800** (Prec=0.737, Rec=0.875) — NEW BEST generative
+**Ensemble (BiomedBERT × FLAN-T5-base): 0.865** (arithmetic mean) — CURRENT BEST OVERALL
+
+---
+
+### v13 — (Skipped / merged into v14)
+**Notes:** Build attempted but superseded by v14. No final results recorded.
+
+---
+
+### v14 — SIBiLS Over-Pruned ❌
+**File:** `training_data_v14.csv`
+**Size:** ~27K samples
+**Built:** 2026-03-15
+**Sources:** v7_llm_cleaned + additional EPMC/SIBiLS harvest (score>0 filter reapplied)
+**Notes:**
+- Same score>0 filter mistake as v12 — removed valid implicit interactions.
+- FLAN-T5-base F1=0.706 → regression vs. v12.
+- Root cause confirmed: score>0 filter is NOT a proxy for LLM validation.
+- Build script: `build_v14_dataset.py`
+**EP Test F1: ~0.706** (FLAN-T5-base, regression)
+
+---
+
+### v15 — Teacher-Labeled (IN PROGRESS) ⭐
+**Output dir:** `v15_teacher/` (train.csv, dev.csv, test.csv, metadata.json)
+**Built:** 2026-03-31 (assembly pending curation completion)
+**Sources:**
+  *Positives:*
+  - Qwen3.5-122B teacher YES labels: 4,065 real PMC sentences (9.2% positive rate from 44,178 total)
+  - v7 LLM-validated backbone (excl. pathogenOf): ~7,076 templates (Claude API validated)
+  - v7 pathogenOf Qwen-accepted: 64 (37% of 175 — rest rejected as too formulaic)
+  - EPMC targeted pathogen harvest: 56 (Qwen-confirmed, `fetch_pathogen_sentences.py`)
+  - Human-curated pathogen borderline: 6
+  - **Total positives: ~11,267 (before dedup)**
+
+  *Negatives:*
+  - Clean (lexicon=0, Qwen=NO): 12,000 sampled
+  - Confirmed clean (2× Qwen=NO, strong lexicon signal): 3,300
+  - Weak signal (Qwen=NO, not rechecked): 12,177
+
+  *Test (fixed):*
+  - All 7 eval files Qwen-validated: 599 sentences, gold labels authoritative
+
+**Key design decisions:**
+- No score>0 filter on teacher positives — teacher already did semantic filtering
+- Qwen3.5-122B (122B MoE, local) as teacher; stricter than Claude API
+- neg:pos target = 2.5
+- pathogenOf specifically reinforced (213 positives total) after underrepresentation detected
+
+**Build script:** `scripts/assemble_v15_dataset.py`
+**EP Test F1: TBD** (pending assembly + training)
 
 ---
 
@@ -204,6 +256,8 @@ Evaluation is always on the EP test set (48/100 positives) via `train_cv_regular
 | v10.1   | 27,762  | 8,346 | TBD | — | — | Ecological diversity, unfiltered |
 | v11_1   | 28,666  | 8,808 | TBD | — | — | + epmc_v2 + external_db |
 | v12     | 27,652  | 8,106 | 0.729 | 0.651 | 0.829 | Signal filter on new positives |
+| v14     | ~27K    | — | ~0.706 | — | — | score>0 filter repeated (regression) |
+| v15     | ~40K    | ~11K | TBD | — | — | Qwen3.5-122B teacher labels ⭐ (in progress) |
 
 *Standard script on eval_100 — not directly comparable to EP test set.
 
