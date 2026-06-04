@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: biotic_interaction_classifier.aux
+The style file: abbrvnat.bst
+Database file #1: references.bib
+Warning--empty journal in bucilua2006model
+Warning--can't use both volume and number fields in habibi2017deep
+Warning--empty journal in mintz2009distant
+You've used 17 entries,
+            2773 wiz_defined-function locations,
+            701 strings with 8131 characters,
+and the built_in function-call counts, 9924 in all, are:
+= -- 838
+> -- 748
+< -- 8
++ -- 251
+- -- 234
+* -- 872
+:= -- 1531
+add.period$ -- 52
+call.type$ -- 17
+change.case$ -- 128
+chr.to.int$ -- 17
+cite$ -- 37
+duplicate$ -- 402
+empty$ -- 695
+format.name$ -- 253
+if$ -- 2051
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 17
+newline$ -- 94
+num.names$ -- 68
+pop$ -- 257
+preamble$ -- 1
+purify$ -- 111
+quote$ -- 0
+skip$ -- 343
+stack$ -- 0
+substring$ -- 342
+swap$ -- 61
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 187
+warning$ -- 3
+while$ -- 75
+width$ -- 0
+write$ -- 224
+(There were 3 warnings)

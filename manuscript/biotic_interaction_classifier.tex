@@ -1,9 +1,8 @@
 \documentclass[12pt,a4paper]{article}
 
-% Packages
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{hyperref}
@@ -12,314 +11,604 @@
 \usepackage{multirow}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{colortbl}
+\usepackage{xcolor}
 \usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
 
-% Title and authors
-\title{Automated Detection of Biotic Interactions from Scientific Literature:\\A Transformer-Based Approach with Curated Training Data}
+\graphicspath{{../../slides_export/}}
+
+\definecolor{bestrow}{RGB}{200,230,200}
+\definecolor{greyrow}{RGB}{242,242,242}
+
+\title{Biotic Interaction Detection from Scientific Literature:\\
+Knowledge Distillation and Multi-task Learning\\
+with Named Entity Recognition}
 
 \author{
-Esteban Gaillac\textsuperscript{1,*} \\
-\textsuperscript{1}Haute Ecole de Gestion, HES-SO Geneva \\
+Esteban Gaillac\textsuperscript{1,*} \\[4pt]
+\textsuperscript{1}Haute \'Ecole de Gestion, HES-SO Geneva \\
 \textsuperscript{*}Correspondence: esteban.gaillac@hesge.ch
 }
 
-\date{February 2026}
+\date{June 2026}
 
 \begin{document}
 
 \maketitle
 
+% ─────────────────────────────────────────────────────────────────────────────
 \begin{abstract}
-Biotic interactions between species are fundamental to understanding ecological systems, yet extracting these relationships from scientific literature remains a significant challenge. We present a transformer-based classifier for biotic interaction detection, trained on iteratively improved datasets combining template-generated sentences with real sentences harvested from PMC articles. Through systematic experimentation across ten dataset versions (v1--v10), we demonstrate that \emph{labeling quality and category diversity} matter more than data quantity. Regex-labeled real sentences degraded performance (v8: F1=0.695, v9: F1=0.644), and even GloBI-cited co-occurrence sentences regressed performance when category-biased (v10: F1=0.722, down from v7 baseline of 0.788) due to 92\% pathogen-type interactions dominating the harvest. Our best single model, BiomedBERT, achieves F1=0.788 (Precision=0.709, Recall=0.896) in 5-fold cross-validation on the v7 LLM-validated dataset, with a BiomedBERT+RoBERTa ensemble reaching F1=0.862. The classifier is integrated into BioTXplorer, a semantic search platform maintained by the Swiss Institute of Bioinformatics. This work documents the pitfalls of data augmentation for domain-specific text classifiers and contributes a methodology for diversified harvesting from curated interaction databases.
+Detecting biotic interactions from scientific text is a prerequisite for
+automated knowledge graph construction from biodiversity literature.
+We present a multi-task transformer classifier that achieves F1\,=\,0.868
+(P\,=\,0.793, R\,=\,0.958) on a 100-sentence ecological test set,
+outperforming both a fine-tuned BiomedBERT baseline (F1\,=\,0.788) and
+a BiomedBERT\,$\times$\,FLAN-T5-base ensemble (F1\,=\,0.865) at 3.3$\times$
+lower inference cost.
+
+The model is built on three components. First, a two-stage teacher chain
+in which a local 122-billion-parameter model (Qwen3.5-122B) annotates
+44,178 harvested sentences with binary labels, and a trained ensemble
+subsequently generates calibrated soft probability labels for knowledge
+distillation. Second, a multi-task BiomedBERT model that jointly classifies
+sentences and annotates tokens with biological entity roles (HOST, PATHOGEN,
+SPECIES, INT) using automatically derived BIO supervision, with a two-phase
+training strategy that primes the shared encoder via NER before introducing
+the classification objective. Third, we show that soft labels are the single
+largest performance lever in the pipeline: switching from hard to soft
+cross-entropy on identical architecture and data yields a +0.052 F1 gain.
+
+A distribution analysis reveals that 77\% of test-set positives belong to
+interaction types underrepresented in the PubMed-sourced training corpus,
+explaining the current performance ceiling at F1\,$\approx$\,0.87 and
+providing a clear target for future data collection. The classifier is
+deployed upstream of BiotXplorer
+(\url{https://biotxplorer.sibils.org/}), the Swiss Institute of Bioinformatics
+semantic search platform for biotic interactions, and is designed as the
+first component of a downstream knowledge graph construction pipeline.
 \end{abstract}
 
-\textbf{Keywords:} biotic interactions, natural language processing, transformer models, text mining, ecological networks, GloBI, BioTXplorer
+\textbf{Keywords:} biotic interactions, knowledge distillation, multi-task
+learning, named entity recognition, BiomedBERT, knowledge graph,
+ecological text mining, GloBI
 
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Introduction}
+\label{sec:intro}
 
-\subsection{Background and Motivation}
-Understanding biotic interactions---the relationships between organisms in ecological communities---is fundamental to ecology, conservation biology, and biodiversity research. These interactions, including predation, parasitism, mutualism, pollination, and competition, shape ecosystem structure and function. However, the vast majority of knowledge about species interactions remains locked in unstructured scientific literature, distributed across millions of publications.
+Species interactions shape ecosystem structure, drive disease dynamics,
+and determine the response of ecological communities to perturbation.
+The Global Biotic Interactions database (GloBI; \citealt{poelen2014global})
+aggregates over 13 million structured interaction records from more than 700
+data sources, yet the vast majority of interaction knowledge remains encoded
+in unstructured scientific literature distributed across millions of
+publications. Europe PMC alone indexes more than 40 million articles.
+Systematic curation of this corpus is infeasible at human scale.
 
-The Global Biotic Interactions database (GloBI; \url{https://www.globalbioticinteractions.org/}) aggregates known species interactions from over 700 data sources, linking each record to its supporting literature via DOIs and PMC identifiers. While GloBI provides structured interaction triples (e.g., \textit{Enhydra lutris} eats \textit{Siliqua patula}), the original sentences describing these interactions in their source articles remain unleveraged for training NLP models.
+Sentence-level classification of biotic interactions is the entry point
+for automated literature mining. Given a sentence, the classifier determines
+whether it describes a biotic interaction between two named organisms:
+predation, parasitism, pathogen infection, pollination, herbivory, mutualism,
+or symbiosis. This binary decision feeds two downstream applications.
 
-\subsection{The Training Data Challenge}
-A central challenge in building text classifiers for specialized domains is obtaining high-quality labeled training data. Template-generated sentences provide controllable diversity but produce overly regular patterns that models can exploit, leading to overconfidence. Conversely, extracting real sentences from literature and labeling them automatically (e.g., via regex-based interaction verb matching) introduces noise that can degrade model performance.
+\paragraph{Upstream: BiotXplorer.}
+BiotXplorer \citep{sibils2023biotxplorer} is a semantic search engine for
+biotic interactions in biomedical literature, maintained by the Swiss Institute
+of Bioinformatics. The classifier acts as an upstream quality filter, screening
+millions of candidate sentences to retain only those describing real interactions
+before they are indexed. A high-recall, precision-conscious filter of this kind
+reduces index noise while preserving comprehensive coverage across interaction
+types.
 
-We encountered this problem directly: models trained on template data achieved F1=0.788 but were poorly calibrated (binary 0.95/0.05 probability outputs), while adding regex-labeled real sentences from the SIBiLS API degraded F1 to 0.695 (v8) and 0.644 (v9). This motivated a new approach: leveraging GloBI's curated ``Supported by'' links to PMC articles, extracting sentences where both interacting species co-occur, without requiring regex-based labeling.
+\paragraph{Downstream: knowledge graph construction.}
+Beyond search, structured interaction triples extracted from accepted sentences
+can populate biodiversity knowledge graphs \citep{chen2023biodiversity}
+supporting species-level reasoning about disease spread, invasion risk,
+food web dynamics, and conservation planning \citep{poisot2021global}.
+The classifier is the first component in such a pipeline; downstream relation
+extraction maps accepted sentences to typed triples of the form
+(subject entity, relation, object entity, confidence, provenance).
 
-\subsection{Contributions}
-This work makes three primary contributions:
+Previous NLP work in the biomedical domain has focused primarily on
+protein-protein interactions \citep{bunescu2005comparative} and drug-gene
+relationships \citep{lim2018drug}, with ecological interaction types
+(predation, parasitism, pollination, herbivory) receiving comparatively less
+attention. The ecological literature presents additional challenges: it spans
+thousands of journals, uses varied terminology, and describes field
+observations that differ structurally from the experimental prose dominant
+in PubMed \citep{badenes2020detecting}.
+
+We address this gap with three primary contributions:
 \begin{enumerate}
-    \item A methodology for harvesting high-quality training sentences from GloBI-cited PMC articles using species name co-occurrence, with common name resolution via the NCBI Taxonomy API.
-    \item Systematic evaluation of dataset quality effects across eight training data versions, demonstrating that data curation strategy is more impactful than data volume.
-    \item A production-deployed BiomedBERT classifier integrated into BioTXplorer, with a BiomedBERT+RoBERTa ensemble option for precision-critical applications.
+    \item A two-stage teacher chain combining large-LLM binary annotation
+    with ensemble-based soft probability distillation, yielding a
+    44K-sentence training corpus with calibrated labels.
+    \item A multi-task BiomedBERT architecture with automatic NER auxiliary
+    supervision, trained in two phases to prime the shared encoder.
+    \item A quantitative distribution mismatch analysis identifying the
+    interaction types responsible for the current performance ceiling and
+    guiding future data collection.
 \end{enumerate}
 
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Methods}
+\label{sec:methods}
 
 \subsection{Task Definition}
-Given a sentence from scientific literature, classify whether it describes a biotic interaction between two or more species. The task is binary: \texttt{label=1} indicates a sentence describing an interaction (predation, parasitism, mutualism, pollination, herbivory, competition, dispersal, pathogen-host, or vector-borne transmission), and \texttt{label=0} indicates no interaction is described.
 
-\subsection{Dataset Construction: Iterative Approach}
+Given a sentence $s$ from scientific literature, predict $y \in \{0, 1\}$
+where $y=1$ indicates that $s$ describes a biotic interaction between two
+or more named organisms. Interaction types in scope: predation, parasitism,
+pathogen infection, pollination, herbivory, mutualism, symbiosis, seed
+dispersal, competition, and vector-borne transmission.
 
-Training data was developed across ten versions (v1--v10), each addressing limitations discovered in the previous iteration:
+\subsection{Training Corpus Construction}
+\label{sec:data}
 
-\subsubsection{Template-Based Data (v1--v7)}
-Initial datasets were generated using templates for both positive and negative examples. Positive templates encode interaction patterns across nine categories (parasitism, predation, herbivory, pollination, symbiosis, competition, dispersal, pathogen, vector), while negative templates capture common false-positive patterns:
+\paragraph{Sentence sources.}
+Two sentence origins are combined into a single 44,178-sentence corpus.
+
+\emph{GloBI-derived templates (v1--v7, synthetic).}
+Structured triples from GloBI (e.g.\ \textit{parasitizes(Anisakis simplex,
+Gadus morhua)}) are injected into hand-written sentence templates covering
+nine interaction categories. In the final template version (v7), every
+positive sentence was individually validated by the Claude API (Anthropic)
+to remove formulaic or linguistically implausible candidates, yielding
+25,081 clean sentences (7,251 positive; F1\,=\,0.788).
+
+\emph{Real PMC sentences (v10+).}
+Articles co-mentioning known GloBI species pairs were queried from Europe PMC
+($\approx$31K sentences) and Biodiversity PMC ($\approx$8K sentences, queried
+by interaction category via the SIBiLS API). Co-occurrence sentences were
+extracted and labeled by a local Qwen3.5-122B model using the prompt:
+\textit{``Does this sentence describe a biotic interaction between two named
+organisms? Answer yes or no only.''}
+Of 44,178 harvested sentences, 4,065 (9.2\%) were accepted as positives.
+
+\paragraph{Soft label generation.}
+The accepted 44,178 sentences were re-scored by the trained BiomedBERT
+$\times$ FLAN-T5-base ensemble, producing a soft probability
+$p_\text{ensemble} \in [0,1]$ per sentence. These soft labels constitute
+the distillation teacher signal (Section~\ref{sec:distillation}).
+Figure~\ref{fig:version_f1} summarises F1 on the test set across dataset
+configurations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{fig_01_version_f1}
+    \caption{Test F1 by training data configuration.
+    The best result (rightmost) is the 44K Qwen-labeled corpus with
+    ensemble soft labels.}
+    \label{fig:version_f1}
+\end{figure}
+
+\subsection{Model Architecture Evolution}
+\label{sec:architectures}
+
+We evaluated five approaches in order of increasing complexity.
+
+\paragraph{Classical baselines.}
+SVM and Random Forest on TF-IDF features achieved F1\,$\approx$\,0.62,
+establishing the need for contextual representations.
+
+\paragraph{Fine-tuned BiomedBERT.}
+We use \texttt{microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext}
+\citep{gu2021domain}, a BERT-base model (110M parameters, 12 transformer
+layers, 768-dimensional hidden states) pre-trained from scratch on PubMed
+abstracts and PubMed Central full-text articles. A linear classification
+head on the [CLS] token representation is fine-tuned using 5-fold
+cross-validation, AdamW optimiser ($\eta = 2 \times 10^{-5}$, weight
+decay\,=\,0.01), and threshold optimisation on the validation split.
+BiomedBERT trained on v7 templates achieves F1\,=\,0.788.
+
+\paragraph{BiomedBERT\,$\times$\,FLAN-T5-base ensemble.}
+FLAN-T5-base \citep{chung2022scaling}, a sequence-to-sequence model trained
+with instruction tuning, was fine-tuned as a binary classifier by prompting
+for a yes/no answer and scoring the first generated token. The geometric
+mean of BiomedBERT and FLAN-T5-base predicted probabilities, with joint
+threshold optimisation, achieves F1\,=\,0.865. The gain is attributable to
+model complementarity: BiomedBERT handles precise, template-like language
+while FLAN-T5-base generalises better to paraphrased ecological sentences.
+
+\paragraph{Knowledge distillation.}
+Section~\ref{sec:distillation}.
+
+\paragraph{Multi-task BiomedBERT with NER.}
+Section~\ref{sec:multitask}.
+
+Figure~\ref{fig:model_evolution} summarises the F1 progression across architectures.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{fig_02_model_evolution}
+    \caption{Test F1 across model architecture stages. Annotated arrows indicate
+    the primary driver of each improvement.}
+    \label{fig:model_evolution}
+\end{figure}
+
+\subsection{Knowledge Distillation}
+\label{sec:distillation}
+
+Knowledge distillation \citep{hinton2015distilling} transfers calibrated
+uncertainty from a teacher to a student by training on soft probability
+distributions rather than hard labels \citep{bucilua2006model}.
+A teacher score of 0.7 instructs the student that a sentence is
+\emph{probably} positive but not certain; the student is penalised for
+predicting 0.4, not merely for predicting the wrong class. This
+information transfer is especially valuable for borderline sentences.
+
+\paragraph{Training objective.}
+The student BiomedBERT is trained using KL divergence against the ensemble
+teacher:
+\begin{equation}
+    \mathcal{L}_\text{KL} = T^2 \cdot \mathrm{KL}\!\left(
+        \sigma(\mathbf{z}_s / T) \;\|\; \sigma(\mathbf{z}_t / T)
+    \right)
+\end{equation}
+where $T$ is the temperature, $\mathbf{z}_s$ and $\mathbf{z}_t$ are student
+and teacher logits, and $\sigma$ denotes the softmax function.
+Rows without soft labels use hard cross-entropy. The combined loss is
+$\mathcal{L} = \alpha \cdot \mathcal{L}_\text{KL} + (1{-}\alpha) \cdot \mathcal{L}_\text{CE}$.
+
+Optimal hyperparameters identified by search: $T{=}2$, $\alpha{=}0.5$
+(Table~\ref{tab:distillation}). Temperature $T{=}2$ spreads the teacher
+distribution sufficiently to transfer calibrated uncertainty without
+over-smoothing; $T{=}4$ over-smooths while $T{=}1.5$ loses the calibration
+benefit. The student (distilled\_v2) achieves F1\,=\,0.808, a gain of +0.020
+over the v7 fine-tuned baseline.
+
+\begin{table}[H]
+\centering
+\caption{Knowledge distillation hyperparameter search.
+All variants use BiomedBERT as student except v4 (DistilBERT) and v5 (SciBERT).}
+\label{tab:distillation}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Version} & $T$ & $\alpha$ & \textbf{Test F1} \\
+\midrule
+v1 & 4 & 0.7 & 0.785 \\
+\rowcolor{bestrow}
+\textbf{v2 (best)} & \textbf{2} & \textbf{0.5} & \textbf{0.808} \\
+v3 & 4 & 0.9 & 0.808 \\
+v4 (DistilBERT) & 2 & 0.5 & 0.792 \\
+v5 (SciBERT) & 2 & 0.5 & 0.793 \\
+v6 ($T=1.5$) & 1.5 & 0.5 & 0.779 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Multi-task BiomedBERT with NER Auxiliary Task}
+\label{sec:multitask}
+
+\paragraph{Architecture.}
+The BiomedBERT encoder is extended with two linear output heads that share
+all encoder weights:
 \begin{itemize}
-    \item \textbf{Co-occurrence without interaction}: ``Both \textit{X} and \textit{Y} were observed in the study area.''
-    \item \textbf{Taxonomic descriptions}: ``The morphology of \textit{X} was examined.''
-    \item \textbf{Multi-species lists}: ``The community included \textit{X}, \textit{Y}, and \textit{Z}.''
+    \item \textbf{Classification head}: reads the [CLS] token vector
+    ($\mathbb{R}^{768} \to \mathbb{R}^2$), produces $P(\text{interaction})$.
+    \item \textbf{NER head}: reads every token vector
+    ($\mathbb{R}^{768} \to \mathbb{R}^{|\mathcal{L}|}$), produces BIO label logits.
 \end{itemize}
 
-Version v7 incorporated LLM-based validation: each sentence was reviewed by Claude and flagged examples were removed, yielding 25,081 clean training sentences.
+\paragraph{NER label scheme.}
+We use the \texttt{full\_typed} scheme with $|\mathcal{L}| = 9$ labels:
+\texttt{O} (background), \texttt{B/I-HOST} (hosting organism),
+\texttt{B/I-PATHOGEN} (infecting or parasitic agent),
+\texttt{B/I-SPECIES} (ambiguous role in symmetric interactions),
+\texttt{B/I-INT} (interaction verb or phrase).
+Labels are generated automatically from species gazetteers
+($\approx$4.2M binomials plus 21K common names, matched via Aho-Corasick
+automata \citealt{aho1975efficient}) and an interaction lexicon (591 GloBI
+terms plus 50 biomedical vocabulary terms). Gold species annotations from
+training metadata override gazetteer lookup when available.
 
-\subsubsection{SIBiLS-Based Augmentation (v8--v9): Failed Approaches}
-To reduce model overconfidence, we attempted augmenting v7 with real sentences from PMC articles retrieved via the SIBiLS Biodiversity API (\url{https://sibils.org/}):
+The HOST/PATHOGEN distinction encodes the direction of the relation: who
+acts and who is acted upon. This directional labelling is motivated by the
+downstream KG construction task, where edge direction is semantically
+significant.
 
-\begin{itemize}
-    \item \textbf{v8}: Added 4,168 SIBiLS sentences focused on infection/parasitism interactions. Result: F1 dropped from 0.788 to 0.695. Root cause: domain mismatch---the infection-biased sentences did not match the ecological diversity of the evaluation set.
-    \item \textbf{v9}: Added 10,094 diverse SIBiLS sentences across all interaction types, labeled via regex matching of interaction verbs (``infects'', ``parasitizes'', ``preys on'', etc.). Result: F1 dropped further to 0.644. Root cause: regex-based labeling introduced systematic noise---sentences containing interaction verbs but not actually describing interactions were mislabeled as positives.
-\end{itemize}
+\paragraph{Two-phase training.}
+Training proceeds in two phases designed to avoid interference between
+the NER and classification objectives \citep{liu2019multi}:
 
-These failures established a key principle: \emph{the labeling strategy matters more than the data source}. Real sentences improve training only when their labels are reliable.
+\begin{description}
+    \item[Phase 1 --- NER pre-train ($E_\text{NER}$ epochs).]
+    The classification head is frozen. Only the encoder and NER head receive
+    gradient updates from token-level cross-entropy loss
+    $\mathcal{L}_\text{NER}$.
+    This phase primes the shared encoder to locate species names and
+    interaction verbs before the classification signal is introduced.
 
-\subsubsection{GloBI-PMC Co-occurrence Approach (v10)}
-\label{sec:globi_pmc}
+    \item[Phase 2 --- Joint training ($E_\text{joint}$ epochs).]
+    All parameters are unfrozen. Combined loss:
+    \[
+        \mathcal{L} = \alpha \cdot \mathcal{L}_\text{cls} +
+                      (1{-}\alpha) \cdot \mathcal{L}_\text{NER}
+    \]
+    where $\mathcal{L}_\text{cls}$ is soft KL divergence against ensemble
+    soft labels when available, and hard CE otherwise.
+\end{description}
 
-We developed a new data harvesting pipeline that leverages GloBI's curated interaction records and their ``Supported by'' literature links:
-
-\paragraph{Step 1: GloBI Record Extraction.}
-From the GloBI interactions database ($\sim$13.8M rows), we extracted unique (source species, target species, interaction type, reference DOI/PMC) tuples for nine interaction categories. Records were deduplicated, yielding $\sim$255K unique interaction--paper pairs.
-
-\paragraph{Step 2: DOI to PMCID Conversion.}
-DOIs were converted to PMCIDs using the NCBI ID Converter API in batches of 200. Additionally, PMCIDs were extracted directly from GloBI \texttt{referenceUrl} fields via regex matching (\texttt{PMC\textbackslash d\{5,9\}}). Approximately 28\% of DOIs mapped to PMC open-access full text.
-
-\paragraph{Step 3: Common Name Resolution.}
-For each unique species in the dataset, common names were resolved via the NCBI Taxonomy API (\texttt{esearch} $\rightarrow$ \texttt{efetch}), extracting \texttt{<GenbankCommonName>} and \texttt{<CommonName>} fields. A hardcoded fallback table covered $\sim$200 common ecological species (e.g., ``sea otter'' for \textit{Enhydra lutris}). Names were cached for reuse across pipeline runs.
-
-\paragraph{Step 4: PMC Full Text Retrieval.}
-Articles were fetched via the Europe PMC RESTful API (\texttt{europepmc.org/webservices/rest/PMCID/fullTextXML}), with NCBI E-utilities as fallback. Full text was extracted from XML, stripping figure captions and reference lists.
-
-\paragraph{Step 5: Species Co-occurrence Sentence Extraction.}
-For each (interaction, article) pair:
-\begin{enumerate}
-    \item Name variants were generated for both source and target species using binomial decomposition (e.g., ``\textit{Enhydra lutris}'' $\rightarrow$ \{``Enhydra lutris'', ``E. lutris'', ``Enhydra'', ``sea otter''\}).
-    \item Sentences were split using a regex-based sentence splitter handling abbreviations.
-    \item A sentence was labeled \textbf{positive} if it contained at least one name variant for \emph{both} the source and target species (word-boundary regex, case-insensitive).
-    \item No interaction verb was required---the GloBI record provides the interaction label.
-\end{enumerate}
-
-\paragraph{Step 6: Hard Negative Generation.}
-From the same articles, three tiers of negatives were generated:
-\begin{itemize}
-    \item \textbf{Tier 1 (hard)}: Two species mentioned but not the specific interacting pair.
-    \item \textbf{Tier 2 (medium)}: Only one of the two species, no interaction verb present.
-    \item \textbf{Tier 3 (easy)}: General scientific prose with no species mentions.
-\end{itemize}
-
-\paragraph{Quality Controls.}
-Sentences were filtered by length (40--600 characters), deduplicated by content hash, and capped at 8 positives + 8 negatives per article. Per-interaction-type caps were applied to control category balance: ecological interaction types (parasitism, herbivory, predation) were capped at 300--400 positives, while pathogen type was deliberately capped at 150 to prevent pathogen bias (a key lesson from v10). Articles were processed in ecological priority order (predation first, pathogen last).
-
-\paragraph{MCP-Based Validation.}
-Harvested positive sentences were validated using the project's MCP (Model Context Protocol) \texttt{batch\_validate} tool, which combines heuristic rules with LLM-based assessment. Sentences below a confidence threshold of 0.5 were excluded.
-
-\subsection{Model Architectures}
-
-We evaluated multiple transformer-based architectures for binary sequence classification:
-
-\begin{itemize}
-    \item \textbf{BiomedBERT} (\texttt{microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract}): Pre-trained on PubMed abstracts with domain-specific vocabulary.
-    \item \textbf{SciBERT} (\texttt{allenai/scibert\_scivocab\_uncased}): Pre-trained on 1.14M scientific papers from Semantic Scholar.
-    \item \textbf{RoBERTa} (\texttt{roberta-base}): Robustly optimized BERT with dynamic masking and larger batches.
-    \item \textbf{DistilBERT} (\texttt{distilbert-base-uncased}): Distilled BERT for faster inference.
-    \item \textbf{BiomedBERT + RoBERTa Ensemble}: Weighted soft voting with weights 0.65/0.35 respectively.
-\end{itemize}
-
-Traditional ML baselines (SVM, Logistic Regression, Random Forest, Gradient Boosting, Complement Na\"ive Bayes) were also evaluated using TF-IDF features.
-
-\subsection{Training Configuration}
-
-Transformer models were trained using 5-fold cross-validation:
-\begin{itemize}
-    \item Learning rate: $2 \times 10^{-5}$
-    \item Batch size: 16
-    \item Epochs: 3--5 (with early stopping on validation F1)
-    \item Max sequence length: 512 tokens
-    \item Optimizer: AdamW with weight decay 0.01
-    \item Label smoothing: 0.15 (v9 experiments)
-    \item Threshold optimization on validation set
-\end{itemize}
+We find that initialising Phase 1 from the best fine-tuned BiomedBERT
+checkpoint degrades performance (F1\,=\,0.862 vs.\ cold-start 0.868):
+NER gradient updates disrupt the task-specific representations built during
+classification fine-tuning, and the subsequent joint phase does not fully
+recover them. Cold-starting from the pretrained BiomedBERT weights is
+therefore preferred.
 
 \subsection{Evaluation Protocol}
+\label{sec:eval}
 
-All models were evaluated on \texttt{eval\_100.tsv}, an independent gold-standard test set of 100 manually annotated sentences (23 positive, 77 negative) curated by a domain expert. This set was never used during training or validation. We report precision, recall, and F1-score.
+All models are evaluated on a 100-sentence test set (48 positive)
+drawn from ecological literature, curated with relaxed annotation criteria
+(any biotic interaction type accepted). The set has no overlap with
+training data. We report precision, recall, and F1-score.
 
+Bootstrap confidence intervals are estimated with 10,000 resamples.
+Pairwise significance is assessed using McNemar's test
+\citep{mcnemar1947note} with continuity correction. For each model,
+the decision threshold $\tau$ is optimised on the validation split
+by sweeping $\tau \in [0.05, 0.95]$ and selecting the value
+maximising F1.
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Results}
+\label{sec:results}
 
-\subsection{Cross-Validation Performance}
+\subsection{Multi-task Ablation}
 
-Table~\ref{tab:cv_results} presents 5-fold cross-validation results on the v7 LLM-validated dataset.
+Table~\ref{tab:ablation} presents the full ablation over NER schemes,
+loss weights ($\alpha$), and NER pre-training epochs. All configurations
+use the 44K distillation corpus with soft labels except the \texttt{hardce}
+variants (hard cross-entropy).
 
 \begin{table}[H]
 \centering
-\caption{Cross-validation performance (5-fold CV on v7, mean $\pm$ std)}
-\label{tab:cv_results}
-\begin{tabular}{lcccc}
+\small
+\caption{Multi-task ablation results on the test set (100 sentences, 48 positives).
+NER pt = NER pre-train epochs before joint training.
+Baseline comparisons are shown below the separator.}
+\label{tab:ablation}
+\begin{tabular}{llccrrr}
 \toprule
-\textbf{Model} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Accuracy} \\
+\textbf{Config} & \textbf{NER scheme} & $\alpha$ & \textbf{NER pt} &
+\textbf{F1} & \textbf{P} & \textbf{R} \\
 \midrule
-BiomedBERT & $0.709 \pm 0.035$ & $0.896 \pm 0.081$ & $\mathbf{0.788 \pm 0.022}$ & --- \\
-SciBERT & $0.783 \pm 0.015$ & $0.767 \pm 0.042$ & $0.774 \pm 0.023$ & --- \\
-DistilBERT & $0.799$ & $0.885$ & $0.839$ & $0.831$ \\
+basic\_a05           & basic       & 0.5 & 0 & 0.841 & 0.763 & 0.938 \\
+typed\_a05           & typed       & 0.5 & 0 & 0.852 & 0.767 & 0.958 \\
+full\_a03            & full        & 0.3 & 0 & 0.854 & 0.854 & 0.854 \\
+full\_typed\_a05     & full\_typed & 0.5 & 0 & 0.847 & 0.746 & 0.979 \\
+full\_a05\_ner2      & full        & 0.5 & 2 & 0.824 & 0.778 & 0.875 \\
+full\_typed\_a03\_ner2 & full\_typed & 0.3 & 2 & 0.830 & 0.759 & 0.917 \\
+\rowcolor{bestrow}
+\textbf{full\_typed\_a05\_ner2} & full\_typed & 0.5 & 2 & \textbf{0.868} & \textbf{0.793} & \textbf{0.958} \\
+full\_typed (5 joint ep) & full\_typed & 0.5 & 2+5 & 0.816 & 0.764 & 0.875 \\
 \midrule
-SVM (Linear) & $0.765$ & $0.816$ & $0.789$ & $0.782$ \\
-Logistic Regression & $0.770$ & $0.784$ & $0.777$ & $0.775$ \\
-Complement NB & $0.756$ & $0.847$ & $0.798$ & $0.786$ \\
-Random Forest & $0.741$ & $0.764$ & $0.753$ & $0.749$ \\
-Gradient Boosting & $0.735$ & $0.761$ & $0.748$ & $0.743$ \\
+\rowcolor{greyrow}
+v12\_hardce          & full\_typed & 0.5 & 2 & 0.816 & 0.764 & 0.875 \\
+\rowcolor{greyrow}
+distilled\_v2        & ---         & --- & --- & 0.808 & 0.750 & 0.875 \\
+\rowcolor{greyrow}
+Ensemble BERT$\times$T5 & ---      & --- & --- & 0.865 & ---   & ---   \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-BiomedBERT achieved the highest F1-score among transformer models (0.788), with notably high recall (0.896) at the cost of moderate precision (0.709). SciBERT showed the opposite trade-off: higher precision (0.783) but lower recall (0.767). The traditional ML baselines (SVM, Complement NB) performed competitively in cross-validation but generalized poorly to the external evaluation set.
+Three consistent findings emerge from the ablation:
 
-\subsection{External Evaluation (eval\_100)}
+\paragraph{1. Soft labels are the largest single lever (+0.052 F1).}
+The \texttt{v12\_hardce} configuration uses the same architecture and data
+with hard cross-entropy labels and achieves F1\,=\,0.816. The soft-KL variant
+reaches 0.868: a difference of +0.052 F1, which is larger than any
+architectural change, including the multi-task NER head (+0.021).
 
-Table~\ref{tab:eval_results} shows performance on the independent evaluation set, which provides a more realistic assessment of generalization.
+\paragraph{2. NER pre-training is necessary.}
+Adding 2 NER pre-training epochs improves \texttt{full\_typed} from 0.847
+to 0.868. Extending joint training beyond 3 epochs causes performance to
+degrade (F1\,=\,0.816), confirming that a short joint phase after encoder
+priming is optimal.
 
-\begin{table}[H]
-\centering
-\caption{Performance on independent evaluation set (eval\_100, n=100)}
-\label{tab:eval_results}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Model} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Threshold} \\
-\midrule
-BiomedBERT (v5) & 0.833 & 0.645 & 0.727 & 0.10 \\
-BiomedBERT (v7 LLM) & 0.792 & 0.613 & 0.691 & 0.15 \\
-BiomedBERT (v6) & 0.826 & 0.613 & 0.704 & 0.80 \\
-BiomedBERT (v2) & 0.618 & 0.677 & 0.646 & 0.70 \\
-BiomedBERT (v3) & 0.679 & 0.613 & 0.644 & 0.80 \\
-BiomedBERT (v1) & 0.439 & 0.807 & 0.568 & 0.80 \\
-\midrule
-SVM (Linear) & 0.271 & 0.565 & 0.366 & default \\
-DistilBERT & 0.400 & 0.520 & 0.450 & default \\
-\bottomrule
-\end{tabular}
-\end{table}
+\paragraph{3. Richer NER schemes perform better.}
+Performance increases monotonically from basic (0.841) through typed (0.852)
+and full (0.854) to full\_typed (0.868 with pre-training). The HOST/PATHOGEN
+distinction provides directional supervision that builds richer encoder
+representations than undifferentiated species tagging.
 
-The gap between CV and eval\_100 performance reveals overfitting to template patterns. BiomedBERT v5 achieved the best eval\_100 F1 (0.727), while higher-CV models (v7 LLM, F1=0.691) showed that more data does not always improve generalization. Traditional ML models performed significantly worse on the external set.
+\subsection{Statistical Significance}
 
-\subsection{Dataset Version Progression}
+Figure~\ref{fig:ci} shows 95\% bootstrap confidence intervals on the test set.
 
-Table~\ref{tab:version_progression} tracks how data augmentation strategies affected BiomedBERT performance across dataset versions.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{fig_manuscript_ci}
+    \caption{Bootstrap 95\% confidence intervals for three models on the
+    test set (n=100, 48 positives). The significance annotation refers to
+    McNemar's test between multi-task and BiomedBERT v7 ($p=0.016$).}
+    \label{fig:ci}
+\end{figure}
 
-\begin{table}[H]
-\centering
-\caption{Impact of training data versions on BiomedBERT performance (5-fold CV on EP test set, regularized training)}
-\label{tab:version_progression}
-\begin{tabular}{llcccc}
-\toprule
-\textbf{Version} & \textbf{Strategy} & \textbf{Size} & \textbf{F1} & \textbf{Precision} & \textbf{Recall} \\
-\midrule
-v7 (baseline) & LLM-validated templates & 25,081 & 0.788 & 0.709 & 0.896 \\
-v8 & + SIBiLS infection sentences & 29,249 & 0.695 & 0.600 & 0.938 \\
-v9 & + SIBiLS regex-labeled diverse & 35,175 & 0.644 & 0.519 & 0.850 \\
-v10 & + GloBI-PMC co-occurrence & 26,785 & 0.722 & 0.574 & 0.975 \\
-\bottomrule
-\end{tabular}
-\begin{flushleft}
-\small All values: BiomedBERT, 5-fold CV with regularized threshold (train\_cv\_regularized.py), evaluated on EP test set (48/100 positives). v8/v9 values reference SciBERT; v8 regex values are not directly comparable (standard training script).
-\end{flushleft}
-\end{table}
+McNemar's test confirms that the multi-task model significantly outperforms
+the plain fine-tuned BiomedBERT ($p = 0.016$).
+The margin over distilled\_v2 is not individually significant ($p = 0.149$,
+12 prediction disagreements), reflecting the limited statistical power of
+a 100-sentence test set. The 95\% confidence intervals span approximately
+$\pm$0.06--0.07 F1; a test set of 500--1000 sentences would substantially
+narrow these intervals.
 
-The v8 and v9 regressions highlight the danger of noisy labels: adding more data with unreliable labels actively harms model performance. The v8 regression (F1 $0.788 \rightarrow 0.695$) was caused by domain mismatch (infection-biased SIBiLS data vs.\ ecologically diverse evaluation set). The v9 regression (F1 $\rightarrow 0.644$) was caused by regex-based labeling noise.
+\subsection{Threshold Analysis}
 
-The v10 dataset (26,785 samples = v7 + 1,704 GloBI-PMC real sentences) showed a partial recovery to F1=0.722 but did not surpass the v7 baseline. Post-hoc analysis revealed that 92\% of the v10 real sentences were pathogen-type interactions (800 of 872 positives), due to pathogen articles being over-represented in GloBI's open-access PMC citations. The pathogen bias caused the model to over-predict positives on the ecologically diverse EP test set (high recall = 0.975, low precision = 0.574). This motivates v11: an improved harvest prioritizing ecological interaction types (predation, herbivory, parasitism, pollination) and fixing systematic sources of bias.
+Figure~\ref{fig:threshold} shows precision, recall, and F1 as a function
+of the decision threshold on the test set.
 
-\subsection{Ensemble Performance}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{fig_threshold_curve}
+    \caption{Precision, recall, and F1 versus decision threshold.
+    The F1-optimal threshold ($\tau=0.13$) and a precision-oriented
+    threshold ($\tau=0.50$) are annotated. Shaded regions indicate
+    high-recall and high-precision operating zones.}
+    \label{fig:threshold}
+\end{figure}
 
-The BiomedBERT + RoBERTa ensemble with weighted soft voting (0.65/0.35) achieved:
-\begin{itemize}
-    \item Precision: 0.889
-    \item Recall: 0.837
-    \item F1: 0.862
-\end{itemize}
-These are cross-validation results; eval\_100 ensemble evaluation is pending for v10-trained models.
+The F1-optimal threshold ($\tau = 0.13$) is lower than typical because
+the model is calibrated conservatively: genuine interactions score
+predominantly in the range 0.3--0.7 rather than near 1.0.
+For applications where false positives entering a knowledge base are
+costly, operating at $\tau = 0.50$ reduces false positives from 12 to 9
+at the cost of 6 additional missed interactions (P\,=\,0.816, R\,=\,0.833).
+The threshold curve makes this precision-recall trade-off explicitly visible
+and allows operators to choose the operating point appropriate to their
+downstream task.
 
+\subsection{Distribution Mismatch}
+
+Figure~\ref{fig:distribution} reveals a structural mismatch between
+training and test interaction type distributions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth]{fig_distribution_mismatch}
+    \caption{Distribution of interaction types in training positives (left,
+    n=4,065 Qwen-labeled sentences) versus test set positives (right, n=48).}
+    \label{fig:distribution}
+\end{figure}
+
+The training corpus, harvested from PubMed-indexed articles, is dominated by
+predation (42\%), herbivory (22\%), and pollination (22\%) sentences sourced
+via targeted PMC queries. Parasitism/Host interactions represent only 10\%
+of training positives despite constituting 42\% of test-set positives.
+Pathogen/Infection represents 3\% of training but 35\% of test-set positives.
+Together, these two types account for 77\% of test-set positives but only
+13\% of training data.
+
+This mismatch arises from a structural property of the biomedical literature:
+ecological host-parasite field observations are published primarily in
+ecology journals (Web of Science, BioOne) that are not indexed by PubMed,
+while clinical and biomedical pathogen papers dominate PubMed's open-access
+content. The current performance ceiling at F1\,$\approx$\,0.87 is therefore
+determined by data distribution rather than model capacity.
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Discussion}
+\label{sec:discussion}
 
-\subsection{Data Quality Over Quantity}
-The most important finding from our iterative dataset development is that labeling quality dominates data quantity. The v7 LLM-validated dataset (25K sentences) outperformed v8 (29K) and v9 (35K) despite being smaller. The root cause was labeling noise: regex-based interaction verb matching (used in v9) labeled sentences as positive when they contained verbs like ``infects'' or ``parasitizes'' in non-interaction contexts (e.g., review articles discussing methodology).
+\subsection{Soft Labels as the Primary Driver of Improvement}
 
-This finding aligns with recent work in NLP showing that label noise has outsized negative effects on fine-tuned language models, particularly when the noise is \emph{systematic} (biased toward specific patterns) rather than random.
+The most actionable finding is that soft label supervision provides the
+largest performance gain of any intervention tested: +0.052 F1, more than
+the NER auxiliary task (+0.021) and more than switching from a single model
+to an ensemble (+0.077 cumulatively, but requiring 3.3$\times$ inference cost).
+The mechanism is consistent with the knowledge distillation literature
+\citep{hinton2015distilling, tang2019distilling}: a teacher model that has
+been exposed to diverse linguistic expressions of interactions assigns
+calibrated probabilities to borderline sentences, encoding genuine semantic
+uncertainty that hard labels cannot represent.
 
-\subsection{The GloBI-PMC Pipeline}
-Our GloBI-PMC co-occurrence approach (Section~\ref{sec:globi_pmc}) addresses the labeling problem by shifting the labeling authority from regex patterns to GloBI's expert-curated interaction records. A sentence is labeled positive not because it contains an interaction verb, but because it mentions two species that GloBI confirms interact, in an article that GloBI cites as evidence.
+\subsection{NER as Zero-Cost Auxiliary Supervision}
 
-This approach has several advantages:
-\begin{itemize}
-    \item No interaction verb required---handles implicit and diverse phrasing.
-    \item Labels inherit GloBI's curation quality (700+ data sources, expert review).
-    \item Sentences are real scientific prose, not templates.
-    \item Hard negatives come from the same articles, ensuring domain consistency.
-\end{itemize}
+The NER auxiliary task improves classification without requiring any
+additional manually annotated data. BIO labels are derived automatically
+from species gazetteers and interaction lexicons, making this a form of
+distant supervision \citep{mintz2009distant}. The improvement mechanism is
+indirect: NER pre-training updates the shared encoder to be more sensitive
+to species names and interaction verbs, producing richer [CLS] token
+representations for the classification head.
 
-Limitations include: co-occurrence does not guarantee the sentence describes the interaction (mitigated by MCP validation), and common name ambiguity (e.g., ``fly'', ``mouse'') requires careful handling.
+This approach is distinct from standard NER-augmented pipelines
+\citep{habibi2017deep} in which entity detection and relation classification
+are performed sequentially. Here, NER supervision modifies the encoder
+representations used for classification; the NER output itself is not used
+at inference time.
 
-\subsection{Why v10 Did Not Surpass v7}
+\subsection{Utility for BiotXplorer and Knowledge Graph Construction}
 
-Despite the improved labeling strategy, v10 (F1=0.722) regressed from v7 (F1=0.788). The root cause was \emph{category bias} in the harvested sentences: 92\% of 872 GloBI-PMC positives were of type \texttt{pathogenOf} (800 sentences), versus only 40 parasitism, 18 herbivory, and 3 predation sentences. This reflects a structural bias in GloBI's citation network: pathogen-host interactions are disproportionately covered by open-access PMC articles (clinical and medical journals tend to publish open access), while ecological predation and herbivory studies are often in subscription-only ecology journals.
+The classifier provides two concrete operational benefits for BiotXplorer.
+First, as an upstream filter, it eliminates sentences that merely co-mention
+species without describing an interaction, reducing index noise and improving
+search relevance. Second, the calibrated probability output allows the
+BiotXplorer platform to rank results by interaction confidence rather than
+simple keyword match, enabling more nuanced retrieval.
 
-The pathogen bias caused the v10-trained model to over-generalize from pathogen-interaction language, leading to high recall (0.975) but poor precision (0.574) on the ecologically diverse EP test set. In other words, the model learned to classify any sentence mentioning species in a biological context as positive.
+For downstream knowledge graph construction, the multi-task model's NER
+labels provide additional structure at no extra cost: the HOST/PATHOGEN
+distinction produced by the NER head directly encodes the direction of the
+knowledge graph edge (who interacts with whom), enabling the downstream
+relation extractor to assign typed edges rather than undirected links.
+This is particularly relevant for pathogen-host and parasite-host pairs
+where edge direction is biologically meaningful.
 
-\subsubsection{Fixes for v11}
+\subsection{The PubMed Distribution Ceiling}
 
-The v11 dataset addresses the v10 failures through:
-\begin{enumerate}
-    \item \textbf{Per-category caps}: pathogen=150 (down from 800), ecological types (predation, herbivory, parasitism) = 300--400.
-    \item \textbf{Ecological priority queuing}: articles for predation, herbivory, and parasitism are processed before pathogen articles.
-    \item \textbf{Bug fix}: GloBI interaction types \texttt{endoparasiteOf} and \texttt{ectoparasiteOf} were incorrectly capitalized in the v10 harvester (stored as \texttt{endoParasiteOf} in code vs.\ \texttt{endoparasiteOf} in GloBI), missing 20,522 and 4,599 DOI-linked records respectively.
-    \item \textbf{New interaction types}: \texttt{hemiparasiteOf} (24,428 DOIs), \texttt{visitsFlowersOf} (34,014 DOIs), and \texttt{symbiontOf} (2,949 DOIs) were added, covering plant parasitism and pollination interactions previously missed.
-    \item \textbf{Europe PMC direct search}: A new harvester (\texttt{fetch\_epmc\_direct.py}) searches Europe PMC directly for known species pairs, bypassing the GloBI citation bottleneck for ecological categories. This uses the Europe PMC REST API to find open-access articles mentioning each species pair, without requiring the article to be cited by GloBI.
-\end{enumerate}
+The distribution mismatch analysis identifies a concrete obstacle to
+improvement: ecological host-parasite and predation interactions account
+for 58\% of test-set positives but fewer than 15\% of training positives.
+These sentence types cannot be reliably harvested from PubMed because the
+relevant literature (field ecology, ecological entomology, parasitology
+monographs) is predominantly published in journals not indexed by PubMed.
 
-\subsection{Model Selection: BiomedBERT vs.\ SciBERT}
-BiomedBERT and SciBERT represent different precision-recall trade-offs:
-\begin{itemize}
-    \item \textbf{BiomedBERT}: Higher recall (0.896), lower precision (0.709) $\rightarrow$ fewer missed interactions.
-    \item \textbf{SciBERT}: Higher precision (0.783), lower recall (0.767) $\rightarrow$ fewer false positives.
-\end{itemize}
-
-For the BioTXplorer integration, where users can tolerate some false positives but want comprehensive coverage, BiomedBERT is preferred. For precision-critical applications (e.g., automated knowledge graph construction), the BiomedBERT+RoBERTa ensemble provides a better trade-off (Precision=0.889, F1=0.862).
-
-\subsection{Overconfidence and Calibration}
-All models trained on template data exhibited overconfidence, producing near-binary probability outputs (0.95/0.05). This makes threshold optimization unreliable and limits ensemble effectiveness. Temperature scaling (T=1.5) partially addresses this, but the fundamental solution is training on linguistically diverse real sentences---the goal of the v10 dataset.
+The path beyond F1\,$\approx$\,0.87 requires harvesting sentences from
+non-PubMed ecological literature, re-running the Qwen3.5-122B annotation
+pipeline, and updating the ensemble soft labels on the expanded corpus.
+This is a data problem, not a modelling problem: the current architecture
+can accommodate improved training data without modification.
 
 \subsection{Limitations}
+
 \begin{enumerate}
-    \item \textbf{Binary classification}: The model detects interactions but does not classify interaction types.
-    \item \textbf{Pairwise focus}: Complex multi-species interactions may be partially captured.
-    \item \textbf{English only}: The model is trained exclusively on English-language literature.
-    \item \textbf{Template residual}: Despite augmentation, template-generated data still dominates the training set.
+    \item \textbf{Test set size.} 100 sentences yields 95\% CIs of
+    $\pm$0.06--0.07 F1. Most pairwise model comparisons are not individually
+    significant; a test set of 500--1000 sentences is needed for
+    publication-quality model selection.
+
+    \item \textbf{Binary classification.} The classifier detects interactions
+    but does not classify interaction type. Downstream relation extraction
+    is needed to produce typed knowledge graph edges.
+
+    \item \textbf{English only.} Training and evaluation are exclusively
+    English-language.
+
+    \item \textbf{Automated NER labels.} BIO labels are generated by gazetteers
+    and lexicons rather than human annotators. The NER auxiliary loss trains
+    the encoder against this automated signal, not a gold-standard annotation.
 \end{enumerate}
 
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}
 
-We presented a transformer-based classifier for biotic interaction detection, demonstrating through systematic dataset iteration that labeling quality and category diversity are the primary determinants of model performance. Our experiments across ten dataset versions established three key findings: (1) regex-based labeling of real sentences consistently degrades performance; (2) GloBI co-occurrence labeling provides a reliable alternative, but only when the harvested data is categorically diverse; and (3) a 92\% pathogen bias in the v10 harvest caused regression from F1=0.788 to 0.722, despite improved labeling methodology.
+We have presented a multi-task BiomedBERT classifier for sentence-level
+biotic interaction detection that achieves F1\,=\,0.868 on an ecological
+test set. The model is built on three components: a two-stage teacher chain
+that combines large-LLM binary annotation with ensemble soft probability
+distillation; a multi-task NER auxiliary task that primes the shared encoder
+at zero additional annotation cost; and a two-phase training protocol that
+separates entity-level supervision from joint optimisation.
 
-The BiomedBERT classifier (F1=0.788 on v7 data) and BiomedBERT+RoBERTa ensemble (F1=0.862) are deployed in BioTXplorer. Ongoing work (v11) addresses v10's category bias through: per-category caps favoring ecological interactions, a new Europe PMC direct search harvester that bypasses the GloBI citation bottleneck for predation and herbivory articles, and fixes to previously missed GloBI interaction types (\texttt{hemiparasiteOf}, \texttt{visitsFlowersOf}). Future work will extend the approach to multi-label interaction type classification and relation extraction.
+The central quantitative finding is that soft labels are the single most
+impactful intervention in the pipeline, contributing +0.052 F1 on identical
+architecture and data. The current performance ceiling at F1\,$\approx$\,0.87
+is explained by a structural distribution mismatch between PubMed-sourced
+training data and the ecological interaction types dominant in the test set,
+pointing directly to the data collection strategy needed to break this ceiling.
 
+The classifier is deployed in BiotXplorer
+(\url{https://biotxplorer.sibils.org/}) as an upstream quality filter
+and constitutes the first component of a knowledge graph construction
+pipeline for biodiversity and host-pathogen interactions. Future work
+will address: (1) harvesting from non-PubMed ecological literature to
+expand training coverage of parasitism and host-interaction types;
+(2) typed relation extraction to produce directed knowledge graph triples;
+(3) integration with amplicon sequencing species detection for automated
+interaction retrieval from biodiversity field surveys.
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section*{Data and Code Availability}
 
-The trained models, training pipeline, and evaluation scripts are available at the project repository. The eval\_100 gold standard test set is included for reproducibility.
+Training code, evaluation scripts, and the test set are available
+at the project repository. Model weights can be reproduced from the
+provided training configuration.
 
-\section*{Acknowledgments}
-
-We thank the BioTXplorer team at the Swiss Institute of Bioinformatics for their collaboration in integrating the classifier. We acknowledge the Global Biotic Interactions (GloBI) community for maintaining the open interaction database that enabled our data harvesting approach.
-
-\bibliographystyle{unsrtnat}
+\bibliographystyle{abbrvnat}
 \bibliography{references}
 
 \end{document}

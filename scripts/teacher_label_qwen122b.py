@@ -6,15 +6,20 @@ Labels sentences for biotic interaction classification.
 
 import subprocess
 import sys
+import re
+import requests
 import pandas as pd
 from pathlib import Path
 import time
 import argparse
 
+OLLAMA_API = "http://localhost:11434/api/generate"
 
-def ask_teacher(sentence: str, model: str = "qwen3.5:122b", timeout: int = 300) -> tuple[int, str]:
-    """Query Qwen3.5-122B via ollama for a binary biotic interaction label.
 
+def ask_teacher(sentence: str, model: str = "qwen3:32b", timeout: int = 60) -> tuple[int, str]:
+    """Query a Qwen model via Ollama HTTP API for a binary biotic interaction label.
+
+    Uses think=false to suppress extended thinking (much faster).
     Returns:
         (label, raw_response) where label is 1/0/-1 (yes/no/error)
     """
@@ -27,29 +32,32 @@ def ask_teacher(sentence: str, model: str = "qwen3.5:122b", timeout: int = 300) 
     )
 
     try:
-        result = subprocess.run(
-            ["ollama", "run", model, prompt],
-            capture_output=True,
-            text=True,
-            timeout=timeout
+        resp = requests.post(
+            OLLAMA_API,
+            json={"model": model, "prompt": prompt, "stream": False, "think": False},
+            timeout=timeout,
         )
-        response = result.stdout.strip()
+        resp.raise_for_status()
+        response = resp.json().get("response", "").strip()
 
-        # Parse YES/NO from the beginning of response
-        response_upper = response.upper()
+        # Strip any residual <think>...</think> block
+        cleaned = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL).strip()
+        if not cleaned:
+            cleaned = response
+
+        response_upper = cleaned.upper()
         if response_upper.startswith("YES") or "YES\n" in response_upper[:50]:
-            return 1, response
+            return 1, cleaned
         elif response_upper.startswith("NO") or "NO\n" in response_upper[:50]:
-            return 0, response
+            return 0, cleaned
         else:
-            # Look for YES/NO anywhere in first 100 chars
             if "YES" in response_upper[:100]:
-                return 1, response
+                return 1, cleaned
             elif "NO" in response_upper[:100]:
-                return 0, response
-            return -1, response
+                return 0, cleaned
+            return -1, cleaned
 
-    except subprocess.TimeoutExpired:
+    except requests.Timeout:
         return -1, "TIMEOUT"
     except Exception as e:
         return -1, f"ERROR: {str(e)}"

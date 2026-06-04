@@ -93,7 +93,8 @@ EUROPE_PMC_SEARCH = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 CATEGORY_SEARCH_TERMS: Dict[str, List[str]] = {
     "predation":  ["predation", "predator prey", "prey"],
     "herbivory":  ["herbivory", "grazing", "herbivore plant"],
-    "parasitism": ["parasite host", "parasitism", "ectoparasite"],
+    "parasitism": ["parasite host", "parasitism", "ectoparasite", "endoparasite", "host of", "internal parasite"],
+    "pathogen":   ["pathogen", "infects", "infection", "disease agent", "causative agent"],
     "pollination": ["pollination", "pollinator"],
     "symbiosis":  ["symbiosis", "symbiont"],
     "dispersal":  ["seed dispersal", "dispersal"],

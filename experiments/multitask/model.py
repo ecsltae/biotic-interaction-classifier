@@ -104,10 +104,12 @@ class MultiTaskBiomedBERT(nn.Module):
 
     def save(self, path: str):
         import os, json
+        from transformers import AutoTokenizer
         os.makedirs(path, exist_ok=True)
         torch.save(self.state_dict(), f"{path}/pytorch_model.bin")
+        encoder_name = self.encoder.config._name_or_path
         cfg = {
-            "encoder_name": self.encoder.config._name_or_path,
+            "encoder_name": encoder_name,
             "ner_scheme": [k for k, v in LABEL_SETS.items() if v == self.ner_labels][0],
             "alpha": self.alpha,
             "ner_labels": self.ner_labels,
@@ -115,11 +117,14 @@ class MultiTaskBiomedBERT(nn.Module):
         with open(f"{path}/multitask_config.json", "w") as f:
             json.dump(cfg, f, indent=2)
         self.encoder.config.save_pretrained(path)
+        # Save tokenizer so AutoTokenizer.from_pretrained(path) works without HF connection
+        AutoTokenizer.from_pretrained(encoder_name).save_pretrained(path)
 
     @classmethod
     def load(cls, path: str, device="cpu"):
         import json
         cfg = json.load(open(f"{path}/multitask_config.json"))
         model = cls(cfg["encoder_name"], cfg["ner_scheme"], cfg["alpha"])
-        model.load_state_dict(torch.load(f"{path}/pytorch_model.bin", map_location=device))
+        model.load_state_dict(torch.load(f"{path}/pytorch_model.bin", map_location=device,
+                                         weights_only=True))
         return model.to(device)

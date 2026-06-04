@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Start the Distilled BiomedBERT v2 API on port 8003
+# Start the Multi-task BiomedBERT API on port 8003
+# Replaces distilled_BiomedBERT_v2 — new best model (EP F1=0.868)
 # Survives logout (nohup), accessible to colleagues (0.0.0.0)
 
 set -e
@@ -14,14 +15,14 @@ mkdir -p classifier/logs
 pkill -f "uvicorn.*$PORT" 2>/dev/null || true
 sleep 1
 
-echo "Starting Distilled BiomedBERT v2 API..."
-echo "  Model: distilled_BiomedBERT_v2 (T=2, α=0.5)"
-echo "  EP-relax F1=0.808 | Synth gold F1=0.959"
+echo "Starting Multi-task BiomedBERT API (full_typed_a05_ner2)..."
+echo "  Model: multitask/full_typed_a05_ner2 (NER scheme=full_typed, α=0.5, 2ep NER pretrain)"
+echo "  EP-relax F1=0.868 | AUC=0.887 | beats ensemble (F1=0.857)"
 echo "  Port: $PORT"
 echo "  Log:  $LOG"
 echo ""
 
-nohup python -u classifier/api/fastapi_distilled.py \
+nohup python -u classifier/api/fastapi_multitask.py \
     >> "$LOG" 2>&1 &
 
 PID=$!
