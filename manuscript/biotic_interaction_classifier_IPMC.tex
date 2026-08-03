@@ -1,37 +1,20 @@
-% ACL Rolling Review format (approximation without acl.sty)
-% To finalize: replace this preamble with \usepackage{acl} once acl.sty
-% is available (download from github.com/acl-org/acl-style-files).
-\documentclass[11pt,twocolumn]{article}
-
+% Submission manuscript for IPMC 2026 (Information Processing & Management
+% Conference), full-paper track -> special issue of IP&M or DIM.
+% Official Elsevier CAS single-column template (cas-sc.cls) per the IP&M
+% Guide for Authors. Not anonymized: real author/affiliation/CRediT block is
+% used directly (see Limitations note re: the journal's stated
+% double-anonymized review policy -- flagged separately, not yet resolved).
+\PassOptionsToPackage{hyphens}{url}  % let long URLs/model names break at hyphens, not just "/"
+\documentclass[a4paper,fleqn]{cas-sc}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{times}
 \usepackage[english]{babel}
-\usepackage{amsmath,amssymb}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage[hyphens]{url}
-\usepackage{hyperref}
-\usepackage{natbib}
+\usepackage[numbers]{natbib}
+\usepackage{chngcntr}
 \usepackage{float}
-\usepackage{multirow}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{colortbl}
-\usepackage{xcolor}
-\usepackage[letterpaper,top=1in,bottom=1in,left=1in,right=1in,
-            columnsep=0.5in]{geometry}
-\usepackage{microtype}
-\usepackage{dblfloatfix}   % fixes figure*/table* floating too far in twocolumn
-\usepackage{titlesec}
 \usepackage{enumitem}
-
-% Tighter section/subsection spacing to save vertical space
-\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex minus 0.2ex}{0.6ex plus 0.2ex}
-\titlespacing*{\subsection}{0pt}{1.0ex plus 0.3ex minus 0.2ex}{0.4ex plus 0.2ex}
-% \paragraph subtitles: italic run-in instead of bold, tighter spacing
-\titleformat{\paragraph}[runin]{\normalfont\itshape}{}{0pt}{}
-\titlespacing*{\paragraph}{0pt}{0.8ex plus 0.2ex}{0.5em}
+\usepackage{placeins}
 
 % Compact lists: less indentation ("tabulation"), tighter spacing between items
 \setlist[itemize]{leftmargin=1.4em, itemsep=0.1ex, topsep=0.2ex, parsep=0pt}
@@ -51,74 +34,85 @@
 
 \graphicspath{{figures/}}
 
-\definecolor{bestrow}{RGB}{200,230,200}
-\definecolor{greyrow}{RGB}{242,242,242}
-
-\title{Biotic Interaction Detection from Scientific Literature:\\
-Knowledge Distillation and Multi-task Learning\\
-with Named Entity Recognition}
-
-% ANONYMIZED FOR REVIEW
-% Restore author block for camera-ready:
-%   Esteban Gaillac, Emilie Pasche, Alexandre Flament, Julien Gobeill, Patrick Ruch (HES-SO Geneva / SIBiLS)
-\author{}
-
-\date{}
-
 \begin{document}
 
-\twocolumn[{%
-\maketitle
-\vspace{-1em}
+% Short title / authors (running headers)
+\shorttitle{Biotic Interaction Detection via Multi-task Distillation}
+\shortauthors{Gaillac et al.}
 
-% ─────────────────────────────────────────────────────────────────────────────
+\title[mode=title]{Biotic Interaction Detection from Scientific Literature: Knowledge
+Distillation and Multi-task Learning with Named Entity Recognition}
+
+\author[1]{Esteban Gaillac}
+\cormark[1]
+\ead{esteban.gaillac@hesge.ch}
+\credit{Conceptualization, Methodology, Software, Data curation, Formal
+analysis, Investigation, Visualization, Writing -- original draft}
+
+\author[1]{Emilie Pasche}
+\credit{Supervision, Resources, Writing -- review \& editing}
+
+\author[1]{Alexandre Flament}
+\credit{Resources, Data curation}
+
+\author[1]{Julien Gobeill}
+\credit{Supervision, Methodology, Writing -- review \& editing}
+
+\author[1]{Patrick Ruch}
+\credit{Supervision, Funding acquisition, Project administration, Writing -- review \& editing}
+
+\affiliation[1]{organization={HES-SO Geneva / SIBiLS},
+            addressline={},
+            city={Geneva},
+            postcode={},
+            state={},
+            country={Switzerland}}
+
+\cortext[1]{Corresponding author}
+
 \begin{abstract}
 Automated extraction of biotic interactions from scientific literature
-enables large-scale knowledge graph construction over biodiversity corpora.
-With Biodiversity PMC \citep{biodiversitypmc2024} alone indexing over
-85\,million files, systematic manual curation is not feasible.
-We present a multi-task transformer classifier combining three components:
-a two-stage teacher chain in which a 122-billion-parameter local model
-(Qwen3.5-122B; \citealt{qwen2025technical}) annotates $\sim$44,000 harvested sentences with binary labels and
-a trained ensemble subsequently generates calibrated soft probability labels
-for knowledge distillation; a multi-task BiomedBERT architecture that jointly
-classifies sentences and annotates biological entities (HOST, PATHOGEN,
-SPECIES, INT) using automatically derived BIO supervision; and a warm-start
+enables large-scale knowledge graph construction over biodiversity corpora,
+where systematic manual curation is infeasible given the scale of the
+available literature. We present a multi-task transformer system combining
+three components: a two-stage teacher chain in which a large language
+model annotates harvested sentences with binary interaction labels and a
+trained classifier ensemble subsequently generates calibrated soft
+probability labels for knowledge distillation; a multi-task BiomedBERT
+architecture that jointly classifies sentences and annotates biological
+entities using automatically derived sequence labels; and a warm-start
 initialization strategy that preserves fine-tuned encoder representations
-and trains the named entity recognition (NER) head jointly from epoch one;
-for this architecture and NER scheme, we find that NER pre-training epochs
-are counterproductive
-when task-tuned weights are reused.
-On a 500-sentence multi-source test set spanning five evaluation sources,
-the classifier achieves F1\,=\,0.874 (P\,=\,0.925, R\,=\,0.829; 95\% bootstrap
-confidence interval (CI) [0.843, 0.902]). Relative to an identical
-architecture trained with hard cross-entropy labels, the full pipeline
-adds +0.202\,F1 ($p{<}0.001$, McNemar's test), of which +0.162\,F1 comes
-from soft-label distillation alone (cold-start comparison). This gain is
-largely calibration, not ranking: the same comparison moves the area
-under the ROC curve (AUC) by only +0.024, indicating soft labels chiefly
-correct the probability scale rather than the model's underlying
-discrimination. The remaining +0.040\,F1 ($p{=}0.002$) comes jointly
-from warm-start initialization and skipping NER pre-training --- neither
-is sufficient alone (Section~\ref{sec:results}, Finding 2). The proposed
-model surpasses the
-BiomedBERT\,$\times$\,FLAN-T5-base ensemble teacher (F1\,=\,0.850) at
-3.3$\times$ lower inference cost and is statistically indistinguishable
-from the stronger single-task template-trained baseline (F1\,=\,0.875,
-$p{=}0.760$) while additionally producing NER output.
-On real-literature sources alone (excluding synthetic), the proposed
-model leads the template-trained baseline (F1\,=\,0.847 vs.\ 0.821),
-indicating the aggregate tie is driven by the synthetic subset.
-The classifier is deployed upstream of
-BiotXplorer \citep{sibils2023biotxplorer}, the SIBiLS \citep{mottin2021sibils}
-semantic search platform for biotic interactions.
+while training the entity recognition head jointly from the first epoch.
+On a 500-sentence multi-source test set, the system achieves F1\,=\,0.874,
+of which a +0.162\,F1 gain comes from soft-label distillation alone. This
+gain is shown to be primarily a calibration effect rather than a ranking
+improvement: the same comparison moves the area under the ROC curve by
+only +0.024, indicating soft labels chiefly correct the decision threshold
+rather than the model's underlying discriminative power. The system
+matches a strong single-task baseline while additionally producing
+structured entity output at no extra inference cost, and on
+real-literature sources alone it outperforms that baseline, with the
+aggregate tie driven entirely by a synthetic test subset. The classifier
+is deployed upstream of a semantic search platform for biotic
+interactions, demonstrating a practical path from unstructured text to
+structured, searchable biodiversity knowledge.
 \end{abstract}
 
-\textbf{Keywords:} biotic interactions, knowledge distillation, multi-task
-learning, named entity recognition, BiomedBERT, knowledge graph,
-ecological text mining, GloBI
-\vspace{1em}
-}]% end \twocolumn title block
+\begin{highlights}
+\item Multi-task BiomedBERT jointly classifies interactions and extracts entities.
+\item Soft-label distillation yields +0.162 F1 over hard cross-entropy training.
+\item Warm-start initialization matches a strong single-task baseline (F1=0.875).
+\item NER auxiliary output is produced at no extra inference cost.
+\item Deployed upstream of a biodiversity literature semantic search platform.
+\end{highlights}
+
+\begin{keywords}
+biotic interactions \sep knowledge distillation \sep multi-task learning \sep
+named entity recognition \sep BiomedBERT \sep biodiversity knowledge graphs \sep
+information extraction
+\end{keywords}
+
+\maketitle
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Introduction}
@@ -128,11 +122,11 @@ Taxon interactions shape ecosystem structure, drive disease dynamics,
 and determine the response of ecological communities to perturbation.
 Cataloguing these interactions requires synthesising knowledge distributed
 across millions of scientific publications.
-The Global Biotic Interactions database (GloBI; \citealt{poelen2014global})
+The Global Biotic Interactions database (GloBI; \citep{poelen2014global})
 aggregates over 13\,million structured interaction records from more than 700 tabular
 data sources, yet covers only a fraction of the interaction types documented
 across the biodiversity literature, with 23 of 171 ROBI relation types
-(ROBIext v2025, GloBI's relation ontology; \citealt{poelen2014global})
+(ROBIext v2025, GloBI's relation ontology; \citep{poelen2014global})
 represented in our experiments.
 The SIBiLS platform \citep{mottin2021sibils}, the Swiss Institute of
 Bioinformatics Literature Services, provides federated semantic search over
@@ -220,7 +214,7 @@ Biodiversity PMC \citep{biodiversitypmc2024}, both by taxon co-occurrence
 and by interaction category via the SIBiLS API \citep{mottin2021sibils}.
 Co-occurrence sentences were extracted and labeled by a local Qwen3.5-122B
 model (a 122-billion-parameter checkpoint in the Qwen3 model family
-described by \citealt{qwen2025technical})
+described by \citep{qwen2025technical})
 using the prompt:
 \textit{``Does this sentence describe a biotic interaction between two named
 organisms? Answer yes or no only.''}
@@ -289,7 +283,7 @@ generalises better to paraphrased ecological sentences.
 
 The two subsequent stages, knowledge distillation and multi-task NER, are
 described in Sections~\ref{sec:distillation} and~\ref{sec:multitask}
-respectively. Figure~\ref{fig:model_evolution} (Appendix~\ref{app:extended_discussion})
+respectively. Figure~\ref{fig:model_evolution} (\ref{app:extended_discussion})
 summarises the F1 progression across architecture stages shown numerically
 in Table~\ref{tab:main_results}.
 
@@ -315,7 +309,7 @@ Rows without soft labels use hard cross-entropy. The combined loss is
 $\mathcal{L} = \alpha \cdot \mathcal{L}_\text{KL} + (1{-}\alpha) \cdot \mathcal{L}_\text{CE}$.
 
 Optimal hyperparameters ($T{=}2$, $\alpha{=}0.5$) were identified by
-grid search over six student configurations (Appendix~\ref{app:distillation}).
+grid search over six student configurations (\ref{app:distillation}).
 Temperature $T{=}2$ spreads the teacher distribution sufficiently to
 transfer calibrated uncertainty without over-smoothing; it also corrects
 for ensemble overconfidence at $p{>}0.9$ (expected calibration error,
@@ -334,7 +328,7 @@ all encoder weights:
     ($\mathbb{R}^{768} \to \mathbb{R}^2$), produces $P(\text{interaction})$.
     \item \textit{NER head}: reads every token vector
     ($\mathbb{R}^{768} \to \mathbb{R}^{|\mathcal{L}|}$), produces
-    Beginning-Inside-Outside (BIO; \citealt{ramshaw1995text}) tagging-scheme
+    Beginning-Inside-Outside (BIO; \citep{ramshaw1995text}) tagging-scheme
     label logits.
 \end{itemize}
 
@@ -361,29 +355,56 @@ The HOST/PATHOGEN distinction encodes the direction of the relation: who acts
 and who is acted upon. This directional labelling is motivated by the downstream
 knowledge graph construction task, where edge direction is semantically significant.
 
-\begin{table*}[!ht]
+\begin{table}[!ht]
 \centering
 \small
 \caption{NER label schemes compared in the configuration analysis
-(Section~\ref{sec:results}). B\,=\,beginning, I\,=\,inside span.
-F1 is the best \emph{cold-start} result for that scheme, for a like-for-like
-comparison (full ablation in Appendix~\ref{app:fullablation}). \texttt{full\_typed}
-lacks the highest cold-start F1 but is carried forward to the warm-start
-ablation (0.874, Table~\ref{tab:main_results}) for its HOST/PATHOGEN typing
-(Section~\ref{sec:zerocost}).}
+(Section~\ref{sec:results}; B\,=\,beginning, I\,=\,inside span).
+F1 is the best \emph{cold-start} result per scheme (full ablation in
+\ref{app:fullablation}). \texttt{full\_typed} lacks the highest
+cold-start F1 but is carried to the warm-start ablation (0.874,
+Table~\ref{tab:main_results}) for its HOST/PATHOGEN typing (Section~\ref{sec:zerocost}).}
 \label{tab:ner_schemes}
 \begin{tabular}{lclr}
 \toprule
 \textbf{Scheme} & \textbf{\# labels} & \textbf{Label set} & \textbf{F1} \\
 \midrule
-\rowcolor{bestrow}
 \textbf{basic}       & \textbf{3} & \textbf{O,\ B/I-SPECIES}                            & \textbf{0.861} \\
 \texttt{typed}       & 5 & O,\ B/I-HOST,\ B/I-PATHOGEN                         & 0.794 \\
 \texttt{full}        & 5 & O,\ B/I-SPECIES,\ B/I-INT                           & 0.858 \\
 \texttt{full\_typed} & 9 & O,\ B/I-HOST,\ B/I-PATHOGEN,\ B/I-SPECIES,\ B/I-INT & 0.840 \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
+
+\begin{table}[!t]
+\centering
+\small
+\caption{Main results on the 500-sentence test set (281 positives).
+The proposed warm-start multi-task model (top, \textbf{champion}) significantly outperforms the
+hard-CE ablation ($+0.202$ F1, $p{<}0.001$) and surpasses the ensemble teacher
+at 3.3$\times$ lower inference cost (a single BiomedBERT forward pass versus
+the ensemble's additional FLAN-T5-base sequence-to-sequence decoding step).
+Full configuration sweep in \ref{app:fullablation}. F1 values are
+rounded to three decimals for display; reported deltas and significance
+tests use unrounded scores, so pairwise differences may not equal the
+difference of displayed values.}
+\label{tab:main_results}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Model} & \textbf{F1} & \textbf{P} & \textbf{R} & \textbf{AUC} \\
+\midrule
+\textbf{Multi-task BiomedBERT} (\texttt{full\_typed}, $\alpha$=0.5, warm-start, 0 NER ep) & \textbf{0.874} & \textbf{0.925} & \textbf{0.829} & \textbf{0.918} \\
+\midrule
+Multi-task BiomedBERT (\texttt{full\_typed}, $\alpha$=0.5, cold-start, 2 NER ep) & 0.835 & 0.885 & 0.790 & 0.881 \\
+Same arch., hard cross-entropy (no distillation)    & 0.673 & 0.920 & 0.530 & 0.857 \\
+Distilled student (BiomedBERT, $T$=2, $\alpha$=0.5) & 0.858 & 0.877 & 0.840 & 0.920 \\
+Ensemble BiomedBERT $\times$ FLAN-T5-base           & 0.850 & 0.925 & 0.787 & 0.912 \\
+Template-trained BiomedBERT (single-task baseline)  & 0.875 & 0.881 & 0.868 & 0.921 \\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 \paragraph{Training strategy.}
 We compare two initialization strategies.
@@ -394,11 +415,9 @@ proceeds in two phases designed to avoid interference between the NER and
 classification objectives \citep{liu2019multi}:
 \begin{description}
     \item[Phase 1: NER pre-train ($E_\text{NER}$ epochs).]
-    The classification head is frozen. Only the encoder and NER head receive
-    gradient updates from token-level cross-entropy loss
-    $\mathcal{L}_\text{NER}$.
-    This phase primes the shared encoder to locate taxon names and
-    interaction verbs before the classification signal is introduced.
+    The classification head is frozen; only the encoder and NER head receive
+    gradient updates from token-level cross-entropy loss $\mathcal{L}_\text{NER}$,
+    priming the encoder to locate taxon names and interaction verbs first.
 
     \item[Phase 2: Joint training ($E_\text{joint}$ epochs).]
     All parameters are unfrozen. Combined loss:
@@ -418,16 +437,15 @@ BiomedBERT classification checkpoint and skip Phase 1 entirely: both the NER hea
 the classification head train jointly from epoch one.
 This strategy achieves F1\,=\,0.874 at $\tau{=}0.360$, the best result in our evaluation.
 Ablation over the number of NER pre-training epochs under warm-start
-reveals a clear negative correlation (Appendix~\ref{app:fullablation},
+reveals a clear negative correlation (\ref{app:fullablation},
 warm-start rows): F1\,=\,0.874 with 0 NER epochs, 0.860 with 1, and
 0.822 with 2.
 We attribute this to \emph{representation disruption}: the template-trained
-BiomedBERT encoder already encodes biotic interaction patterns from classification
-fine-tuning; NER pre-training updates the shared encoder toward
-entity-detection representations, degrading the classification-relevant
-signal. Warm-starting without Phase 1 preserves this initialization
-while the NER head still learns entity recognition through the joint
-objective in Phase 2.
+encoder already encodes biotic interaction patterns from classification
+fine-tuning, and NER pre-training updates it toward entity-detection
+representations instead, degrading the classification signal.
+Warm-starting without Phase 1 preserves this initialization while the
+NER head still learns entity recognition jointly in Phase 2.
 
 \subsection{Evaluation Protocol}
 \label{sec:eval}
@@ -436,18 +454,16 @@ All models are evaluated on a 500-sentence test set (281 positive,
 56.2\%) combining five sources: EP-A (99 sentences, GloBI-seeded),
 EP-passage (100 sentences, GloBI-seeded), a merged eval-100/BioTx-random
 source (104 sentences), gen-set-100 (100 synthetic sentences), and
-gen-set-150-extension (97 additional synthetic sentences added to
-restore the test set to 500). Source construction, deduplication, and
-the independent gold-label validation of gen-set-150-extension are
-detailed in Section~\ref{sec:contamination} and
-Appendix~\ref{app:contamination}.
+gen-set-150-extension (97 additional synthetic sentences restoring
+the test set to 500). Source construction and validation details are
+in Section~\ref{sec:contamination} and \ref{app:contamination}.
 We report precision, recall, and F1-score.
 The decision threshold $\tau$ is optimised on the validation split,
 not the test set. For the warm-start champion, $\tau = 0.360$ is derived
 from the standard 15\% held-out split of its training data. For the
 cold-start ablation, $\tau = 0.140$ is derived from the same kind of split;
 this lower value reflects the cold-start model's probability
-distribution skewing toward lower scores (Appendix~\ref{app:threshold}).
+distribution skewing toward lower scores (\ref{app:threshold}).
 
 Bootstrap confidence intervals are estimated with 10,000 resamples
 \citep{efron1993introduction}.
@@ -458,7 +474,7 @@ Pairwise significance is assessed using McNemar's test
 \label{sec:contamination}
 
 We ran three checks (exact-match, near-duplicate, taxon-pair leakage,
-Appendix~\ref{app:contamination}) between the test set and every
+\ref{app:contamination}) between the test set and every
 training corpus used to produce a reported model. These checks confirm
 the test set is independent of the training data used to produce every
 reported result, with one exception: exactly one test sentence (from a
@@ -469,44 +485,10 @@ eval-100 and BioTx-random sources, nominally independent, share 96 of
 they are merged into a single deduplicated source (Section~\ref{sec:eval}).
 The checks cannot rule out overlap with BiomedBERT's own pretraining
 corpus (PubMed abstracts and full-text articles,
-\citealt{gu2021domain}), since several test sources are themselves
+\citep{gu2021domain}), since several test sources are themselves
 drawn from PMC and we have no access to that corpus to verify this
 either way. A related gold-label provenance caveat, distinct from
 sentence-level leakage, is discussed in Section~\ref{sec:limitations}.
-
-\begin{table*}[!t]
-\centering
-\small
-\caption{Main results on the 500-sentence test set (281 positives).
-The proposed warm-start multi-task model (top, \textbf{champion}) significantly outperforms the
-hard-CE ablation ($+0.202$ F1, $p{<}0.001$) and surpasses the ensemble teacher
-at 3.3$\times$ lower inference cost (a single BiomedBERT forward pass versus
-the ensemble's additional FLAN-T5-base sequence-to-sequence decoding step).
-Full configuration sweep in Appendix~\ref{app:fullablation}. F1 values are
-rounded to three decimals for display; reported deltas and significance
-tests use unrounded scores, so pairwise differences may not equal the
-difference of displayed values.}
-\label{tab:main_results}
-\begin{tabular}{lrrrr}
-\toprule
-\textbf{Model} & \textbf{F1} & \textbf{P} & \textbf{R} & \textbf{AUC} \\
-\midrule
-\rowcolor{bestrow}
-\textbf{Multi-task BiomedBERT} (\texttt{full\_typed}, $\alpha$=0.5, warm-start, 0 NER ep) & \textbf{0.874} & \textbf{0.925} & \textbf{0.829} & \textbf{0.918} \\
-\midrule
-\rowcolor{greyrow}
-Multi-task BiomedBERT (\texttt{full\_typed}, $\alpha$=0.5, cold-start, 2 NER ep) & 0.835 & 0.885 & 0.790 & 0.881 \\
-\rowcolor{greyrow}
-Same arch., hard cross-entropy (no distillation)    & 0.673 & 0.920 & 0.530 & 0.857 \\
-\rowcolor{greyrow}
-Distilled student (BiomedBERT, $T$=2, $\alpha$=0.5) & 0.858 & 0.877 & 0.840 & 0.920 \\
-\rowcolor{greyrow}
-Ensemble BiomedBERT $\times$ FLAN-T5-base           & 0.850 & 0.925 & 0.787 & 0.912 \\
-\rowcolor{greyrow}
-Template-trained BiomedBERT (single-task baseline)  & 0.875 & 0.881 & 0.868 & 0.921 \\
-\bottomrule
-\end{tabular}
-\end{table*}
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Results}
@@ -517,7 +499,7 @@ Template-trained BiomedBERT (single-task baseline)  & 0.875 & 0.881 & 0.868 & 0.
 Table~\ref{tab:main_results} compares the champion configuration against
 key baselines; the full sweep over all NER schemes, $\alpha$ values,
 initialization strategies, and pre-training epochs is given in
-Appendix~\ref{app:fullablation}. AUC, reported alongside F1/P/R as a
+\ref{app:fullablation}. AUC, reported alongside F1/P/R as a
 threshold-independent measure of ranking quality, broadly agrees with
 the F1 picture: the champion, template-trained baseline, distilled
 student, and ensemble form a tight cluster (AUC 0.912--0.921) with
@@ -610,7 +592,7 @@ reliable model selection between them is not possible at this test set size
 (see also Section~\ref{sec:limitations}).
 
 Threshold sensitivity and operating-point trade-offs are analysed in
-Appendix~\ref{app:threshold}.
+\ref{app:threshold}.
 
 \subsection{Distribution Mismatch}
 
@@ -620,7 +602,7 @@ sentences.
 Parasitism/Host interactions represent only 10\% of training positives, and
 Pathogen/Infection only 3\%, yet together these two types constitute 68\%
 of test positives (Parasitism/Host 41.6\%, Pathogen/Infection 26.3\%),
-visualised in Figure~\ref{fig:distribution} (Appendix~\ref{app:extended_discussion}).
+visualised in Figure~\ref{fig:distribution} (\ref{app:extended_discussion}).
 
 This mismatch reflects a structural property of the harvested corpus:
 clinical and biomedical pathogen papers dominate its open-access content,
@@ -683,13 +665,13 @@ unlike the template-trained baseline's binary-only output.
 
 The NER auxiliary task improves classification without additional manual
 annotation: BIO labels \citep{ramshaw1995text} come from taxon gazetteers
-and interaction lexicons (distant supervision, \citealt{mintz2009distant}),
+and interaction lexicons (distant supervision, \citep{mintz2009distant}),
 and the NER head produces entity labels at inference time at no extra
 cost. The HOST/PATHOGEN distinction it outputs directly encodes
 knowledge-graph edge direction, benefiting both BiotXplorer's
 search ranking and downstream relation extraction. Extended discussion
 of the mechanism and concrete operational use cases is given in
-Appendix~\ref{app:extended_discussion}.
+\ref{app:extended_discussion}.
 
 \subsection{The Training Distribution Ceiling}
 
@@ -728,7 +710,7 @@ pathogen/infection interactions than from further architectural changes.
 
     \item \textit{NER head not directly evaluated.} We evaluate the NER
     head only through its effect on classification; direct entity-span
-    evaluation (HOST/PATHOGEN/SPECIES/INT) against manually curated gold is
+    evaluation (HOST/\allowbreak PATHOGEN/\allowbreak SPECIES/\allowbreak INT) against manually curated gold is
     left to future work, as the distant-supervision labels share the
     gazetteer's blind spots and cannot serve as an independent gold
     standard.
@@ -771,7 +753,7 @@ will address: (1) harvesting from non-PubMed ecological literature to
 expand training coverage of parasitism and host-interaction types;
 (2) typed relation extraction to produce directed knowledge graph triples;
 (3) integration with amplicon sequencing pipelines (MetaPlantCode project;
-\citealt{gardette2024metaplantcode}),
+\citep{gardette2024metaplantcode}),
 where interaction knowledge can support ecological coherence re-ranking of
 taxon lists derived from environmental DNA samples.
 
@@ -784,25 +766,52 @@ by automated models; no personal data was collected or used. The classifier
 is designed to support literature mining for biodiversity knowledge graph
 construction and carries no foreseeable potential for misuse.
 
+\printcredits
+
+\section*{Declaration of Competing Interest}
+
+The authors declare that they have no known competing financial interests
+or personal relationships that could have appeared to influence the work
+reported in this paper.
+
+\section*{Acknowledgements}
+
+% Placeholder -- add funding sources / individual acknowledgements here.
+
 \section*{Data and Code Availability}
 
-Training code, evaluation scripts, and the test set are available at
-\url{https://anonymous.4open.science/r/biotic-interaction-classifier-anon-28DC}.
-Model weights can be reproduced from the provided training configuration.
+Training code, evaluation scripts, and the test set are deposited and
+version-controlled at
+\url{https://github.com/ecsltae/biotic-interaction-classifier}, which
+also hosts the 44K-sentence training corpus (gzipped) and the final
+500-sentence test set. Model weights can be reproduced from the provided
+training configuration; a persistent archival copy (e.g.\ via Zenodo) can
+be created on request.
 
-\bibliographystyle{abbrvnat}
+\bibliographystyle{cas-model2-names}
 \bibliography{references}
 
 % ─────────────────────────────────────────────────────────────────────────────
 \clearpage
 \onecolumn
 \appendix
+% Per the IP&M Guide for Authors, appendix tables/figures/equations are
+% numbered per-appendix-section (Table A.1, Fig. A.1, Eq. (A.1), then B.1...).
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
 
+\FloatBarrier
 \section{Knowledge Distillation Hyperparameter Search}
 \label{app:distillation}
 
+Table~\ref{tab:distillation_full} reports the full hyperparameter grid
+searched during the distillation phase described in
+Section~\ref{sec:distillation}.
+
 \begin{table}[H]
 \centering
+\small
 \caption{Full distillation hyperparameter grid on the 500-sentence test set
 (281 positives). These are single-task distilled classifiers (no NER head,
 not the multi-task architecture used elsewhere in this paper), so their
@@ -819,7 +828,6 @@ are retained from a prior test-set version for completeness.}
 \textbf{Student} & $T$ & $\alpha$ & \textbf{Test F1} \\
 \midrule
 v1 BiomedBERT & 4 & 0.7 & 0.851 \\
-\rowcolor{bestrow}
 \textbf{v2 BiomedBERT (best)} & \textbf{2} & \textbf{0.5} & \textbf{0.858} \\
 v3 BiomedBERT$^{\ddagger}$ & 4 & 0.9 & 0.704$^{\dagger}$ \\
 v4 DistilBERT$^{\ddagger}$ & 2 & 0.5 & 0.785 \\
@@ -834,8 +842,12 @@ sentences at $\tau{=}0.25$ on the prior, more balanced test-set version
 it was calibrated but threshold $\tau{=}0.25$ was misaligned with that class balance.}
 \end{table}
 
+\FloatBarrier
 \section{Full Multi-task Configuration Analysis}
 \label{app:fullablation}
+
+Table~\ref{tab:ablation_full} reports every multi-task configuration
+evaluated in the ablation sweep summarised in Section~\ref{sec:results}.
 
 \begin{table}[H]
 \centering
@@ -850,6 +862,7 @@ for re-evaluation on the current test set version; their values are
 retained from a prior test-set version for completeness and should not be
 compared directly to the unmarked rows.}
 \label{tab:ablation_full}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llcccrrrr}
 \toprule
 \textbf{Config} & \textbf{NER scheme} & $\alpha$ & \textbf{Init} & \textbf{NER pt} &
@@ -868,20 +881,16 @@ full\_typed (5 joint ep)$^{\ddagger}$ & full\_typed & 0.5 & cold & 2+5 & 0.798 &
 \midrule
 \multicolumn{9}{l}{\textit{Warm-start configurations (encoder from template-trained BiomedBERT)}} \\
 \midrule
-\rowcolor{bestrow}
 \textbf{full\_typed\_a05 (warm, 0 NER ep)} & full\_typed & \textbf{0.5} & warm & \textbf{0} &
   \textbf{0.874} & \textbf{0.925} & \textbf{0.829} & \textbf{0.918} \\
 full\_typed\_a05 (warm, 1 NER ep) & full\_typed & 0.5 & warm & 1 & 0.860 & 0.881 & 0.840 & 0.910 \\
 full\_typed\_a05 (warm, 2 NER ep) & full\_typed & 0.5 & warm & 2 & 0.822 & 0.902 & 0.754 & 0.898 \\
 \midrule
-\rowcolor{greyrow}
 hardce (cold, 2 NER ep) & full\_typed & 0.5 & cold & 2 & 0.673 & 0.920 & 0.530 & 0.857 \\
-\rowcolor{greyrow}
 distilled student (no NER) & ---      & --- & cold & --- & 0.858 & 0.877 & 0.840 & 0.920 \\
-\rowcolor{greyrow}
 Ensemble BERT$\times$T5 & ---         & --- & ---  & --- & 0.850 & 0.925 & 0.787 & 0.912 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \section{Threshold Analysis}
@@ -898,9 +907,9 @@ own standard 15\% held-out validation split ($\tau{=}0.140$ and
 $\tau{=}0.360$ respectively, Section~\ref{sec:eval}), not from the
 300+700 split shown below.
 
-\begin{figure}[H]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.6\textwidth]{fig_threshold_curve}
+    \includegraphics[width=0.85\textwidth]{fig_threshold_curve}
     \caption{Precision, recall, and F1 versus decision threshold on a
     300\,positive + 700\,negative held-out validation split (not seen
     during training) for an earlier cold-start checkpoint, illustrating
