@@ -1,0 +1,57 @@
+{
+  "baseline_ep_f1": 0.8627,
+  "kg_augmented_best_f1": 0.8679,
+  "kg_augmented_prec": 0.7931,
+  "kg_augmented_rec": 0.9583,
+  "best_alpha": 0.7,
+  "delta_f1": 0.0052,
+  "n_ep_pairs_in_kg": 1,
+  "n_ep_positives_in_kg": 1,
+  "alpha_sweep": [
+    {
+      "alpha": 0.0,
+      "best_f1": 0.0408
+    },
+    {
+      "alpha": 0.1,
+      "best_f1": 0.8247
+    },
+    {
+      "alpha": 0.2,
+      "best_f1": 0.8544
+    },
+    {
+      "alpha": 0.3,
+      "best_f1": 0.8571
+    },
+    {
+      "alpha": 0.4,
+      "best_f1": 0.8598
+    },
+    {
+      "alpha": 0.5,
+      "best_f1": 0.8627
+    },
+    {
+      "alpha": 0.6,
+      "best_f1": 0.8571
+    },
+    {
+      "alpha": 0.7,
+      "best_f1": 0.8679
+    },
+    {
+      "alpha": 0.8,
+      "best_f1": 0.8627
+    },
+    {
+      "alpha": 0.9,
+      "best_f1": 0.8627
+    },
+    {
+      "alpha": 1.0,
+      "best_f1": 0.8627
+    }
+  ],
+  "finding": "KG prior improves F1 by +0.0052 (from 0.863 to 0.868) at alpha=0.7 \u2014 KG lookup adds recall for known species pairs"
+}

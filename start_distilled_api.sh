@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Start the Multi-task BiomedBERT API on port 8003
-# Replaces distilled_BiomedBERT_v2 — new best model (EP F1=0.868)
+# Champion model: mt_distill_warm_ner0 (warm-start, 0 NER pretrain epochs, F1=0.874)
 # Survives logout (nohup), accessible to colleagues (0.0.0.0)
 
 set -e
@@ -11,13 +11,13 @@ PORT=8003
 LOG="classifier/logs/api_distilled.log"
 mkdir -p classifier/logs
 
-# Kill any existing instance on this port
-pkill -f "uvicorn.*$PORT" 2>/dev/null || true
+# Kill any existing instance (uvicorn.run() is in-process, so match on the script name, not "uvicorn")
+pkill -f "fastapi_multitask.py" 2>/dev/null || true
 sleep 1
 
-echo "Starting Multi-task BiomedBERT API (full_typed_a05_ner2)..."
-echo "  Model: multitask/full_typed_a05_ner2 (NER scheme=full_typed, α=0.5, 2ep NER pretrain)"
-echo "  EP-relax F1=0.868 | AUC=0.887 | beats ensemble (F1=0.857)"
+echo "Starting Multi-task BiomedBERT API (mt_distill_warm_ner0)..."
+echo "  Model: multitask/mt_distill_warm_ner0 (NER scheme=full_typed, α=0.5, warm-start, 0ep NER pretrain)"
+echo "  500-sentence test set: F1=0.874 | AUC=0.918 | beats ensemble (F1=0.850)"
 echo "  Port: $PORT"
 echo "  Log:  $LOG"
 echo ""
@@ -44,7 +44,7 @@ for i in $(seq 1 15); do
         echo "    -H 'Content-Type: application/json' \\"
         echo "    -d '{\"text\": \"Wolbachia infects Drosophila melanogaster.\"}' | python3 -m json.tool"
         echo ""
-        echo "To stop:    pkill -f 'uvicorn.*$PORT'"
+        echo "To stop:    pkill -f 'fastapi_multitask.py'"
         echo "To monitor: tail -f $LOG"
         exit 0
     fi

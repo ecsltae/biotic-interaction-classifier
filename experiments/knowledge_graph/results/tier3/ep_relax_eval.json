@@ -1,0 +1,130 @@
+{
+  "spert": {
+    "best_f1": 0.6906,
+    "best_prec": 0.5275,
+    "best_rec": 1.0,
+    "best_threshold": 0.1,
+    "threshold_sweep": [
+      {
+        "threshold": 0.05,
+        "f1": 0.6621,
+        "prec": 0.4948,
+        "rec": 1.0
+      },
+      {
+        "threshold": 0.1,
+        "f1": 0.6906,
+        "prec": 0.5275,
+        "rec": 1.0
+      },
+      {
+        "threshold": 0.15,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.2,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.25,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.3,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.35,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.4,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.45,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.5,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.55,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.6,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.65,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.7,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.75,
+        "f1": 0.6812,
+        "prec": 0.5222,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.8,
+        "f1": 0.6861,
+        "prec": 0.5281,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.85,
+        "f1": 0.6861,
+        "prec": 0.5281,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.9,
+        "f1": 0.6861,
+        "prec": 0.5281,
+        "rec": 0.9792
+      },
+      {
+        "threshold": 0.95,
+        "f1": 0.6861,
+        "prec": 0.5281,
+        "rec": 0.9792
+      }
+    ]
+  },
+  "baseline_full_typed_a05_ner2": {
+    "ep_f1": 0.868,
+    "threshold": 0.13
+  },
+  "delta_f1": -0.1774,
+  "recommendation": "Baseline (F1=0.868) is better than SpERT (F1=0.691, \u0394=-0.177) \u2014 keep full_typed_a05_ner2"
+}

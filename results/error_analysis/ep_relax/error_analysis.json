@@ -1,0 +1,153 @@
+{
+  "threshold": 0.13,
+  "precision": 0.7931,
+  "recall": 0.9583,
+  "f1": 0.8679,
+  "tp": 46,
+  "fp": 12,
+  "fn": 2,
+  "tn": 40,
+  "false_positives": [
+    {
+      "sentence": "Biology and host associations of redbay ambrosia beetle (Coleoptera: Curculionidae: Scolytinae), exotic vector of laurel wilt killing redbay trees in the southeastern United States.",
+      "species1_term": "Ambrosia",
+      "species2_term": "Scolytinae",
+      "interaction_term": "host",
+      "prob": 0.999691367149353,
+      "comment": NaN
+    },
+    {
+      "sentence": "Metamicrocotyla macracantha, a polyopisthocotylid gill parasite of the striped mullet, Mugil cephalus: population dynamics in South Carolina estuaries.",
+      "species1_term": "Chelon tricuspidens",
+      "species2_term": "Metamicrocotyla macracantha",
+      "interaction_term": "parasite-host",
+      "prob": 0.9996401071548462,
+      "comment": "synonyme != espce indique"
+    },
+    {
+      "sentence": "Disseminated protozoal infection in a wild feathertail glider (Acrobates pygmaeus) in Australia.",
+      "species1_term": "Acrobates pygmaeus",
+      "species2_term": "ÃAustralia",
+      "interaction_term": "infects",
+      "prob": 0.9993719458580017,
+      "comment": "pays a la place d'une espce"
+    },
+    {
+      "sentence": "Mycobacterium marinum causes both long-term subclinical infection and acute disease in the leopard frog (Rana pipiens).",
+      "species1_term": "Rana pipiens",
+      "species2_term": "Panthera pardus",
+      "interaction_term": "infects",
+      "prob": 0.9992330074310303,
+      "comment": NaN
+    },
+    {
+      "sentence": "Previous studies have recognized South and Central/Latin American mimosoid legumes in the genera Mimosa, Piptadenia and Calliandra as hosts for various nodulating Paraburkholderia species.",
+      "species1_term": "Piptadenia",
+      "species2_term": "Mimosa",
+      "interaction_term": "host",
+      "prob": 0.9978312849998474,
+      "comment": "les 2 espces ont un pathogne commun"
+    },
+    {
+      "sentence": "Virus transmission via honey bee prey and potential impact on cocoon-building in labyrinth spiders (Agelena labyrinthica).",
+      "species1_term": "Agelena labyrinthica",
+      "species2_term": "Apis mellifera",
+      "interaction_term": "preys",
+      "prob": 0.9970836043357849,
+      "comment": "interaction indirecte"
+    },
+    {
+      "sentence": "BALB/c mice resistant to Toxoplasma gondii infection proved to be highly susceptible when previously infected with Myocoptes musculinus fur mites.",
+      "species1_term": "Toxoplasma gondii",
+      "species2_term": "Myocoptes musculinus",
+      "interaction_term": "infects",
+      "prob": 0.9498103260993958,
+      "comment": "peut etre indirecte? 2 espces qui infectes la meme espce"
+    },
+    {
+      "sentence": "Differences in speciation progress in feather mites (Analgoidea) inhabiting the same host: the case of Zachvatkinia and Alloptes living on arctic and long-tailed skuas.",
+      "species1_term": "Alloptes",
+      "species2_term": "Zachvatkinia",
+      "interaction_term": "host",
+      "prob": 0.9175916314125061,
+      "comment": "peut etre indirecte? 2 espces qui infectes la meme espce"
+    },
+    {
+      "sentence": "A previous study showed that both Grapevine Algerian latent virus (GALV) and Tomato bushy stunt virus (TBSV) systemically infect Nicotiana benthamiana, but GALV causes systemic infection whereas TBSV causes only local lesions in Chenopodium quinoa (C.",
+      "species1_term": "Nicotiana benthamiana",
+      "species2_term": "Chenopodium quinoa",
+      "interaction_term": "infects",
+      "prob": 0.90778648853302,
+      "comment": "pas la bonne paire selectionne"
+    },
+    {
+      "sentence": "Polyphagous pests, such as true armyworm (Mythimna unipuncta Haworth), black cutworm (Agrotis ipsilon Hufnagel), and common stalk borer (Papaipema nebris Guenee), whose host range includes rye have the potential to cause injury to crops following a rye cover crop.",
+      "species1_term": "Papaipema nebris",
+      "species2_term": "Mythimna unipuncta",
+      "interaction_term": "host",
+      "prob": 0.44828471541404724,
+      "comment": "2 espces qui sont des ravageurs"
+    },
+    {
+      "sentence": "In this report, we have tried to summarize the findings of different research and review articles from Chinese, English, and Mongolian Scientific Literature reporting the evidence for equine influenza virus infections in human beings.",
+      "species1_term": "Equus caballus",
+      "species2_term": "Homo sapiens",
+      "interaction_term": "infects",
+      "prob": 0.2746231257915497,
+      "comment": "relation indirecte"
+    },
+    {
+      "sentence": "Nymphal development showed that peach, almond, and pistachio can sustain H. halys as single host plants until adult eclosion, whereas grapes cannot.",
+      "species1_term": "Prunus persica",
+      "species2_term": "Prunus dulcis",
+      "interaction_term": "host",
+      "prob": 0.23345498740673065,
+      "comment": "2 espces hotes de la meme espce"
+    }
+  ],
+  "false_negatives": [
+    {
+      "sentence": "High-throughput sequencing was used here to reveal the similarities and differences in the structural composition of the soil microbial community of C. salsa from six host plants (i.e., Halocnemum strobilaceum, Atriplex patens, Kalidium foliatum, Caroxylon passerinum, Anabasis aphylla, Krascheninnikovia ceratoides).",
+      "species1_term": "Cistanche salsa",
+      "species2_term": "Caroxylon passerinum",
+      "interaction_term": "host",
+      "prob": 0.012460604310035706,
+      "comment": NaN
+    },
+    {
+      "sentence": "In 2009, female X. glabratus were equally attracted to traps baited with swampbay (Persea palustris (Rafinesque) Sargent) and camphortree (Cinnamomum camphora (L.) J. Presl), which were more attractive than avocado (Persea americana Miller), lancewood (Ocotea coriacea (Swartz) Britton), and sweetbay (Magnolia virginiana L.).",
+      "species1_term": "Xyleborus glabratus",
+      "species2_term": "Persea palustris",
+      "interaction_term": "attracts",
+      "prob": 0.042643189430236816,
+      "comment": NaN
+    }
+  ],
+  "interaction_breakdown": [
+    {
+      "interaction_term": "attracts",
+      "FN": 1,
+      "FP": 0
+    },
+    {
+      "interaction_term": "host",
+      "FN": 1,
+      "FP": 5
+    },
+    {
+      "interaction_term": "infects",
+      "FN": 0,
+      "FP": 5
+    },
+    {
+      "interaction_term": "parasite-host",
+      "FN": 0,
+      "FP": 1
+    },
+    {
+      "interaction_term": "preys",
+      "FN": 0,
+      "FP": 1
+    }
+  ]
+}

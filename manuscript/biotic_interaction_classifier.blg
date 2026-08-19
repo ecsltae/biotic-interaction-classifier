@@ -3,48 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: biotic_interaction_classifier.aux
 The style file: abbrvnat.bst
 Database file #1: references.bib
-Warning--empty journal in bucilua2006model
 Warning--can't use both volume and number fields in habibi2017deep
-Warning--empty journal in mintz2009distant
-You've used 17 entries,
+You've used 23 entries,
             2773 wiz_defined-function locations,
-            701 strings with 8131 characters,
-and the built_in function-call counts, 9924 in all, are:
-= -- 838
-> -- 748
-< -- 8
-+ -- 251
-- -- 234
-* -- 872
-:= -- 1531
-add.period$ -- 52
-call.type$ -- 17
-change.case$ -- 128
-chr.to.int$ -- 17
-cite$ -- 37
-duplicate$ -- 402
-empty$ -- 695
-format.name$ -- 253
-if$ -- 2051
+            735 strings with 9476 characters,
+and the built_in function-call counts, 13429 in all, are:
+= -- 1121
+> -- 1036
+< -- 10
++ -- 347
+- -- 324
+* -- 1191
+:= -- 2086
+add.period$ -- 72
+call.type$ -- 23
+change.case$ -- 175
+chr.to.int$ -- 23
+cite$ -- 47
+duplicate$ -- 535
+empty$ -- 944
+format.name$ -- 353
+if$ -- 2770
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 17
-newline$ -- 94
-num.names$ -- 68
-pop$ -- 257
+missing$ -- 24
+newline$ -- 126
+num.names$ -- 92
+pop$ -- 352
 preamble$ -- 1
-purify$ -- 111
+purify$ -- 153
 quote$ -- 0
-skip$ -- 343
+skip$ -- 450
 stack$ -- 0
-substring$ -- 342
-swap$ -- 61
+substring$ -- 442
+swap$ -- 72
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 187
-warning$ -- 3
-while$ -- 75
+type$ -- 248
+warning$ -- 1
+while$ -- 98
 width$ -- 0
-write$ -- 224
-(There were 3 warnings)
+write$ -- 306
+(There was 1 warning)

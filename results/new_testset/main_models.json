@@ -1,0 +1,52 @@
+{
+  "multitask_champion": {
+    "threshold": 0.09,
+    "f1": 0.8073,
+    "precision": 0.8326,
+    "recall": 0.7835,
+    "auc": 0.8633,
+    "n_pred_pos": 239,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "multitask_hardce": {
+    "threshold": 0.51,
+    "f1": 0.7137,
+    "precision": 0.7804,
+    "recall": 0.6575,
+    "auc": 0.799,
+    "n_pred_pos": 214,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "distilled_BiomedBERT_v2": {
+    "threshold": 0.25,
+    "f1": 0.8008,
+    "precision": 0.8277,
+    "recall": 0.7756,
+    "auc": 0.8816,
+    "n_pred_pos": 238,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "BiomedBERT_v7_singletask": {
+    "threshold": 0.5,
+    "f1": 0.8645,
+    "precision": 0.875,
+    "recall": 0.8543,
+    "auc": 0.9277,
+    "n_pred_pos": 248,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "ensemble_BiomedBERT_FLANT5": {
+    "threshold": 0.32,
+    "f1": 0.8499,
+    "precision": 0.9178,
+    "recall": 0.7913,
+    "auc": 0.925,
+    "n_pred_pos": 219,
+    "n_pos": 254,
+    "n_total": 499
+  }
+}

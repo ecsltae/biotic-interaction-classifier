@@ -1,0 +1,2216 @@
+{
+  "S32_D8": [
+    {
+      "species": "autographa gamma",
+      "reads": 60478,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 60478.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S33_E2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 8,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S33_H3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 7,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S38_E2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 10,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S38_F2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S41_E3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 15,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S41_G12": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 543,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 543.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 90,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 90.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_A10": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 5945,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5945.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 1173,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1173.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_A11": [
+    {
+      "species": "castanea mollissima",
+      "reads": 37180,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 37180.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_A12": [
+    {
+      "species": "castanea mollissima",
+      "reads": 15767,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15767.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_A3": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 27204,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 27204.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 5424,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5424.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_A8": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 3075,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3075.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 581,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 581.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_A9": [
+    {
+      "species": "castanea mollissima",
+      "reads": 16,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_B11": [
+    {
+      "species": "castanea mollissima",
+      "reads": 40765,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 40765.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_B1": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 5544,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5544.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 1145,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1145.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_B2": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 10575,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10575.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2094,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2094.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_B8": [
+    {
+      "species": "castanea mollissima",
+      "reads": 15,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_C10": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 25513,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25513.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 5110,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5110.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_C12": [
+    {
+      "species": "castanea mollissima",
+      "reads": 27208,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 27208.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_C8": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 34688,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 34688.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 7265,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7265.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea mollissima",
+      "reads": 29,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 29.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "S42_C9": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 15848,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15848.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 3171,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3171.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_D10": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 27462,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 27462.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 5567,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5567.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_D11": [
+    {
+      "species": "castanea mollissima",
+      "reads": 52306,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 52306.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_D12": [
+    {
+      "species": "castanea mollissima",
+      "reads": 30971,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 30971.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_D5": [
+    {
+      "species": "castanea mollissima",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_D7": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 21807,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 21807.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 4452,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4452.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_D8": [
+    {
+      "species": "castanea mollissima",
+      "reads": 25,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_D9": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 18269,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 18269.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 3739,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3739.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_E11": [
+    {
+      "species": "castanea mollissima",
+      "reads": 34650,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 34650.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_E12": [
+    {
+      "species": "castanea mollissima",
+      "reads": 22803,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 22803.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_E2": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 7081,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7081.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 1329,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1329.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_E4": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 20918,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 20918.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 4112,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4112.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_E7": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 18481,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 18481.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 3767,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3767.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_E8": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 15727,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15727.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 3169,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3169.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_E9": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 10884,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10884.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2146,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2146.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_F10": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 17,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_F11": [
+    {
+      "species": "castanea mollissima",
+      "reads": 36835,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 36835.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_F12": [
+    {
+      "species": "castanea mollissima",
+      "reads": 7999,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7999.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_F1": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 13682,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13682.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2731,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2731.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_F3": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 13021,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13021.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2567,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2567.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_F8": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 11017,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11017.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2109,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2109.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_G12": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 506,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 506.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 90,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 90.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_G1": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 22525,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 22525.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 4312,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4312.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_G8": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 12582,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12582.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2293,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2293.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_G9": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 3180,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3180.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 614,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 614.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_H10": [
+    {
+      "species": "castanea mollissima",
+      "reads": 32529,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 32529.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_H11": [
+    {
+      "species": "castanea mollissima",
+      "reads": 29956,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 29956.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_H3": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 31475,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 31475.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 6428,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6428.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S42_H6": [
+    {
+      "species": "castanea mollissima",
+      "reads": 10,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S42_H7": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 12213,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12213.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2373,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2373.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S43_A10": [
+    {
+      "species": "castanea mollissima",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_A1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 42586,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 42586.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_A2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 56690,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 56690.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_A3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 47971,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 47971.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_A4": [
+    {
+      "species": "castanea mollissima",
+      "reads": 46452,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 46452.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_B11": [
+    {
+      "species": "castanea mollissima",
+      "reads": 33332,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 33332.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_B1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 14,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_B2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 44872,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 44872.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_B3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 29703,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 29703.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_B5": [
+    {
+      "species": "castanea mollissima",
+      "reads": 42122,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 42122.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_B7": [
+    {
+      "species": "castanea mollissima",
+      "reads": 46972,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 46972.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_C1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 41007,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 41007.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_C2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 56603,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 56603.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_C4": [
+    {
+      "species": "castanea mollissima",
+      "reads": 19,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 19.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_C6": [
+    {
+      "species": "castanea mollissima",
+      "reads": 23923,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 23923.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_C7": [
+    {
+      "species": "castanea mollissima",
+      "reads": 36809,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 36809.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_D12": [
+    {
+      "species": "castanea mollissima",
+      "reads": 42046,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 42046.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_D1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 40025,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 40025.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 2951,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2951.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 597,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 597.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "S43_D2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 57336,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 57336.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_D4": [
+    {
+      "species": "castanea mollissima",
+      "reads": 48018,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 48018.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_D5": [
+    {
+      "species": "castanea mollissima",
+      "reads": 49167,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 49167.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_D7": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 22949,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 22949.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 4535,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4535.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S43_D9": [
+    {
+      "species": "castanea mollissima",
+      "reads": 22307,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 22307.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_E1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 28744,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 28744.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_E2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 46422,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 46422.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_E3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 17561,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17561.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 2558,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2558.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 529,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 529.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "S43_E4": [
+    {
+      "species": "castanea mollissima",
+      "reads": 38694,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 38694.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_E6": [
+    {
+      "species": "castanea mollissima",
+      "reads": 16,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_E7": [
+    {
+      "species": "castanea mollissima",
+      "reads": 41692,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 41692.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_E9": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 9043,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9043.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 1760,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1760.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S43_F2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 55964,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 55964.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 3325,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3325.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 704,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 704.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "S43_F4": [
+    {
+      "species": "castanea mollissima",
+      "reads": 47183,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 47183.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_F6": [
+    {
+      "species": "castanea mollissima",
+      "reads": 39942,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 39942.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_G12": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 554,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 554.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 126,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 126.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S43_G1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 9840,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9840.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_G2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 33428,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 33428.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_G3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 25475,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25475.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 355,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 355.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 77,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 77.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "S43_G4": [
+    {
+      "species": "castanea mollissima",
+      "reads": 18459,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 18459.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_H1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 40664,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 40664.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_H2": [
+    {
+      "species": "castanea mollissima",
+      "reads": 71120,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 71120.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_H3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 39804,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 39804.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_H4": [
+    {
+      "species": "castanea mollissima",
+      "reads": 40248,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 40248.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_H6": [
+    {
+      "species": "castanea mollissima",
+      "reads": 15,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_H7": [
+    {
+      "species": "castanea mollissima",
+      "reads": 13,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S43_H8": [
+    {
+      "species": "castanea mollissima",
+      "reads": 23593,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 23593.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 6959,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6959.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 1468,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1468.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "S44_A11": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 16883,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16883.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 3341,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3341.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S44_A1": [
+    {
+      "species": "castanea mollissima",
+      "reads": 13,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S44_B11": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 9548,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9548.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 1799,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1799.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S44_B3": [
+    {
+      "species": "castanea mollissima",
+      "reads": 25107,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25107.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S44_B8": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 10453,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10453.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 1979,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1979.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S44_C5": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 4673,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4673.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 915,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 915.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S44_E1": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 11725,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11725.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 2327,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2327.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S44_E8": [
+    {
+      "species": "castanea mollissima",
+      "reads": 17,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "S44_G12": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 727,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 727.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 164,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 164.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S44_G1": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 2642,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2642.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 488,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 488.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "S44_G4": [
+    {
+      "species": "angiosperm mycorrhizal",
+      "reads": 3759,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3759.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus variabilis",
+      "reads": 691,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 691.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ]
+}

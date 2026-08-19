@@ -1,0 +1,44 @@
+{
+  "mt_v7_softlabels": {
+    "f1": 0.6834,
+    "precision": 0.8108,
+    "recall": 0.5906,
+    "threshold": 0.44000000000000006,
+    "n_pred_pos": 185
+  },
+  "mt_v7_softlabels_warm": {
+    "f1": 0.8451,
+    "precision": 0.8642,
+    "recall": 0.8268,
+    "threshold": 0.1,
+    "n_pred_pos": 243
+  },
+  "mt_distill_warm_ner1": {
+    "f1": 0.8446,
+    "precision": 0.8548,
+    "recall": 0.8346,
+    "threshold": 0.22000000000000003,
+    "n_pred_pos": 248
+  },
+  "mt_distill_warm_ner0": {
+    "f1": 0.8607,
+    "precision": 0.9119,
+    "recall": 0.815,
+    "threshold": 0.3600000000000001,
+    "n_pred_pos": 227
+  },
+  "mt_v7_distill_mix": {
+    "f1": 0.7123,
+    "precision": 0.8882,
+    "recall": 0.5945,
+    "threshold": 0.5800000000000001,
+    "n_pred_pos": 170
+  },
+  "mt_v7_distill_mix_warm": {
+    "f1": 0.7528,
+    "precision": 0.8877,
+    "recall": 0.6535,
+    "threshold": 0.8200000000000002,
+    "n_pred_pos": 187
+  }
+}

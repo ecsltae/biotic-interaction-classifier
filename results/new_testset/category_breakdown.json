@@ -1,0 +1,38 @@
+[
+  {
+    "category": "Predation",
+    "n": 24,
+    "champion_recall": 0.833,
+    "template_recall": 0.917
+  },
+  {
+    "category": "Herbivory",
+    "n": 10,
+    "champion_recall": 0.9,
+    "template_recall": 1.0
+  },
+  {
+    "category": "Pollination",
+    "n": 11,
+    "champion_recall": 0.818,
+    "template_recall": 0.818
+  },
+  {
+    "category": "Parasitism/Host",
+    "n": 111,
+    "champion_recall": 0.811,
+    "template_recall": 0.82
+  },
+  {
+    "category": "Pathogen/Infection",
+    "n": 81,
+    "champion_recall": 0.889,
+    "template_recall": 0.889
+  },
+  {
+    "category": "Other",
+    "n": 44,
+    "champion_recall": 0.75,
+    "template_recall": 0.909
+  }
+]

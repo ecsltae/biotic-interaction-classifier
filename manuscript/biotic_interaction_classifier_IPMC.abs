@@ -1,0 +1,25 @@
+Automated extraction of biotic interactions from scientific literature
+enables large-scale knowledge graph construction over biodiversity corpora,
+where systematic manual curation is infeasible given the scale of the
+available literature. We present a multi-task transformer system combining
+three components: a two-stage teacher chain in which a large language
+model annotates harvested sentences with binary interaction labels and a
+trained classifier ensemble subsequently generates calibrated soft
+probability labels for knowledge distillation; a multi-task BiomedBERT
+architecture that jointly classifies sentences and annotates biological
+entities using automatically derived sequence labels; and a warm-start
+initialization strategy that preserves fine-tuned encoder representations
+while training the entity recognition head jointly from the first epoch.
+On a 500-sentence multi-source test set, the system achieves F1\,=\,0.874,
+of which a +0.162\,F1 gain comes from soft-label distillation alone. This
+gain is shown to be primarily a calibration effect rather than a ranking
+improvement: the same comparison moves the area under the ROC curve by
+only +0.024, indicating soft labels chiefly correct the decision threshold
+rather than the model's underlying discriminative power. The system
+matches a strong single-task baseline while additionally producing
+structured entity output at no extra inference cost, and on
+real-literature sources alone it outperforms that baseline, with the
+aggregate tie driven entirely by a synthetic test subset. The classifier
+is deployed upstream of a semantic search platform for biotic
+interactions, demonstrating a practical path from unstructured text to
+structured, searchable biodiversity knowledge.

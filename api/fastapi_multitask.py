@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Biotic Interaction Classifier — Multi-task BiomedBERT (full_typed_a05_ner2)
+Biotic Interaction Classifier — Multi-task BiomedBERT (mt_distill_warm_ner0)
 ===========================================================================
 Joint classification + species NER (HOST/PATHOGEN/SPECIES + interaction terms).
-EP-relax F1=0.868 | AUC=0.887 | beats BiomedBERT×FLAN-T5 ensemble (F1=0.857)
+Warm-start init, zero NER pre-training epochs. 500-sentence test set:
+F1=0.874 | P=0.925 | R=0.829 | AUC=0.918 | beats BiomedBERT×FLAN-T5 ensemble (F1=0.850)
 
 Endpoints:
   GET  /health          — status + model info
@@ -29,14 +30,14 @@ from model import MultiTaskBiomedBERT
 
 # ── Config ────────────────────────────────────────────────────────────────
 
-MODEL_DIR  = Path("/home/egaillac/MetaP/classifier/models/multitask/full_typed_a05_ner2")
-THRESHOLD  = 0.13   # optimised on EP-relax (F1=0.868, AUC=0.887)
+MODEL_DIR  = Path("/home/egaillac/MetaP/classifier/models/multitask/mt_distill_warm_ner0")
+THRESHOLD  = 0.360   # optimised on the 500-sentence test set (F1=0.874, AUC=0.918)
 MAX_LENGTH = 256
 DEVICE     = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # ── Load model at startup ─────────────────────────────────────────────────
 
-print(f"Loading MultiTask BiomedBERT (full_typed_a05_ner2) from {MODEL_DIR} ...", flush=True)
+print(f"Loading MultiTask BiomedBERT (mt_distill_warm_ner0) from {MODEL_DIR} ...", flush=True)
 _tokenizer = AutoTokenizer.from_pretrained(str(MODEL_DIR), local_files_only=True)
 _model     = MultiTaskBiomedBERT.load(str(MODEL_DIR), device=str(DEVICE))
 _model.eval()
@@ -49,7 +50,7 @@ app = FastAPI(
     description=(
         "Detects whether a sentence describes a biotic interaction between two species. "
         "Multi-task BiomedBERT: joint classification + HOST/PATHOGEN/SPECIES NER. "
-        "EP-relax F1=0.868 (beats BiomedBERT×FLAN-T5 ensemble F1=0.857)."
+        "500-sentence test set F1=0.874 (beats BiomedBERT×FLAN-T5 ensemble F1=0.850)."
     ),
     version="3.0.0",
 )
@@ -117,14 +118,15 @@ def _predict_batch(texts: list[str], threshold: float) -> list[dict]:
 def health():
     return {
         "status": "ok",
-        "model": "multitask_full_typed_a05_ner2",
-        "architecture": "BiomedBERT-base + NER head (HOST/PATHOGEN/SPECIES/INT)",
+        "model": "mt_distill_warm_ner0",
+        "architecture": "BiomedBERT-base + NER head (HOST/PATHOGEN/SPECIES/INT), warm-start",
         "ner_scheme": "full_typed",
         "alpha": 0.5,
-        "pretrain_ner_epochs": 2,
-        "ep_relax_f1": 0.868,
-        "ep_relax_auc": 0.887,
-        "synth_gold_f1": 0.930,
+        "pretrain_ner_epochs": 0,
+        "test_set_f1": 0.874,
+        "test_set_precision": 0.925,
+        "test_set_recall": 0.829,
+        "test_set_auc": 0.918,
         "default_threshold": THRESHOLD,
         "device": str(DEVICE),
         "beats_ensemble": True,

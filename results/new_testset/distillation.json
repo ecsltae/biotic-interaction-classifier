@@ -1,0 +1,62 @@
+{
+  "distilled_BiomedBERT_v1": {
+    "threshold": 0.25,
+    "f1": 0.8,
+    "precision": 0.7117,
+    "recall": 0.9134,
+    "auc": 0.89,
+    "n_pred_pos": 326,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "distilled_BiomedBERT_v2": {
+    "threshold": 0.25,
+    "f1": 0.8008,
+    "precision": 0.8277,
+    "recall": 0.7756,
+    "auc": 0.8816,
+    "n_pred_pos": 238,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "distilled_BiomedBERT_v3": {
+    "threshold": 0.25,
+    "f1": 0.7036,
+    "precision": 0.5427,
+    "recall": 1.0,
+    "auc": 0.8802,
+    "n_pred_pos": 468,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "distilled_DistilBERT_v4": {
+    "threshold": 0.25,
+    "f1": 0.7847,
+    "precision": 0.8025,
+    "recall": 0.7677,
+    "auc": 0.8507,
+    "n_pred_pos": 243,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "distilled_SciBERT_v5": {
+    "threshold": 0.25,
+    "f1": 0.7992,
+    "precision": 0.7701,
+    "recall": 0.8307,
+    "auc": 0.8687,
+    "n_pred_pos": 274,
+    "n_pos": 254,
+    "n_total": 499
+  },
+  "distilled_BiomedBERT_v6": {
+    "threshold": 0.25,
+    "f1": 0.7826,
+    "precision": 0.8253,
+    "recall": 0.7441,
+    "auc": 0.8836,
+    "n_pred_pos": 229,
+    "n_pos": 254,
+    "n_total": 499
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "n_communities": 500,
+  "MRR_before": 0.3459,
+  "MRR_after": 0.382,
+  "MRR_improvement": 0.0361,
+  "NDCG_before": 0.3172,
+  "NDCG_after": 0.3479,
+  "NDCG_improvement": 0.0307,
+  "mean_delta_rank": 0.437,
+  "pct_partners_moved_up": 31.8,
+  "per_interaction_type": {
+    "ENDOPARASITISM": {
+      "MRR_before": 0.1864,
+      "MRR_after": 0.1724,
+      "n": 10
+    },
+    "INFECTION": {
+      "MRR_before": 0.305,
+      "MRR_after": 0.3714,
+      "n": 35
+    },
+    "PARASITISM": {
+      "MRR_before": 0.3442,
+      "MRR_after": 0.383,
+      "n": 973
+    },
+    "PARASITOIDISM": {
+      "MRR_before": 0.2218,
+      "MRR_after": 0.2976,
+      "n": 7
+    },
+    "POLLINATION": {
+      "MRR_before": 0.3656,
+      "MRR_after": 0.4034,
+      "n": 108
+    },
+    "PREDATION": {
+      "MRR_before": 0.3537,
+      "MRR_after": 0.3791,
+      "n": 356
+    },
+    "SYMBIOSIS": {
+      "MRR_before": 0.403,
+      "MRR_after": 0.4636,
+      "n": 11
+    }
+  }
+}

@@ -1,0 +1,147 @@
+# Ampliseq Re-ranking — Ecological Coherence Report
+
+**Samples with detections:** 96  
+**Samples with rank changes:** 0  
+**Species:** 128
+
+## Interaction data sources
+- **BiotXplorer** (primary): text-mined interactions from MEDLINE/PMC via SiBILS
+- **GloBI** (fallback): structured interaction database (4.2M species pairs)
+
+## Species rank changes
+
+| Species | Avg Δrank | Samples boosted | Avg BiotXplorer score |
+|---|---|---|---|
+| cymbopogon bhutanicus | 0.0 | 0/1 | 0.0 |
+| duabanga moluccana | 0.0 | 0/1 | 0.0 |
+| cadia purpurea | 0.0 | 0/2 | 0.0 |
+| melia azedarach | 0.0 | 0/1 | 0.0 |
+| indigofera caudata | 0.0 | 0/3 | 0.0 |
+| croton decaryi | 0.0 | 0/1 | 0.0 |
+| schnabelia aureoglandulosa | 0.0 | 0/1 | 0.0 |
+| allium sativum | 0.0 | 0/1 | 0.0 |
+| picea jezoensis | 0.0 | 0/83 | 0.0 |
+| empetrum nigrum | 0.0 | 0/29 | 0.0 |
+| calluna vulgaris | 0.0 | 0/63 | 0.0 |
+| dolichoglottis lyallii | 0.0 | 0/9 | 0.0 |
+| aria edulis | 0.0 | 0/23 | 0.0 |
+| picea neoveitchii | 0.0 | 0/16 | 0.0 |
+| exodeconus maritimus | 0.0 | 0/8 | 0.0 |
+| phoebe jingxiensis | 0.0 | 0/3 | 0.0 |
+| populus angustifolia | 0.0 | 0/1 | 0.0 |
+| croton oblongus | 0.0 | 0/5 | 0.0 |
+| lepidium chalepense | 0.0 | 0/12 | 0.0 |
+| maianthemum bifolium | 0.0 | 0/17 | 0.0 |
+| sesamum schinzianum | 0.0 | 0/6 | 0.0 |
+| matricaria discoidea | 0.0 | 0/4 | 0.0 |
+| trifolium pratense | 0.0 | 0/12 | 0.0 |
+| capsicum baccatum | 0.0 | 0/5 | 0.0 |
+| athyrium silvicola | 0.0 | 0/3 | 0.0 |
+| carex sp | 0.0 | 0/7 | 0.0 |
+| ruta chalepensis | 0.0 | 0/5 | 0.0 |
+| malva arborea | 0.0 | 0/8 | 0.0 |
+| ricinus communis | 0.0 | 0/4 | 0.0 |
+| verbascum sinaiticum | 0.0 | 0/2 | 0.0 |
+| anisophyllea guianensis | 0.0 | 0/1 | 0.0 |
+| dodonaea viscosa | 0.0 | 0/4 | 0.0 |
+| picea sitchensis | 0.0 | 0/4 | 0.0 |
+| juniperus deltoides | 0.0 | 0/23 | 0.0 |
+| lonicera cerviculata | 0.0 | 0/14 | 0.0 |
+| vicia parviflora | 0.0 | 0/21 | 0.0 |
+| croton triqueter | 0.0 | 0/1 | 0.0 |
+| rumex hastatus | 0.0 | 0/1 | 0.0 |
+| pseudoroegneria spicata | 0.0 | 0/9 | 0.0 |
+| melilotus officinalis | 0.0 | 0/4 | 0.0 |
+| grewia biloba | 0.0 | 0/4 | 0.0 |
+| silene gracilicaulis | 0.0 | 0/7 | 0.0 |
+| sisymbrium loeselii | 0.0 | 0/7 | 0.0 |
+| psidium guajava | 0.0 | 0/3 | 0.0 |
+| pinus contorta | 0.0 | 0/2 | 0.0 |
+| syzygium scortechinii | 0.0 | 0/1 | 0.0 |
+| festuca sinensis | 0.0 | 0/18 | 0.0 |
+| athyrium acutipinnulum | 0.0 | 0/13 | 0.0 |
+| myrica gale | 0.0 | 0/5 | 0.0 |
+| frangula alnus | 0.0 | 0/13 | 0.0 |
+| rubus idaeus | 0.0 | 0/4 | 0.0 |
+| colchicum autumnale | 0.0 | 0/4 | 0.0 |
+| lithocarpus yongfuensis | 0.0 | 0/1 | 0.0 |
+| poa annua | 0.0 | 0/8 | 0.0 |
+| hepatica nobilis | 0.0 | 0/7 | 0.0 |
+| glycine soja | 0.0 | 0/4 | 0.0 |
+| brunfelsia brasiliensis | 0.0 | 0/1 | 0.0 |
+| eurya alata | 0.0 | 0/7 | 0.0 |
+| matthiola fruticulosa | 0.0 | 0/1 | 0.0 |
+| hovenia trichocarpa | 0.0 | 0/7 | 0.0 |
+| lactuca sativa | 0.0 | 0/1 | 0.0 |
+| solidago multiradiata | 0.0 | 0/9 | 0.0 |
+| silphiodaucus prutenicus | 0.0 | 0/5 | 0.0 |
+| allium schoenoprasum | 0.0 | 0/1 | 0.0 |
+| juglans regia | 0.0 | 0/1 | 0.0 |
+| ehretia acuminata | 0.0 | 0/4 | 0.0 |
+| cryptomeria japonica | 0.0 | 0/4 | 0.0 |
+| tovarochloa peruviana | 0.0 | 0/4 | 0.0 |
+| bromus carinatus | 0.0 | 0/1 | 0.0 |
+| carex rossii | 0.0 | 0/2 | 0.0 |
+| pseudophleum gibbum | 0.0 | 0/5 | 0.0 |
+| rhamnus purpurea | 0.0 | 0/4 | 0.0 |
+| salvia tuerckheimii | 0.0 | 0/1 | 0.0 |
+| vaccinium uliginosum | 0.0 | 0/11 | 0.0 |
+| platanus x | 0.0 | 0/1 | 0.0 |
+| ximenia americana | 0.0 | 0/1 | 0.0 |
+| streptophyta clone | 0.0 | 0/1 | 0.0 |
+| scilla verna | 0.0 | 0/2 | 0.0 |
+| indigofera sp | 0.0 | 0/4 | 0.0 |
+| syzygium longiflorum | 0.0 | 0/1 | 0.0 |
+| kalanchoe prasina | 0.0 | 0/2 | 0.0 |
+| coffea eugenioides | 0.0 | 0/3 | 0.0 |
+| rosa abyssinica | 0.0 | 0/3 | 0.0 |
+| celtis africana | 0.0 | 0/2 | 0.0 |
+| strumaria phonolithica | 0.0 | 0/1 | 0.0 |
+| justicia gendarussa | 0.0 | 0/3 | 0.0 |
+| mandevilla spigeliiflora | 0.0 | 0/3 | 0.0 |
+| citrus maxima | 0.0 | 0/1 | 0.0 |
+| agrostis scabra | 0.0 | 0/5 | 0.0 |
+| vicia faba | 0.0 | 0/1 | 0.0 |
+| xanthium strumarium | 0.0 | 0/2 | 0.0 |
+| carex pallescens | 0.0 | 0/8 | 0.0 |
+| verbena bracteata | 0.0 | 0/2 | 0.0 |
+| syringa vulgaris | 0.0 | 0/1 | 0.0 |
+| ulmus pumila | 0.0 | 0/1 | 0.0 |
+| zingiber zerumbet | 0.0 | 0/2 | 0.0 |
+| valeriana sitchensis | 0.0 | 0/6 | 0.0 |
+| eugenia splendens | 0.0 | 0/1 | 0.0 |
+| aegopodium podagraria | 0.0 | 0/1 | 0.0 |
+| poa pratensis | 0.0 | 0/1 | 0.0 |
+| satureja montana | 0.0 | 0/1 | 0.0 |
+| solanum ferocissimum | 0.0 | 0/7 | 0.0 |
+| eruca vesicaria | 0.0 | 0/1 | 0.0 |
+| nigella sativa | 0.0 | 0/1 | 0.0 |
+| momordica foetida | 0.0 | 0/4 | 0.0 |
+| myrothamnus flabellifolius | 0.0 | 0/2 | 0.0 |
+| brassica oleracea | 0.0 | 0/1 | 0.0 |
+| dioscorea japonica | 0.0 | 0/1 | 0.0 |
+| oryza sativa | 0.0 | 0/1 | 0.0 |
+| camellia sinensis | 0.0 | 0/1 | 0.0 |
+| calamagrostis epigejos | 0.0 | 0/1 | 0.0 |
+| carica papaya | 0.0 | 0/2 | 0.0 |
+| zanthoxylum chalybeum | 0.0 | 0/2 | 0.0 |
+| ricinodendron heudelotii | 0.0 | 0/1 | 0.0 |
+| ocimum basilicum | 0.0 | 0/1 | 0.0 |
+| jasminum mesnyi | 0.0 | 0/1 | 0.0 |
+| ziziphus jujuba | 0.0 | 0/1 | 0.0 |
+| trigonella foenum | 0.0 | 0/1 | 0.0 |
+| cicer reticulatum | 0.0 | 0/1 | 0.0 |
+| helinus mystacinus | 0.0 | 0/1 | 0.0 |
+| betula fruticosa | 0.0 | 0/96 | 0.0 |
+| quercus sp | 0.0 | 0/39 | 0.0 |
+| pinus mugo | 0.0 | 0/84 | 0.0 |
+| populus simonii | 0.0 | 0/77 | 0.0 |
+| vaccinium myrtillus | 0.0 | 0/93 | 0.0 |
+| vaccinium vitis | 0.0 | 0/75 | 0.0 |
+| cochlearia environmental | 0.0 | 0/41 | 0.0 |
+| periballia involucrata | 0.0 | 0/49 | 0.0 |
+
+## Interpretation
+- **Δrank > 0**: species moved UP (interaction partners co-detected in same sample)
+- **Δrank < 0**: species moved DOWN (relatively less community support)
+- Score combines BiotXplorer text-mined evidence + GloBI database pairs

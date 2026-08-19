@@ -42,6 +42,9 @@ venv.bak/
 .ipynb_checkpoints
 *.ipynb
 
+# Local OTT resolver index (rebuilt from ott_v3.7.2.json; ~300MB)
+experiments/knowledge_graph/ott_local_index.pkl
+
 # Model files (too large for git)
 models/*.pkl
 models/*.h5
@@ -89,10 +92,7 @@ credentials.json
 Thumbs.db
 
 # Old versions (keep only current in src/)
-*[0-9].py
-*_old.py
-*_backup.py
-*_test.py
+# (removed *[0-9].py etc — they hid 14 real source files incl. train_biobert_v7.py)
 apitryout.py
 archive_old_files/*.txt
 
@@ -121,9 +121,15 @@ globi-relax_passages-triplets_2024-02-28_curation_EP.tsv
 data/evaluation/*.csv
 data/evaluation/*.xlsx
 data/processed/*.csv
+# Exceptions: final test set + its raw synthetic-source inputs (small, needed for reproducibility)
+!data/evaluation/biotic_interaction_test_set.csv
+!data/evaluation/gen_set_100.csv
+!data/evaluation/gen_set_150_extension_kept97.csv
 
-# Figures (generated)
-figures/
+# Figures (generated) — top-level dir only, not manuscript/figures/
+/figures/
+!manuscript/figures/
+!manuscript/figures/*.png
 
 # Manuscript build outputs
 manuscript/*.aux
@@ -164,3 +170,12 @@ results/reports/
 # Presentation materials
 presentation/
 data/training/curation.db
+
+# V1 freeze archive — physical checkpoint backup, never in git
+archive/v1_freeze/models/
+archive/v1_freeze/api_distilled.tail.log
+
+# Large local indices (rebuildable)
+data/processed/*.sqlite
+data/geonames/
+experiments/knowledge_graph/results/tier3/spert_model/

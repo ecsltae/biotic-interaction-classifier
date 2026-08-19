@@ -349,15 +349,19 @@ def main():
                         help="Override results directory")
     parser.add_argument("--student-model", type=str, default=None,
                         help="HuggingFace model ID or local path for student (default: BiomedBERT-base)")
+    parser.add_argument("--soft-labels-path", type=str, default=None,
+                        help="Override the soft-labels CSV path (default: distillation_soft_labels.csv)")
     args = parser.parse_args()
 
-    global STUDENT_DIR, RESULTS_DIR, STUDENT_BASE
+    global STUDENT_DIR, RESULTS_DIR, STUDENT_BASE, SOFT_LABELS
     if args.output_dir:
         STUDENT_DIR = Path(args.output_dir)
     if args.results_dir:
         RESULTS_DIR = Path(args.results_dir)
     if args.student_model:
         STUDENT_BASE = args.student_model
+    if args.soft_labels_path:
+        SOFT_LABELS = Path(args.soft_labels_path)
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     print(f"Device: {DEVICE}", flush=True)

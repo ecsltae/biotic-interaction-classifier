@@ -1,0 +1,11 @@
+{
+  "@context": {
+    "@vocab": "http://purl.obolibrary.org/obo/",
+    "subject": "@id",
+    "object": "@id",
+    "predicate": "@type",
+    "directed": "schema:direction",
+    "confidence": "schema:certainty"
+  },
+  "@graph": []
+}

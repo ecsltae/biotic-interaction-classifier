@@ -8,6 +8,7 @@ Supports batch predictions
 import torch
 import numpy as np
 import re
+from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -206,6 +207,125 @@ async def predict_batch_endpoint(request: BatchPredictionRequest):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+# ---------------------------------------------------------------------------
+# Trust scoring endpoint
+# ---------------------------------------------------------------------------
+
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from src.data.trust_scorer import TrustScorer as _TrustScorer
+
+_trust_scorer: "_TrustScorer | None" = None
+
+def _get_trust_scorer() -> "_TrustScorer":
+    global _trust_scorer
+    if _trust_scorer is None:
+        _trust_scorer = _TrustScorer()
+    return _trust_scorer
+
+
+class TrustScoreRequest(BaseModel):
+    text: str
+    species1: str = ""
+    species2: str = ""
+    interaction_type: str = ""
+    pub_year: int | None = None
+
+
+@app.post("/trust_score")
+async def trust_score(request: TrustScoreRequest):
+    """Score the credibility/trust of an interaction claim.
+
+    Returns a composite trust score (0–1) decomposed into:
+    temporal decay, evidence type, contradiction risk, and GloBI confirmation.
+    """
+    try:
+        scorer = _get_trust_scorer()
+        result = scorer.score(
+            text=request.text,
+            species1=request.species1,
+            species2=request.species2,
+            interaction_type=request.interaction_type,
+            pub_year=request.pub_year,
+        )
+        return result.to_dict()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ── /kg endpoint ──────────────────────────────────────────────────────────────
+
+_kg_builder_mod = None
+
+def _get_kg_builder():
+    global _kg_builder_mod
+    if _kg_builder_mod is None:
+        import importlib.util, sys
+        kg_path = Path(__file__).resolve().parents[1] / "experiments/knowledge_graph/kg_builder.py"
+        spec = importlib.util.spec_from_file_location("kg_builder", kg_path)
+        mod  = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        _kg_builder_mod = mod
+    return _kg_builder_mod
+
+
+class KGRequest(BaseModel):
+    sentences: List[str]
+    doi: str = ""
+    entities: List[List[dict]] = []   # optional pre-extracted entities per sentence
+
+
+@app.post("/kg")
+async def build_kg(request: KGRequest):
+    """
+    Build typed directed KG edges from a list of sentences.
+
+    For each sentence: runs binary classification, then infers typed directed/undirected
+    KG edge using ROBI heuristics + robiext_v2025 ontology.
+
+    Returns list of edges: subject, predicate, object, directed, ro_id, confidence, flag.
+    """
+    try:
+        mod = _get_kg_builder()
+        kg  = mod.KnowledgeGraph()
+
+        for i, sentence in enumerate(request.sentences):
+            preds, probs = predict_batch([sentence])
+            confidence = float(probs[0])
+
+            # Use pre-supplied entities if provided, else empty (NER not available in port 8001)
+            ents = request.entities[i] if i < len(request.entities) else []
+
+            kg.add_from_api_response({
+                "entities":         ents,
+                "interaction_type": "",   # no interaction_type at port 8001; enrich at port 8002
+                "confidence":       confidence,
+                "sentence":         sentence,
+                "doi":              request.doi,
+            })
+
+        kg.merge_edges()
+        edges = []
+        for e in kg.edges:
+            edges.append({
+                "subject":         e.subject.text or e.subject.normalized,
+                "subject_type":    e.subject.entity_type,
+                "predicate":       e.predicate,
+                "object":          e.object.text or e.object.normalized,
+                "object_type":     e.object.entity_type,
+                "directed":        e.directed,
+                "ro_id":           e.ro_id,
+                "confidence":      round(e.confidence, 4),
+                "n_sources":       e.n_sources,
+                "flag":            e.flag,
+            })
+        return {"edges": edges, "stats": kg.stats()}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 if __name__ == "__main__":
     import socket

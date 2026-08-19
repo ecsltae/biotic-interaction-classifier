@@ -1,0 +1,5 @@
+species,avg_delta_rank,n_samples,n_samples_boosted,avg_biotxplorer_score
+autographa gamma,0.0,1,0,0.0
+castanea mollissima,0.0,68,0,0.0
+angiosperm mycorrhizal,0.0,43,0,0.0
+quercus variabilis,0.0,42,0,0.0

@@ -231,4 +231,4 @@ POST /predict_batch
 
 ## Contact
 
-esteban.gaillac@hesge.ch
+[contact details removed for anonymous review]

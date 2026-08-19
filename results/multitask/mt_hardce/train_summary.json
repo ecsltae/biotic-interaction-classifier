@@ -1,0 +1,37 @@
+{
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full_typed",
+  "alpha": 0.5,
+  "temperature": 2.0,
+  "soft_labels": "/nonexistent",
+  "epochs": 3,
+  "pretrain_ner_epochs": 2,
+  "best_val_cls_f1": 0.6707920792079208,
+  "best_threshold": 0.3600000000000001,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.09330492204984832,
+      "cls_f1": 0.6157697121401752,
+      "cls_prec": 0.6275510204081632,
+      "cls_rec": 0.6044226044226044,
+      "ner_f1": 0.9657393096342092
+    },
+    {
+      "epoch": 2,
+      "loss": 0.10805168677674479,
+      "cls_f1": 0.6529680365296804,
+      "cls_prec": 0.6098081023454158,
+      "cls_rec": 0.7027027027027027,
+      "ner_f1": 0.9729941036583379
+    },
+    {
+      "epoch": 3,
+      "loss": 0.13011078849334617,
+      "cls_f1": 0.6707920792079208,
+      "cls_prec": 0.6758104738154613,
+      "cls_rec": 0.6658476658476659,
+      "ner_f1": 0.9726502936119131
+    }
+  ]
+}

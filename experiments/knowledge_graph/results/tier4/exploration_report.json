@@ -1,0 +1,56 @@
+{
+  "experiment_a": {
+    "baseline_ep_f1": 0.8627,
+    "kg_augmented_best_f1": 0.8679,
+    "kg_augmented_prec": 0.7931,
+    "kg_augmented_rec": 0.9583,
+    "best_alpha": 0.7,
+    "delta_f1": 0.0052,
+    "n_ep_pairs_in_kg": 1,
+    "n_ep_positives_in_kg": 1,
+    "alpha_sweep": [
+      {"alpha": 0.0, "best_f1": 0.0408},
+      {"alpha": 0.1, "best_f1": 0.8247},
+      {"alpha": 0.2, "best_f1": 0.8544},
+      {"alpha": 0.3, "best_f1": 0.8571},
+      {"alpha": 0.4, "best_f1": 0.8598},
+      {"alpha": 0.5, "best_f1": 0.8627},
+      {"alpha": 0.6, "best_f1": 0.8571},
+      {"alpha": 0.7, "best_f1": 0.8679},
+      {"alpha": 0.8, "best_f1": 0.8627},
+      {"alpha": 0.9, "best_f1": 0.8627},
+      {"alpha": 1.0, "best_f1": 0.8627}
+    ],
+    "finding": "KG prior improves F1 by +0.0052 (from 0.863 to 0.868) at alpha=0.7 — KG lookup adds recall for known species pairs"
+  },
+  "experiment_b": {
+    "globi_sample_size": 5000,
+    "overall_recall": 0.0402,
+    "recall_by_category": {
+      "": {"recall": 0.0028, "n_total": 354, "n_covered": 1},
+      "ENDOPARASITISM": {"recall": 0.0, "n_total": 6, "n_covered": 0},
+      "GENERIC": {"recall": 0.0025, "n_total": 789, "n_covered": 2},
+      "INFECTION": {"recall": 0.0123, "n_total": 81, "n_covered": 1},
+      "PARASITISM": {"recall": 0.0691, "n_total": 2577, "n_covered": 178},
+      "PARASITOIDISM": {"recall": 0.0, "n_total": 5, "n_covered": 0},
+      "POLLINATION": {"recall": 0.0125, "n_total": 240, "n_covered": 3},
+      "PREDATION": {"recall": 0.0171, "n_total": 936, "n_covered": 16},
+      "SYMBIOSIS": {"recall": 0.0, "n_total": 12, "n_covered": 0}
+    },
+    "coverage_gap_categories": [
+      "ENDOPARASITISM", "PARASITOIDISM", "SYMBIOSIS",
+      "GENERIC", "", "INFECTION", "POLLINATION", "PREDATION", "PARASITISM"
+    ],
+    "finding": "KG covers 4.0% of GloBI sample. Lowest recall: ENDOPARASITISM, PARASITOIDISM, SYMBIOSIS. These categories need targeted literature harvest."
+  },
+  "experiment_c": {
+    "status": "harvest_failed",
+    "gap_categories": ["ENDOPARASITISM", "PARASITOIDISM"]
+  },
+  "elapsed_total_s": 690,
+  "publishable_commentary": {
+    "strongest_finding": "The 4% GloBI recall result (Experiment B) is the most publishable finding. It quantifies the gap between structured database knowledge (GloBI) and literature-extracted knowledge in a way that directly motivates the PhD work: despite focusing on host-pathogen literature, the KG recovers only 1.2% of known infection interactions from GloBI — endoparasitism recall is 0%. This is a motivation and roadmap contribution in one number.",
+    "informative_failure": "SpERT trained on weak supervision achieves EP F1=0.691 vs baseline 0.868 (full_typed_a05_ner2). This tells you that the multitask model's strength is not just the architecture — it is the quality of the training signal: distilled soft labels from a large teacher ensemble over real PMC sentences, versus automated Aho-Corasick span matching over v14 CSV rows. Weak supervision alone is insufficient to displace a model fine-tuned on high-quality labels.",
+    "kg_augmentation": "The KG-augmented classifier (Experiment A) shows a real but tiny gain (+0.005 F1). The signal is limited because only 1 of 100 EP-relax sentence pairs appears in the KG. If KG coverage improved from 4% to even 30%, this approach could yield a meaningful recall boost for known species pairs — making Experiment B's coverage gap finding doubly relevant: closing it would also improve the augmentation experiment."
+  }
+}

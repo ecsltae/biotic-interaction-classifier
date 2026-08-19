@@ -1,0 +1,450 @@
+{
+  "SRR15011441": [
+    {
+      "species": "malus domestica",
+      "reads": 788114,
+      "original_rank": 1,
+      "biotxplorer_score": 2.5817,
+      "biotxplorer_support": 4,
+      "biotxplorer_partners": [
+        "pyrus communis (has host, interacts with, contributes to, affecting, host of)",
+        "malus sieversii (contaminated by)",
+        "malus sylvestris (infested by)",
+        "pyrus pyrifolia (pollinates, regulates)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2822800.8981,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "brassica oleracea",
+      "reads": 162967,
+      "original_rank": 8,
+      "biotxplorer_score": 10.0254,
+      "biotxplorer_support": 6,
+      "biotxplorer_partners": [
+        "pyrus communis (pathogen of)",
+        "brassica napus (feed on, infested by, regulates, interacts with, pathogen of, depends on, eats, ingested by, contaminated by, affected by, contributes to, has contaminated, pollinates, affecting)",
+        "brassica rapa (parasitized by, invaded, affecting, host of, attracts, pathogen of, infested by, interacts with, depends on, contaminated by, contributes to, pollinates, feed on, regulates, exposed to, eats, ingested by, affected by, has contaminated, regulated by)",
+        "daucus carota (feed on, infested by, regulates, interacts with, exposed to, pathogen of, eats, contaminated by, visits, affected by, has contaminated, affecting, is eaten by)",
+        "brassica nigra (infested by)",
+        "coriandrum sativum (has contaminated, pathogen of, contributes to)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1796772.6729,
+      "new_rank": 2,
+      "delta_rank": 6
+    },
+    {
+      "species": "brassica napus",
+      "reads": 336979,
+      "original_rank": 3,
+      "biotxplorer_score": 4.0489,
+      "biotxplorer_support": 6,
+      "biotxplorer_partners": [
+        "gossypium hirsutum (regulates)",
+        "brassica rapa (kills, infested by, regulates, migrates with, exposed to, pathogen of, depends on, visited by, has host, invaded, pollinates)",
+        "daucus carota (eats)",
+        "brassica nigra (exposed to)",
+        "coriandrum sativum (pollinates)",
+        "brassica oleracea (feed on, infested by, regulates, interacts with, pathogen of, depends on, eats, ingested by, contaminated by, affected by, contributes to, has contaminated, pollinates, affecting)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1701377.9269,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "pyrus communis",
+      "reads": 173409,
+      "original_rank": 5,
+      "biotxplorer_score": 4.8269,
+      "biotxplorer_support": 6,
+      "biotxplorer_partners": [
+        "prunus avium (regulates, positively regulates, contributes to)",
+        "pyrus calleryana (invaded, host of, pathogen of, migrates with)",
+        "daucus carota (regulates, pathogen of, eats)",
+        "pyrus pyrifolia (regulates, interacts with, directly positively regulates quantity of, exposed to, colocalizes with, pathogen of, affected by, contributes to, pollinates, affecting, regulated by)",
+        "malus domestica (has host, interacts with, contributes to, affecting, host of)",
+        "brassica oleracea (pathogen of)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1010429.3687,
+      "new_rank": 4,
+      "delta_rank": 1
+    },
+    {
+      "species": "malus sylvestris",
+      "reads": 200156,
+      "original_rank": 4,
+      "biotxplorer_score": 1.1796,
+      "biotxplorer_support": 1,
+      "biotxplorer_partners": [
+        "malus domestica (infested by)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 436251.1218,
+      "new_rank": 5,
+      "delta_rank": -1
+    },
+    {
+      "species": "rosa tomentosa",
+      "reads": 343217,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 343217.0,
+      "new_rank": 6,
+      "delta_rank": -4
+    },
+    {
+      "species": "prunus avium",
+      "reads": 169321,
+      "original_rank": 7,
+      "biotxplorer_score": 0.9429,
+      "biotxplorer_support": 3,
+      "biotxplorer_partners": [
+        "pyrus communis (regulates, positively regulates, contributes to)",
+        "pyrus pyrifolia (regulates)",
+        "malus sp (ingested by)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 328979.6536,
+      "new_rank": 7,
+      "delta_rank": 0
+    },
+    {
+      "species": "malus sp",
+      "reads": 150096,
+      "original_rank": 9,
+      "biotxplorer_score": 0.2822,
+      "biotxplorer_support": 1,
+      "biotxplorer_partners": [
+        "prunus avium (ingested by)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 192456.4267,
+      "new_rank": 8,
+      "delta_rank": 1
+    },
+    {
+      "species": "pyrus uyematsuana",
+      "reads": 172947,
+      "original_rank": 6,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 172947.0,
+      "new_rank": 9,
+      "delta_rank": -3
+    },
+    {
+      "species": "ligustrum ovalifolium",
+      "reads": 138354,
+      "original_rank": 10,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 138354.0,
+      "new_rank": 10,
+      "delta_rank": 0
+    },
+    {
+      "species": "brassica rapa",
+      "reads": 23360,
+      "original_rank": 14,
+      "biotxplorer_score": 2.483,
+      "biotxplorer_support": 4,
+      "biotxplorer_partners": [
+        "brassica carinata (contaminated by)",
+        "brassica napus (kills, infested by, regulates, migrates with, exposed to, pathogen of, depends on, visited by, has host, invaded, pollinates)",
+        "daucus carota (feed on, regulates)",
+        "brassica oleracea (parasitized by, invaded, affecting, host of, attracts, pathogen of, infested by, interacts with, depends on, contaminated by, contributes to, pollinates, feed on, regulates, exposed to, eats, ingested by, affected by, has contaminated, regulated by)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 81362.0196,
+      "new_rank": 11,
+      "delta_rank": 3
+    },
+    {
+      "species": "pyrus pyrifolia",
+      "reads": 18375,
+      "original_rank": 19,
+      "biotxplorer_score": 3.0405,
+      "biotxplorer_support": 3,
+      "biotxplorer_partners": [
+        "prunus avium (regulates)",
+        "pyrus communis (regulates, interacts with, directly positively regulates quantity of, exposed to, colocalizes with, pathogen of, affected by, contributes to, pollinates, affecting, regulated by)",
+        "malus domestica (pollinates, regulates)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 74243.3698,
+      "new_rank": 12,
+      "delta_rank": 7
+    },
+    {
+      "species": "robinia pseudoacacia",
+      "reads": 37094,
+      "original_rank": 11,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 37094.0,
+      "new_rank": 13,
+      "delta_rank": -2
+    },
+    {
+      "species": "brassica nigra",
+      "reads": 16830,
+      "original_rank": 20,
+      "biotxplorer_score": 1.0346,
+      "biotxplorer_support": 2,
+      "biotxplorer_partners": [
+        "brassica napus (exposed to)",
+        "brassica oleracea (infested by)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 34243.1283,
+      "new_rank": 14,
+      "delta_rank": 6
+    },
+    {
+      "species": "daucus carota",
+      "reads": 3194,
+      "original_rank": 31,
+      "biotxplorer_score": 8.4016,
+      "biotxplorer_support": 5,
+      "biotxplorer_partners": [
+        "pyrus communis (regulates, pathogen of, eats)",
+        "brassica napus (eats)",
+        "brassica rapa (feed on, regulates)",
+        "coriandrum sativum (has contaminated, affected by, contributes to)",
+        "brassica oleracea (feed on, infested by, regulates, interacts with, exposed to, pathogen of, eats, contaminated by, visits, affected by, has contaminated, affecting, is eaten by)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 30028.6199,
+      "new_rank": 15,
+      "delta_rank": 16
+    },
+    {
+      "species": "gossypium hirsutum",
+      "reads": 21718,
+      "original_rank": 16,
+      "biotxplorer_score": 0.3649,
+      "biotxplorer_support": 1,
+      "biotxplorer_partners": [
+        "brassica napus (regulates)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 29642.6569,
+      "new_rank": 16,
+      "delta_rank": 0
+    },
+    {
+      "species": "pterocypsela elata",
+      "reads": 29587,
+      "original_rank": 12,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 29587.0,
+      "new_rank": 17,
+      "delta_rank": -5
+    },
+    {
+      "species": "viburnum glomeratum",
+      "reads": 25813,
+      "original_rank": 13,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25813.0,
+      "new_rank": 18,
+      "delta_rank": -5
+    },
+    {
+      "species": "rosa lucieae",
+      "reads": 21855,
+      "original_rank": 15,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 21855.0,
+      "new_rank": 19,
+      "delta_rank": -4
+    },
+    {
+      "species": "pyrus amygdaliformis",
+      "reads": 19489,
+      "original_rank": 17,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 19489.0,
+      "new_rank": 20,
+      "delta_rank": -3
+    },
+    {
+      "species": "ligustrum sinense",
+      "reads": 18528,
+      "original_rank": 18,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 18528.0,
+      "new_rank": 21,
+      "delta_rank": -3
+    },
+    {
+      "species": "rosa spinosissima",
+      "reads": 15190,
+      "original_rank": 21,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15190.0,
+      "new_rank": 22,
+      "delta_rank": -1
+    },
+    {
+      "species": "youngia erythrocarpa",
+      "reads": 14217,
+      "original_rank": 22,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14217.0,
+      "new_rank": 23,
+      "delta_rank": -1
+    },
+    {
+      "species": "ilex aculeolata",
+      "reads": 13265,
+      "original_rank": 23,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13265.0,
+      "new_rank": 24,
+      "delta_rank": -1
+    },
+    {
+      "species": "oreocarya subretusa",
+      "reads": 12961,
+      "original_rank": 24,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12961.0,
+      "new_rank": 25,
+      "delta_rank": -1
+    },
+    {
+      "species": "brassica carinata",
+      "reads": 10620,
+      "original_rank": 25,
+      "biotxplorer_score": 0.1935,
+      "biotxplorer_support": 1,
+      "biotxplorer_partners": [
+        "brassica rapa (contaminated by)"
+      ],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12675.4358,
+      "new_rank": 26,
+      "delta_rank": -1
+    },
+    {
+      "species": "sinosenecio oldhamianus",
+      "reads": 9389,
+      "original_rank": 26,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9389.0,
+      "new_rank": 27,
+      "delta_rank": -1
+    },
+    {
+      "species": "rosa arkansana",
+      "reads": 8861,
+      "original_rank": 27,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8861.0,
+      "new_rank": 28,
+      "delta_rank": -1
+    },
+    {
+      "species": "syringa vulgaris",
+      "reads": 5977,
+      "original_rank": 28,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5977.0,
+      "new_rank": 29,
+      "delta_rank": -1
+    },
+    {
+      "species": "capsella bursa",
+      "reads": 5841,
+      "original_rank": 29,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5841.0,
+      "new_rank": 30,
+      "delta_rank": -1
+    }
+  ]
+}

@@ -61,8 +61,18 @@ from data.interaction_taxonomy import (                       # noqa: E402
 from models.flan_t5_enriched import build_prompt, get_yes_no_ids  # noqa: E402
 from data.ott_lookup import lookup as ott_lookup, preload as ott_preload  # noqa: E402
 from utils.outcome_codes import synthesize_outcome            # noqa: E402
+from data.trust_scorer import TrustScorer as _TrustScorer    # noqa: E402
 
 logger = logging.getLogger(__name__)
+
+_trust_scorer: Optional["_TrustScorer"] = None
+
+
+def _get_trust_scorer() -> "_TrustScorer":
+    global _trust_scorer
+    if _trust_scorer is None:
+        _trust_scorer = _TrustScorer()
+    return _trust_scorer
 
 # ---------------------------------------------------------------------------
 # Config (same model paths as port 8001 — read-only, no shared state)
@@ -164,6 +174,7 @@ def extract_species(text: str) -> List[dict]:
 
 class PredictRequest(BaseModel):
     text: str
+    doi: Optional[str] = None  # optional DOI for trust scoring
 
 
 class SpeciesEntity(BaseModel):
@@ -196,6 +207,9 @@ class PipelinePredictionResponse(BaseModel):
     # Layer 4: Outcome
     outcome_code: str
     reasoning: str
+
+    # Layer 5: Trust (optional — present when species found or doi provided)
+    trust: Optional[dict] = None
 
 
 class BatchPredictRequest(BaseModel):
@@ -352,7 +366,7 @@ def _ml_predict(
     return np.sum(all_weighted_probs, axis=0).tolist()
 
 
-def _run_pipeline(text: str, prob: float) -> PipelinePredictionResponse:
+def _run_pipeline(text: str, prob: float, doi: Optional[str] = None) -> PipelinePredictionResponse:
     """Run all pipeline layers for a single sentence given an ML probability.
 
     Note: prob is already computed by _ml_predict() using the enriched prompt
@@ -400,6 +414,21 @@ def _run_pipeline(text: str, prob: float) -> PipelinePredictionResponse:
 
     label = "interaction" if prob >= ML_THRESHOLD else "no_interaction"
 
+    # Layer 5: Trust scoring (inline — no inter-service call)
+    trust_dict: Optional[dict] = None
+    if species_names or doi:
+        try:
+            sp1 = species_names[0] if len(species_names) > 0 else ""
+            sp2 = species_names[1] if len(species_names) > 1 else ""
+            itype = cat or ""
+            trust_result = _get_trust_scorer().score(
+                text=text, species1=sp1, species2=sp2,
+                interaction_type=itype, doi=doi,
+            )
+            trust_dict = trust_result.to_dict()
+        except Exception as _te:
+            logger.warning("Trust scoring failed: %s", _te)
+
     return PipelinePredictionResponse(
         text=text,
         label=label,
@@ -412,6 +441,7 @@ def _run_pipeline(text: str, prob: float) -> PipelinePredictionResponse:
         interaction_category=cat,
         outcome_code=code,
         reasoning=reasoning,
+        trust=trust_dict,
     )
 
 
@@ -474,7 +504,7 @@ def predict(request: PredictRequest):
     species_str = ", ".join(s["text"] for s in species_raw) or "none"
     terms_str   = ", ".join(matched_globi) or "none"
     probs = _ml_predict([text], [species_str], [terms_str])
-    return _run_pipeline(text, probs[0])
+    return _run_pipeline(text, probs[0], doi=request.doi)
 
 
 @app.post("/predict_batch", response_model=BatchPredictionResponse)
@@ -494,6 +524,114 @@ def predict_batch(request: BatchPredictRequest):
         for text, prob in zip(request.sentences, probs)
     ]
     return BatchPredictionResponse(predictions=results)
+
+
+# ---------------------------------------------------------------------------
+# /kg endpoint — typed directed KG edges from NER + interaction_category
+# ---------------------------------------------------------------------------
+
+_kg_builder_mod = None
+
+def _get_kg_builder():
+    global _kg_builder_mod
+    if _kg_builder_mod is None:
+        import importlib.util
+        kg_path = (
+            Path(__file__).resolve().parents[1]
+            / "experiments/knowledge_graph/kg_builder.py"
+        )
+        spec = importlib.util.spec_from_file_location("kg_builder", kg_path)
+        mod  = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        _kg_builder_mod = mod
+    return _kg_builder_mod
+
+
+class KGRequest(BaseModel):
+    sentences: List[str]
+    doi: str = ""
+    min_confidence: float = 0.0
+
+
+class KGEdgeOut(BaseModel):
+    subject: str
+    subject_type: str
+    predicate: str
+    object: str
+    object_type: str
+    directed: bool
+    ro_id: Optional[str]
+    confidence: float
+    n_sources: int
+    flag: Optional[str]
+
+
+class KGResponse(BaseModel):
+    edges: List[KGEdgeOut]
+    stats: dict
+
+
+@app.post("/kg", response_model=KGResponse)
+def build_kg(request: KGRequest):
+    """
+    Build typed directed KG edges from sentences using the full enriched pipeline.
+
+    For each sentence:
+      - Layer 1 NER extracts species entities
+      - ML layer produces interaction probability
+      - interaction_category from GloBI/lexicon provides predicate hint
+      - kg_builder.RelationMapper infers directed/undirected edge with ROBI validation
+
+    Returns deduplicated edges with confidence = mean ML score across all supporting sentences.
+    """
+    mod = _get_kg_builder()
+    kg  = mod.KnowledgeGraph()
+
+    for sentence in request.sentences:
+        # Run full pipeline to get NER + category + probability
+        species_raw   = extract_species(sentence)
+        matched_globi = scan_globi_terms(sentence)
+        species_str   = ", ".join(s["text"] for s in species_raw) or "none"
+        terms_str     = ", ".join(matched_globi) or "none"
+        prob          = _ml_predict([sentence], [species_str], [terms_str])[0]
+
+        if prob < request.min_confidence:
+            continue
+
+        # interaction_category from _run_pipeline (no second ML call — reuse prob)
+        resp = _run_pipeline(sentence, prob)
+
+        # Convert SpeciesEntity list → kg_builder entity dicts
+        entities = [
+            {"text": s.text, "type": "ORGANISM", "kingdom": None}
+            for s in resp.species
+        ]
+
+        kg.add_from_api_response({
+            "entities":         entities,
+            "interaction_type": resp.interaction_category or "",
+            "confidence":       prob,
+            "sentence":         sentence,
+            "doi":              request.doi,
+        })
+
+    kg.merge_edges()
+    edges = [
+        KGEdgeOut(
+            subject      = e.subject.text or e.subject.normalized,
+            subject_type = e.subject.entity_type,
+            predicate    = e.predicate,
+            object       = e.object.text or e.object.normalized,
+            object_type  = e.object.entity_type,
+            directed     = e.directed,
+            ro_id        = e.ro_id,
+            confidence   = round(e.confidence, 4),
+            n_sources    = e.n_sources,
+            flag         = e.flag,
+        )
+        for e in kg.edges
+    ]
+    return KGResponse(edges=edges, stats=kg.stats())
 
 
 # ---------------------------------------------------------------------------

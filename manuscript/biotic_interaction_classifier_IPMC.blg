@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: biotic_interaction_classifier_IPMC.aux
+The style file: cas-model2-names.bst
+Database file #1: references.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty pages in hinton2015distilling
+Warning--empty pages in ramshaw1995text
+You've used 22 entries,
+            2990 wiz_defined-function locations,
+            876 strings with 11020 characters,
+and the built_in function-call counts, 17089 in all, are:
+= -- 1236
+> -- 860
+< -- 10
++ -- 330
+- -- 306
+* -- 1951
+:= -- 2493
+add.period$ -- 64
+call.type$ -- 22
+change.case$ -- 210
+chr.to.int$ -- 22
+cite$ -- 24
+duplicate$ -- 1207
+empty$ -- 1145
+format.name$ -- 372
+if$ -- 3152
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 247
+newline$ -- 123
+num.names$ -- 88
+pop$ -- 455
+preamble$ -- 1
+purify$ -- 189
+quote$ -- 0
+skip$ -- 372
+stack$ -- 0
+substring$ -- 659
+swap$ -- 933
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 195
+warning$ -- 2
+while$ -- 97
+width$ -- 0
+write$ -- 318
+(There were 2 warnings)

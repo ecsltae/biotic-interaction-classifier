@@ -1,0 +1,101 @@
+{
+  "row_count_check": {
+    "sum_of_5_sources": 500,
+    "final_assembled_test_set": 499,
+    "difference": 1,
+    "missing_sentences_sample": []
+  },
+  "exact_match": {
+    "distillation_44k (champion training data)": {
+      "n_exact_matches": 0,
+      "examples": []
+    },
+    "v7_template_corpus (single-task baseline training data)": {
+      "n_exact_matches": 0,
+      "examples": []
+    },
+    "v14_broader_corpus": {
+      "n_exact_matches": 2,
+      "examples": [
+        "Both light and electronmicroscopic studies of the duodenal villi of infected chickens during day 5 to day 6 postinfection revealed accumulation of large globules of fat in the villus epithelial cells parasitized by the gammonts of E. acervulina indicating a possible blackade of \"fat exit\" from these cells.",
+        "both light and electronmicroscopic studies of the duodenal villi of infected chickens during day 5 to day 6 postinfection revealed accumulation of large globules of fat in the villus epithelial cells parasitized by the gammonts of e acervulina indicating a possible blackade of fat exit from these cells"
+      ]
+    }
+  },
+  "near_duplicate": {
+    "distillation_44k (champion training data)": {
+      "n_near_duplicates": 4,
+      "examples": [
+        {
+          "test_sentence": "this study fit generalized linear models to atlantic bluefin tuna landings data collected from fishermens logbooks 19792005 as well as the distances between bluefin tuna schools and atlantic herring clupeaharengus a primary prey species to test alternative hypotheses for observed shifts in atlantic bluefin tuna availability in the gulf of maine",
+          "train_match": "This study fit generalized linear models to Atlantic bluefin tuna landings data collected from fishermen\u2019s logbooks (1979-2005) as well as the distances between bluefin tuna schools and Atlantic herring ( Clupea harengus ), a primary prey species, to test alternative hypotheses for observed shifts in Atlantic bluefin tuna availability in the Gulf of Maine.",
+          "similarity": 0.886
+        },
+        {
+          "test_sentence": "This study fit generalized linear models to Atlantic bluefin tuna landings data collected from fishermen's logbooks (1979-2005) as well as the distances between bluefin tuna schools and Atlantic herring (Clupeaharengus), a primary prey species, to test alternative hypotheses for observed shifts in Atlantic bluefin tuna availability in the Gulf of Maine.",
+          "train_match": "This study fit generalized linear models to Atlantic bluefin tuna landings data collected from fishermen\u2019s logbooks (1979-2005) as well as the distances between bluefin tuna schools and Atlantic herring ( Clupea harengus ), a primary prey species, to test alternative hypotheses for observed shifts in Atlantic bluefin tuna availability in the Gulf of Maine.",
+          "similarity": 0.9314
+        },
+        {
+          "test_sentence": "The most significant prey species were northern brown bandicoots (Isoodon macrourus), canefield rats (Rattus sordidus), and agile wallabies (Macropus agilis).",
+          "train_match": "The most significant prey species were northern brown bandicoots ( Isoodon macrourus ), canefield rats ( Rattus sordidus ), and agile wallabies ( Macropus agilis ).",
+          "similarity": 0.8554
+        },
+        {
+          "test_sentence": "Sarcocystis cruzi was identified by molecular methods from an intermediate host, cattle (Bos taurus), in El-Kharga, New Valley Governorate, Egypt, and its life cycle and pathogenicity were studied in the final host, dogs (Canis familiaris).",
+          "train_match": "Abstract Sarcocystis cruzi was identified by molecular methods from an intermediate host, cattle ( Bos taurus ), in El-Kharga, New Valley Governorate, Egypt, and its life cycle and pathogenicity were studied in the final host, dogs ( Canis familiaris ).",
+          "similarity": 0.9251
+        }
+      ]
+    },
+    "v7_template_corpus (single-task baseline training data)": {
+      "n_near_duplicates": 0,
+      "examples": []
+    },
+    "v14_broader_corpus": {
+      "n_near_duplicates": 4,
+      "examples": [
+        {
+          "test_sentence": "this study fit generalized linear models to atlantic bluefin tuna landings data collected from fishermens logbooks 19792005 as well as the distances between bluefin tuna schools and atlantic herring clupeaharengus a primary prey species to test alternative hypotheses for observed shifts in atlantic bluefin tuna availability in the gulf of maine",
+          "train_match": "This study fit generalized linear models to Atlantic bluefin tuna landings data collected from fishermen\u00e2\u0080\u0099s logbooks (1979-2005) as well as the distances between bluefin tuna schools and Atlantic herring ( Clupea harengus ), a primary prey species, to test alternative hypotheses for observed shifts in Atlantic bluefin tuna availability in the Gulf of Maine.",
+          "similarity": 0.9095
+        },
+        {
+          "test_sentence": "Both light and electronmicroscopic studies of the duodenal villi of infected chickens during day 5 to day 6 postinfection revealed accumulation of large globules of fat in the villus epithelial cells parasitized by the gammonts of E. acervulina indicating a possible blackade of \"fat exit\" from these cells.",
+          "train_match": "Both light and electronmicroscopic studies of the duodenal villi of infected chickens during day 5 to day 6 postinfection revealed accumulation of large globules of fat in the villus epithelial cells parasitized by the gammonts of E. acervulina indicating a possible blackade of \"fat exit\" from these cells.",
+          "similarity": 1.0
+        },
+        {
+          "test_sentence": "This study fit generalized linear models to Atlantic bluefin tuna landings data collected from fishermen's logbooks (1979-2005) as well as the distances between bluefin tuna schools and Atlantic herring (Clupeaharengus), a primary prey species, to test alternative hypotheses for observed shifts in Atlantic bluefin tuna availability in the Gulf of Maine.",
+          "train_match": "This study fit generalized linear models to Atlantic bluefin tuna landings data collected from fishermen\u00e2\u0080\u0099s logbooks (1979-2005) as well as the distances between bluefin tuna schools and Atlantic herring ( Clupea harengus ), a primary prey species, to test alternative hypotheses for observed shifts in Atlantic bluefin tuna availability in the Gulf of Maine.",
+          "similarity": 0.9422
+        },
+        {
+          "test_sentence": "both light and electronmicroscopic studies of the duodenal villi of infected chickens during day 5 to day 6 postinfection revealed accumulation of large globules of fat in the villus epithelial cells parasitized by the gammonts of e acervulina indicating a possible blackade of fat exit from these cells",
+          "train_match": "Both light and electronmicroscopic studies of the duodenal villi of infected chickens during day 5 to day 6 postinfection revealed accumulation of large globules of fat in the villus epithelial cells parasitized by the gammonts of E. acervulina indicating a possible blackade of \"fat exit\" from these cells.",
+          "similarity": 0.9491
+        }
+      ]
+    }
+  },
+  "taxon_pair_leakage": {
+    "EP-A": {
+      "n_test_pairs": 100,
+      "n_overlap_with_v7_template_pairs": 1,
+      "n_overlap_with_v14_pairs": 2,
+      "pct_overlap_v7": 1.0
+    },
+    "EP-passage": {
+      "n_test_pairs": 100,
+      "n_overlap_with_v7_template_pairs": 1,
+      "n_overlap_with_v14_pairs": 2,
+      "pct_overlap_v7": 1.0
+    },
+    "BioTx-random": {
+      "n_test_pairs": 100,
+      "n_overlap_with_v7_template_pairs": 0,
+      "n_overlap_with_v14_pairs": 1,
+      "pct_overlap_v7": 0.0
+    }
+  }
+}

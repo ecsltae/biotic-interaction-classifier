@@ -1,0 +1,208 @@
+\begin{thebibliography}{22}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Aho and Corasick(1975)}]{aho1975efficient}
+\bibinfo{author}{Aho, A.V.}, \bibinfo{author}{Corasick, M.J.},
+  \bibinfo{year}{1975}.
+\newblock \bibinfo{title}{Efficient string matching: An aid to bibliographic
+  search}.
+\newblock \bibinfo{journal}{Communications of the ACM} \bibinfo{volume}{18},
+  \bibinfo{pages}{333--340}.
+%Type = Inproceedings
+\bibitem[{Bucilu{\u{a}} et~al.(2006)Bucilu{\u{a}}, Caruana and
+  Niculescu-Mizil}]{bucilua2006model}
+\bibinfo{author}{Bucilu{\u{a}}, C.}, \bibinfo{author}{Caruana, R.},
+  \bibinfo{author}{Niculescu-Mizil, A.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Model compression}, in:
+  \bibinfo{booktitle}{Proceedings of the 12th ACM SIGKDD International
+  Conference on Knowledge Discovery and Data Mining (KDD)}, pp.
+  \bibinfo{pages}{535--541}.
+%Type = Article
+\bibitem[{Bunescu et~al.(2005)Bunescu, Ge, Kate, Marcotte, Mooney, Ramani and
+  Wong}]{bunescu2005comparative}
+\bibinfo{author}{Bunescu, R.}, \bibinfo{author}{Ge, R.}, \bibinfo{author}{Kate,
+  R.J.}, \bibinfo{author}{Marcotte, E.M.}, \bibinfo{author}{Mooney, R.J.},
+  \bibinfo{author}{Ramani, A.K.}, \bibinfo{author}{Wong, Y.W.},
+  \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Comparative experiments on learning information
+  extractors for proteins and their interactions}.
+\newblock \bibinfo{journal}{Artificial Intelligence in Medicine}
+  \bibinfo{volume}{33}, \bibinfo{pages}{139--155}.
+%Type = Article
+\bibitem[{Chung et~al.(2022)Chung, Hou, Longpre, Zoph, Tay, Fedus, Li, Wang,
+  Dehghani, Brahma et~al.}]{chung2022scaling}
+\bibinfo{author}{Chung, H.W.}, \bibinfo{author}{Hou, L.},
+  \bibinfo{author}{Longpre, S.}, \bibinfo{author}{Zoph, B.},
+  \bibinfo{author}{Tay, Y.}, \bibinfo{author}{Fedus, W.}, \bibinfo{author}{Li,
+  E.}, \bibinfo{author}{Wang, X.}, \bibinfo{author}{Dehghani, M.},
+  \bibinfo{author}{Brahma, S.}, et~al., \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Scaling instruction-finetuned language models}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2210.11416} .
+%Type = Book
+\bibitem[{Efron and Tibshirani(1993)}]{efron1993introduction}
+\bibinfo{author}{Efron, B.}, \bibinfo{author}{Tibshirani, R.J.},
+  \bibinfo{year}{1993}.
+\newblock \bibinfo{title}{An introduction to the bootstrap}.
+\newblock \bibinfo{publisher}{Chapman \& Hall}.
+%Type = Article
+\bibitem[{Gardette et~al.(2024)Gardette, Sklab, Belda, Chenin and
+  Zucker}]{gardette2024metaplantcode}
+\bibinfo{author}{Gardette, A.}, \bibinfo{author}{Sklab, Y.},
+  \bibinfo{author}{Belda, E.}, \bibinfo{author}{Chenin, E.},
+  \bibinfo{author}{Zucker, J.D.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{METAPLANTCODE}: Harmonizing plant metabarcoding
+  pipelines in europe}.
+\newblock \bibinfo{journal}{Biodiversity Information Science and Standards}
+  \bibinfo{volume}{8}, \bibinfo{pages}{e135729}.
+\newblock \DOIprefix\doi{10.3897/biss.8.135729}.
+%Type = Article
+\bibitem[{Gobeill et~al.(2020)Gobeill, Caucheteur, Michel, Mottin, Pasche and
+  Ruch}]{mottin2021sibils}
+\bibinfo{author}{Gobeill, J.}, \bibinfo{author}{Caucheteur, D.},
+  \bibinfo{author}{Michel, P.A.}, \bibinfo{author}{Mottin, L.},
+  \bibinfo{author}{Pasche, E.}, \bibinfo{author}{Ruch, P.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{{SIB} literature services: {RESTful} customizable
+  search engines in biomedical literature, enriched with automatically mapped
+  biomedical concepts}.
+\newblock \bibinfo{journal}{Nucleic Acids Research} \bibinfo{volume}{48},
+  \bibinfo{pages}{W12--W16}.
+%Type = Article
+\bibitem[{Gu et~al.(2021)Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao and
+  Peng}]{gu2021domain}
+\bibinfo{author}{Gu, Y.}, \bibinfo{author}{Tinn, R.}, \bibinfo{author}{Cheng,
+  H.}, \bibinfo{author}{Lucas, M.}, \bibinfo{author}{Usuyama, N.},
+  \bibinfo{author}{Liu, X.}, \bibinfo{author}{Naumann, T.},
+  \bibinfo{author}{Gao, J.}, \bibinfo{author}{Peng, J.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Domain-specific language model pretraining for
+  biomedical natural language processing}.
+\newblock \bibinfo{journal}{ACM Transactions on Computing for Healthcare}
+  \bibinfo{volume}{3}, \bibinfo{pages}{1--23}.
+%Type = Inproceedings
+\bibitem[{Habibi et~al.(2017)Habibi, Weber, Neves, Wiegandt and
+  Leser}]{habibi2017deep}
+\bibinfo{author}{Habibi, M.}, \bibinfo{author}{Weber, L.},
+  \bibinfo{author}{Neves, M.}, \bibinfo{author}{Wiegandt, D.L.},
+  \bibinfo{author}{Leser, U.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Deep learning with word embeddings improves
+  biomedical named entity recognition}, in:
+  \bibinfo{booktitle}{Bioinformatics}, pp. \bibinfo{pages}{i37--i48}.
+%Type = Inproceedings
+\bibitem[{Hinton et~al.(2015)Hinton, Vinyals and Dean}]{hinton2015distilling}
+\bibinfo{author}{Hinton, G.}, \bibinfo{author}{Vinyals, O.},
+  \bibinfo{author}{Dean, J.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Distilling the knowledge in a neural network}, in:
+  \bibinfo{booktitle}{NIPS Deep Learning and Representation Learning Workshop}.
+%Type = Article
+\bibitem[{Lim et~al.(2018)Lim, Lee, Choi and Kang}]{lim2018drug}
+\bibinfo{author}{Lim, S.}, \bibinfo{author}{Lee, K.}, \bibinfo{author}{Choi,
+  K.}, \bibinfo{author}{Kang, J.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Drug-drug interaction extraction from the literature
+  using a recursive neural network}.
+\newblock \bibinfo{journal}{PloS ONE} \bibinfo{volume}{13},
+  \bibinfo{pages}{e0190926}.
+%Type = Inproceedings
+\bibitem[{Liu et~al.(2019)Liu, He, Chen and Gao}]{liu2019multi}
+\bibinfo{author}{Liu, X.}, \bibinfo{author}{He, P.}, \bibinfo{author}{Chen,
+  W.}, \bibinfo{author}{Gao, J.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Multi-task deep neural networks for natural language
+  understanding}, in: \bibinfo{booktitle}{Proceedings of ACL}, pp.
+  \bibinfo{pages}{4487--4496}.
+%Type = Article
+\bibitem[{McNemar(1947)}]{mcnemar1947note}
+\bibinfo{author}{McNemar, Q.}, \bibinfo{year}{1947}.
+\newblock \bibinfo{title}{Note on the sampling error of the difference between
+  correlated proportions or percentages}.
+\newblock \bibinfo{journal}{Psychometrika} \bibinfo{volume}{12},
+  \bibinfo{pages}{153--157}.
+%Type = Inproceedings
+\bibitem[{Mintz et~al.(2009)Mintz, Bills, Snow and Jurafsky}]{mintz2009distant}
+\bibinfo{author}{Mintz, M.}, \bibinfo{author}{Bills, S.},
+  \bibinfo{author}{Snow, R.}, \bibinfo{author}{Jurafsky, D.},
+  \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Distant supervision for relation extraction without
+  labeled data}, in: \bibinfo{booktitle}{Proceedings of ACL-IJCNLP}, pp.
+  \bibinfo{pages}{1003--1011}.
+%Type = Article
+\bibitem[{Page(2016)}]{page2016biodiversity}
+\bibinfo{author}{Page, R.D.M.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Towards a biodiversity knowledge graph}.
+\newblock \bibinfo{journal}{Research Ideas and Outcomes} \bibinfo{volume}{2},
+  \bibinfo{pages}{e8767}.
+\newblock \DOIprefix\doi{10.3897/rio.2.e8767}.
+%Type = Article
+\bibitem[{Pasche et~al.(2023)Pasche, Gobeill, Agosti, Penev, Groom, Georgiev,
+  Gaillac, Flament, Caucheteur, Michel and Ruch}]{biodiversitypmc2024}
+\bibinfo{author}{Pasche, E.}, \bibinfo{author}{Gobeill, J.},
+  \bibinfo{author}{Agosti, D.}, \bibinfo{author}{Penev, L.},
+  \bibinfo{author}{Groom, Q.}, \bibinfo{author}{Georgiev, T.},
+  \bibinfo{author}{Gaillac, E.}, \bibinfo{author}{Flament, A.},
+  \bibinfo{author}{Caucheteur, D.}, \bibinfo{author}{Michel, P.A.},
+  \bibinfo{author}{Ruch, P.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{From {SIBiLS} to biodiversity {PMC}: Foundations for
+  the {One Health Library}}.
+\newblock \bibinfo{journal}{Biodiversity Information Science and Standards}
+  \bibinfo{volume}{7}, \bibinfo{pages}{e111660}.
+\newblock \DOIprefix\doi{10.3897/biss.7.111660}.
+%Type = Article
+\bibitem[{Poelen et~al.(2014)Poelen, Simons and Mungall}]{poelen2014global}
+\bibinfo{author}{Poelen, J.H.}, \bibinfo{author}{Simons, J.D.},
+  \bibinfo{author}{Mungall, C.J.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Global biotic interactions: An open infrastructure to
+  share and analyze species-interaction datasets}.
+\newblock \bibinfo{journal}{Ecological Informatics} \bibinfo{volume}{24},
+  \bibinfo{pages}{148--159}.
+%Type = Article
+\bibitem[{Poisot et~al.(2021)Poisot, Bergeron, Cazelles, Dallas, Gravel,
+  MacDonald, Mercier, Violet and Vissault}]{poisot2021global}
+\bibinfo{author}{Poisot, T.}, \bibinfo{author}{Bergeron, G.},
+  \bibinfo{author}{Cazelles, K.}, \bibinfo{author}{Dallas, T.},
+  \bibinfo{author}{Gravel, D.}, \bibinfo{author}{MacDonald, A.},
+  \bibinfo{author}{Mercier, B.}, \bibinfo{author}{Violet, C.},
+  \bibinfo{author}{Vissault, S.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Global knowledge gaps in species interaction networks
+  data}.
+\newblock \bibinfo{journal}{Journal of Biogeography} \bibinfo{volume}{48},
+  \bibinfo{pages}{1552--1563}.
+%Type = Article
+\bibitem[{{Qwen Team}(2025)}]{qwen2025technical}
+\bibinfo{author}{{Qwen Team}}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Qwen3 technical report}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2505.09388} .
+%Type = Inproceedings
+\bibitem[{Ramshaw and Marcus(1995)}]{ramshaw1995text}
+\bibinfo{author}{Ramshaw, L.A.}, \bibinfo{author}{Marcus, M.P.},
+  \bibinfo{year}{1995}.
+\newblock \bibinfo{title}{Text chunking using transformation-based learning},
+  in: \bibinfo{booktitle}{Third Workshop on Very Large Corpora}.
+%Type = Article
+\bibitem[{Tang et~al.(2019)Tang, Lu, Liu, Mou, Vechtomova and
+  Lin}]{tang2019distilling}
+\bibinfo{author}{Tang, R.}, \bibinfo{author}{Lu, Y.}, \bibinfo{author}{Liu,
+  L.}, \bibinfo{author}{Mou, L.}, \bibinfo{author}{Vechtomova, O.},
+  \bibinfo{author}{Lin, J.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Distilling task-specific knowledge from {BERT} into
+  simple neural networks}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1903.12136} .
+%Type = Article
+\bibitem[{Thessen et~al.(2012)Thessen, Cui and Mozzherin}]{thessen2012nlp}
+\bibinfo{author}{Thessen, A.E.}, \bibinfo{author}{Cui, H.},
+  \bibinfo{author}{Mozzherin, D.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Applications of natural language processing in
+  biodiversity science}.
+\newblock \bibinfo{journal}{Advances in Bioinformatics} \bibinfo{volume}{2012},
+  \bibinfo{pages}{391574}.
+\newblock \DOIprefix\doi{10.1155/2012/391574}.
+
+\end{thebibliography}

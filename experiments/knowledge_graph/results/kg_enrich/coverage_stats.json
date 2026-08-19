@@ -1,0 +1,15 @@
+{
+  "globi_pairs": 4226737,
+  "v14": {
+    "total": 34880,
+    "enriched": 5783,
+    "enriched_pct": 16.6,
+    "pos_enriched": 5630
+  },
+  "ep_relax": {
+    "total": 100,
+    "enriched": 0,
+    "enriched_pct": 0.0,
+    "pos_enriched": 0
+  }
+}

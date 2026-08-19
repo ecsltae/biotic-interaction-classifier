@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Literature Trust Assessor</title>
+<style>
+  :root {
+    --bg:#0f1420; --panel:#1a2233; --panel2:#222c42; --ink:#e8edf7; --muted:#93a1bd;
+    --line:#2c3854; --accent:#4f8cff; --good:#2ecc71; --warn:#f1c40f; --bad:#e74c3c;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+         background:var(--bg); color:var(--ink); line-height:1.5; }
+  header { padding:28px 32px 12px; }
+  h1 { margin:0; font-size:22px; font-weight:650; letter-spacing:.2px; }
+  .sub { color:var(--muted); font-size:14px; margin-top:4px; max-width:760px; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 24px 60px; }
+  .bar { display:flex; gap:10px; margin:22px 0; }
+  input[type=text] { flex:1; background:var(--panel); border:1px solid var(--line); color:var(--ink);
+         padding:13px 15px; border-radius:10px; font-size:15px; outline:none; }
+  input[type=text]:focus { border-color:var(--accent); }
+  button { background:var(--accent); color:#fff; border:0; padding:0 22px; border-radius:10px;
+         font-size:15px; font-weight:600; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:default; }
+  .examples { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+  .chip { background:var(--panel); border:1px solid var(--line); color:var(--muted);
+          padding:6px 11px; border-radius:20px; font-size:12.5px; cursor:pointer; }
+  .chip:hover { color:var(--ink); border-color:var(--accent); }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px;
+          padding:22px; margin-top:18px; }
+  .hidden { display:none; }
+  .scoreRow { display:flex; align-items:center; gap:22px; }
+  .grade { width:92px; height:92px; border-radius:16px; display:flex; align-items:center;
+           justify-content:center; font-size:46px; font-weight:800; flex:none; }
+  .verdict { font-size:20px; font-weight:700; }
+  .meta { color:var(--muted); font-size:13.5px; margin-top:3px; }
+  .trustbar { height:9px; background:var(--panel2); border-radius:6px; margin-top:12px; overflow:hidden; }
+  .trustfill { height:100%; border-radius:6px; }
+  h3 { font-size:13px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted);
+       margin:24px 0 10px; }
+  .reason { font-size:15.5px; }
+  .issue { border-left:3px solid var(--accent); padding:8px 14px; margin:10px 0;
+           background:var(--panel2); border-radius:0 8px 8px 0; }
+  .issue b { display:block; margin-bottom:2px; font-size:14px; }
+  .issue span { color:var(--muted); font-size:14px; }
+  .flag { background:rgba(231,76,60,.12); border:1px solid rgba(231,76,60,.35);
+          color:#ffb4a8; padding:9px 13px; border-radius:8px; margin:7px 0; font-size:14px; }
+  .refbox { background:var(--panel2); border:1px solid var(--line); border-radius:10px;
+            padding:14px 16px; margin:10px 0; }
+  .refttl { font-weight:600; font-size:14.5px; }
+  .refdoi { color:var(--muted); font-size:12.5px; font-family:ui-monospace,monospace; }
+  .passage { border-left:3px solid var(--warn); padding:8px 13px; margin:9px 0 3px;
+             font-style:italic; color:#e9dfa8; font-size:14px; background:rgba(241,196,15,.07);
+             border-radius:0 6px 6px 0; }
+  .noctx { color:var(--muted); font-size:13px; font-style:italic; }
+  .kv { display:grid; grid-template-columns:auto 1fr; gap:4px 16px; font-size:14px; }
+  .kv .k { color:var(--muted); }
+  .spinner { display:inline-block; width:16px; height:16px; border:2px solid rgba(255,255,255,.3);
+             border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite;
+             vertical-align:-3px; margin-right:8px; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .stage { color:var(--muted); font-size:14px; }
+  .foot { color:var(--muted); font-size:12px; margin-top:26px; text-align:center; }
+  a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-bottom:0">
+    <h1>🔬 Literature Trust Assessor</h1>
+    <div class="sub">Enter a <b>DOI, PMID, PMCID, or paper title</b>. A deterministic pipeline gathers
+    the evidence — is the paper retracted, which cited works are retracted, and <b>the exact passage
+    where each is cited</b> — then a local LLM judges trustworthiness, reasoning from that evidence
+    rather than counting flags.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="examples">
+    <span class="chip" data-doi="10.1089/aid.2020.0095">DOI: review citing 3 retracted works (to debunk them)</span>
+    <span class="chip" data-doi="19815723">PMID: 19815723 (retracted XMRV)</span>
+    <span class="chip" data-doi="PMC7398426">PMCID: PMC7398426</span>
+    <span class="chip" data-doi="Highly accurate protein structure prediction with AlphaFold">Title: “Highly accurate protein structure prediction…”</span>
+  </div>
+  <div class="bar">
+    <input type="text" id="doi" placeholder="DOI, PMID, PMCID, or paper title…" autocomplete="off">
+    <button id="go">Assess</button>
+  </div>
+
+  <div id="status" class="card hidden"><span class="stage" id="stage"></span></div>
+
+  <div id="result" class="hidden">
+    <div class="card">
+      <div class="scoreRow">
+        <div class="grade" id="grade">?</div>
+        <div style="flex:1">
+          <div class="verdict" id="verdict"></div>
+          <div class="meta" id="docmeta"></div>
+          <div class="trustbar"><div class="trustfill" id="trustfill"></div></div>
+          <div class="meta" id="scoremeta" style="margin-top:6px"></div>
+        </div>
+      </div>
+      <h3>LLM reasoning</h3>
+      <div class="reason" id="reason"></div>
+      <div id="issues"></div>
+      <div id="reco" class="meta" style="margin-top:14px"></div>
+    </div>
+
+    <div class="card" id="evidenceCard">
+      <h3>Evidence dossier <span style="text-transform:none;color:var(--muted);font-weight:400">— what the LLM was given</span></h3>
+      <div id="selfblock"></div>
+      <div id="flags"></div>
+      <h3>Cited retracted works &amp; how they are used</h3>
+      <div id="refs"></div>
+      <div id="foundmeta" class="meta"></div>
+    </div>
+  </div>
+
+  <div class="foot">Runs locally · retraction data from Crossref/Retraction Watch · citation
+  passages from Europe PMC open access · judgment by a local LLM (no external API)</div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const gradeColors = {A:'#2ecc71',B:'#7ed957',C:'#f1c40f',D:'#e67e22',F:'#e74c3c'};
+const verdictColors = {trustworthy:'#2ecc71', use_with_caution:'#f1c40f', untrustworthy:'#e74c3c'};
+
+document.querySelectorAll('.chip').forEach(c =>
+  c.onclick = () => { $('doi').value = c.dataset.doi; run(); });
+$('go').onclick = run;
+$('doi').addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+
+async function run() {
+  const ref = $('doi').value.trim();
+  if (!ref) return;
+  $('result').classList.add('hidden');
+  $('status').classList.remove('hidden');
+  $('go').disabled = true;
+  $('stage').innerHTML = '<span class="spinner"></span>Resolving the document, gathering evidence, and asking the LLM to judge (this can take up to a minute)…';
+  try {
+    const r = await fetch('/document/assess', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ref})
+    });
+    if (!r.ok) {
+      let msg = 'HTTP ' + r.status;
+      try { const j = await r.json(); if (j.detail) msg = j.detail; } catch(e){}
+      throw new Error(msg);
+    }
+    render(await r.json());
+  } catch (e) {
+    $('stage').textContent = 'Error: ' + e.message;
+  } finally {
+    $('go').disabled = false;
+  }
+}
+
+function render(data) {
+  const j = data.llm_judgment, d = data.dossier, doc = d.document, f = d.foundation;
+  $('status').classList.add('hidden');
+  $('result').classList.remove('hidden');
+
+  const score = j.trust_score, grade = d.deterministic_scores.grade;
+  $('grade').textContent = grade;
+  $('grade').style.background = (gradeColors[grade]||'#888') + '22';
+  $('grade').style.color = gradeColors[grade]||'#ccc';
+
+  $('verdict').textContent = j.verdict.replace(/_/g,' ');
+  $('verdict').style.color = verdictColors[j.verdict] || '#ccc';
+  const rz = data.resolved;
+  let resolvedLine = '';
+  if (rz && rz.id_type && rz.id_type !== 'doi') {
+    resolvedLine = `<br><span style="color:var(--muted);font-size:12.5px">Resolved from ${esc(rz.id_type.toUpperCase())} “${esc(rz.ref)}” → DOI ${esc(rz.doi)}</span>`;
+  }
+  $('docmeta').innerHTML = `${esc(doc.title||'(untitled)')}<br>${esc(doc.venue||'')} ${doc.year?'('+doc.year+')':''}${resolvedLine}`;
+  $('trustfill').style.width = Math.round(score*100)+'%';
+  $('trustfill').style.background = verdictColors[j.verdict] || '#888';
+  $('scoremeta').textContent = `LLM trust score ${score.toFixed(2)} · confidence ${j.confidence.toFixed(2)} · deterministic triage ${d.deterministic_scores.overall_trust.toFixed(2)} (${grade}) · model ${j.model}`;
+
+  $('reason').textContent = j.reasoning;
+  $('issues').innerHTML = (j.per_issue||[]).map(i =>
+    `<div class="issue"><b>${esc(i.issue)}</b><span>${esc(i.assessment)}</span></div>`).join('');
+  $('reco').textContent = j.recommendation ? '➡ ' + j.recommendation : '';
+
+  // Evidence dossier
+  $('selfblock').innerHTML = `<div class="kv">
+    <div class="k">This document retracted?</div><div>${doc.self_retracted ? '🚩 YES ('+(doc.retraction_type||'')+')' : 'No'}</div>
+    ${doc.retraction_notice_title ? `<div class="k">Retraction notice</div><div>${esc(doc.retraction_notice_title)}</div>`:''}
+    <div class="k">Cited by</div><div>${doc.cited_by_count ?? '—'}</div>
+    <div class="k">References checked</div><div>${f.n_references_with_doi} DOI-linked of ${f.n_references}</div>
+  </div>`;
+
+  $('flags').innerHTML = (d.red_flags||[]).map(x => `<div class="flag">🚩 ${esc(x)}</div>`).join('');
+
+  const refs = f.retracted_references||[];
+  $('refs').innerHTML = refs.length ? refs.map(r => `
+    <div class="refbox">
+      <div class="refttl">${esc(r.title||'(title unavailable)')}</div>
+      <div class="refdoi">${esc(r.doi)} · ${esc(r.retraction_type||'retracted')}</div>
+      ${(r.citation_passages&&r.citation_passages.length)
+        ? r.citation_passages.map(p=>`<div class="passage">“${esc(p)}”</div>`).join('')
+        : '<div class="noctx">Citing passage unavailable (document not open-access) — intent unverifiable.</div>'}
+    </div>`).join('') : '<div class="meta">No retracted works cited.</div>';
+
+  $('foundmeta').textContent =
+    `Median reference age: ${f.median_reference_age ?? '—'} yr · ${f.pct_references_last_10yr ?? '—'}% from the last 10 years`;
+}
+
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+</script>
+</body>
+</html>

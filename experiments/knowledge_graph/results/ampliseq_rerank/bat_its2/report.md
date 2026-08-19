@@ -1,0 +1,55 @@
+# Ampliseq Re-ranking — Ecological Coherence Report
+
+**Samples with detections:** 243  
+**Samples with rank changes:** 0  
+**Species:** 36
+
+## Interaction data sources
+- **BiotXplorer** (primary): text-mined interactions from MEDLINE/PMC via SiBILS
+- **GloBI** (fallback): structured interaction database (4.2M species pairs)
+
+## Species rank changes
+
+| Species | Avg Δrank | Samples boosted | Avg BiotXplorer score |
+|---|---|---|---|
+| echium plantagineum | 0.0 | 0/26 | 0.0 |
+| pinus canariensis | 0.0 | 0/6 | 0.0 |
+| molossus molossus | 0.0 | 0/140 | 0.0 |
+| erica australis | 0.0 | 0/9 | 0.0 |
+| quercus rotundifolia | 0.0 | 0/25 | 0.0 |
+| artibeus jamaicensis | 0.0 | 0/52 | 0.0 |
+| quercus ilex | 0.0 | 0/31 | 0.0 |
+| tadarida insignis | 0.0 | 0/5 | 0.0 |
+| phyllostomus discolor | 0.0 | 0/9 | 0.0 |
+| 1_tps_b3v08 | 0.0 | 0/6 | 0.0 |
+| castanea sativa | 0.0 | 0/56 | 0.0 |
+| erica arborea | 0.0 | 0/6 | 0.0 |
+| corrigiola telephiifolia | 0.0 | 0/12 | 0.0 |
+| quercus suber | 0.0 | 0/6 | 0.0 |
+| daphne gnidium | 0.0 | 0/83 | 0.0 |
+| silene scabriflora | 0.0 | 0/7 | 0.0 |
+| helianthus annuus | 0.0 | 0/6 | 0.0 |
+| homo sapiens | 0.0 | 0/5 | 0.0 |
+| anarrhinum bellidifolium | 0.0 | 0/5 | 0.0 |
+| anethum foeniculum | 0.0 | 0/49 | 0.0 |
+| silene mellifera | 0.0 | 0/5 | 0.0 |
+| triticum aestivum | 0.0 | 0/5 | 0.0 |
+| echium lusitanicum | 0.0 | 0/6 | 0.0 |
+| castanea crenata | 0.0 | 0/54 | 0.0 |
+| castanea pumila | 0.0 | 0/47 | 0.0 |
+| castanea seguinii | 0.0 | 0/9 | 0.0 |
+| castanea mollissima | 0.0 | 0/5 | 0.0 |
+| conium maculatum | 0.0 | 0/7 | 0.0 |
+| rubus ulmifolius | 0.0 | 0/11 | 0.0 |
+| uncultured fungus genomic dna sequence contains it | 0.0 | 0/18 | 0.0 |
+| castanea dentata | 0.0 | 0/5 | 0.0 |
+| daucus carota | 0.0 | 0/5 | 0.0 |
+| chenopodium album | 0.0 | 0/9 | 0.0 |
+| fagaceae environmental | 0.0 | 0/5 | 0.0 |
+| centaurea solstitialis | 0.0 | 0/7 | 0.0 |
+| equus caballus | 0.0 | 0/6 | 0.0 |
+
+## Interpretation
+- **Δrank > 0**: species moved UP (interaction partners co-detected in same sample)
+- **Δrank < 0**: species moved DOWN (relatively less community support)
+- Score combines BiotXplorer text-mined evidence + GloBI database pairs

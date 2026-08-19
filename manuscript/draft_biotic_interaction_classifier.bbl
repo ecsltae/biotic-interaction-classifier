@@ -1,0 +1,91 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Badenes-P{\'e}rez et~al.(2020)Badenes-P{\'e}rez, Ponce-Gordo, and
+  Cano-Maque]{badenes2020detecting}
+F.~R. Badenes-P{\'e}rez, F.~Ponce-Gordo, and L.~Cano-Maque.
+\newblock Detecting biotic interactions in the literature.
+\newblock \emph{Ecological Indicators}, 119:\penalty0 106876, 2020.
+
+\bibitem[Bucilu{\u{a}} et~al.(2006)Bucilu{\u{a}}, Caruana, and
+  Niculescu-Mizil]{bucilua2006model}
+C.~Bucilu{\u{a}}, R.~Caruana, and A.~Niculescu-Mizil.
+\newblock Model compression.
+\newblock pages 535--541, 2006.
+
+\bibitem[Bunescu et~al.(2005)Bunescu, Ge, Kate, Marcotte, Mooney, Ramani, and
+  Wong]{bunescu2005comparative}
+R.~C. Bunescu, R.~Ge, R.~J. Kate, E.~M. Marcotte, R.~J. Mooney, A.~K. Ramani,
+  and Y.~W. Wong.
+\newblock A comparative study of kernels for protein-protein interaction
+  extraction.
+\newblock In \emph{Proceedings of the SMBM}, 2005.
+
+\bibitem[Chen et~al.(2023)Chen, Zhang, and Zhang]{chen2023biodiversity}
+H.~Chen, W.~Zhang, and N.~Zhang.
+\newblock Knowledge graphs for biodiversity: challenges and opportunities.
+\newblock \emph{Briefings in Bioinformatics}, 24\penalty0 (3), 2023.
+
+\bibitem[Chung et~al.(2022)Chung, Hou, Longpre, Zoph, Tay, Fedus, Li, Wang,
+  Dehghani, Brahma, et~al.]{chung2022scaling}
+H.~W. Chung, L.~Hou, S.~Longpre, B.~Zoph, Y.~Tay, W.~Fedus, E.~Li, X.~Wang,
+  M.~Dehghani, S.~Brahma, et~al.
+\newblock Scaling instruction-finetuned language models.
+\newblock \emph{arXiv preprint arXiv:2210.11416}, 2022.
+
+\bibitem[Gu et~al.(2021)Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao, and
+  Peng]{gu2021domain}
+Y.~Gu, R.~Tinn, H.~Cheng, M.~Lucas, N.~Usuyama, X.~Liu, T.~Naumann, J.~Gao, and
+  J.~Peng.
+\newblock Domain-specific language model pretraining for biomedical natural
+  language processing.
+\newblock \emph{ACM Transactions on Computing for Healthcare}, 3\penalty0
+  (1):\penalty0 1--23, 2021.
+
+\bibitem[Hinton et~al.(2015)Hinton, Vinyals, and Dean]{hinton2015distilling}
+G.~Hinton, O.~Vinyals, and J.~Dean.
+\newblock Distilling the knowledge in a neural network.
+\newblock In \emph{NIPS Deep Learning and Representation Learning Workshop},
+  2015.
+
+\bibitem[Lim et~al.(2018)Lim, Lee, Choi, and Kang]{lim2018drug}
+S.~Lim, K.~Lee, K.~Choi, and J.~Kang.
+\newblock Drug-drug interaction extraction from the literature using a
+  recursive neural network.
+\newblock \emph{PloS ONE}, 13\penalty0 (1):\penalty0 e0190926, 2018.
+
+\bibitem[Mottin et~al.(2021)Mottin, Gobeill, Pasche, Michel, Cusin, Gaudet, and
+  Ruch]{mottin2021sibils}
+L.~Mottin, J.~Gobeill, E.~Pasche, P.-A. Michel, I.~Cusin, P.~Gaudet, and
+  P.~Ruch.
+\newblock {SIBiLS}: personalized, federated search of {MEDLINE} and {Europe
+  PMC}.
+\newblock \emph{Nucleic Acids Research}, 49\penalty0 (W1):\penalty0 W185--W192,
+  2021.
+
+\bibitem[Poelen et~al.(2014)Poelen, Simons, and Mungall]{poelen2014global}
+J.~H. Poelen, J.~D. Simons, and C.~J. Mungall.
+\newblock Global biotic interactions: An open infrastructure to share and
+  analyze species-interaction datasets.
+\newblock \emph{Ecological Informatics}, 24:\penalty0 148--159, 2014.
+
+\bibitem[Poisot et~al.(2021)Poisot, Bergeron, Cazelles, Dallas, Gravel,
+  MacDonald, Mercier, Violet, and Vissault]{poisot2021global}
+T.~Poisot, G.~Bergeron, K.~Cazelles, T.~Dallas, D.~Gravel, A.~MacDonald,
+  B.~Mercier, C.~Violet, and S.~Vissault.
+\newblock Global knowledge gaps in species interaction networks data.
+\newblock \emph{Journal of Biogeography}, 48\penalty0 (7):\penalty0 1552--1563,
+  2021.
+
+\bibitem[{SIBiLS Team}(2023)]{sibils2023biotxplorer}
+{SIBiLS Team}.
+\newblock {BiotXplorer}: A semantic search and navigation tool for biotic
+  interactions in the biomedical literature.
+\newblock \emph{Nucleic Acids Research}, 2023.
+\newblock Swiss Institute of Bioinformatics Literature Services.
+
+\end{thebibliography}

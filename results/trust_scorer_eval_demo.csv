@@ -1,0 +1,600 @@
+gold_label,source_file,composite_trust,temporal_score,evidence_type,evidence_score,contradiction_risk,kg_confirmed,explanation
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.488,0.4,unknown,0.3,0.1,False,Unknown publication date (unknown); not in GloBI; sentence negated ('was not strictly').
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.488,0.4,unknown,0.3,0.1,False,Unknown publication date (unknown); not in GloBI; sentence negated ('is not well').
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+1,eval_100.tsv,0.625,0.4,in_vivo_experiment,0.75,0.0,False,Unknown publication date (in vivo experiment); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,eval_100.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.575,0.4,lab_experiment,0.55,0.0,False,Unknown publication date (lab experiment); not in GloBI.
+0,eval_100.tsv,0.488,0.4,unknown,0.3,0.1,False,Unknown publication date (unknown); not in GloBI; sentence negated ('does not exacerbate').
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,eval_100.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.488,0.4,unknown,0.3,0.1,False,Unknown publication date (unknown); not in GloBI; sentence negated ('cannot be').
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.625,0.4,in_vivo_experiment,0.75,0.0,False,Unknown publication date (in vivo experiment); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.562,0.4,genomic_inference,0.5,0.0,False,Unknown publication date (genomic inference); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.738,0.4,lab_experiment,0.55,0.0,True,Unknown publication date (lab experiment); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.575,0.4,lab_experiment,0.55,0.0,False,Unknown publication date (lab experiment); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-relax_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.85,0.4,field_observation,1.0,0.0,True,Unknown publication date (field observation); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.85,0.4,field_observation,1.0,0.0,True,Unknown publication date (field observation); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.85,0.4,field_observation,1.0,0.0,True,Unknown publication date (field observation); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.725,0.4,genomic_inference,0.5,0.0,True,Unknown publication date (genomic inference); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.65,0.4,unknown,0.3,0.1,True,Unknown publication date (unknown); confirmed in GloBI; sentence negated ('do not emit').
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.787,0.4,in_vivo_experiment,0.75,0.0,True,Unknown publication date (in vivo experiment); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.7,0.4,meta_analysis,0.4,0.0,True,Unknown publication date (meta analysis); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.65,0.4,unknown,0.3,0.1,True,Unknown publication date (unknown); confirmed in GloBI; sentence negated ('did not acquire').
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,globi-passage_passages-triplets_2024-02-28_curation_EP.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.488,0.4,unknown,0.3,0.1,False,Unknown publication date (unknown); not in GloBI; sentence negated ('was not strictly').
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.488,0.4,unknown,0.3,0.1,False,Unknown publication date (unknown); not in GloBI; sentence negated ('is not well').
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.85,0.4,field_observation,1.0,0.0,True,Unknown publication date (field observation); confirmed in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.625,0.4,in_vivo_experiment,0.75,0.0,False,Unknown publication date (in vivo experiment); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.575,0.4,lab_experiment,0.55,0.0,False,Unknown publication date (lab experiment); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.488,0.4,unknown,0.3,0.1,False,Unknown publication date (unknown); not in GloBI; sentence negated ('does not exacerbate').
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-02-28_curation_EP_100original.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.537,0.4,meta_analysis,0.4,0.0,False,Unknown publication date (meta analysis); not in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.625,0.4,in_vivo_experiment,0.75,0.0,False,Unknown publication date (in vivo experiment); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; sentence negated ('could not be'); contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.325,0.4,lab_experiment,0.55,1.0,False,Unknown publication date (lab experiment); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.625,0.4,in_vivo_experiment,0.75,0.0,False,Unknown publication date (in vivo experiment); not in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; sentence negated ('did not close'); contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-04-22b_curation_EP_50best-multiples.tsv,0.375,0.4,in_vivo_experiment,0.75,1.0,False,Unknown publication date (in vivo experiment); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.675,0.4,unknown,0.3,0.0,True,Unknown publication date (unknown); confirmed in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.325,0.4,lab_experiment,0.55,1.0,False,Unknown publication date (lab experiment); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.375,0.4,in_vivo_experiment,0.75,1.0,False,Unknown publication date (in vivo experiment); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.562,0.4,genomic_inference,0.5,0.0,False,Unknown publication date (genomic inference); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.325,0.4,lab_experiment,0.55,1.0,False,Unknown publication date (lab experiment); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,biotx-random_passages-triplets_2024-05-15_curation_EP_50nomultiple.tsv,0.262,0.4,unknown,0.3,1.0,False,Unknown publication date (unknown); not in GloBI; contradiction risk 100% (1 conflicting claims).
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+1,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.562,0.4,genomic_inference,0.5,0.0,False,Unknown publication date (genomic inference); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.562,0.4,genomic_inference,0.5,0.0,False,Unknown publication date (genomic inference); not in GloBI.
+0,gen_set_100.csv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,gen_set_100.csv,0.688,0.4,field_observation,1.0,0.0,False,Unknown publication date (field observation); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.
+0,gen_set_100.csv,0.512,0.4,unknown,0.3,0.0,False,Unknown publication date (unknown); not in GloBI.

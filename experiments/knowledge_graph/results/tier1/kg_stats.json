@@ -1,0 +1,295 @@
+{
+  "n_nodes": 5110,
+  "n_edges": 8859,
+  "n_unique_pairs": 7246,
+  "category_counts": {
+    "ENDOPARASITISM": 3864,
+    "PREDATION": 2457,
+    "PARASITISM": 1221,
+    "INFECTION": 274,
+    "POLLINATION": 215,
+    "PARASITOIDISM": 175,
+    "VECTOR": 147,
+    "REGULATION": 132,
+    "HERBIVORY": 109,
+    "GENERIC": 93,
+    "SYMBIOSIS": 80,
+    "": 64,
+    "DISPERSAL": 28
+  },
+  "source_breakdown": {
+    "v7_llm_cleaned": 7251,
+    "epmc_direct": 688,
+    "sibils_mongodb": 679,
+    "globi_pmc_v2": 100,
+    "external_db": 67,
+    "student_curated": 42,
+    "ep_curation_2024": 32
+  },
+  "kingdom_breakdown": {
+    "Animalia": 3507,
+    "Plantae": 308,
+    "Metazoa": 230,
+    "Fungi": 170,
+    "Bacteria": 64,
+    "Chromista": 43,
+    "Viridiplantae": 20,
+    "Viruses": 16,
+    "Protozoa": 12,
+    "Orthornavirae": 2,
+    "Pararnavirae": 1,
+    "Heunggongvirae": 1,
+    "Archaeplastida": 1,
+    "Shotokuvirae": 1
+  },
+  "top_hosts_by_outdegree": [
+    [
+      "carcharhinus perezii",
+      63
+    ],
+    [
+      "galeocerdo cuvier",
+      58
+    ],
+    [
+      "carcharhinus falciformis",
+      48
+    ],
+    [
+      "anisakis pegreffii",
+      45
+    ],
+    [
+      "anisakis simplex",
+      40
+    ],
+    [
+      "aetobatus narinari",
+      39
+    ],
+    [
+      "negaprion brevirostris",
+      35
+    ],
+    [
+      "gnathostoma spinigerum",
+      32
+    ],
+    [
+      "carcharhinus acronotus",
+      31
+    ],
+    [
+      "sphyrna tiburo",
+      31
+    ],
+    [
+      "cattle",
+      30
+    ],
+    [
+      "mustelus canis",
+      30
+    ],
+    [
+      "rhizoprionodon porosus",
+      29
+    ],
+    [
+      "ginglymostoma cirratum",
+      29
+    ],
+    [
+      "spirocerca lupi",
+      25
+    ],
+    [
+      "contracaecum osculatum",
+      25
+    ],
+    [
+      "eutrombicula",
+      25
+    ],
+    [
+      "raphidascaris acus",
+      25
+    ],
+    [
+      "pseudoterranova decipiens",
+      25
+    ],
+    [
+      "hysterothylacium aduncum",
+      24
+    ]
+  ],
+  "top_pathogens_by_indegree": [
+    [
+      "polychaeta",
+      50
+    ],
+    [
+      "mus musculus",
+      39
+    ],
+    [
+      "homo sapiens",
+      39
+    ],
+    [
+      "caridea",
+      37
+    ],
+    [
+      "microfauna",
+      37
+    ],
+    [
+      "human",
+      33
+    ],
+    [
+      "brachyura",
+      32
+    ],
+    [
+      "gastropoda",
+      28
+    ],
+    [
+      "felis catus",
+      27
+    ],
+    [
+      "gallus gallus",
+      26
+    ],
+    [
+      "amphipoda",
+      25
+    ],
+    [
+      "mesocyclops leuckarti",
+      24
+    ],
+    [
+      "prunus spinosa",
+      24
+    ],
+    [
+      "anas platyrhynchos",
+      23
+    ],
+    [
+      "canis lupus",
+      23
+    ],
+    [
+      "sus scrofa",
+      21
+    ],
+    [
+      "ovis aries",
+      21
+    ],
+    [
+      "cancer",
+      20
+    ],
+    [
+      "capra hircus",
+      20
+    ],
+    [
+      "humans",
+      20
+    ]
+  ],
+  "multi_host_pathogens": [
+    [
+      "mus musculus",
+      37
+    ],
+    [
+      "homo sapiens",
+      36
+    ],
+    [
+      "felis catus",
+      27
+    ],
+    [
+      "gallus gallus",
+      26
+    ],
+    [
+      "mesocyclops leuckarti",
+      24
+    ],
+    [
+      "anas platyrhynchos",
+      23
+    ],
+    [
+      "canis lupus",
+      23
+    ],
+    [
+      "sus scrofa",
+      21
+    ],
+    [
+      "ovis aries",
+      21
+    ],
+    [
+      "capra hircus",
+      20
+    ],
+    [
+      "cyclops strenuus",
+      20
+    ],
+    [
+      "oncorhynchus mykiss",
+      19
+    ],
+    [
+      "macrocyclops albidus",
+      19
+    ],
+    [
+      "bos taurus",
+      17
+    ],
+    [
+      "peromyscus",
+      15
+    ],
+    [
+      "didelphis marsupialis",
+      14
+    ],
+    [
+      "oryctolagus cuniculus",
+      14
+    ],
+    [
+      "proechimys semispinosus",
+      14
+    ],
+    [
+      "eucyclops serrulatus",
+      14
+    ],
+    [
+      "gasterosteus aculeatus",
+      13
+    ]
+  ],
+  "n_weakly_connected_components": 414,
+  "largest_component_size": 3859,
+  "n_isolated_nodes": 0,
+  "hub_species": []
+}

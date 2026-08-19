@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -21,7 +21,8 @@ F.~R. Badenes-P{\'e}rez, F.~Ponce-Gordo, and L.~Cano-Maque.
   Niculescu-Mizil]{bucilua2006model}
 C.~Bucilu{\u{a}}, R.~Caruana, and A.~Niculescu-Mizil.
 \newblock Model compression.
-\newblock pages 535--541, 2006.
+\newblock In \emph{Proceedings of the 12th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining (KDD)}, pages 535--541, 2006.
 
 \bibitem[Bunescu et~al.(2005)Bunescu, Ge, Kate, Marcotte, Mooney, Ramani, and
   Wong]{bunescu2005comparative}
@@ -42,6 +43,28 @@ H.~W. Chung, L.~Hou, S.~Longpre, B.~Zoph, Y.~Tay, W.~Fedus, E.~Li, X.~Wang,
   M.~Dehghani, S.~Brahma, et~al.
 \newblock Scaling instruction-finetuned language models.
 \newblock \emph{arXiv preprint arXiv:2210.11416}, 2022.
+
+\bibitem[Efron and Tibshirani(1993)]{efron1993introduction}
+B.~Efron and R.~J. Tibshirani.
+\newblock \emph{An introduction to the bootstrap}.
+\newblock Chapman \& Hall, 1993.
+
+\bibitem[Gardette et~al.(2024)Gardette, Sklab, Belda, Chenin, and
+  Zucker]{gardette2024metaplantcode}
+A.~Gardette, Y.~Sklab, E.~Belda, E.~Chenin, and J.-D. Zucker.
+\newblock {METAPLANTCODE}: Harmonizing plant metabarcoding pipelines in europe.
+\newblock \emph{Biodiversity Information Science and Standards}, 8:\penalty0
+  e135729, 2024.
+\newblock \doi{10.3897/biss.8.135729}.
+
+\bibitem[Gobeill et~al.(2020)Gobeill, Caucheteur, Michel, Mottin, Pasche, and
+  Ruch]{mottin2021sibils}
+J.~Gobeill, D.~Caucheteur, P.-A. Michel, L.~Mottin, E.~Pasche, and P.~Ruch.
+\newblock {SIB} literature services: {RESTful} customizable search engines in
+  biomedical literature, enriched with automatically mapped biomedical
+  concepts.
+\newblock \emph{Nucleic Acids Research}, 48\penalty0 (W1):\penalty0 W12--W16,
+  2020.
 
 \bibitem[Gu et~al.(2021)Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao, and
   Peng]{gu2021domain}
@@ -85,7 +108,17 @@ Q.~McNemar.
 \bibitem[Mintz et~al.(2009)Mintz, Bills, Snow, and Jurafsky]{mintz2009distant}
 M.~Mintz, S.~Bills, R.~Snow, and D.~Jurafsky.
 \newblock Distant supervision for relation extraction without labeled data.
-\newblock pages 1003--1011, 2009.
+\newblock In \emph{Proceedings of ACL-IJCNLP}, pages 1003--1011, 2009.
+
+\bibitem[Pasche et~al.(2023)Pasche, Gobeill, Agosti, Penev, Groom, Georgiev,
+  Gaillac, Flament, Caucheteur, Michel, and Ruch]{biodiversitypmc2024}
+E.~Pasche, J.~Gobeill, D.~Agosti, L.~Penev, Q.~Groom, T.~Georgiev, E.~Gaillac,
+  A.~Flament, D.~Caucheteur, P.-A. Michel, and P.~Ruch.
+\newblock From {SIBiLS} to biodiversity {PMC}: Foundations for the {One Health
+  Library}.
+\newblock \emph{Biodiversity Information Science and Standards}, 7:\penalty0
+  e111660, 2023.
+\newblock \doi{10.3897/biss.7.111660}.
 
 \bibitem[Poelen et~al.(2014)Poelen, Simons, and Mungall]{poelen2014global}
 J.~H. Poelen, J.~D. Simons, and C.~J. Mungall.
@@ -101,12 +134,23 @@ T.~Poisot, G.~Bergeron, K.~Cazelles, T.~Dallas, D.~Gravel, A.~MacDonald,
 \newblock \emph{Journal of Biogeography}, 48\penalty0 (7):\penalty0 1552--1563,
   2021.
 
-\bibitem[{SIBiLS Team}(2023)]{sibils2023biotxplorer}
-{SIBiLS Team}.
-\newblock {BiotXplorer}: A semantic search and navigation tool for biotic
-  interactions in the biomedical literature.
-\newblock \emph{Nucleic Acids Research}, 2023.
-\newblock Swiss Institute of Bioinformatics Literature Services.
+\bibitem[{Qwen Team}(2025)]{qwen2025technical}
+{Qwen Team}.
+\newblock Qwen3 technical report.
+\newblock \emph{arXiv preprint arXiv:2505.09388}, 2025.
+
+\bibitem[Ramshaw and Marcus(1995)]{ramshaw1995text}
+L.~A. Ramshaw and M.~P. Marcus.
+\newblock Text chunking using transformation-based learning.
+\newblock In \emph{Third Workshop on Very Large Corpora}, 1995.
+
+\bibitem[Ruch et~al.(2024)Ruch, Pasche, Michel, and
+  Caucheteur]{sibils2023biotxplorer}
+P.~Ruch, E.~Pasche, P.-A. Michel, and D.~Caucheteur.
+\newblock {BiotXplorer}: Navigating evidence-based biotic interactions.
+\newblock \emph{Biodiversity Information Science and Standards}, 8:\penalty0
+  e135453, 2024.
+\newblock \doi{10.3897/biss.8.135453}.
 
 \bibitem[Tang et~al.(2019)Tang, Lu, Liu, Mou, Vechtomova, and
   Lin]{tang2019distilling}

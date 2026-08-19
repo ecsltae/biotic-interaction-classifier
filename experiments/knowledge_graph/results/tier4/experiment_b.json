@@ -1,0 +1,63 @@
+{
+  "globi_sample_size": 5000,
+  "overall_recall": 0.0402,
+  "recall_by_category": {
+    "": {
+      "recall": 0.0028,
+      "n_total": 354,
+      "n_covered": 1
+    },
+    "ENDOPARASITISM": {
+      "recall": 0.0,
+      "n_total": 6,
+      "n_covered": 0
+    },
+    "GENERIC": {
+      "recall": 0.0025,
+      "n_total": 789,
+      "n_covered": 2
+    },
+    "INFECTION": {
+      "recall": 0.0123,
+      "n_total": 81,
+      "n_covered": 1
+    },
+    "PARASITISM": {
+      "recall": 0.0691,
+      "n_total": 2577,
+      "n_covered": 178
+    },
+    "PARASITOIDISM": {
+      "recall": 0.0,
+      "n_total": 5,
+      "n_covered": 0
+    },
+    "POLLINATION": {
+      "recall": 0.0125,
+      "n_total": 240,
+      "n_covered": 3
+    },
+    "PREDATION": {
+      "recall": 0.0171,
+      "n_total": 936,
+      "n_covered": 16
+    },
+    "SYMBIOSIS": {
+      "recall": 0.0,
+      "n_total": 12,
+      "n_covered": 0
+    }
+  },
+  "coverage_gap_categories": [
+    "ENDOPARASITISM",
+    "PARASITOIDISM",
+    "SYMBIOSIS",
+    "GENERIC",
+    "",
+    "INFECTION",
+    "POLLINATION",
+    "PREDATION",
+    "PARASITISM"
+  ],
+  "finding": "KG covers 4.0% of GloBI sample. Lowest recall: ENDOPARASITISM, PARASITOIDISM, SYMBIOSIS. These categories need targeted literature harvest."
+}

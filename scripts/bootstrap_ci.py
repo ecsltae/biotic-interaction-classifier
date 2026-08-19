@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-Bootstrap confidence intervals for classifier F1/P/R on EP-relax and eval_sets.
+Bootstrap confidence intervals for classifier F1/P/R on the 499-sentence test set.
 Also runs McNemar's test between every pair of models.
+
+Loads pre-computed probabilities from classifier/results/new_testset/probs_main.npz
+(produced by eval_on_new_testset.py) — no inference needed here.
 
 Usage:
     python classifier/scripts/bootstrap_ci.py
@@ -22,28 +25,34 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "classifier/experiments/multitask"))
 from model import MultiTaskBiomedBERT  # noqa: E402
 
-DEVICE = torch.device("cpu")  # run on CPU — GPU reserved for v15 training
+DEVICE = torch.device("cpu")
 N_BOOT = 10_000
 ALPHA  = 0.05
 SEED   = 42
 
-EP_RELAX  = ROOT / "classifier/data/evaluation/globi-relax_passages-triplets_2024-02-28_curation_EP.tsv"
-EVAL_SETS = ROOT / "classifier/data/evaluation/eval_sets_qwen_validated.csv"
+TEST_SET  = ROOT / "classifier/data/evaluation/biotic_interaction_test_set.csv"
+PROBS_NPZ = ROOT / "classifier/results/new_testset/probs_main.npz"
 
+# Model names as stored in probs_main.npz, with their thresholds
 MODELS = {
-    "multitask_best": {
-        "type": "multitask",
-        "path": ROOT / "classifier/models/multitask/full_typed_a05_ner2",
-        "threshold": 0.13,
+    "multitask_champion": {
+        "npz_key":   "multitask_champion",
+        "threshold": 0.090,
+    },
+    "multitask_hardce": {
+        "npz_key":   "multitask_hardce",
+        "threshold": 0.51,
     },
     "distilled_v2": {
-        "type": "distilled",
-        "path": ROOT / "classifier/models/distilled_BiomedBERT_v2",
+        "npz_key":   "distilled_BiomedBERT_v2",
         "threshold": 0.25,
     },
+    "ensemble": {
+        "npz_key":   "ensemble_BiomedBERT_FLANT5",
+        "threshold": 0.32,
+    },
     "BiomedBERT_v7": {
-        "type": "distilled",
-        "path": ROOT / "classifier/models/transformer_BiomedBERT_cv_regularized",
+        "npz_key":   "BiomedBERT_v7_singletask",
         "threshold": 0.50,
     },
 }
@@ -51,22 +60,19 @@ MODELS = {
 
 # ── Data loaders ──────────────────────────────────────────────────────────────
 
-def load_ep_relax():
-    df = pd.read_csv(EP_RELAX, sep="\t")
+def load_test_set():
+    df = pd.read_csv(TEST_SET)
     texts  = df["sentence"].astype(str).tolist()
-    labels = df["evaluation_pair_interacting"].astype(int).tolist()
+    labels = df["label"].astype(int).tolist()
     return texts, labels
 
 
-def load_eval_sets():
-    df = pd.read_csv(EVAL_SETS)
-    # gold_label is authoritative
-    texts  = df["text"].astype(str).tolist()
-    labels = df["gold_label"].astype(int).tolist()
-    return texts, labels
+def load_probs():
+    data = np.load(PROBS_NPZ)
+    return data
 
 
-# ── Inference ─────────────────────────────────────────────────────────────────
+# ── Inference (kept for legacy use, not called in main) ───────────────────────
 
 def predict_multitask(model_path, texts):
     cfg = json.load(open(model_path / "multitask_config.json"))
@@ -95,7 +101,10 @@ def predict_seq_cls(model_path, texts):
         enc = tok(batch, truncation=True, max_length=256, padding=True,
                   return_tensors="pt").to(DEVICE)
         with torch.no_grad():
-            p = torch.softmax(model(**enc).logits, -1)[:, 1].cpu().tolist()
+            p = torch.softmax(
+                model(input_ids=enc["input_ids"],
+                      attention_mask=enc["attention_mask"]).logits,
+                -1)[:, 1].cpu().tolist()
         probs.extend(p)
     return np.array(probs)
 
@@ -152,48 +161,51 @@ def mcnemar(y_true, pred_a, pred_b):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-def run_on_dataset(name, texts, labels):
-    print(f"\n{'='*60}")
-    print(f"Dataset: {name}  ({len(texts)} sentences, {sum(labels)} pos)")
-    print(f"{'='*60}")
+def main():
+    print("Loading 499-sentence test set and pre-computed probabilities ...", flush=True)
+    texts, labels = load_test_set()
+    npz = load_probs()
+
+    print(f"Test set: {len(texts)} sentences, {sum(labels)} positives", flush=True)
 
     all_probs = {}
     all_preds = {}
     point_metrics = {}
 
     for mname, cfg in MODELS.items():
-        print(f"\n  Loading {mname} ...", flush=True)
-        if cfg["type"] == "multitask":
-            probs = predict_multitask(cfg["path"], texts)
-        else:
-            probs = predict_seq_cls(cfg["path"], texts)
-
+        key = cfg["npz_key"]
+        if key not in npz:
+            print(f"  SKIP {mname} — key '{key}' not in probs_main.npz")
+            continue
+        probs = npz[key]
         t = cfg["threshold"]
         preds = (probs >= t).astype(int)
         all_probs[mname] = probs
         all_preds[mname] = preds
 
-        f1 = f1_score(labels, preds, zero_division=0)
-        p  = precision_score(labels, preds, zero_division=0)
-        r  = recall_score(labels, preds, zero_division=0)
+        f1  = f1_score(labels, preds, zero_division=0)
+        p   = precision_score(labels, preds, zero_division=0)
+        r   = recall_score(labels, preds, zero_division=0)
         auc = roc_auc_score(labels, probs)
-        point_metrics[mname] = {"f1": f1, "precision": p, "recall": r, "auc": auc, "threshold": t}
-        print(f"    t={t:.2f}  F1={f1:.4f}  P={p:.4f}  R={r:.4f}  AUC={auc:.4f}")
+        point_metrics[mname] = {"f1": round(float(f1), 4), "precision": round(float(p), 4),
+                                 "recall": round(float(r), 4), "auc": round(float(auc), 4),
+                                 "threshold": t}
+        print(f"  {mname:25s}  t={t:.3f}  F1={f1:.4f}  P={p:.4f}  R={r:.4f}  AUC={auc:.4f}")
 
     # Bootstrap CIs
-    print("\n  Bootstrap CIs (n=10,000):", flush=True)
+    print(f"\nBootstrap CIs (n={N_BOOT:,}) ...", flush=True)
     ci_results = {}
     rng = np.random.default_rng(SEED)
     for mname, preds in all_preds.items():
         ci = bootstrap_ci(labels, preds, rng=rng)
         ci_results[mname] = ci
         f1_lo, f1_hi = ci["f1_ci"]
-        print(f"    {mname:25s}  F1={ci['f1_mean']:.3f}  95% CI [{f1_lo:.3f}, {f1_hi:.3f}]"
+        print(f"  {mname:25s}  F1={ci['f1_mean']:.3f}  95% CI [{f1_lo:.3f}, {f1_hi:.3f}]"
               f"  P=[{ci['p_ci'][0]:.3f},{ci['p_ci'][1]:.3f}]"
               f"  R=[{ci['r_ci'][0]:.3f},{ci['r_ci'][1]:.3f}]")
 
     # McNemar pairwise
-    print("\n  McNemar pairwise tests:", flush=True)
+    print("\nMcNemar pairwise tests:", flush=True)
     names = list(all_preds.keys())
     mcnemar_results = {}
     for i in range(len(names)):
@@ -203,41 +215,32 @@ def run_on_dataset(name, texts, labels):
             key = f"{a}_vs_{b}"
             mcnemar_results[key] = res
             sig = "**SIGNIFICANT**" if res["p_value"] < 0.05 else "not significant"
-            print(f"    {a} vs {b}: χ²={res['chi2']:.3f}  p={res['p_value']:.4f}  {sig}")
-            print(f"      ({res['note']})")
+            print(f"  {a} vs {b}: χ²={res['chi2']:.3f}  p={res['p_value']:.4f}  {sig}")
+            print(f"    ({res['note']})")
 
-    return {
+    results = {
+        "dataset": "biotic_interaction_test_set (499 sentences, 254 positives)",
         "point_metrics": point_metrics,
         "bootstrap_ci":  ci_results,
         "mcnemar":       mcnemar_results,
     }
-
-
-def main():
-    print(f"Device: {DEVICE}", flush=True)
-
-    ep_texts, ep_labels   = load_ep_relax()
-    ev_texts, ev_labels   = load_eval_sets()
-
-    results = {}
-    results["ep_relax"]   = run_on_dataset("EP-relax (99 sentences)", ep_texts, ep_labels)
-    results["eval_sets"]  = run_on_dataset("eval_sets_qwen (599 sentences)", ev_texts, ev_labels)
 
     out = ROOT / "classifier/results/bootstrap_ci_results.json"
     with open(out, "w") as f:
         json.dump(results, f, indent=2)
     print(f"\nResults saved to {out}")
 
-    # Print summary table
+    # Summary table
     print("\n" + "="*70)
-    print("SUMMARY — F1 with 95% bootstrap CI")
+    print("SUMMARY — F1 with 95% bootstrap CI (499-sentence test set)")
     print("="*70)
-    for dname, dres in results.items():
-        print(f"\n{dname}:")
-        for mname in MODELS:
-            pm = dres["point_metrics"][mname]
-            ci = dres["bootstrap_ci"][mname]
-            print(f"  {mname:25s}  F1={pm['f1']:.3f}  [{ci['f1_ci'][0]:.3f}, {ci['f1_ci'][1]:.3f}]")
+    for mname in MODELS:
+        if mname not in point_metrics:
+            continue
+        pm = point_metrics[mname]
+        ci = ci_results[mname]
+        print(f"  {mname:25s}  F1={pm['f1']:.3f}  [{ci['f1_ci'][0]:.3f}, {ci['f1_ci'][1]:.3f}]"
+              f"  P={pm['precision']:.3f}  R={pm['recall']:.3f}")
 
 
 if __name__ == "__main__":

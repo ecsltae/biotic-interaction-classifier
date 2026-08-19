@@ -1,0 +1,5193 @@
+{
+  "TG1025": [
+    {
+      "species": "pinus massoniana",
+      "reads": 11094,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11094.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 14,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1026": [
+    {
+      "species": "erica australis",
+      "reads": 44211,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 44211.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 12724,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12724.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1027": [
+    {
+      "species": "pinus massoniana",
+      "reads": 52573,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 52573.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 11,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica australis",
+      "reads": 6,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "rumex acetosella",
+      "reads": 2,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1028": [
+    {
+      "species": "erica australis",
+      "reads": 50085,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 50085.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "dipcadi ursulae",
+      "reads": 19766,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 19766.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "dipcadi serotinum",
+      "reads": 15947,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15947.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 11,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1030": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 13,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1032": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 33797,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 33797.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "leucanthemum heterophyllum",
+      "reads": 9360,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9360.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1033": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 62845,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 62845.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanopsis hystrix",
+      "reads": 5899,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5899.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1036": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 28655,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 28655.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica australis",
+      "reads": 15824,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15824.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "trifolium subterraneum",
+      "reads": 2730,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2730.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1038": [
+    {
+      "species": "erica australis",
+      "reads": 41729,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 41729.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1040": [
+    {
+      "species": "zea mays",
+      "reads": 1568,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1568.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica australis",
+      "reads": 5,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1042": [
+    {
+      "species": "pinus massoniana",
+      "reads": 21794,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 21794.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 16446,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16446.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1046": [
+    {
+      "species": "castanea sativa",
+      "reads": 5,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1048": [
+    {
+      "species": "erica australis",
+      "reads": 13020,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13020.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "solanum lycopersicum",
+      "reads": 2336,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2336.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "sonchus oleraceus",
+      "reads": 2177,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2177.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "leontodon tuberosus",
+      "reads": 115,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 115.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1049": [
+    {
+      "species": "pinus massoniana",
+      "reads": 23559,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 23559.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1051": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 83520,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 83520.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "festuca bromoides",
+      "reads": 7869,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7869.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "asphodelus albus",
+      "reads": 6308,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6308.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1052": [
+    {
+      "species": "plantago coronopus",
+      "reads": 16560,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16560.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 12,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1055": [
+    {
+      "species": "rumex acetosella",
+      "reads": 50879,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 50879.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "cistus crispus",
+      "reads": 977,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 977.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 2,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1056": [
+    {
+      "species": "castanea sativa",
+      "reads": 13,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1057": [
+    {
+      "species": "castanea sativa",
+      "reads": 14,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1058": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 32688,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 32688.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "echium plantagineum",
+      "reads": 9334,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9334.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus aggregatus",
+      "reads": 3016,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3016.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 3,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1059": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 90634,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 90634.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "chenopodium formosanum",
+      "reads": 3,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1060": [
+    {
+      "species": "triticum aestivum",
+      "reads": 2777,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2777.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 9,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 4,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1061": [
+    {
+      "species": "pinus massoniana",
+      "reads": 59238,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 59238.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1063": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 4,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1064": [
+    {
+      "species": "cytisus oromediterraneus",
+      "reads": 50057,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 50057.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1065": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 70946,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 70946.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "solanum lycopersicum",
+      "reads": 13281,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13281.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1066": [
+    {
+      "species": "castanea sativa",
+      "reads": 4,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1068": [
+    {
+      "species": "castanea sativa",
+      "reads": 14,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1069": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 5,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1072": [
+    {
+      "species": "trifolium pratense",
+      "reads": 39422,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 39422.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1074": [
+    {
+      "species": "chondrilla lejosperma",
+      "reads": 31959,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 31959.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1075": [
+    {
+      "species": "allium nutans",
+      "reads": 1399,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1399.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1077": [
+    {
+      "species": "castanea sativa",
+      "reads": 5,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1079": [
+    {
+      "species": "echium plantagineum",
+      "reads": 17595,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17595.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 4,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1084": [
+    {
+      "species": "silene parryi",
+      "reads": 1389,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1389.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 10,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 2,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "sonchus oleraceus",
+      "reads": 2,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1085": [
+    {
+      "species": "sonchus oleraceus",
+      "reads": 3025,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3025.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1087": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 10,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1090": [
+    {
+      "species": "platanus x",
+      "reads": 71354,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 71354.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1091": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 59715,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 59715.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "descurainia sophia",
+      "reads": 11760,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11760.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene parryi",
+      "reads": 4047,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4047.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "coincya wrightii",
+      "reads": 3680,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3680.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    },
+    {
+      "species": "cistus crispus",
+      "reads": 1226,
+      "original_rank": 5,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1226.0,
+      "new_rank": 5,
+      "delta_rank": 0
+    }
+  ],
+  "TG1092": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 47866,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 47866.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "leontodon tuberosus",
+      "reads": 5873,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5873.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1093": [
+    {
+      "species": "erica australis",
+      "reads": 36201,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 36201.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 9,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1097": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 30581,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 30581.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica australis",
+      "reads": 19351,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 19351.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica trimera",
+      "reads": 6523,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6523.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "mantisalca salmantica",
+      "reads": 2775,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2775.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    },
+    {
+      "species": "chenopodium formosanum",
+      "reads": 3,
+      "original_rank": 5,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 5,
+      "delta_rank": 0
+    }
+  ],
+  "TG1101": [
+    {
+      "species": "pinus massoniana",
+      "reads": 92465,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 92465.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 7293,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7293.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "tyrimnus leucographus",
+      "reads": 6929,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6929.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1102": [
+    {
+      "species": "castanea sativa",
+      "reads": 13,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 3,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1104": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 105941,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 105941.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rumex acetosella",
+      "reads": 138,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 138.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1105": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 42389,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 42389.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica trimera",
+      "reads": 28222,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 28222.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "cistus crispus",
+      "reads": 3121,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3121.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "corrigiola litoralis",
+      "reads": 1595,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1595.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1106": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 35566,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 35566.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "musa exotica",
+      "reads": 32720,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 32720.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene acaulis",
+      "reads": 12400,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12400.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene ciliata",
+      "reads": 3754,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3754.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1108": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 31389,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 31389.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene ciliata",
+      "reads": 1513,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1513.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1109": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 17,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1111": [
+    {
+      "species": "castanea sativa",
+      "reads": 11,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 3,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1112": [
+    {
+      "species": "silene acaulis",
+      "reads": 18948,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 18948.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus sylvestris",
+      "reads": 14493,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14493.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene ciliata",
+      "reads": 5647,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5647.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 7,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1114": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 43708,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 43708.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica trimera",
+      "reads": 10503,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10503.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "plantago asphodeloides",
+      "reads": 5031,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5031.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1116": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 49541,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 49541.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "olea europaea",
+      "reads": 9312,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9312.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "sedum album",
+      "reads": 2452,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2452.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "cistus crispus",
+      "reads": 1697,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1697.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1117": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 25230,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25230.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene ciliata",
+      "reads": 188,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 188.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1122": [
+    {
+      "species": "pinus massoniana",
+      "reads": 3883,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3883.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene ciliata",
+      "reads": 642,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 642.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 5,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1124": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 7312,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7312.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene ciliata",
+      "reads": 757,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 757.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1125": [
+    {
+      "species": "corrigiola litoralis",
+      "reads": 17156,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17156.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "jasione crispa",
+      "reads": 11321,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11321.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "chlorocrepis staticifolia",
+      "reads": 382,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 382.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 14,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1127": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 13844,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13844.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "mantisalca salmantica",
+      "reads": 3728,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3728.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica trimera",
+      "reads": 91,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 91.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1130": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 72660,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 72660.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "cistus crispus",
+      "reads": 1824,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1824.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1131": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 85399,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 85399.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1132": [
+    {
+      "species": "pinus sylvestris",
+      "reads": 35406,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 35406.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "silene acaulis",
+      "reads": 17512,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17512.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 9,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1134": [
+    {
+      "species": "castanea sativa",
+      "reads": 14,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1137": [
+    {
+      "species": "castanea sativa",
+      "reads": 45097,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 45097.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 3,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1139": [
+    {
+      "species": "castanea sativa",
+      "reads": 54135,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 54135.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 383,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 383.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 11,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1140": [
+    {
+      "species": "castanea sativa",
+      "reads": 62769,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 62769.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1142": [
+    {
+      "species": "castanea sativa",
+      "reads": 79104,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 79104.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 93,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 93.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1144": [
+    {
+      "species": "castanea sativa",
+      "reads": 49355,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 49355.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 2065,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2065.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 2015,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2015.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 891,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 891.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1146": [
+    {
+      "species": "castanea sativa",
+      "reads": 57440,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 57440.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1149": [
+    {
+      "species": "castanea sativa",
+      "reads": 46825,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 46825.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1150": [
+    {
+      "species": "castanea sativa",
+      "reads": 20126,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 20126.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1152": [
+    {
+      "species": "castanea sativa",
+      "reads": 37977,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 37977.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1153": [
+    {
+      "species": "castanea sativa",
+      "reads": 42200,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 42200.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1154": [
+    {
+      "species": "castanea sativa",
+      "reads": 30472,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 30472.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1160": [
+    {
+      "species": "castanea sativa",
+      "reads": 12369,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12369.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "plantago coronopus",
+      "reads": 2196,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2196.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1161": [
+    {
+      "species": "castanea sativa",
+      "reads": 62967,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 62967.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1165": [
+    {
+      "species": "castanea sativa",
+      "reads": 59351,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 59351.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 2298,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2298.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1168": [
+    {
+      "species": "castanea sativa",
+      "reads": 58410,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 58410.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 7010,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7010.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1170": [
+    {
+      "species": "castanea sativa",
+      "reads": 38747,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 38747.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1174": [
+    {
+      "species": "castanea sativa",
+      "reads": 13241,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13241.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 6748,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6748.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 2937,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2937.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1175": [
+    {
+      "species": "castanea sativa",
+      "reads": 60180,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 60180.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 585,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 585.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 468,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 468.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 124,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 124.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1176": [
+    {
+      "species": "castanea sativa",
+      "reads": 94146,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 94146.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 3636,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3636.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "chlorocrepis staticifolia",
+      "reads": 1555,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1555.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1178": [
+    {
+      "species": "castanea sativa",
+      "reads": 66891,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 66891.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 2975,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2975.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1179": [
+    {
+      "species": "castanea sativa",
+      "reads": 87630,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 87630.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 2586,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2586.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 365,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 365.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 190,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 190.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 82,
+      "original_rank": 5,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 82.0,
+      "new_rank": 5,
+      "delta_rank": 0
+    },
+    {
+      "species": "chenopodium formosanum",
+      "reads": 6,
+      "original_rank": 6,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 6,
+      "delta_rank": 0
+    }
+  ],
+  "TG1182": [
+    {
+      "species": "castanea sativa",
+      "reads": 89296,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 89296.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 1213,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1213.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 909,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 909.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 275,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 275.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 91,
+      "original_rank": 5,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 91.0,
+      "new_rank": 5,
+      "delta_rank": 0
+    }
+  ],
+  "TG1183": [
+    {
+      "species": "castanea sativa",
+      "reads": 69199,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 69199.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "reseda luteola",
+      "reads": 3590,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3590.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 3045,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3045.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 2610,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2610.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    },
+    {
+      "species": "sambucus eminagaoglui",
+      "reads": 1904,
+      "original_rank": 5,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1904.0,
+      "new_rank": 5,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 448,
+      "original_rank": 6,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 448.0,
+      "new_rank": 6,
+      "delta_rank": 0
+    }
+  ],
+  "TG1187": [
+    {
+      "species": "castanea sativa",
+      "reads": 88079,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 88079.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 8382,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8382.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1188": [
+    {
+      "species": "castanea sativa",
+      "reads": 48293,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 48293.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 67,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 67.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1189": [
+    {
+      "species": "castanea sativa",
+      "reads": 113388,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 113388.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1191": [
+    {
+      "species": "castanea sativa",
+      "reads": 73927,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 73927.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 2014,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2014.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 172,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 172.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 95,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 95.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 84,
+      "original_rank": 5,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 84.0,
+      "new_rank": 5,
+      "delta_rank": 0
+    }
+  ],
+  "TG1194": [
+    {
+      "species": "castanea sativa",
+      "reads": 41046,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 41046.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1196": [
+    {
+      "species": "phagnalon umbelliforme",
+      "reads": 42711,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 42711.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1198": [
+    {
+      "species": "rumex induratus",
+      "reads": 43380,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 43380.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 22557,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 22557.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 5868,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5868.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1199": [
+    {
+      "species": "castanea sativa",
+      "reads": 16,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1202": [
+    {
+      "species": "castanea sativa",
+      "reads": 34857,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 34857.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 804,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 804.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1207": [
+    {
+      "species": "castanea sativa",
+      "reads": 57445,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 57445.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "sambucus eminagaoglui",
+      "reads": 5701,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5701.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1208": [
+    {
+      "species": "castanea sativa",
+      "reads": 73926,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 73926.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1210": [
+    {
+      "species": "castanea sativa",
+      "reads": 17,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1211": [
+    {
+      "species": "castanea sativa",
+      "reads": 17,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1212": [
+    {
+      "species": "castanea sativa",
+      "reads": 76346,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 76346.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus jenseniana",
+      "reads": 1334,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1334.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1214": [
+    {
+      "species": "castanea sativa",
+      "reads": 57505,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 57505.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "helianthus resinosus",
+      "reads": 1637,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1637.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1216": [
+    {
+      "species": "castanea sativa",
+      "reads": 70456,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 70456.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 25,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1218": [
+    {
+      "species": "castanea sativa",
+      "reads": 22130,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 22130.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 37,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 37.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "quercus acutissima",
+      "reads": 8,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1219": [
+    {
+      "species": "castanea sativa",
+      "reads": 60705,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 60705.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1220": [
+    {
+      "species": "castanea sativa",
+      "reads": 63617,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 63617.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1223": [
+    {
+      "species": "castanea sativa",
+      "reads": 77138,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 77138.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1233": [
+    {
+      "species": "castanea sativa",
+      "reads": 9,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1235": [
+    {
+      "species": "castanea sativa",
+      "reads": 8,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1236": [
+    {
+      "species": "castanea sativa",
+      "reads": 33238,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 33238.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1239": [
+    {
+      "species": "castanea sativa",
+      "reads": 14,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1240": [
+    {
+      "species": "castanea sativa",
+      "reads": 62181,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 62181.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 2,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1243": [
+    {
+      "species": "castanea sativa",
+      "reads": 68896,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 68896.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 5472,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5472.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1244": [
+    {
+      "species": "castanea sativa",
+      "reads": 56037,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 56037.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pistacia atlantica",
+      "reads": 6985,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6985.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1245": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 61408,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 61408.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 18258,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 18258.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1246": [
+    {
+      "species": "castanea sativa",
+      "reads": 68012,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 68012.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "allium sp",
+      "reads": 4,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1248": [
+    {
+      "species": "allium sp",
+      "reads": 4392,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4392.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1249": [
+    {
+      "species": "castanea sativa",
+      "reads": 11,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1253": [
+    {
+      "species": "castanea sativa",
+      "reads": 5,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 4,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1255": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 4,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1257": [
+    {
+      "species": "castanea sativa",
+      "reads": 4,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1259": [
+    {
+      "species": "triticum aestivum",
+      "reads": 18048,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 18048.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "populus trichocarpa",
+      "reads": 9452,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9452.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1261": [
+    {
+      "species": "castanea sativa",
+      "reads": 2,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1264": [
+    {
+      "species": "castanea sativa",
+      "reads": 32075,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 32075.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 16440,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16440.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "eucalyptus smithii",
+      "reads": 2089,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2089.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1270": [
+    {
+      "species": "castanea sativa",
+      "reads": 36818,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 36818.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1271": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 21574,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 21574.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "chenopodium formosanum",
+      "reads": 2563,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2563.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1277": [
+    {
+      "species": "castanea sativa",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1281": [
+    {
+      "species": "vigna trilobata",
+      "reads": 45267,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 45267.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1282": [
+    {
+      "species": "castanea sativa",
+      "reads": 5,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1289": [
+    {
+      "species": "castanea sativa",
+      "reads": 47048,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 47048.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1291": [
+    {
+      "species": "daphne laureola",
+      "reads": 3,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1293": [
+    {
+      "species": "brassica rapa",
+      "reads": 13551,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13551.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1298": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 35609,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 35609.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 20469,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 20469.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1299": [
+    {
+      "species": "castanea sativa",
+      "reads": 65184,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 65184.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1300": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 10,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1302": [
+    {
+      "species": "pinus massoniana",
+      "reads": 2021,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2021.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 8,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1304": [
+    {
+      "species": "castanea sativa",
+      "reads": 12,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1307": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1308": [
+    {
+      "species": "pinus massoniana",
+      "reads": 3,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1309": [
+    {
+      "species": "castanea sativa",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1310": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 30033,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 30033.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "urtica hyperborea",
+      "reads": 15930,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15930.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "euphorbia celastroides",
+      "reads": 15227,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15227.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 3,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1313": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 7122,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7122.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1314": [
+    {
+      "species": "castanea sativa",
+      "reads": 13,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1315": [
+    {
+      "species": "populus trichocarpa",
+      "reads": 28,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 28.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 6,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1319": [
+    {
+      "species": "rubus caesius",
+      "reads": 28253,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 28253.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus armeniacus",
+      "reads": 15138,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15138.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 3,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1322": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1324": [
+    {
+      "species": "castanea sativa",
+      "reads": 4,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1328": [
+    {
+      "species": "castanea sativa",
+      "reads": 35234,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 35234.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "erica australis",
+      "reads": 2,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1329": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 8,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1330": [
+    {
+      "species": "castanea sativa",
+      "reads": 5,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1331": [
+    {
+      "species": "castanea sativa",
+      "reads": 15,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1332": [
+    {
+      "species": "chenopodium formosanum",
+      "reads": 32220,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 32220.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 9,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1336": [
+    {
+      "species": "castanea sativa",
+      "reads": 7,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1342": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 4,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1343": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 17133,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 17133.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 2415,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2415.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1353": [
+    {
+      "species": "populus trichocarpa",
+      "reads": 1079,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1079.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 8,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1355": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 7795,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7795.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1356": [
+    {
+      "species": "chenopodium formosanum",
+      "reads": 29630,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 29630.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "daphne mezereum",
+      "reads": 2437,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2437.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 1394,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1394.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 16,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 16.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1357": [
+    {
+      "species": "pinus massoniana",
+      "reads": 47997,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 47997.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "chenopodium formosanum",
+      "reads": 5497,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5497.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1358": [
+    {
+      "species": "lactuca sativa",
+      "reads": 25095,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25095.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 19885,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 19885.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 10398,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10398.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "olearia virgata",
+      "reads": 1217,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1217.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1361": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 15655,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15655.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 13,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1365": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 27214,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 27214.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1366": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 14986,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14986.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1367": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 1711,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1711.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 4,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1369": [
+    {
+      "species": "castanea sativa",
+      "reads": 6,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1370": [
+    {
+      "species": "populus trichocarpa",
+      "reads": 23,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 23.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 13,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 13.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1371": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 10433,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10433.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1372": [
+    {
+      "species": "salsola kali",
+      "reads": 2264,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2264.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1373": [
+    {
+      "species": "salsola kali",
+      "reads": 3,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1374": [
+    {
+      "species": "rubus armeniacus",
+      "reads": 23590,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 23590.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "rubus caesius",
+      "reads": 1345,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1345.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1376": [
+    {
+      "species": "lactuca sativa",
+      "reads": 21541,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 21541.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1377": [
+    {
+      "species": "rubus caesius",
+      "reads": 14036,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14036.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "chenopodium formosanum",
+      "reads": 11785,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11785.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 8,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1378": [
+    {
+      "species": "erigeron canadensis",
+      "reads": 24489,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 24489.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 11,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1379": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 25244,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25244.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1380": [
+    {
+      "species": "carex lasiocarpa",
+      "reads": 12936,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12936.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1383": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 25932,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 25932.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1391": [
+    {
+      "species": "pinus massoniana",
+      "reads": 33038,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 33038.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1395": [
+    {
+      "species": "agrostis capillaris",
+      "reads": 7553,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7553.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "populus trichocarpa",
+      "reads": 72,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 72.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1397": [
+    {
+      "species": "populus trichocarpa",
+      "reads": 128,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 128.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 14,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 14.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1409": [
+    {
+      "species": "anethum foeniculum",
+      "reads": 51329,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 51329.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "pinus massoniana",
+      "reads": 1741,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1741.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 12,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    }
+  ],
+  "TG1410": [
+    {
+      "species": "pinus massoniana",
+      "reads": 10253,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 10253.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1434": [
+    {
+      "species": "ficus wassa",
+      "reads": 19569,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 19569.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 6,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1452": [
+    {
+      "species": "rubus caesius",
+      "reads": 15499,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 15499.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1470": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 44413,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 44413.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1471": [
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 24237,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 24237.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1472": [
+    {
+      "species": "rubus caesius",
+      "reads": 3,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1486": [
+    {
+      "species": "centaurea solstitialis",
+      "reads": 33944,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 33944.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "castanea sativa",
+      "reads": 3,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1492": [
+    {
+      "species": "allium nutans",
+      "reads": 2749,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 2749.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "lithocarpus yongfuensis",
+      "reads": 11,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 11.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1493": [
+    {
+      "species": "daphne laureola",
+      "reads": 1080,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1080.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1494": [
+    {
+      "species": "populus trichocarpa",
+      "reads": 8,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1503": [
+    {
+      "species": "castanea sativa",
+      "reads": 7,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1505": [
+    {
+      "species": "castanea sativa",
+      "reads": 3,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1506": [
+    {
+      "species": "castanea sativa",
+      "reads": 5,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 5.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1509": [
+    {
+      "species": "daphne laureola",
+      "reads": 3819,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3819.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "anethum foeniculum",
+      "reads": 3,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1518": [
+    {
+      "species": "arachis porphyrocalyx",
+      "reads": 12277,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 12277.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "daphne laureola",
+      "reads": 8226,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 8226.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    },
+    {
+      "species": "arbutus unedo",
+      "reads": 7785,
+      "original_rank": 3,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 7785.0,
+      "new_rank": 3,
+      "delta_rank": 0
+    },
+    {
+      "species": "daphne mezereum",
+      "reads": 3240,
+      "original_rank": 4,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 3240.0,
+      "new_rank": 4,
+      "delta_rank": 0
+    }
+  ],
+  "TG1524": [
+    {
+      "species": "cucumis sativus",
+      "reads": 9305,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9305.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "eucalyptus nitens",
+      "reads": 1806,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 1806.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1526": [
+    {
+      "species": "arbutus unedo",
+      "reads": 9104,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 9104.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    },
+    {
+      "species": "citrus reticulata",
+      "reads": 6740,
+      "original_rank": 2,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 6740.0,
+      "new_rank": 2,
+      "delta_rank": 0
+    }
+  ],
+  "TG1532": [
+    {
+      "species": "castanea sativa",
+      "reads": 4,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 4.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ],
+  "TG1534": [
+    {
+      "species": "arbutus unedo",
+      "reads": 581,
+      "original_rank": 1,
+      "biotxplorer_score": 0.0,
+      "biotxplorer_support": 0,
+      "biotxplorer_partners": [],
+      "globi_support": 0,
+      "globi_partners": [],
+      "final_score": 581.0,
+      "new_rank": 1,
+      "delta_rank": 0
+    }
+  ]
+}
