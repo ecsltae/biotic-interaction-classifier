@@ -52,8 +52,27 @@ NER_LABELS = [
 ]
 NER_LABEL2ID = {l: i for i, l in enumerate(NER_LABELS)}
 
-# Classification threshold (production setting for full_typed_a05_ner2)
-CLS_THRESHOLD = 0.13
+# A5: this was a hardcoded 0.13, which is exactly the F1-argmax on the EP-relax
+# test set — the test set was deciding which KG edges got admitted. The threshold
+# now comes from the checkpoint's recorded dev value (written by train_v2.py).
+CLS_THRESHOLD = None  # resolved from the checkpoint by _threshold_from_checkpoint()
+
+
+def _threshold_from_checkpoint(model_dir, override=None):
+    import json as _json
+    from pathlib import Path as _P
+    if override is not None:
+        return float(override)
+    cfg = _P(model_dir) / "multitask_config.json"
+    if cfg.exists():
+        c = _json.loads(cfg.read_text())
+        for k in ("threshold_dev", "best_threshold"):
+            if c.get(k) is not None:
+                return float(c[k])
+    raise ValueError(
+        f"No threshold recorded in {cfg}. Refusing to fall back to a literal: "
+        f"V1's literal was the EP-relax argmax. Retrain with train_v2.py, or pass "
+        f"an explicit threshold.")
 
 
 def load_multitask_model(model_dir: Path, device: torch.device):
@@ -257,6 +276,9 @@ def main():
     # Load model
     model, tokenizer = load_multitask_model(Path(args.model_dir), device)
 
+    global CLS_THRESHOLD
+    CLS_THRESHOLD = _threshold_from_checkpoint(Path(args.model_dir))
+    print(f'  cls threshold from checkpoint: {CLS_THRESHOLD}', flush=True)
     # Load sentences
     print(f"Loading {args.v14_path} ...", flush=True)
     df = pd.read_csv(args.v14_path)

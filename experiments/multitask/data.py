@@ -390,11 +390,15 @@ class MultiTaskDataset(Dataset):
         ner_scheme: str = "full",
         max_length: int = 256,
         extra_species: Optional[set] = None,
+        pair_conditioning: bool = False,
     ):
         self.df = df.reset_index(drop=True)
         self.tokenizer   = AutoTokenizer.from_pretrained(tokenizer_name)
         self.ner_scheme  = ner_scheme
         self.max_length  = max_length
+        # B4: encode (query, sentence) as a segment pair so the model is asked
+        # about a specific taxon pair rather than about the sentence in general.
+        self.pair_conditioning = pair_conditioning
         # Build automata once (shared across instances via globals)
         self.sp_auto, self.int_auto = get_automata(extra_species)
 
@@ -407,14 +411,35 @@ class MultiTaskDataset(Dataset):
         # Soft label from ensemble (p_ensemble column, -1.0 if absent → use hard label)
         soft_label = float(row["p_ensemble"]) if "p_ensemble" in row.index and not pd.isna(row.get("p_ensemble")) else -1.0
 
-        enc = self.tokenizer(
-            text,
-            truncation=True,
-            max_length=self.max_length,
-            padding="max_length",
-            return_offsets_mapping=True,
-            return_tensors="pt",
-        )
+        query = None
+        if self.pair_conditioning:
+            s1 = str(row.get("source_species") or "").strip()
+            s2 = str(row.get("target_species") or "").strip()
+            if s1 and s1.lower() != "nan" and s2 and s2.lower() != "nan":
+                query = f"{s1} [SEP] {s2}"
+
+        if query is not None:
+            enc = self.tokenizer(
+                query, text,
+                truncation="only_second",
+                max_length=self.max_length,
+                padding="max_length",
+                return_offsets_mapping=True,
+                return_tensors="pt",
+            )
+            # Only sequence 1 (the sentence) carries NER supervision; the query
+            # is masked to -100 below via seq_ids.
+            seq_ids = enc.sequence_ids(0)
+        else:
+            enc = self.tokenizer(
+                text,
+                truncation=True,
+                max_length=self.max_length,
+                padding="max_length",
+                return_offsets_mapping=True,
+                return_tensors="pt",
+            )
+            seq_ids = None
 
         input_ids      = enc["input_ids"].squeeze(0)
         attention_mask = enc["attention_mask"].squeeze(0)
@@ -464,6 +489,14 @@ class MultiTaskDataset(Dataset):
             if mask == 0:
                 ner_labels_list[i] = -100
 
+        # Mask everything that is not the sentence (query tokens + specials).
+        # Without this the gazetteer offsets, which are relative to `text`,
+        # would be applied to query tokens and produce wrong BIO targets.
+        if seq_ids is not None:
+            for i, sid in enumerate(seq_ids):
+                if sid != 1:
+                    ner_labels_list[i] = -100
+
         return {
             "input_ids":      input_ids,
             "attention_mask": attention_mask,
@@ -484,6 +517,7 @@ def load_multitask_splits(
     seed: int = 42,
     max_length: int = 256,
     soft_labels_path: Optional[str] = None,
+    pair_conditioning: bool = False,
 ) -> tuple["MultiTaskDataset", "MultiTaskDataset"]:
     """Stratified train/val split. Merges soft labels if provided."""
     from sklearn.model_selection import train_test_split
@@ -522,6 +556,25 @@ def load_multitask_splits(
         df, test_size=val_frac, stratify=df["label"], random_state=seed
     )
 
-    train_ds = MultiTaskDataset(train_df, tokenizer_name, ner_scheme, max_length, extra_species)
-    val_ds   = MultiTaskDataset(val_df,   tokenizer_name, ner_scheme, max_length, extra_species)
+    if pair_conditioning:
+        # A silent no-op here makes a pair-conditioned run bit-identical to its
+        # control, which reads as a negative result rather than as a broken one.
+        missing = {"source_species", "target_species"} - set(df.columns)
+        if missing:
+            raise ValueError(
+                f"--pair-conditioning requires columns {sorted(missing)}, absent from {csv_path}. "
+                f"Refusing to fall back to single-segment encoding: the run would be "
+                f"indistinguishable from its no-pair control.")
+        markable = (df["source_species"].notna() & (df["source_species"].astype(str).str.strip() != "")
+                    & df["target_species"].notna() & (df["target_species"].astype(str).str.strip() != ""))
+        print(f"Pair conditioning: {markable.sum()}/{len(df)} rows markable ({markable.mean():.1%})", flush=True)
+        if markable.mean() < 0.05:
+            raise ValueError(
+                f"Only {markable.mean():.1%} of rows are pair-markable in {csv_path}. "
+                f"A pair-conditioning result on this file would be meaningless.")
+
+    train_ds = MultiTaskDataset(train_df, tokenizer_name, ner_scheme, max_length,
+                                extra_species, pair_conditioning=pair_conditioning)
+    val_ds   = MultiTaskDataset(val_df,   tokenizer_name, ner_scheme, max_length,
+                                extra_species, pair_conditioning=pair_conditioning)
     return train_ds, val_ds

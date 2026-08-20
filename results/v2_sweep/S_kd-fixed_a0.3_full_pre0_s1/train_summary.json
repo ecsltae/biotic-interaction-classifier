@@ -1,0 +1,68 @@
+{
+  "encoder_name": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full",
+  "alpha": 0.3,
+  "ner_labels": [
+    "O",
+    "B-SP",
+    "I-SP",
+    "B-INT",
+    "I-INT"
+  ],
+  "temperature": 2.0,
+  "kd_mode": "fixed",
+  "threshold_dev": 0.31,
+  "threshold_prior_at_0.5": 0.08479047181311325,
+  "train_pos_rate": 0.08479047181311325,
+  "seed": 1,
+  "split_seed": 42,
+  "select_on": "cls_auprc",
+  "pair_conditioning": false,
+  "data_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels.csv",
+  "data_sha256": "a62df36c6954dd8a546ae3ef4f551e91edf07b17c95a54e98dd7667b18725d6e",
+  "data_rows": 50041,
+  "soft_labels_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels.csv",
+  "soft_labels_sha256": "a62df36c6954dd8a546ae3ef4f551e91edf07b17c95a54e98dd7667b18725d6e",
+  "git_sha": "6e5d7a20ae13551145b6bf5f87882c02391d913b",
+  "trained_by": "train_v2.py",
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "epochs": 3,
+  "pretrain_ner_epochs": 0,
+  "batch_size": 32,
+  "lr": 2e-05,
+  "best_epoch": 1,
+  "best_dev_cls_auprc": 0.34751220318646864,
+  "dev_metrics_at_best": {
+    "cls_auprc": 0.34751220318646864,
+    "cls_f1": 0.39779005524861877,
+    "cls_prec": 0.37422037422037424,
+    "cls_rec": 0.42452830188679247,
+    "ner_f1": 0.928104306889041
+  },
+  "history": [
+    {
+      "cls_auprc": 0.34751220318646864,
+      "cls_f1": 0.39779005524861877,
+      "cls_prec": 0.37422037422037424,
+      "cls_rec": 0.42452830188679247,
+      "ner_f1": 0.928104306889041,
+      "epoch": 1
+    },
+    {
+      "cls_auprc": 0.31912694531997143,
+      "cls_f1": 0.38377192982456143,
+      "cls_prec": 0.35860655737704916,
+      "cls_rec": 0.41273584905660377,
+      "ner_f1": 0.9559120078483044,
+      "epoch": 2
+    },
+    {
+      "cls_auprc": 0.3234819238750269,
+      "cls_f1": 0.3847826086956522,
+      "cls_prec": 0.35685483870967744,
+      "cls_rec": 0.41745283018867924,
+      "ner_f1": 0.9640248447824599,
+      "epoch": 3
+    }
+  ]
+}

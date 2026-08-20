@@ -1,0 +1,72 @@
+{
+  "encoder_name": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full_typed",
+  "alpha": 0.5,
+  "ner_labels": [
+    "O",
+    "B-HOST",
+    "I-HOST",
+    "B-PATHOGEN",
+    "I-PATHOGEN",
+    "B-SPECIES",
+    "I-SPECIES",
+    "B-INT",
+    "I-INT"
+  ],
+  "temperature": 2.0,
+  "kd_mode": "fixed",
+  "threshold_dev": 0.64,
+  "threshold_prior_at_0.5": 0.32715022935779814,
+  "train_pos_rate": 0.32715022935779814,
+  "seed": 1,
+  "split_seed": 42,
+  "select_on": "cls_auprc",
+  "pair_conditioning": false,
+  "data_path": "/home/egaillac/MetaP/classifier/data/training/training_data_v14.csv",
+  "data_sha256": "94c1cdfcc784aac51686cb908ce71a08a80647883a5d26f814ed7f4770b6ccc8",
+  "data_rows": 34880,
+  "soft_labels_path": null,
+  "soft_labels_sha256": null,
+  "git_sha": "6e5d7a20ae13551145b6bf5f87882c02391d913b",
+  "trained_by": "train_v2.py",
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "epochs": 3,
+  "pretrain_ner_epochs": 0,
+  "batch_size": 32,
+  "lr": 2e-05,
+  "best_epoch": 3,
+  "best_dev_cls_auprc": 0.9953961594814275,
+  "dev_metrics_at_best": {
+    "cls_auprc": 0.9953961594814275,
+    "cls_f1": 0.9658452226545612,
+    "cls_prec": 0.9530716723549488,
+    "cls_rec": 0.978965819456617,
+    "ner_f1": 0.9532028599061592
+  },
+  "history": [
+    {
+      "cls_auprc": 0.992525435244551,
+      "cls_f1": 0.9588336192109777,
+      "cls_prec": 0.9387069689336692,
+      "cls_rec": 0.9798422436459246,
+      "ner_f1": 0.9310005440314699,
+      "epoch": 1
+    },
+    {
+      "cls_auprc": 0.9949687599936649,
+      "cls_f1": 0.9649502379922111,
+      "cls_prec": 0.9529914529914529,
+      "cls_rec": 0.9772129710780018,
+      "ner_f1": 0.9487772774654449,
+      "epoch": 2
+    },
+    {
+      "cls_auprc": 0.9953961594814275,
+      "cls_f1": 0.9658452226545612,
+      "cls_prec": 0.9530716723549488,
+      "cls_rec": 0.978965819456617,
+      "ner_f1": 0.9532028599061592,
+      "epoch": 3
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "regime": "S",
+  "data": "data/training/distillation_soft_labels.csv",
+  "soft_labels": "data/training/distillation_soft_labels.csv",
+  "kd_mode": "v1_bug",
+  "alpha": 0.3,
+  "ner_scheme": "full_typed",
+  "pretrain_ner_epochs": 2,
+  "pair_conditioning": false,
+  "seed": 1,
+  "name": "S_kd-v1_bug_a0.3_full_typed_pre2_s1"
+}

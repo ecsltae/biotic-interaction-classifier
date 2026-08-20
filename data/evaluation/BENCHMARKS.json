@@ -1,0 +1,17 @@
+{
+  "test500": {
+    "path": "data/evaluation/biotic_interaction_test_set.csv",
+    "sha256": "b5747df79c9b4a37e42fb83228c46f1da8988acfe2193798f514826f2e82736a",
+    "note": "authoritative copy; ep_relax has a 23-col divergent duplicate under data/evaluation/ \u2014 do not use it"
+  },
+  "test299": {
+    "path": "data/evaluation/test500_paired.csv",
+    "sha256": "f9a5fbe44866ab5125842e00de26717f7a89c21d0abace99cbcf67ec27486257",
+    "note": "authoritative copy; ep_relax has a 23-col divergent duplicate under data/evaluation/ \u2014 do not use it"
+  },
+  "ep_relax": {
+    "path": "globi-relax_passages-triplets_2024-02-28_curation_EP.tsv",
+    "sha256": "615a8a2971b93f476fe3669d8e74840e7fa2a2f069598713b02242f29e642893",
+    "note": "authoritative copy; ep_relax has a 23-col divergent duplicate under data/evaluation/ \u2014 do not use it"
+  }
+}

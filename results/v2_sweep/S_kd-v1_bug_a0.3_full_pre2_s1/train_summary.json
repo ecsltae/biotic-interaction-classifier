@@ -1,0 +1,68 @@
+{
+  "encoder_name": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full",
+  "alpha": 0.3,
+  "ner_labels": [
+    "O",
+    "B-SP",
+    "I-SP",
+    "B-INT",
+    "I-INT"
+  ],
+  "temperature": 2.0,
+  "kd_mode": "v1_bug",
+  "threshold_dev": 0.21000000000000002,
+  "threshold_prior_at_0.5": 0.08479047181311325,
+  "train_pos_rate": 0.08479047181311325,
+  "seed": 1,
+  "split_seed": 42,
+  "select_on": "cls_auprc",
+  "pair_conditioning": false,
+  "data_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels.csv",
+  "data_sha256": "a62df36c6954dd8a546ae3ef4f551e91edf07b17c95a54e98dd7667b18725d6e",
+  "data_rows": 50041,
+  "soft_labels_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels.csv",
+  "soft_labels_sha256": "a62df36c6954dd8a546ae3ef4f551e91edf07b17c95a54e98dd7667b18725d6e",
+  "git_sha": "6e5d7a20ae13551145b6bf5f87882c02391d913b",
+  "trained_by": "train_v2.py",
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "epochs": 3,
+  "pretrain_ner_epochs": 2,
+  "batch_size": 32,
+  "lr": 2e-05,
+  "best_epoch": 1,
+  "best_dev_cls_auprc": 0.35709934414876227,
+  "dev_metrics_at_best": {
+    "cls_auprc": 0.35709934414876227,
+    "cls_f1": 0.40286298568507156,
+    "cls_prec": 0.3555956678700361,
+    "cls_rec": 0.46462264150943394,
+    "ner_f1": 0.9772704950211546
+  },
+  "history": [
+    {
+      "cls_auprc": 0.35709934414876227,
+      "cls_f1": 0.40286298568507156,
+      "cls_prec": 0.3555956678700361,
+      "cls_rec": 0.46462264150943394,
+      "ner_f1": 0.9772704950211546,
+      "epoch": 1
+    },
+    {
+      "cls_auprc": 0.34977607108486886,
+      "cls_f1": 0.39603960396039606,
+      "cls_prec": 0.3711340206185567,
+      "cls_rec": 0.42452830188679247,
+      "ner_f1": 0.980894280909007,
+      "epoch": 2
+    },
+    {
+      "cls_auprc": 0.34460566316159946,
+      "cls_f1": 0.3847019122609674,
+      "cls_prec": 0.36774193548387096,
+      "cls_rec": 0.4033018867924528,
+      "ner_f1": 0.9801145271268947,
+      "epoch": 3
+    }
+  ]
+}
