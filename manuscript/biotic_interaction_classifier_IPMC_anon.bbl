@@ -80,11 +80,11 @@
   \bibinfo{pages}{W12--W16}.
 %Type = Article
 \bibitem[{Gu et~al.(2021)Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao and
-  Peng}]{gu2021domain}
+  Poon}]{gu2021domain}
 \bibinfo{author}{Gu, Y.}, \bibinfo{author}{Tinn, R.}, \bibinfo{author}{Cheng,
   H.}, \bibinfo{author}{Lucas, M.}, \bibinfo{author}{Usuyama, N.},
   \bibinfo{author}{Liu, X.}, \bibinfo{author}{Naumann, T.},
-  \bibinfo{author}{Gao, J.}, \bibinfo{author}{Peng, J.}, \bibinfo{year}{2021}.
+  \bibinfo{author}{Gao, J.}, \bibinfo{author}{Poon, H.}, \bibinfo{year}{2021}.
 \newblock \bibinfo{title}{Domain-specific language model pretraining for
   biomedical natural language processing}.
 \newblock \bibinfo{journal}{ACM Transactions on Computing for Healthcare}

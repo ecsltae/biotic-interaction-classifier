@@ -1,0 +1,12 @@
+{
+  "regime": "S",
+  "data": "data/training/training_data_v14.csv",
+  "soft_labels": "none",
+  "pair_conditioning": false,
+  "kd_mode": "fixed",
+  "alpha": 0.5,
+  "ner_scheme": "full_typed",
+  "pretrain_ner_epochs": 2,
+  "seed": 2,
+  "name": "D0v_pair-0_kd-fixed_a0.5_full_typed_pre2_s2"
+}

@@ -1,0 +1,72 @@
+{
+  "encoder_name": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full_typed",
+  "alpha": 0.5,
+  "ner_labels": [
+    "O",
+    "B-HOST",
+    "I-HOST",
+    "B-PATHOGEN",
+    "I-PATHOGEN",
+    "B-SPECIES",
+    "I-SPECIES",
+    "B-INT",
+    "I-INT"
+  ],
+  "temperature": 2.0,
+  "kd_mode": "fixed",
+  "threshold_dev": 0.32,
+  "threshold_prior_at_0.5": 0.08479047181311325,
+  "train_pos_rate": 0.08479047181311325,
+  "seed": 3,
+  "split_seed": 42,
+  "select_on": "cls_auprc",
+  "pair_conditioning": false,
+  "data_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels.csv",
+  "data_sha256": "a62df36c6954dd8a546ae3ef4f551e91edf07b17c95a54e98dd7667b18725d6e",
+  "data_rows": 50041,
+  "soft_labels_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels.csv",
+  "soft_labels_sha256": "a62df36c6954dd8a546ae3ef4f551e91edf07b17c95a54e98dd7667b18725d6e",
+  "git_sha": "8529a2fedc4bb4c1a0634a6af969c413ce9d5d35",
+  "trained_by": "train_v2.py",
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "epochs": 3,
+  "pretrain_ner_epochs": 2,
+  "batch_size": 32,
+  "lr": 2e-05,
+  "best_epoch": 1,
+  "best_dev_cls_auprc": 0.3765621985824455,
+  "dev_metrics_at_best": {
+    "cls_auprc": 0.3765621985824455,
+    "cls_f1": 0.4140786749482402,
+    "cls_prec": 0.36900369003690037,
+    "cls_rec": 0.4716981132075472,
+    "ner_f1": 0.9744784997279796
+  },
+  "history": [
+    {
+      "cls_auprc": 0.3765621985824455,
+      "cls_f1": 0.4140786749482402,
+      "cls_prec": 0.36900369003690037,
+      "cls_rec": 0.4716981132075472,
+      "ner_f1": 0.9744784997279796,
+      "epoch": 1
+    },
+    {
+      "cls_auprc": 0.33116099921758274,
+      "cls_f1": 0.4,
+      "cls_prec": 0.3302611367127496,
+      "cls_rec": 0.5070754716981132,
+      "ner_f1": 0.9753796443151325,
+      "epoch": 2
+    },
+    {
+      "cls_auprc": 0.3383177871136625,
+      "cls_f1": 0.4020618556701031,
+      "cls_prec": 0.35714285714285715,
+      "cls_rec": 0.45990566037735847,
+      "ner_f1": 0.9757236196272292,
+      "epoch": 3
+    }
+  ]
+}

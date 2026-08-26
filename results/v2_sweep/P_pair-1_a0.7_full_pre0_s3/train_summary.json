@@ -1,0 +1,68 @@
+{
+  "encoder_name": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full",
+  "alpha": 0.7,
+  "ner_labels": [
+    "O",
+    "B-SP",
+    "I-SP",
+    "B-INT",
+    "I-INT"
+  ],
+  "temperature": 2.0,
+  "kd_mode": "fixed",
+  "threshold_dev": 0.61,
+  "threshold_prior_at_0.5": 0.32715022935779814,
+  "train_pos_rate": 0.32715022935779814,
+  "seed": 3,
+  "split_seed": 42,
+  "select_on": "cls_auprc",
+  "pair_conditioning": true,
+  "data_path": "/home/egaillac/MetaP/classifier/data/training/training_data_v14.csv",
+  "data_sha256": "94c1cdfcc784aac51686cb908ce71a08a80647883a5d26f814ed7f4770b6ccc8",
+  "data_rows": 34880,
+  "soft_labels_path": null,
+  "soft_labels_sha256": null,
+  "git_sha": "8529a2fedc4bb4c1a0634a6af969c413ce9d5d35",
+  "trained_by": "train_v2.py",
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "epochs": 3,
+  "pretrain_ner_epochs": 0,
+  "batch_size": 32,
+  "lr": 2e-05,
+  "best_epoch": 2,
+  "best_dev_cls_auprc": 0.9987242339802815,
+  "dev_metrics_at_best": {
+    "cls_auprc": 0.9987242339802815,
+    "cls_f1": 0.985191637630662,
+    "cls_prec": 0.9792207792207792,
+    "cls_rec": 0.9912357581069238,
+    "ner_f1": 0.918541874252168
+  },
+  "history": [
+    {
+      "cls_auprc": 0.9982984863444774,
+      "cls_f1": 0.9761388286334056,
+      "cls_prec": 0.9664948453608248,
+      "cls_rec": 0.985977212971078,
+      "ner_f1": 0.8628553452003425,
+      "epoch": 1
+    },
+    {
+      "cls_auprc": 0.9987242339802815,
+      "cls_f1": 0.985191637630662,
+      "cls_prec": 0.9792207792207792,
+      "cls_rec": 0.9912357581069238,
+      "ner_f1": 0.918541874252168,
+      "epoch": 2
+    },
+    {
+      "cls_auprc": 0.9986675564042532,
+      "cls_f1": 0.9856334349151067,
+      "cls_prec": 0.9792387543252595,
+      "cls_rec": 0.9921121822962313,
+      "ner_f1": 0.9320952671892618,
+      "epoch": 3
+    }
+  ]
+}

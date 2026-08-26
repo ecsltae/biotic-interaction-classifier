@@ -1,0 +1,80 @@
+{
+  "encoder_name": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full_typed",
+  "alpha": 0.5,
+  "ner_labels": [
+    "O",
+    "B-HOST",
+    "I-HOST",
+    "B-PATHOGEN",
+    "I-PATHOGEN",
+    "B-SPECIES",
+    "I-SPECIES",
+    "B-INT",
+    "I-INT"
+  ],
+  "temperature": 2.0,
+  "kd_mode": "fixed",
+  "threshold_dev": 0.33,
+  "threshold_prior_at_0.5": 0.08480402934063519,
+  "train_pos_rate": 0.08480402934063518,
+  "seed": 2,
+  "split_seed": 42,
+  "select_on": "cls_auprc",
+  "pair_conditioning": false,
+  "data_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels_paired.csv",
+  "data_sha256": "e8642b5d80aeeee51d8e59b70db6010db33e99153b23c9871f4f0a8b38e3ae8d",
+  "data_rows": 50033,
+  "soft_labels_path": "/home/egaillac/MetaP/classifier/data/training/distillation_soft_labels_paired.csv",
+  "soft_labels_sha256": "e8642b5d80aeeee51d8e59b70db6010db33e99153b23c9871f4f0a8b38e3ae8d",
+  "git_sha": "classifier-v1-2-ga502be2-dirty",
+  "code_provenance": {
+    "experiments/multitask/train_v2.py": "09784b85bdcc7e37",
+    "experiments/multitask/sweep_v2.py": "e8fced0e067dc598",
+    "experiments/multitask/data.py": "fe07f484373b954d",
+    "experiments/multitask/model.py": "00fff38903f996ac",
+    "src/eval/core.py": "7173510ba7307433",
+    "_working_tree_dirty_paths": 18
+  },
+  "trained_by": "train_v2.py",
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "epochs": 3,
+  "pretrain_ner_epochs": 2,
+  "batch_size": 32,
+  "lr": 2e-05,
+  "best_epoch": 2,
+  "best_dev_cls_auprc": 0.3420631148318998,
+  "dev_metrics_at_best": {
+    "cls_auprc": 0.3420631148318998,
+    "cls_f1": 0.40040241448692154,
+    "cls_prec": 0.34912280701754383,
+    "cls_rec": 0.4693396226415094,
+    "ner_f1": 0.8898268295640046
+  },
+  "history": [
+    {
+      "cls_auprc": 0.3280261299793696,
+      "cls_f1": 0.3719862227324914,
+      "cls_prec": 0.3624161073825503,
+      "cls_rec": 0.38207547169811323,
+      "ner_f1": 0.8791700805863047,
+      "epoch": 1
+    },
+    {
+      "cls_auprc": 0.3420631148318998,
+      "cls_f1": 0.40040241448692154,
+      "cls_prec": 0.34912280701754383,
+      "cls_rec": 0.4693396226415094,
+      "ner_f1": 0.8898268295640046,
+      "epoch": 2
+    },
+    {
+      "cls_auprc": 0.33635402865021763,
+      "cls_f1": 0.3991640543364681,
+      "cls_prec": 0.35834896810506567,
+      "cls_rec": 0.45047169811320753,
+      "ner_f1": 0.8854229943235128,
+      "epoch": 3
+    }
+  ]
+}

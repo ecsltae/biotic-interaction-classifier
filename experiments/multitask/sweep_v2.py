@@ -39,10 +39,28 @@ def build_grid():
     return cfgs
 
 
+# Data-file short names, so a tag identifies the dataset as well as the recipe.
+DATA_TAG = {
+    "distillation_soft_labels.csv": "D0s",
+    "training_data_v14.csv": "D0v",
+    "v2_d1_v14_signalmatched.csv": "D1",
+    "distillation_soft_labels_paired.csv": "D2",
+    "v2_d3_soft_signalmatched_paired.csv": "D3",
+}
+
+
 def tag(c, seed):
-    if c["regime"] == "S":
-        return f"S_kd-{c['kd_mode']}_a{c['alpha']}_{c['ner_scheme']}_pre{c['pretrain_ner_epochs']}_s{seed}"
-    return f"P_pair-{int(c['pair_conditioning'])}_a{c['alpha']}_{c['ner_scheme']}_pre{c['pretrain_ner_epochs']}_s{seed}"
+    """Unique per (dataset, pair flag, recipe, seed).
+
+    The earlier version omitted the dataset and the pair flag for regime S, so a
+    pair=True config and its pair=False control produced the SAME directory name
+    and the control was silently skipped as already-done. Any tag must encode
+    every factor that is being varied.
+    """
+    import os
+    d = DATA_TAG.get(os.path.basename(c["data"]), os.path.basename(c["data"])[:12])
+    return (f"{d}_pair-{int(c['pair_conditioning'])}_kd-{c['kd_mode']}_a{c['alpha']}"
+            f"_{c['ner_scheme']}_pre{c['pretrain_ner_epochs']}_s{seed}")
 
 
 def main():

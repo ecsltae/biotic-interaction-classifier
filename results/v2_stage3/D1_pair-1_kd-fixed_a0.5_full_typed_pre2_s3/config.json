@@ -1,0 +1,12 @@
+{
+  "regime": "S",
+  "data": "data/training/v2_d1_v14_signalmatched.csv",
+  "soft_labels": "none",
+  "pair_conditioning": true,
+  "kd_mode": "fixed",
+  "alpha": 0.5,
+  "ner_scheme": "full_typed",
+  "pretrain_ner_epochs": 2,
+  "seed": 3,
+  "name": "D1_pair-1_kd-fixed_a0.5_full_typed_pre2_s3"
+}

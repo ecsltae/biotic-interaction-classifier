@@ -1,0 +1,37 @@
+{
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full_typed",
+  "alpha": 0.5,
+  "temperature": 2.0,
+  "soft_labels": "data/training/v2_d3_soft_signalmatched_paired.csv",
+  "epochs": 3,
+  "pretrain_ner_epochs": 2,
+  "best_val_cls_f1": 0.36147757255936674,
+  "best_threshold": 0.3400000000000001,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.280331529237123,
+      "cls_f1": 0.36147757255936674,
+      "cls_prec": 0.32235294117647056,
+      "cls_rec": 0.4114114114114114,
+      "ner_f1": 0.8768610965142757
+    },
+    {
+      "epoch": 2,
+      "loss": 0.2869152601049454,
+      "cls_f1": 0.35524475524475524,
+      "cls_prec": 0.3324607329842932,
+      "cls_rec": 0.3813813813813814,
+      "ner_f1": 0.881206575156753
+    },
+    {
+      "epoch": 3,
+      "loss": 0.2773752124199678,
+      "cls_f1": 0.35789473684210527,
+      "cls_prec": 0.35843373493975905,
+      "cls_rec": 0.35735735735735735,
+      "ner_f1": 0.8890217855617257
+    }
+  ]
+}

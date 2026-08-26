@@ -52,9 +52,9 @@ Julien Gobeill, D{\'e}borah Caucheteur, Pierre-Andr{\'e} Michel, Luc Mottin,
 \newblock \emph{Nucleic Acids Research}, 48(W1):W12--W16.
 
 \bibitem[{Gu et~al.(2021)Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao,
-  and Peng}]{gu2021domain}
+  and Poon}]{gu2021domain}
 Yu~Gu, Robert Tinn, Hao Cheng, Michael Lucas, Naoto Usuyama, Xiaodong Liu,
-  Tristan Naumann, Jianfeng Gao, and Jinfeng Peng. 2021.
+  Tristan Naumann, Jianfeng Gao, and Hoifung Poon. 2021.
 \newblock Domain-specific language model pretraining for biomedical natural
   language processing.
 \newblock \emph{ACM Transactions on Computing for Healthcare}, 3(1):1--23.

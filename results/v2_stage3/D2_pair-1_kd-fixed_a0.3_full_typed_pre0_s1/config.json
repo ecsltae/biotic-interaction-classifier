@@ -1,0 +1,12 @@
+{
+  "regime": "S",
+  "data": "data/training/distillation_soft_labels_paired.csv",
+  "soft_labels": "data/training/distillation_soft_labels_paired.csv",
+  "kd_mode": "fixed",
+  "alpha": 0.3,
+  "ner_scheme": "full_typed",
+  "pretrain_ner_epochs": 0,
+  "pair_conditioning": true,
+  "seed": 1,
+  "name": "S_kd-fixed_a0.3_full_typed_pre0_s1"
+}

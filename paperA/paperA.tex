@@ -1,0 +1,225 @@
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times}\usepackage{latexsym}\usepackage{booktabs}\usepackage{amsmath}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{microtype}\usepackage{graphicx}
+\usepackage{multirow}
+\title{Sentence Classification Is the Wrong Task:\\
+Query-Conditioned Verification of Literature-Mined Biotic-Interaction Triples}
+\author{Anonymous}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Literature-mining systems that populate biotic-interaction databases retrieve candidate
+(species, relation, species) triples with supporting passages, then filter them with a
+sentence-level interaction classifier before curation. We show that this filter answers the
+wrong question. On 100 expert-graded triples retrieved by a deployed system, the filter accepts
+91 and reaches precision 0.714, which is not significantly above accepting every candidate
+(0.650; one-sided exact binomial $p = 0.119$); it rejects 9 of 35 unsupported triples. We
+decompose those 35 errors into entity-linking (10), predicate (9) and \emph{pair-binding} (16)
+failures, and show that a perfect per-component oracle still yields precision 0.802, because
+16 errors have every component individually correct and are invisible to component-wise
+validation. Conditioning the decision on the queried triple removes most of the gap without any
+training: a locally hosted 32B model, prompted zero-shot with the candidate triple, rejects
+32 of 35 at precision 0.949 ($p < 10^{-4}$), and reaches F1 0.886 (95\% CI [0.846, 0.921]) on a
+299-item pair-level benchmark where the best of our supervised models reaches 0.823. We then
+explain why \emph{supervised} pair conditioning has repeatedly failed in this setting: our
+paired training corpora contain 606 and 11{,}602 distinct taxon pairs against 79{,}460 in the
+retrieval pool, and the effect of conditioning flips sign with that diversity. We release the
+graded benchmark, the audited corpora, and a distilled cross-encoder.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Biotic-interaction databases such as GloBI \citep{poelen2014global} are populated in part by
+text mining: a retrieval system proposes candidate triples $(s_1, r, s_2)$ together with the
+passage that allegedly supports them, and a filter decides which candidates are worth a
+curator's attention. The filter is almost always a \emph{sentence-level} interaction
+classifier: it is shown the passage and asked whether it describes a biotic interaction.
+
+This paper argues that the sentence-level formulation is a category error for this task, and
+supports the argument with measurements on a deployed system. Our contributions:
+
+\begin{itemize}
+\item \textbf{The deployed filter does not filter.} On its own expert-graded evaluation set it
+      accepts 91 of 100 candidates at precision 0.714, statistically indistinguishable from
+      accepting all of them (\S\ref{sec:nofilter}).
+\item \textbf{A failure decomposition with a hard ceiling.} Of 35 unsupported triples, 16 have
+      correct entities \emph{and} a correct relation; the triple is wrong only in how the
+      arguments bind. Any component-wise verifier is capped at precision 0.802
+      (\S\ref{sec:decomp}).
+\item \textbf{Query conditioning closes most of the gap, zero-shot.} Supplying the candidate
+      triple in the prompt raises rejection from 9/35 to 32/35 and precision to 0.949, and
+      beats every model we trained on a 299-item benchmark (\S\ref{sec:querycond}).
+\item \textbf{Why supervised pair conditioning failed.} The effect of pair conditioning flips
+      sign with taxon-pair diversity of the training corpus; at 606 distinct pairs the pair slot
+      is noise, at 11{,}602 it helps by $+0.098$ AUPRC (\S\ref{sec:diversity}).
+\end{itemize}
+
+\section{Setting}
+\label{sec:setting}
+
+\paragraph{The pipeline.} Our retrieval component indexes MEDLINE passages and proposes triples
+by matching taxon surface forms against an interaction vocabulary derived from the ROBI
+ontology. Each candidate carries the passage, the two matched taxon surface forms, the matched
+interaction term, and a heuristic passage score.
+
+\paragraph{The graded benchmark.} An expert annotator graded 100 retrieved candidates on four
+axes: whether each taxon surface form was correctly resolved ($92/100$ and $98/100$ correct),
+whether the relation was correct ($90/100$), and whether the whole triple was supported
+($65/100$). We refer to this as \textsc{Biotx100}. A second, larger set of 299 expert-curated
+items with recovered taxon pairs, drawn from human curation only, is used for pair-level
+evaluation (\textsc{Test299}; 54.5\% positive).
+
+\paragraph{Evaluation protocol.} All decision thresholds are fixed before evaluation and never
+selected on the reported set; they come from a held-out development split or from a closed-form
+prior-shift rule. All comparisons report the trivial majority-class baseline, and all intervals
+are 10{,}000-sample bootstraps. This matters here: on one of the sources we inherited, an
+all-positive predictor scores F1 0.919, above every model we tested.
+
+\section{The deployed filter does not filter}
+\label{sec:nofilter}
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+System & Acc. & Prec. & Rej. & $p$ \\
+\midrule
+Accept everything      & 100 & 0.650 & 0/35 & --- \\
+Deployed classifier    &  91 & 0.714 & 9/35 & 0.119 \\
+\midrule
+LLM, pair only         &  71 & 0.817 & 22/35 & 0.002 \\
+LLM, full triple       &  59 & \textbf{0.949} & \textbf{32/35} & $<10^{-4}$ \\
+\bottomrule
+\end{tabular}
+\caption{\textsc{Biotx100}. ``Acc.'' is candidates accepted, ``Rej.'' unsupported triples
+rejected. $p$ is a one-sided exact binomial test against the accept-everything precision of
+0.650. The deployed filter is not significantly better than no filter at all.}
+\label{tab:nofilter}
+\end{table}
+
+Table~\ref{tab:nofilter} gives the central observation. The deployed classifier accepts 91 of
+100 candidates. Its precision, 0.714, is higher than the 0.650 obtained by accepting
+everything, but not significantly so ($p = 0.119$). It recovers 9 of the 35 unsupported
+triples. Its recall on supported triples is 1.000 --- it rejects nothing that should be kept,
+and almost nothing that should not.
+
+This is not a threshold-tuning artifact. The classifier's decisions correlate far more strongly
+with an axis it was never trained on than with the one it was: \textbf{[TARGET: MCC against
+pair-binding vs.\ sentence axis]}.
+
+\section{What the errors are made of}
+\label{sec:decomp}
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lrl}
+\toprule
+Failure mode & $n$ & Detectable by \\
+\midrule
+Entity linking ($s_1$ or $s_2$ wrong) & 10 & taxon resolver \\
+Predicate (relation wrong)            &  9 & relation classifier \\
+\textbf{Pair binding}                 & \textbf{16} & \textbf{joint judgment only} \\
+\midrule
+Total unsupported                     & 35 & \\
+\bottomrule
+\end{tabular}
+\caption{Decomposition of the 35 unsupported triples in \textsc{Biotx100}. The 16
+pair-binding failures have both taxa correctly resolved \emph{and} the correct relation type;
+the passage simply does not assert that relation \emph{between those two}.}
+\label{tab:decomp}
+\end{table}
+
+Table~\ref{tab:decomp} decomposes the failures. The largest class, 16 of 35, consists of
+triples in which every component is individually correct. Typically the passage asserts the
+relation between one of the queried taxa and some third organism, or lists several taxa of
+which only a subset participate.
+
+This bounds any component-wise architecture. A verifier that checks $s_1$, $r$ and $s_2$
+separately --- however good each check is --- rejects at most the 19 component-detectable
+errors and retains all 16 pair-binding failures, giving precision
+$65/(65+16) = 0.802$. The remaining headroom is reachable only by a decision that considers the
+triple jointly.
+
+\section{Query conditioning}
+\label{sec:querycond}
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lrr}
+\toprule
+System & F1 & 95\% CI \\
+\midrule
+Trivial (all positive)          & 0.706 & --- \\
+Prior multi-task model          & 0.791 & [0.737, 0.840] \\
+Template-trained BiomedBERT     & 0.821 & [0.772, 0.865] \\
+Best supervised (this work)     & 0.823 & --- \\
+\midrule
+LLM, query-conditioned, 0-shot  & \textbf{0.886} & [0.846, 0.921] \\
+Distilled cross-encoder         & \textbf{[TARGET]} & \\
+\bottomrule
+\end{tabular}
+\caption{\textsc{Test299}. Thresholds fixed a priori. The zero-shot query-conditioned model's
+interval excludes every supervised system.}
+\label{tab:test299}
+\end{table}
+
+We supply the candidate triple in the prompt and ask a locally hosted 32B instruction model,
+zero-shot at temperature 0, whether the passage supports it. No training, no in-context
+examples, no access to the benchmark.
+
+On \textsc{Biotx100} this raises rejection of unsupported triples from 9/35 to 32/35 and
+precision from 0.714 to 0.949 (Table~\ref{tab:nofilter}). The gain is not merely from naming
+the two taxa: a prompt giving only the pair, without the relation, reaches 0.817 --- so
+conditioning on the \emph{relation} is worth a further $+0.13$ precision.
+
+On \textsc{Test299} (Table~\ref{tab:test299}) the same model reaches F1 0.886, with a bootstrap
+interval that excludes every supervised system we trained, including a multi-task architecture
+developed over several corpus generations.
+
+\section{Why supervised pair conditioning failed}
+\label{sec:diversity}
+
+Given \S\ref{sec:querycond}, the natural move is to train a model with the pair in its input.
+We did, as a segment pair with entity-recognition supervision masked over the query, and the
+result flips sign depending on the corpus:
+
+\begin{center}\small
+\begin{tabular}{lrr}
+\toprule
+Corpus & Distinct pairs & $\Delta$ AUPRC \\
+\midrule
+Soft-label, paired  &    606 & $-0.003$ \\
+Repaired v14        & 11{,}602 & $+0.098$ \\
+Retrieval pool      & 79{,}460 & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+At 606 distinct pairs the pair slot carries no generalisable signal and costs the model
+capacity; at 11{,}602 it helps substantially. The intervention was never wrong; the supervision
+was two orders of magnitude too narrow. This motivates distilling the query-conditioned teacher
+over a pair-diverse sample of the retrieval pool
+(\textbf{[TARGET: 20{,}000 items over 20{,}000 distinct pairs]}).
+
+\section{Related work}
+\label{sec:related}
+\textbf{[TODO: entity markers and relation classification; shortcut learning and dataset
+artifacts; biomedical relation extraction; text mining for biodiversity databases. Five
+verified citations required.]}
+
+\section{Conclusion}
+\label{sec:conclusion}
+The filter in a deployed biotic-interaction mining pipeline is not significantly better than no
+filter, because it is asked whether a passage describes an interaction rather than whether it
+supports the candidate triple. Sixteen of 35 failures are invisible to any component-wise check.
+Conditioning on the query recovers most of the gap with no training at all.
+
+\section*{Limitations}
+\textbf{[TODO --- unnumbered, after Conclusion, before References, per ARR. Must cover: n=100
+and n=299 benchmark sizes; single-annotator gold with no inter-annotator agreement; one
+retrieval system and one taxonomic domain; LLM contamination cannot be excluded for MEDLINE
+passages; the distilled student's dependence on teacher quality.]}
+
+\bibliography{references}
+\bibliographystyle{acl_natbib}
+\end{document}

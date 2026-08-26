@@ -1,0 +1,72 @@
+{
+  "encoder_name": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "ner_scheme": "full_typed",
+  "alpha": 0.3,
+  "ner_labels": [
+    "O",
+    "B-HOST",
+    "I-HOST",
+    "B-PATHOGEN",
+    "I-PATHOGEN",
+    "B-SPECIES",
+    "I-SPECIES",
+    "B-INT",
+    "I-INT"
+  ],
+  "temperature": 2.0,
+  "kd_mode": "fixed",
+  "threshold_dev": 0.48000000000000004,
+  "threshold_prior_at_0.5": 0.32715022935779814,
+  "train_pos_rate": 0.32715022935779814,
+  "seed": 2,
+  "split_seed": 42,
+  "select_on": "cls_auprc",
+  "pair_conditioning": false,
+  "data_path": "/home/egaillac/MetaP/classifier/data/training/training_data_v14.csv",
+  "data_sha256": "94c1cdfcc784aac51686cb908ce71a08a80647883a5d26f814ed7f4770b6ccc8",
+  "data_rows": 34880,
+  "soft_labels_path": null,
+  "soft_labels_sha256": null,
+  "git_sha": "8529a2fedc4bb4c1a0634a6af969c413ce9d5d35",
+  "trained_by": "train_v2.py",
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "epochs": 3,
+  "pretrain_ner_epochs": 2,
+  "batch_size": 32,
+  "lr": 2e-05,
+  "best_epoch": 3,
+  "best_dev_cls_auprc": 0.9969164174953962,
+  "dev_metrics_at_best": {
+    "cls_auprc": 0.9969164174953962,
+    "cls_f1": 0.9721980886185926,
+    "cls_prec": 0.9638242894056848,
+    "cls_rec": 0.9807186678352322,
+    "ner_f1": 0.9682617111791146
+  },
+  "history": [
+    {
+      "cls_auprc": 0.9954075000849805,
+      "cls_f1": 0.9608265174343521,
+      "cls_prec": 0.9441624365482234,
+      "cls_rec": 0.9780893952673094,
+      "ner_f1": 0.9621616859826599,
+      "epoch": 1
+    },
+    {
+      "cls_auprc": 0.9966229646407557,
+      "cls_f1": 0.9725250763192325,
+      "cls_prec": 0.9678819444444444,
+      "cls_rec": 0.9772129710780018,
+      "ner_f1": 0.9655836261297339,
+      "epoch": 2
+    },
+    {
+      "cls_auprc": 0.9969164174953962,
+      "cls_f1": 0.9721980886185926,
+      "cls_prec": 0.9638242894056848,
+      "cls_rec": 0.9807186678352322,
+      "ner_f1": 0.9682617111791146,
+      "epoch": 3
+    }
+  ]
+}

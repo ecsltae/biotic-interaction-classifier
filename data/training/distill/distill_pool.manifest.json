@@ -1,0 +1,11 @@
+{
+  "output": "data/training/distill/distill_pool.csv",
+  "sha256": "6e7ff41aa39813907436cb0e162cd4b9ffad866718fc0c55f0ad6222759f5e7e",
+  "seed": 20260826,
+  "rows": 20000,
+  "distinct_pairs": 20000,
+  "max_rows_per_pair": 3,
+  "excluded_benchmark_passages": 157,
+  "excluded_benchmark_pairs": 672,
+  "source": "sibils_eval.med25_r1_v_ep_passages (cached pull, 175,588 rows)"
+}

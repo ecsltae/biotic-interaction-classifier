@@ -179,3 +179,4 @@ archive/v1_freeze/api_distilled.tail.log
 data/processed/*.sqlite
 data/geonames/
 experiments/knowledge_graph/results/tier3/spert_model/
+data/training/distill/*.parquet
