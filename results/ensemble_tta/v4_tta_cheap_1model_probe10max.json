@@ -1,0 +1,59 @@
+{
+  "model": "V4-TTA-cheap: v3_s1 single, 10-probe max-pool",
+  "config": {
+    "models": [
+      "models/student_v3/xenc_s1"
+    ],
+    "probes": 10,
+    "pool": "max",
+    "agg": "logit"
+  },
+  "n": 440,
+  "prevalence": 0.5636363636363636,
+  "auprc": 0.936326944111343,
+  "best_f1_oracle_threshold": 0.8973384030418251,
+  "best_thr": -3.4978890419006348,
+  "crossfit_f1_mean": 0.8918060720904306,
+  "crossfit_f1_sd": 0.0014466573751495948,
+  "per_source": {
+    "biotx100": {
+      "n": 100,
+      "pos": 76,
+      "auprc": 0.9644056885579668,
+      "crossfit_f1": 0.9426751592356688
+    },
+    "reject50": {
+      "n": 41,
+      "pos": 9,
+      "auprc": 0.6020061728395061,
+      "crossfit_f1": 0.72
+    },
+    "test299": {
+      "n": 299,
+      "pos": 163,
+      "auprc": 0.935094445493928,
+      "crossfit_f1": 0.880466472303207
+    }
+  },
+  "vs_v1": {
+    "n": 141,
+    "v1_precision": 0.8351648351648352,
+    "v1_recall": 0.8941176470588236,
+    "v1_f1": 0.8636363636363636,
+    "model_precision": 0.8556701030927835,
+    "model_recall": 0.9764705882352941,
+    "model_f1": 0.9120879120879121,
+    "mcnemar_p_median": 0.1858767323658721,
+    "k_v1_errors_fixed": 18.0,
+    "m_new_errors": 10.0
+  },
+  "vs_baseline": {
+    "file": "results/ensemble_tta/v3_scores.npy",
+    "n": 440,
+    "baseline_auprc": 0.9111387848502138,
+    "baseline_crossfit_f1": 0.858252427184466,
+    "mcnemar_p_median": 0.03751400161554016,
+    "k_baseline_errors_fixed": 35.5,
+    "m_new_errors": 19.0
+  }
+}

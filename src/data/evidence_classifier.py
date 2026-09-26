@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 
 # ---------------------------------------------------------------------------
@@ -94,8 +94,54 @@ class EvidenceResult:
     matched_pattern: str | None
 
 
-def classify_evidence(text: str) -> EvidenceResult:
-    """Return the evidence type and trust score for a sentence."""
+# ---------------------------------------------------------------------------
+# MEDLINE publication types → evidence type
+# ---------------------------------------------------------------------------
+# Curated by indexers rather than guessed from wording, so this is a far stronger
+# signal than the regex fallback below — which was written for ecological phrasing
+# and matches nothing on ~93% of biomedical abstracts. Ordered most- to
+# least-specific; "Journal Article" is deliberately absent because it says nothing.
+
+_PUBTYPE_MAP: List[Tuple[str, str]] = [
+    ("meta-analysis",                 "meta_analysis"),
+    ("systematic review",             "meta_analysis"),
+    ("scoping review",                "meta_analysis"),
+    ("review",                        "meta_analysis"),
+    ("randomized controlled trial",   "in_vivo_experiment"),
+    ("controlled clinical trial",     "in_vivo_experiment"),
+    ("clinical trial",                "in_vivo_experiment"),
+    ("observational study",           "field_observation"),
+    ("case reports",                  "field_observation"),
+    ("twin study",                    "field_observation"),
+    ("comparative study",             "lab_experiment"),
+    ("evaluation study",              "lab_experiment"),
+    ("validation study",              "lab_experiment"),
+    ("technical report",              "lab_experiment"),
+]
+
+
+def classify_evidence(
+    text: str,
+    publication_types: Optional[List[str]] = None,
+) -> EvidenceResult:
+    """Return the evidence type and trust score for a sentence.
+
+    When ``publication_types`` is supplied (MEDLINE's curated list, as returned by
+    BiotXplorer's ``/api/passages``), it takes precedence over the text patterns:
+    an indexer's label beats a guess from wording. Falls back to the regex rules
+    when the types are absent or carry no evidential signal.
+    """
+    if publication_types:
+        lowered = [str(p).strip().lower() for p in publication_types]
+        for needle, etype in _PUBTYPE_MAP:
+            for pt in lowered:
+                if needle in pt:
+                    return EvidenceResult(
+                        evidence_type=etype,
+                        evidence_score=EVIDENCE_WEIGHTS[etype],
+                        matched_pattern=f"publication_type:{pt}",
+                    )
+
     for etype, compiled_pats in _COMPILED:
         for pat in compiled_pats:
             m = pat.search(text)

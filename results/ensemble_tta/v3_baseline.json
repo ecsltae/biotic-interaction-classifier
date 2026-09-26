@@ -1,0 +1,53 @@
+{
+  "model": "V3 reproduction",
+  "config": {
+    "models": [
+      "models/student_v3/xenc_s1",
+      "models/student_v3/xenc_s2",
+      "models/student_v3/xenc_s3"
+    ],
+    "probes": 0,
+    "pool": "max",
+    "agg": "prob"
+  },
+  "n": 440,
+  "prevalence": 0.5636363636363636,
+  "auprc": 0.9111387848502138,
+  "best_f1_oracle_threshold": 0.8648648648648649,
+  "best_thr": 0.026671137660741806,
+  "crossfit_f1_mean": 0.8567656093447221,
+  "crossfit_f1_sd": 0.004928344209943038,
+  "per_source": {
+    "biotx100": {
+      "n": 100,
+      "pos": 76,
+      "auprc": 0.9363624259857775,
+      "crossfit_f1": 0.8874172185430463
+    },
+    "reject50": {
+      "n": 41,
+      "pos": 9,
+      "auprc": 0.4966362819811096,
+      "crossfit_f1": 0.7368421052631579
+    },
+    "test299": {
+      "n": 299,
+      "pos": 163,
+      "auprc": 0.9246515064514522,
+      "crossfit_f1": 0.8530259365994236
+    }
+  },
+  "vs_v1": {
+    "n": 141,
+    "v1_precision": 0.8351648351648352,
+    "v1_recall": 0.8941176470588236,
+    "v1_f1": 0.8636363636363636,
+    "model_precision": 0.8666225749559082,
+    "model_recall": 0.8705882352941177,
+    "model_f1": 0.8688201292077524,
+    "mcnemar_p_median": 0.854895267168596,
+    "k_v1_errors_fixed": 15.0,
+    "m_new_errors": 13.5
+  },
+  "vs_baseline": {}
+}

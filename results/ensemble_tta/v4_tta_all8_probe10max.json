@@ -1,0 +1,66 @@
+{
+  "model": "V4-TTA: ALL8 logit-avg, 10-probe max-pool",
+  "config": {
+    "models": [
+      "models/student/xenc_s1",
+      "models/student/xenc_s2",
+      "models/student/xenc_s3",
+      "models/student_v3/xenc_s1",
+      "models/student_v3/xenc_s2",
+      "models/student_v3/xenc_s3",
+      "models/student_v3sd/xenc_12L",
+      "models/student_v3sd/xenc_6L"
+    ],
+    "probes": 10,
+    "pool": "max",
+    "agg": "logit"
+  },
+  "n": 440,
+  "prevalence": 0.5636363636363636,
+  "auprc": 0.9446630062369669,
+  "best_f1_oracle_threshold": 0.9048543689320389,
+  "best_thr": -2.753969430923462,
+  "crossfit_f1_mean": 0.8994360486389084,
+  "crossfit_f1_sd": 0.0018765176667607292,
+  "per_source": {
+    "biotx100": {
+      "n": 100,
+      "pos": 76,
+      "auprc": 0.977988446242987,
+      "crossfit_f1": 0.9419354838709677
+    },
+    "reject50": {
+      "n": 41,
+      "pos": 9,
+      "auprc": 0.6548446923446922,
+      "crossfit_f1": 0.72
+    },
+    "test299": {
+      "n": 299,
+      "pos": 163,
+      "auprc": 0.9360219737967858,
+      "crossfit_f1": 0.8948948948948949
+    }
+  },
+  "vs_v1": {
+    "n": 141,
+    "v1_precision": 0.8351648351648352,
+    "v1_recall": 0.8941176470588236,
+    "v1_f1": 0.8636363636363636,
+    "model_precision": 0.8631578947368421,
+    "model_recall": 0.9647058823529412,
+    "model_f1": 0.9111111111111111,
+    "mcnemar_p_median": 0.20124262095772028,
+    "k_v1_errors_fixed": 19.0,
+    "m_new_errors": 11.0
+  },
+  "vs_baseline": {
+    "file": "results/ensemble_tta/v2_scores.npy",
+    "n": 440,
+    "baseline_auprc": 0.9158285101423198,
+    "baseline_crossfit_f1": 0.862028506865983,
+    "mcnemar_p_median": 0.006948582626818205,
+    "k_baseline_errors_fixed": 39.0,
+    "m_new_errors": 18.0
+  }
+}

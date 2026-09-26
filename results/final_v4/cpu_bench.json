@@ -1,0 +1,50 @@
+[
+  {
+    "model": "/home/egaillac/MetaP/classifier/models/student_v3/xenc_s1",
+    "format": "triple",
+    "params": 109483778,
+    "pairs_per_s": 34.53638711532463,
+    "runs": [
+      34.53638711532463,
+      34.56367976802826,
+      34.18421629116443
+    ],
+    "threads": 8
+  },
+  {
+    "model": "/home/egaillac/MetaP/classifier/models/lever_arch/fmt_pair_s1",
+    "format": "pair",
+    "params": 109483778,
+    "pairs_per_s": 34.498569734031584,
+    "runs": [
+      34.47185365837307,
+      34.498569734031584,
+      34.72820169097783
+    ],
+    "threads": 8
+  },
+  {
+    "model": "/home/egaillac/MetaP/classifier/models/lever_arch/fmt_mark_canon_s1",
+    "format": "mark_canon",
+    "params": 109483778,
+    "pairs_per_s": 33.28763459585388,
+    "runs": [
+      33.28763459585388,
+      33.68688936697472,
+      32.85746950807263
+    ],
+    "threads": 8
+  },
+  {
+    "model": "/home/egaillac/MetaP/classifier/models/final_v4/canoncoll_s1",
+    "format": "pair_canon",
+    "params": 109483778,
+    "pairs_per_s": 34.99762719262546,
+    "runs": [
+      34.99762719262546,
+      34.84348341509575,
+      35.09087515087127
+    ],
+    "threads": 8
+  }
+]

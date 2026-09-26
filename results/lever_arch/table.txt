@@ -1,0 +1,28 @@
+variant                        AUPRC   bestF1  vsV1F1  fix  brk      p  #thr  biotx rej50 t299
+V3ens (baseline, triple)      0.9111   0.8627  0.8736   15   13  0.850     5  0.936 0.497 0.925
+V2ens (baseline, triple)      0.9158   0.8614  0.8652   15   15  0.855     1  0.959 0.602 0.906
+triple seed1 (control)        0.9127   0.8740  0.8772   16   13  0.710     8  0.945 0.510 0.920
+triple_mark seed1             0.9147   0.8606  0.8608   19   17  0.868     0  0.956 0.530 0.913
+mark_only seed1               0.9148   0.8681  0.8824   16   12  0.571    35  0.978 0.479 0.900
+mark_canon seed1              0.9391   0.8825  0.8772   16   13  0.710    20  0.970 0.478 0.940
+pair_canon seed1              0.9300   0.8889  0.8837   17   13  0.584    12  0.961 0.570 0.933
+pair seed1                    0.9330   0.8876  0.9017   17   10  0.248    43  0.976 0.446 0.936
+pair seed2                    0.9286   0.8775  0.8810   15   11  0.556    38  0.970 0.404 0.936
+pair seed3                    0.9361   0.8810  0.8706   15   13  0.850    17  0.977 0.383 0.937
+pair ENS3                     0.9364   0.8876  0.8982   16    9  0.230    39  0.977 0.428 0.941
+pair_mark ENS3                0.9334   0.8893  0.8994   17   10  0.248    46  0.977 0.466 0.931
+pair+pair_mark ENS6           0.9358   0.8920  0.9048   17    9  0.170    39  0.977 0.461 0.938
+BioLinkBERT pair seed1        0.9240   0.8866  0.9059   19   11  0.201    53  0.977 0.502 0.921
+SapBERT pair seed1            0.9146   0.8534  0.8588   14   15  1.000     0  0.959 0.461 0.914
+MiniLMv2-L6 pair seed1        0.8957   0.8617  0.8539   12   14  0.845     0  0.943 0.435 0.902
+DeBERTa-v3 pair seed1         0.9165   0.8795  0.8701   16   15  1.000     9  0.953 0.367 0.939
+
+=== significance vs V2 / V3 on all 440 rows ===
+pair ENS3              vs V3ens   dAUPRC +0.0252 CI[+0.0064,+0.0469] p=0.0032   McNemar own-thr p=0.0820 (26/14), rank-matched p=0.2684 (24/16)
+pair ENS3              vs V2ens   dAUPRC +0.0205 CI[+0.0065,+0.0360] p=0.0048   McNemar own-thr p=0.0339 (33/17), rank-matched p=0.1845 (28/18)
+pair_mark ENS3         vs V3ens   dAUPRC +0.0223 CI[+0.0014,+0.0456] p=0.0320   McNemar own-thr p=0.0369 (30/15), rank-matched p=0.1547 (25/15)
+pair_mark ENS3         vs V2ens   dAUPRC +0.0176 CI[+0.0026,+0.0338] p=0.0214   McNemar own-thr p=0.0233 (41/22), rank-matched p=0.4795 (28/22)
+pair+pair_mark ENS6    vs V3ens   dAUPRC +0.0247 CI[+0.0062,+0.0463] p=0.0044   McNemar own-thr p=0.0270 (31/15), rank-matched p=0.1649 (26/16)
+pair+pair_mark ENS6    vs V2ens   dAUPRC +0.0200 CI[+0.0066,+0.0351] p=0.0032   McNemar own-thr p=0.0175 (42/22), rank-matched p=0.4705 (27/21)
+
+wrote /home/egaillac/MetaP/classifier/results/lever_arch/results.json

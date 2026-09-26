@@ -1,0 +1,25 @@
+kind,pair,gold,v3_score,v3_fixed,mechanism
+FN,Salmonella -pathogens-> human,1,0.294,YES,"nominalised (""human pathogens"") + relation is a noun"
+FN,ticks -infestation-> rabbits,1,0.978,YES,"nominalised (""infested with"") "
+FN,viruses -pathogens-> human,1,0.198,YES,high rank + nominalised
+FN,human -pathogens-> Babesia,1,0.898,YES,direction reversed + nominalised
+FN,Shigella flexneri -pathogens-> human,1,0.107,YES,"nominalised (""human pathogens"")"
+FN,copepods -trophic-> diatoms,1,0.396,YES,"high rank + nominalised (""trophic interactions"")"
+FN,Togaviridae -transmitted b-> arthropods,1,0.946,YES,"high rank + nominalised (""transmitted by"")"
+FN,SARS-CoV-2 -interacts wit-> human,1,0.0,no,molecular indirection (spike protein / ACE2 receptor)
+FN,Mycobacterium tuberculosis -regulate-> human,1,0.0,no,"molecular indirection (""infected human monocytes"")"
+FP,Pterostichus melanarius -predator-> Illiger,0,0.005,YES,"authority name (""Illiger"") [N4]"
+FP,Mycobacterium marinum -pathogen of-> Mycobacterium tuberculos,0,0.002,YES,"phylogenetic relatedness, not interaction"
+FP,Arvicanthis neumanni -hosts of-> Mastomys natalensis,0,0.001,YES,co-participant: both hosts of L. donovani [N1]
+FP,Galea leucoblephara -parasite of-> Holochilus brasiliensis,0,0.003,YES,co-participant: hosts of two DIFFERENT nematodes [N1]
+FP,Campylobacter jejuni -Feeding on-> Human,0,0.001,YES,"co-mention, interaction not asserted here"
+FP,copia -symbiont-> Symbiodinium microadriat,0,0.002,YES,non-organism (retrotransposon)
+FP,Lactobacillus -exposed to-> Campylobacter,0,0.001,YES,co-participant: both act on broilers [N1]
+FP,Sulcospira quangtriensis -hosts of-> Triculinae,0,0.001,YES,co-participant: both hosts of Paragonimus [N1]
+FP,Dikarya -Symbiont-> Basidiobolus,0,0.199,no,"non-organism/clade fragment (""Non-Dikarya"")"
+FP,avian -host for-> Chilina,0,0.141,no,"fragment (""avian schistosomes"") + co-participant [N1]"
+FP,loquat|Eriobotrya japonica -colonized-> wheat,0,0.157,no,synonym span + wheat is a substrate [N2]
+FP,bat tick -feed on-> humans,0,0.999,no,common name not resolvable to a taxon (gold arguable)
+FP,sulla -symbionts of-> Hedysarum coronarium,0,0.065,no,synonym: sulla IS Hedysarum coronarium [N2]
+FP,rhinoceros beetle -phoretic-> Oryctes agamemnon,0,0.098,no,synonym: = Oryctes agamemnon [N2]
+FP,cardinalis -visits-> bees,0,0.72,no,"negated/avoidance (""preference against"")"

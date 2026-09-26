@@ -1,0 +1,9 @@
+# CPU deployment. Install torch from the CPU index so you do not pull ~2.5 GB of CUDA:
+#   pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.*
+#   pip install -r requirements.txt
+#
+# transformers 4.49 is the version that wrote model/model.safetensors.
+transformers==4.49.*
+pandas>=2.0
+numpy>=1.24
+# torch: install separately from the CPU index, see above

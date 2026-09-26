@@ -229,6 +229,7 @@ class TrustScorer:
         interaction_type: str = "",
         pub_year: Optional[int] = None,
         doi: Optional[str] = None,
+        publication_types: Optional[list] = None,
     ) -> TrustResult:
         # Enrich from DOI index first (may provide pub_year if not given)
         doi_meta = lookup_by_doi(doi) if doi else None
@@ -240,8 +241,8 @@ class TrustScorer:
             pub_year = lookup_pub_year(species1, species2, interaction_type)
         t_score = temporal_score(pub_year)
 
-        # 2. Evidence type
-        ev: EvidenceResult = classify_evidence(text)
+        # 2. Evidence type — MEDLINE publication types beat the text patterns
+        ev: EvidenceResult = classify_evidence(text, publication_types=publication_types)
 
         # 3. Contradiction
         conflict: ConflictResult = self._detector.check(

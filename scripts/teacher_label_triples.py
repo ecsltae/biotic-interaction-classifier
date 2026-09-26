@@ -35,7 +35,9 @@ Answer YES only if ALL of the following hold:
 
 Reply with exactly one word: YES or NO."""
 
-df = pd.read_csv(REPO/"data/training/distill/distill_pool.csv")
+import os
+POOL=os.environ.get("POOL","data/training/distill/distill_pool.csv")
+df = pd.read_csv(REPO/POOL)
 if N: df = df.head(N)
 done = set()
 if OUT.exists():
@@ -45,7 +47,7 @@ if OUT.exists():
 rows, t0, since = [], time.time(), 0
 for i, r in df.iterrows():
     if i in done: continue
-    p = PROMPT.format(sent=r.passage, s1=r.species1_form, s2=r.species2_form, rel=r.interaction_form)
+    p = PROMPT.format(sent=r.get("passage", r.get("text")), s1=r.get("species1_form", r.get("source_species")), s2=r.get("species2_form", r.get("target_species")), rel=r.get("interaction_form", r.get("interaction_type")))
     try:
         resp = requests.post(URL, json={"model": MODEL, "prompt": p, "stream": False,
             "options": {"temperature": 0, "num_predict": 4, "seed": 0}, "think": False},

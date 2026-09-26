@@ -1,0 +1,444 @@
+{
+  "lever": "scale training data with species-level labels",
+  "baselines_440_clean_rows": {
+    "V1_on_its_150": {
+      "precision": 0.8352,
+      "recall": 0.8941,
+      "f1": 0.8636
+    },
+    "V2_3seed": {
+      "auprc": 0.9158,
+      "best_f1": 0.8588,
+      "mcnemar_p_vs_V1": 1.0,
+      "per_source_auprc": {
+        "biotx100": 0.959,
+        "reject50": 0.602,
+        "test299": 0.906
+      }
+    },
+    "V3_3seed": {
+      "auprc": 0.9111,
+      "best_f1": 0.8627,
+      "mcnemar_p_vs_V1": 0.85,
+      "per_source_auprc": {
+        "biotx100": 0.936,
+        "reject50": 0.497,
+        "test299": 0.925
+      }
+    },
+    "V3_single_seeds": {
+      "s1": {
+        "auprc": 0.9122,
+        "best_f1": 0.874
+      },
+      "s2": {
+        "auprc": 0.9023,
+        "best_f1": 0.8494
+      },
+      "s3": {
+        "auprc": 0.9121,
+        "best_f1": 0.861
+      }
+    }
+  },
+  "diagnosis_v3_answers_full_triple_question": {
+    "source": "biotx100, 99 rows with both triples_ok_species and triples_ok_full",
+    "mean_V3_score_by_cell": {
+      "species1_full1": {
+        "n": 64,
+        "mean_v3": 0.838,
+        "frac_ge_0.5": 0.84
+      },
+      "species1_full0": {
+        "n": 11,
+        "mean_v3": 0.185,
+        "frac_ge_0.5": 0.18
+      },
+      "species0_full0": {
+        "n": 24,
+        "mean_v3": 0.104,
+        "frac_ge_0.5": 0.08
+      }
+    },
+    "reading": "rows where the pair interacts but the retrieved relation term is wrong score like negatives"
+  },
+  "v1_structure_on_its_150": {
+    "biotx100": {
+      "v1_predicts_positive": 91,
+      "of": 100,
+      "confusion": {
+        "TP": 76,
+        "FP": 15,
+        "FN": 0,
+        "TN": 9
+      }
+    },
+    "reject50_clean": {
+      "n": 41,
+      "v1_predicts_positive": 0,
+      "positives_missed": 9
+    },
+    "total_V1_errors": 24,
+    "note": "V1 decisions are near-deterministic by subset: biotx100 is what V1 accepted, reject50 what it rejected"
+  },
+  "v3_vs_v1_disagreement_at_thr_0.02": {
+    "v3_fixes_k": 15,
+    "v3_breaks_m": 13,
+    "mcnemar_p": 0.85,
+    "breakdown_of_the_13_v3_loses": {
+      "biotx100_label1_full0": 6,
+      "biotx100_label1_full1": 1,
+      "biotx100_label0_full0": 2,
+      "reject50_label0": 4
+    },
+    "bar_to_beat_V1": "with k=15 need m<=5 for chi2>3.84; fixing all 6 semantics rows gives m=7, p=0.135"
+  },
+  "data_scaling_curve_seed1": {
+    "rows_12084": {
+      "auprc": 0.9024,
+      "best_f1": 0.8415
+    },
+    "rows_24169": {
+      "auprc": 0.9103,
+      "best_f1": 0.8623
+    },
+    "rows_48338": {
+      "auprc": 0.9122,
+      "best_f1": 0.874
+    },
+    "per_doubling_gain_auprc": [
+      0.0079,
+      0.0019
+    ],
+    "saturating_asymptote": {
+      "auprc": 0.9128,
+      "best_f1": 0.889
+    },
+    "seed_sd_at_48k_auprc": 0.0057,
+    "predicted_gain_from_plus_5000_rows": {
+      "auprc": 0.0007,
+      "best_f1": 0.0022
+    }
+  },
+  "teacher_batching": {
+    "batch8_vs_single": {
+      "n": 96,
+      "agreement": 0.8958,
+      "pos_single": 0.302,
+      "pos_batched": 0.302,
+      "throughput_it_s": 0.5
+    },
+    "batch24_vs_single": {
+      "n": 240,
+      "agreement": 0.8625,
+      "pos_single": 0.329,
+      "pos_batched": 0.292,
+      "throughput_it_s": 0.61
+    },
+    "decision": "batch 8 - batch 24 buys only 22% throughput and introduces a downward bias on positives"
+  },
+  "teacher_contention": {
+    "solo_it_s": 12.4,
+    "with_~80_sibling_connections_it_s": 0.5,
+    "note": "8 Ollama instances spun up by sibling agents; only port 11434 holds qwen3:32b fully resident on the 80GB GPU"
+  },
+  "pool": {
+    "total": 175588,
+    "never_used": 134465,
+    "clean_candidates": 128700,
+    "removed": "41123 already in training, 170 test-sentence leaks, 4691 test-pair overlaps, dupes",
+    "v3_score_bands": {
+      "[0,0.05)": 82910,
+      "[0.05,0.15)": 4227,
+      "[0.15,0.35)": 3347,
+      "[0.35,0.65)": 3331,
+      "[0.65,0.85)": 2807,
+      "[0.85,0.95)": 3097,
+      "[0.95,1]": 28981
+    }
+  },
+  "relation_term_ablation_at_inference": {
+    "note": "same V3 checkpoints, query rewritten; no retraining. cell = species=1/full=0 (n=11)",
+    "as_retrieved": {
+      "auprc": 0.9112,
+      "best_f1": 0.8627,
+      "mean_cell": 0.186,
+      "mean_true_neg": 0.094,
+      "mean_species1_full1": 0.697
+    },
+    "neutral_relation": {
+      "auprc": 0.874,
+      "best_f1": 0.8184,
+      "mean_cell": 0.276,
+      "mean_true_neg": 0.036,
+      "mean_species1_full1": 0.341
+    },
+    "relation_removed": {
+      "auprc": 0.8938,
+      "best_f1": 0.8221,
+      "mean_cell": 0.407,
+      "mean_true_neg": 0.056,
+      "mean_species1_full1": 0.474
+    },
+    "reading": "removing the relation term more than doubles the score on the decisive cell and closes the gap to genuine positives (ratio cell/full1 goes 0.27 -> 0.86); overall AUPRC drops because the input is then out of distribution for a model trained with the field present"
+  },
+  "v1_test_set_construction_bias": {
+    "biotx100": "the triples V1 accepted -- V1 predicts positive on 91/100, so it has 0 false negatives there by construction",
+    "reject50": "the triples V1 rejected -- V1 predicts negative on 41/41, so it has 0 false positives there by construction",
+    "consequence": "V1 precision 0.835 / recall 0.894 on this union are inflated relative to a random deployment sample; the bar is measured on V1 home turf"
+  },
+  "species_level_flip_rate_by_kind": {
+    "question": "of the full-triple NO rows in v3_combined_train.csv, what fraction are species-level YES?",
+    "method": "teacher probe, 200 stratified rows per kind, species-level prompt from scripts/relabel_species_level.py, 0 unparsed; v2_base from the running sequential relabel",
+    "rates": {
+      "reversal": {
+        "n": 200,
+        "flip": 0.835,
+        "ci95": [
+          0.777,
+          0.88
+        ],
+        "no_rows": 1761,
+        "est_flips": 1470
+      },
+      "active": {
+        "n": 200,
+        "flip": 0.635,
+        "ci95": [
+          0.566,
+          0.699
+        ],
+        "no_rows": 3982,
+        "est_flips": 2529
+      },
+      "pair_contrast": {
+        "n": 200,
+        "flip": 0.485,
+        "ci95": [
+          0.417,
+          0.554
+        ],
+        "no_rows": 11800,
+        "est_flips": 5723
+      },
+      "v2_base": {
+        "n": 2000,
+        "flip": 0.32,
+        "ci95": [
+          0.299,
+          0.34
+        ],
+        "no_rows": 14221,
+        "est_flips": 4544
+      }
+    },
+    "total": "14,266 of 31,764 NO rows = 44.9% carry the opposite label, not the 34.5% the brief assumed",
+    "corrected_positive_rate": 0.638,
+    "why_the_global_estimate_was_low": "the sequential relabel walks rows in order and has so far covered only v2_base, the kind with the LOWEST flip rate; extrapolating from it understates the damage by about a third",
+    "consequence": "the three kinds v3 ADDED over v2 (pair_contrast+active+reversal = 17,543 NO rows) are 49-84% mislabelled under the evaluation semantics. This is consistent with V2 (20k rows, v2_base only) scoring AUPRC 0.9158 while V3 (48k rows) scores 0.9111 -- the extra 28k rows made it slightly worse."
+  },
+  "relation_invariance_augmentation": {
+    "design": "shuffle the relation term on rows whose species-level label is known (all base positives by monotonicity + confirmed negatives); label-preserving under species semantics",
+    "size": "5,444 augmented rows on 48,338 base = 5.6% of training rows",
+    "relinv_s1": {
+      "auprc": 0.9212,
+      "best_f1": 0.8685,
+      "mcnemar_p_vs_V1": 1.0,
+      "k": 15,
+      "m": 14,
+      "mean_cell_score": 0.197,
+      "mean_species1_full1": 0.833,
+      "cell_to_pos_ratio": 0.237
+    },
+    "v3_s1_reference": {
+      "auprc": 0.9122,
+      "best_f1": 0.874,
+      "mean_cell_score": 0.186,
+      "cell_to_pos_ratio": 0.267
+    },
+    "verdict": "null - the decisive cell did not move at 5.6% dilution; AUPRC rose ~1.6 seed-SD but best F1 did not and McNemar vs V1 got worse (m 13->14). Scaling the augmentation was then blocked because pair_contrast negatives turned out not to be species-safe."
+  },
+  "datasets_built": {
+    "v4_dropnoisy.csv": "32,796 rows, pos 0.5285 -- v3_combined with the 15,542 unverified pair_contrast/active negatives removed and 2,240 measured species judgements applied. Positive rate lands on the test-set prevalence (0.559) with no reweighting.",
+    "v4_relinv.csv": "53,782 rows -- v3_combined + 5,444 relation-shuffled copies of species-certain rows"
+  },
+  "new_pool_slice": {
+    "n_labelled": 1280,
+    "sampling": "uniform random over the 128,700 clean never-labelled candidates, shuffled so any prefix is a valid sample",
+    "species_positive_rate": 0.5117,
+    "comparison": {
+      "pool_prior_full_triple": 0.2864,
+      "unified_test_prevalence": 0.5591
+    },
+    "sampling_rule_justification": "uniform sampling already lands on the deployment prior once the label is species-level (0.512 vs 0.559). Reweighting to match prevalence is unnecessary; the gap the brief noted (pool 0.29 vs test 0.56) was a labelling-semantics artefact, not a sampling problem.",
+    "positive_rate_by_v3_band": {
+      "[0,0.05)": {
+        "n": 771,
+        "pos": 0.267
+      },
+      "[0.05,0.15)": {
+        "n": 42,
+        "pos": 0.619
+      },
+      "[0.15,0.35)": {
+        "n": 37,
+        "pos": 0.784
+      },
+      "[0.35,0.65)": {
+        "n": 30,
+        "pos": 0.7
+      },
+      "[0.65,0.85)": {
+        "n": 40,
+        "pos": 0.8
+      },
+      "[0.85,0.95)": {
+        "n": 26,
+        "pos": 0.808
+      },
+      "[0.95,1]": {
+        "n": 334,
+        "pos": 0.958
+      }
+    },
+    "v3_accuracy_on_fresh_pool_at_0.5": 0.7625,
+    "key": "in V3 confident-negative band [0,0.05), which is 64.4% of the pool (82,910 rows), 26.7% are actually species-level positives -- about 22,100 rows V3 confidently gets wrong. Independent confirmation of the diagnosis on data outside the training set.",
+    "corrective_rows": "18.1% of the slice are rows V3 scores <0.15 where the pair does interact"
+  },
+  "experiments": {
+    "note": "all evaluated with scripts/eval_unified.py on the 440 clean rows; McNemar vs V1 on its 150",
+    "V3_s1_control": {
+      "data": "v3_combined 48,338",
+      "bs": 32,
+      "auprc": 0.9127,
+      "best_f1": 0.874,
+      "mcnemar_p": 0.7103,
+      "k": 16,
+      "m": 13,
+      "cell_score": 0.19,
+      "cell_to_pos_ratio": 0.224,
+      "per_source": {
+        "biotx100": 0.945,
+        "reject50": 0.51,
+        "test299": 0.92
+      }
+    },
+    "relinv_s1": {
+      "data": "v3_combined + 5,444 relation-shuffled (53,782)",
+      "bs": 32,
+      "auprc": 0.9212,
+      "best_f1": 0.8685,
+      "mcnemar_p": 1.0,
+      "k": 15,
+      "m": 14,
+      "cell_score": 0.197,
+      "cell_to_pos_ratio": 0.237,
+      "verdict": "null - mechanism did not move at 5.6% dilution"
+    },
+    "dropnoisy_s1": {
+      "data": "v3_combined minus 15,542 unreliable negatives (32,796)",
+      "bs": 8,
+      "auprc": 0.91,
+      "best_f1": 0.8656,
+      "mcnemar_p": 0.7277,
+      "k": 18,
+      "m": 15,
+      "cell_score": 0.347,
+      "cell_to_pos_ratio": 0.361,
+      "per_source": {
+        "biotx100": 0.954,
+        "reject50": 0.584,
+        "test299": 0.898
+      },
+      "verdict": "mechanism moved hard (cell 0.190->0.347, reject50 AUPRC 0.510->0.584, k 16->18) but aggregate AUPRC/F1 flat: discarding 32% of the data costs about what the label fix gains. The implication is to RELABEL those rows, not drop them."
+    },
+    "kindfix_s1": {
+      "data": "v4_kindfix.csv 38,978 rows pos 0.6175 -- per-kind decision from the measured flip rates: relabel reversal (p=.835) and active (p=.635) positive, drop pair_contrast (p=.485, coin toss), keep v2_base negative (p=.320), apply 2,600 measured judgements, add 2,240 teacher-labelled pool rows",
+      "bs": 32,
+      "auprc": 0.8992,
+      "best_f1": 0.8647,
+      "oracle_thr": {
+        "mcnemar_p": 0.3768,
+        "k": 19,
+        "m": 13,
+        "f1_on_150": 0.9
+      },
+      "cell_score": 0.608,
+      "cell_to_pos_ratio": 0.625,
+      "per_source": {
+        "biotx100": 0.968,
+        "reject50": 0.741,
+        "test299": 0.883
+      }
+    },
+    "kindfix_2seed": {
+      "auprc": 0.8955,
+      "best_f1": 0.8686,
+      "oracle_thr": {
+        "mcnemar_p": 0.2812,
+        "k": 19,
+        "m": 12,
+        "f1_on_150": 0.9029
+      },
+      "dev_thr": {
+        "thr": 0.41,
+        "f1_440": 0.8619,
+        "f1_150": 0.871,
+        "mcnemar_p": 0.8676,
+        "k": 18,
+        "m": 18,
+        "note": "the two seeds chose dev thresholds 0.51 and 0.31; averaging them is off for the ensemble, so the single seed at its own threshold is the better deployable configuration"
+      },
+      "cell_score": 0.6,
+      "cell_to_pos_ratio": 0.63,
+      "per_source": {
+        "biotx100": 0.967,
+        "reject50": 0.71,
+        "test299": 0.876
+      }
+    }
+  },
+  "dev_threshold_evaluation": {
+    "why": "the published baselines quote best-F1, which is a threshold picked on the test set. At each model own dev-derived threshold (student_config.json threshold_dev) the picture changes.",
+    "V1_reference_on_150": {
+      "f1": 0.8636,
+      "precision": 0.8352,
+      "recall": 0.8941
+    },
+    "V3_s1": {
+      "dev_thr": 0.32,
+      "f1_440": 0.8133,
+      "f1_150": 0.8312,
+      "precision_150": 0.9275,
+      "recall_150": 0.7529,
+      "mcnemar_p": 0.8711,
+      "k": 18,
+      "m": 20
+    },
+    "dropnoisy_s1": {
+      "dev_thr": 0.29,
+      "f1_440": 0.8365,
+      "f1_150": 0.8639,
+      "mcnemar_p": 1.0,
+      "k": 15,
+      "m": 14
+    },
+    "kindfix_s1": {
+      "dev_thr": 0.51,
+      "f1_440": 0.8625,
+      "f1_150": 0.8901,
+      "precision_150": 0.8351,
+      "recall_150": 0.9529,
+      "mcnemar_p": 0.5959,
+      "k": 18,
+      "m": 14
+    },
+    "reading": "V3 at a deployable threshold scores 0.8312 on the V1 subset, BELOW V1 0.8636 -- its quoted 0.8627 is an oracle threshold. kindfix reaches 0.8901 at its own threshold, at the same precision as V1 with markedly higher recall. But this is a CALIBRATION gain, not a discrimination gain: kindfix AUPRC 0.8992 < V3 0.9127. The label correction moves the training prior from 0.343 to 0.618, near the test prevalence 0.559, so the dev threshold transfers instead of being far off. McNemar still not significant (p=0.596)."
+  },
+  "verdict": {
+    "headline": "NULL. Nothing beats V1 with statistical significance. Best McNemar p achieved = 0.281 (kindfix 2-seed, k=19 m=12, oracle threshold); the bar is p<0.05, which needs m<=7 at k=19.",
+    "assigned_lever_scale": "Scaling the training data does not help, and the reason is now measured rather than assumed: (a) the data-scaling curve saturates - 12k->24k buys +0.0079 AUPRC, 24k->48k buys +0.0019, and the saturating asymptote is AUPRC 0.9128 / best-F1 0.889, which V3 has already reached; (b) 44.9% of the negatives carry the opposite label, so added volume mostly adds contradiction.",
+    "what_did_move": "Correcting labels by the measured per-kind rate moved the decisive behaviour a long way: the species=1/full=0 cell went 0.190 -> 0.608 mean score, reject50 AUPRC 0.510 -> 0.741, biotx100 0.945 -> 0.968, and F1 on the V1-150 at a non-oracle threshold went 0.831 -> 0.890. But AUPRC fell 0.9127 -> 0.8992: this is a CALIBRATION gain, not a discrimination gain, and the brief is right that the ranking is the problem.",
+    "highest_value_next_action": "finish the species-level relabel ACROSS ALL FOUR KINDS, not just v2_base. The sequential job walks rows in order and has only covered v2_base, the kind with the lowest flip rate (0.320). reversal (0.835), active (0.635) and pair_contrast (0.485) are untouched and hold 17,543 NO rows. Exact labels there should beat the rate-based guess used in kindfix."
+  }
+}

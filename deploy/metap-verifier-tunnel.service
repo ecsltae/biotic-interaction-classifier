@@ -1,0 +1,21 @@
+# Optional: expose the verifier to a colleague without VPN or port forwarding.
+# Mirrors biotx-tunnel.service. NOTE: `tunnel --url` is a QUICK tunnel and gets a NEW random
+# hostname on every restart. Read the current one with deploy/get_verifier_url.sh, or switch to
+# a named tunnel if the URL has to be stable.
+[Unit]
+Description=Cloudflare Tunnel for the MetaP verifier
+After=network.target metap-verifier.service
+Wants=metap-verifier.service
+
+[Service]
+Type=simple
+User=egaillac
+ExecStart=/usr/local/bin/cloudflared tunnel --url http://localhost:8004 --no-autoupdate
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=metap-verifier-tunnel
+
+[Install]
+WantedBy=multi-user.target

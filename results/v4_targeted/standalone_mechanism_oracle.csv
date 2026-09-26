@@ -1,0 +1,11 @@
+mechanism,n_err_rows,k,m,chi2,p,F1_141,beats_v1
+label_semantics,16,17,6,4.35,0.0371,0.929,YES
+co_participant,8,17,11,0.89,0.3447,0.8941,no
+synonym,3,17,12,0.55,0.4576,0.8889,no
+gold_noise,3,16,11,0.59,0.4414,0.8889,no
+non_organism,2,15,12,0.15,0.7003,0.8786,no
+ancestor,1,16,13,0.14,0.7103,0.8786,no
+authority,1,15,13,0.04,0.8501,0.8736,no
+negation,1,16,13,0.14,0.7103,0.8786,no
+relatedness,1,15,13,0.04,0.8501,0.8736,no
+not_asserted,1,15,13,0.04,0.8501,0.8736,no

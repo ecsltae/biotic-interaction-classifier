@@ -1,0 +1,103 @@
+{
+  "question": "Does retraining on SPECIES-LEVEL labels beat V1/V2/V3 on unified_test_set.csv?",
+  "test_set": "data/evaluation/unified_test_set.csv, 440 clean rows (9 in_train excluded), prevalence 0.564",
+  "v1_reference": {
+    "n": 141,
+    "precision": 0.8352,
+    "recall": 0.8941,
+    "f1": 0.8636,
+    "errors": 24,
+    "fp_biotx100": 15,
+    "fn_reject50": 9,
+    "note": "reject50 rows are V1-rejected by construction, so V1 predicts 0 on all 41"
+  },
+  "significance_bar": "McNemar on paired decisions: (|k-m|-1)^2/(k+m) > 3.84",
+  "seed_sd_auprc": 0.0114,
+  "llm_relabel_status": "INCOMPLETE - 2,000 of 31,764 NO rows judged (6.3%), flip rate 0.3195 on v2_base; qwen3:32b throughput collapsed to ~0.1 it/s under cluster contention",
+  "arms": [
+    {
+      "arm": "V2 (baseline, 3 seeds)",
+      "n_seeds": 3,
+      "auprc": 0.9158285101423198,
+      "bestF1": 0.8588235294117647,
+      "biotx": 0.9592553070671114,
+      "rej": 0.6021284271284271,
+      "t299": 0.9064642995673051,
+      "k": 16,
+      "m": 14,
+      "p": 0.8551321405847059
+    },
+    {
+      "arm": "V3 (baseline, 3 seeds)",
+      "n_seeds": 3,
+      "auprc": 0.9111387848502138,
+      "bestF1": 0.8627450980392157,
+      "biotx": 0.9363624259857775,
+      "rej": 0.4966362819811096,
+      "t299": 0.9246515064514522,
+      "k": 15,
+      "m": 13,
+      "p": 0.8501067391385259
+    },
+    {
+      "arm": "CONTROL w=2.54 (prior 0.570, ORIGINAL labels) [2 seed(s)]",
+      "n_seeds": 2,
+      "auprc": 0.9175892507800225,
+      "bestF1": 0.8640973630831643,
+      "biotx": 0.9526553496763187,
+      "rej": 0.47681502142452903,
+      "t299": 0.9255735622143539,
+      "k": 16,
+      "m": 15,
+      "p": 1.0
+    },
+    {
+      "arm": "CONTROL w=1.41 (prior 0.424, ORIGINAL labels) [2 seed(s)]",
+      "n_seeds": 2,
+      "auprc": 0.9206863852213385,
+      "bestF1": 0.8626692456479691,
+      "biotx": 0.9566496969041712,
+      "rej": 0.5349683203131479,
+      "t299": 0.9242066667228583,
+      "k": 17,
+      "m": 17,
+      "p": 0.8638317428547264
+    },
+    {
+      "arm": "CFIX  (3,891 contradictory negs FLIPPED, prior 0.423) [3 seed(s)]",
+      "n_seeds": 3,
+      "auprc": 0.8843062780037719,
+      "bestF1": 0.8419117647058824,
+      "biotx": 0.967373924628107,
+      "rej": 0.4048089673089673,
+      "t299": 0.8710539904548168,
+      "k": 16,
+      "m": 16,
+      "p": 0.8596837951986661
+    },
+    {
+      "arm": "DROP  (3,891 contradictory negs REMOVED, prior 0.373) [3 seed(s)]",
+      "n_seeds": 3,
+      "auprc": 0.8990958241606765,
+      "bestF1": 0.8489483747609943,
+      "biotx": 0.9515480703838859,
+      "rej": 0.45789655240874755,
+      "t299": 0.8960642676293851,
+      "k": 18,
+      "m": 19,
+      "p": 1.0
+    },
+    {
+      "arm": "SYMAUG(+7,153 provably-correct swapped positives, prior 0.428) [2 seed(s)]",
+      "n_seeds": 2,
+      "auprc": 0.902240447426645,
+      "bestF1": 0.8358778625954199,
+      "biotx": 0.946769486719683,
+      "rej": 0.5027912002445718,
+      "t299": 0.905117417026225,
+      "k": 16,
+      "m": 19,
+      "p": 0.7353166906373405
+    }
+  ]
+}

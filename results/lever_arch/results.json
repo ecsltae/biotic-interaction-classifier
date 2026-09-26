@@ -1,0 +1,651 @@
+{
+  "test_set": "data/evaluation/unified_test_set.csv (440 clean rows, 248 pos)",
+  "label": "species-level",
+  "v1_subset_n": 141,
+  "v1_f1": 0.8636363636363636,
+  "variants": [
+    {
+      "tag": "V3ens (baseline, triple)",
+      "note": "models/student_v3/xenc_s{1,2,3}",
+      "auprc": 0.9111387848502138,
+      "best_f1": 0.8627450980392157,
+      "best_thr": 0.04,
+      "per_source_auprc": {
+        "biotx100": 0.9363624259857775,
+        "reject50": 0.4966362819811096,
+        "test299": 0.9246515064514522
+      },
+      "vs_v1": {
+        "f1": 0.8735632183908046,
+        "fixed": 15,
+        "broke": 13,
+        "mcnemar_p": 0.8501067391385259,
+        "n_thresholds_matching_v1_f1": 5,
+        "best_p_in_band": 0.8501067391385259
+      }
+    },
+    {
+      "tag": "V2ens (baseline, triple)",
+      "note": "models/student/xenc_s{1,2,3}",
+      "auprc": 0.9158285101423198,
+      "best_f1": 0.8614232209737828,
+      "best_thr": 0.005,
+      "per_source_auprc": {
+        "biotx100": 0.9592553070671114,
+        "reject50": 0.6021284271284271,
+        "test299": 0.9064642995673051
+      },
+      "vs_v1": {
+        "f1": 0.8651685393258427,
+        "fixed": 15,
+        "broke": 15,
+        "mcnemar_p": 0.8551321405847059,
+        "n_thresholds_matching_v1_f1": 1,
+        "best_p_in_band": 0.8551321405847059
+      }
+    },
+    {
+      "tag": "triple seed1 (control)",
+      "note": "models/student_v3/xenc_s1",
+      "auprc": 0.9126768714166311,
+      "best_f1": 0.8740157480314961,
+      "best_thr": 0.030000000000000002,
+      "per_source_auprc": {
+        "biotx100": 0.9451945112571122,
+        "reject50": 0.5095358345358345,
+        "test299": 0.9195420525917416
+      },
+      "vs_v1": {
+        "f1": 0.8771929824561403,
+        "fixed": 16,
+        "broke": 13,
+        "mcnemar_p": 0.7103465689955667,
+        "n_thresholds_matching_v1_f1": 8,
+        "best_p_in_band": 0.7103465689955667
+      }
+    },
+    {
+      "tag": "triple_mark seed1",
+      "note": "markers + triple query",
+      "auprc": 0.914677389239615,
+      "best_f1": 0.8605577689243028,
+      "best_thr": 0.045,
+      "per_source_auprc": {
+        "biotx100": 0.9564367814680335,
+        "reject50": 0.5304655619171748,
+        "test299": 0.9130432726062501
+      },
+      "vs_v1": {
+        "f1": 0.8607594936708861,
+        "fixed": 19,
+        "broke": 17,
+        "mcnemar_p": 0.8676323347781927,
+        "n_thresholds_matching_v1_f1": 0,
+        "best_p_in_band": NaN
+      }
+    },
+    {
+      "tag": "mark_only seed1",
+      "note": "markers, no query segment",
+      "auprc": 0.9148361531459729,
+      "best_f1": 0.8681318681318682,
+      "best_thr": 0.01,
+      "per_source_auprc": {
+        "biotx100": 0.977807662995198,
+        "reject50": 0.4787755535562553,
+        "test299": 0.8995821456575308
+      },
+      "vs_v1": {
+        "f1": 0.8823529411764706,
+        "fixed": 16,
+        "broke": 12,
+        "mcnemar_p": 0.5707503880581739,
+        "n_thresholds_matching_v1_f1": 35,
+        "best_p_in_band": 0.5707503880581739
+      }
+    },
+    {
+      "tag": "mark_canon seed1",
+      "note": "markers + order-invariant pair query",
+      "auprc": 0.9390803485088062,
+      "best_f1": 0.882466281310212,
+      "best_thr": 0.02,
+      "per_source_auprc": {
+        "biotx100": 0.9703380655278017,
+        "reject50": 0.4784101030477842,
+        "test299": 0.9402418677480749
+      },
+      "vs_v1": {
+        "f1": 0.8771929824561403,
+        "fixed": 16,
+        "broke": 13,
+        "mcnemar_p": 0.7103465689955667,
+        "n_thresholds_matching_v1_f1": 20,
+        "best_p_in_band": 0.583882420770365
+      }
+    },
+    {
+      "tag": "pair_canon seed1",
+      "note": "order-invariant pair query",
+      "auprc": 0.9299941935654211,
+      "best_f1": 0.8888888888888888,
+      "best_thr": 0.02,
+      "per_source_auprc": {
+        "biotx100": 0.960513390103991,
+        "reject50": 0.5696686673498268,
+        "test299": 0.9329438641650087
+      },
+      "vs_v1": {
+        "f1": 0.8837209302325582,
+        "fixed": 17,
+        "broke": 13,
+        "mcnemar_p": 0.583882420770365,
+        "n_thresholds_matching_v1_f1": 12,
+        "best_p_in_band": 0.583882420770365
+      }
+    },
+    {
+      "tag": "pair seed1",
+      "note": "",
+      "auprc": 0.9330072229393546,
+      "best_f1": 0.8875968992248062,
+      "best_thr": 0.025,
+      "per_source_auprc": {
+        "biotx100": 0.9761765744953206,
+        "reject50": 0.4463919154740411,
+        "test299": 0.9360437627467332
+      },
+      "vs_v1": {
+        "f1": 0.9017341040462428,
+        "fixed": 17,
+        "broke": 10,
+        "mcnemar_p": 0.24821307898992026,
+        "n_thresholds_matching_v1_f1": 43,
+        "best_p_in_band": 0.24821307898992026
+      }
+    },
+    {
+      "tag": "pair seed2",
+      "note": "",
+      "auprc": 0.928592778372599,
+      "best_f1": 0.8774703557312253,
+      "best_thr": 0.045,
+      "per_source_auprc": {
+        "biotx100": 0.969692827422187,
+        "reject50": 0.40385410349178463,
+        "test299": 0.9361642983506895
+      },
+      "vs_v1": {
+        "f1": 0.8809523809523809,
+        "fixed": 15,
+        "broke": 11,
+        "mcnemar_p": 0.5562984612747348,
+        "n_thresholds_matching_v1_f1": 38,
+        "best_p_in_band": 0.5562984612747348
+      }
+    },
+    {
+      "tag": "pair seed3",
+      "note": "",
+      "auprc": 0.9361425622405201,
+      "best_f1": 0.8809523809523809,
+      "best_thr": 0.049999999999999996,
+      "per_source_auprc": {
+        "biotx100": 0.9766011050805078,
+        "reject50": 0.38251254917921584,
+        "test299": 0.93712307239935
+      },
+      "vs_v1": {
+        "f1": 0.8705882352941177,
+        "fixed": 15,
+        "broke": 13,
+        "mcnemar_p": 0.8501067391385259,
+        "n_thresholds_matching_v1_f1": 17,
+        "best_p_in_band": 0.8445192674729399
+      }
+    },
+    {
+      "tag": "pair ENS3",
+      "note": "relation dropped",
+      "auprc": 0.936352613040902,
+      "best_f1": 0.8875968992248062,
+      "best_thr": 0.04,
+      "per_source_auprc": {
+        "biotx100": 0.977172812309813,
+        "reject50": 0.42795561925996706,
+        "test299": 0.9407269749387618
+      },
+      "vs_v1": {
+        "f1": 0.8982035928143712,
+        "fixed": 16,
+        "broke": 9,
+        "mcnemar_p": 0.23013934044341314,
+        "n_thresholds_matching_v1_f1": 39,
+        "best_p_in_band": 0.23013934044341314
+      }
+    },
+    {
+      "tag": "pair_mark ENS3",
+      "note": "relation dropped + markers",
+      "auprc": 0.933413188645664,
+      "best_f1": 0.8893360160965795,
+      "best_thr": 0.085,
+      "per_source_auprc": {
+        "biotx100": 0.9772470886839242,
+        "reject50": 0.46588800356916293,
+        "test299": 0.9306517141910723
+      },
+      "vs_v1": {
+        "f1": 0.8994082840236687,
+        "fixed": 17,
+        "broke": 10,
+        "mcnemar_p": 0.24821307898992026,
+        "n_thresholds_matching_v1_f1": 46,
+        "best_p_in_band": 0.24821307898992026
+      }
+    },
+    {
+      "tag": "pair+pair_mark ENS6",
+      "note": "",
+      "auprc": 0.9358339508782603,
+      "best_f1": 0.892,
+      "best_thr": 0.095,
+      "per_source_auprc": {
+        "biotx100": 0.977381715647459,
+        "reject50": 0.461259105896787,
+        "test299": 0.9383750574041956
+      },
+      "vs_v1": {
+        "f1": 0.9047619047619048,
+        "fixed": 17,
+        "broke": 9,
+        "mcnemar_p": 0.1698105050855175,
+        "n_thresholds_matching_v1_f1": 39,
+        "best_p_in_band": 0.1698105050855175
+      }
+    },
+    {
+      "tag": "BioLinkBERT pair seed1",
+      "note": "108M",
+      "auprc": 0.923967981063037,
+      "best_f1": 0.8866396761133604,
+      "best_thr": 0.09000000000000001,
+      "per_source_auprc": {
+        "biotx100": 0.9772309052865574,
+        "reject50": 0.5017816545594322,
+        "test299": 0.9211555330296559
+      },
+      "vs_v1": {
+        "f1": 0.9058823529411765,
+        "fixed": 19,
+        "broke": 11,
+        "mcnemar_p": 0.20124262095772028,
+        "n_thresholds_matching_v1_f1": 53,
+        "best_p_in_band": 0.20124262095772028
+      }
+    },
+    {
+      "tag": "SapBERT pair seed1",
+      "note": "109M",
+      "auprc": 0.9145814462547825,
+      "best_f1": 0.8533834586466166,
+      "best_thr": 0.01,
+      "per_source_auprc": {
+        "biotx100": 0.9590348396645971,
+        "reject50": 0.46050580860363466,
+        "test299": 0.9144183438527158
+      },
+      "vs_v1": {
+        "f1": 0.8587570621468926,
+        "fixed": 14,
+        "broke": 15,
+        "mcnemar_p": 1.0,
+        "n_thresholds_matching_v1_f1": 0,
+        "best_p_in_band": NaN
+      }
+    },
+    {
+      "tag": "MiniLMv2-L6 pair seed1",
+      "note": "22.7M",
+      "auprc": 0.8957097531171561,
+      "best_f1": 0.8616600790513834,
+      "best_thr": 0.15,
+      "per_source_auprc": {
+        "biotx100": 0.9427213275931174,
+        "reject50": 0.4354341736694678,
+        "test299": 0.901515287944605
+      },
+      "vs_v1": {
+        "f1": 0.8539325842696629,
+        "fixed": 12,
+        "broke": 14,
+        "mcnemar_p": 0.8445192674729399,
+        "n_thresholds_matching_v1_f1": 0,
+        "best_p_in_band": NaN
+      }
+    },
+    {
+      "tag": "DeBERTa-v3 pair seed1",
+      "note": "184M",
+      "auprc": 0.9164664406515624,
+      "best_f1": 0.8795411089866156,
+      "best_thr": 0.030000000000000002,
+      "per_source_auprc": {
+        "biotx100": 0.9532109761539278,
+        "reject50": 0.36736541687761204,
+        "test299": 0.9394995458631069
+      },
+      "vs_v1": {
+        "f1": 0.8700564971751412,
+        "fixed": 16,
+        "broke": 15,
+        "mcnemar_p": 1.0,
+        "n_thresholds_matching_v1_f1": 9,
+        "best_p_in_band": 0.8596837951986661
+      }
+    }
+  ],
+  "significance": {
+    "pair ENS3 vs V3ens": {
+      "bootstrap_auprc": {
+        "delta_auprc": 0.02521382819068818,
+        "ci95": [
+          0.006379528520693315,
+          0.046899241614289995
+        ],
+        "p_two_sided": 0.0032
+      },
+      "mcnemar": {
+        "own_thr": {
+          "challenger_f1": 0.8875968992248062,
+          "ref_f1": 0.8627450980392157,
+          "fixed": 26,
+          "broke": 14,
+          "p": 0.08199032100038259
+        },
+        "rank_matched": {
+          "challenger_f1": 0.8784313725490196,
+          "ref_f1": 0.8627450980392157,
+          "fixed": 24,
+          "broke": 16,
+          "p": 0.2683816272927576
+        }
+      }
+    },
+    "pair ENS3 vs V2ens": {
+      "bootstrap_auprc": {
+        "delta_auprc": 0.020524102898582197,
+        "ci95": [
+          0.0064707290828706744,
+          0.035969772377809454
+        ],
+        "p_two_sided": 0.0048
+      },
+      "mcnemar": {
+        "own_thr": {
+          "challenger_f1": 0.8875968992248062,
+          "ref_f1": 0.8614232209737828,
+          "fixed": 33,
+          "broke": 17,
+          "p": 0.033894853524689295
+        },
+        "rank_matched": {
+          "challenger_f1": 0.8801498127340824,
+          "ref_f1": 0.8614232209737828,
+          "fixed": 28,
+          "broke": 18,
+          "p": 0.18451609080340636
+        }
+      }
+    },
+    "pair_mark ENS3 vs V3ens": {
+      "bootstrap_auprc": {
+        "delta_auprc": 0.022274403795450204,
+        "ci95": [
+          0.0013868480535393667,
+          0.045602429972951906
+        ],
+        "p_two_sided": 0.032
+      },
+      "mcnemar": {
+        "own_thr": {
+          "challenger_f1": 0.8893360160965795,
+          "ref_f1": 0.8627450980392157,
+          "fixed": 30,
+          "broke": 15,
+          "p": 0.036888425707049914
+        },
+        "rank_matched": {
+          "challenger_f1": 0.8823529411764706,
+          "ref_f1": 0.8627450980392157,
+          "fixed": 25,
+          "broke": 15,
+          "p": 0.15472892348537437
+        }
+      }
+    },
+    "pair_mark ENS3 vs V2ens": {
+      "bootstrap_auprc": {
+        "delta_auprc": 0.01758467850334422,
+        "ci95": [
+          0.0026328575993318755,
+          0.03384801842388151
+        ],
+        "p_two_sided": 0.0214
+      },
+      "mcnemar": {
+        "own_thr": {
+          "challenger_f1": 0.8893360160965795,
+          "ref_f1": 0.8614232209737828,
+          "fixed": 41,
+          "broke": 22,
+          "p": 0.02334220201289086
+        },
+        "rank_matched": {
+          "challenger_f1": 0.8726591760299626,
+          "ref_f1": 0.8614232209737828,
+          "fixed": 28,
+          "broke": 22,
+          "p": 0.47950012218695337
+        }
+      }
+    },
+    "pair+pair_mark ENS6 vs V3ens": {
+      "bootstrap_auprc": {
+        "delta_auprc": 0.024695166028046445,
+        "ci95": [
+          0.006225265704304844,
+          0.04628359777675854
+        ],
+        "p_two_sided": 0.0044
+      },
+      "mcnemar": {
+        "own_thr": {
+          "challenger_f1": 0.892,
+          "ref_f1": 0.8627450980392157,
+          "fixed": 31,
+          "broke": 15,
+          "p": 0.026992286272402254
+        },
+        "rank_matched": {
+          "challenger_f1": 0.8823529411764706,
+          "ref_f1": 0.8627450980392157,
+          "fixed": 26,
+          "broke": 16,
+          "p": 0.16491482255329737
+        }
+      }
+    },
+    "pair+pair_mark ENS6 vs V2ens": {
+      "bootstrap_auprc": {
+        "delta_auprc": 0.02000544073594046,
+        "ci95": [
+          0.006551030058414146,
+          0.035108414155526256
+        ],
+        "p_two_sided": 0.0032
+      },
+      "mcnemar": {
+        "own_thr": {
+          "challenger_f1": 0.892,
+          "ref_f1": 0.8614232209737828,
+          "fixed": 42,
+          "broke": 22,
+          "p": 0.017548950191476703
+        },
+        "rank_matched": {
+          "challenger_f1": 0.8726591760299626,
+          "ref_f1": 0.8614232209737828,
+          "fixed": 27,
+          "broke": 21,
+          "p": 0.47048642205878954
+        }
+      }
+    }
+  },
+  "cpu_throughput_pairs_per_s": {
+    "method": "8 torch threads, batch 16, dynamic padding, real test-set inputs, 4 interleaved repeats on a box shared with other agents' training jobs; use the ratios, not the absolutes (reference quiet-box figure for 110M/triple is 24.2 pairs/s)",
+    "triple 110M (V3)": {
+      "median": 7.8,
+      "rel": 1.0
+    },
+    "pair 110M": {
+      "median": 9.33,
+      "rel": 1.2
+    },
+    "pair_mark 110M": {
+      "median": 8.62,
+      "rel": 1.11
+    },
+    "MiniLMv2-L6 pair 22.7M": {
+      "median": 40.05,
+      "rel": 5.13
+    },
+    "SUPERSEDED": "measured on a box saturated by other agents; the apparent 1.20x for pair was a load artifact. Use cpu_throughput_pairs_per_s_quiet."
+  },
+  "held_out_threshold_f1": {
+    "method": "1000 random 50/50 splits of the 440 clean rows; threshold chosen on one half, F1 measured on the other",
+    "V3ens": [
+      0.8522,
+      0.019
+    ],
+    "V2ens": [
+      0.8489,
+      0.0175
+    ],
+    "triple s1 (control)": [
+      0.8657,
+      0.0175
+    ],
+    "triple_mark s1": [
+      0.8476,
+      0.0189
+    ],
+    "mark_only s1": [
+      0.8549,
+      0.0165
+    ],
+    "mark_canon s1": [
+      0.8696,
+      0.0168
+    ],
+    "pair_canon s1": [
+      0.8782,
+      0.0154
+    ],
+    "pair ENS3": [
+      0.8761,
+      0.0162
+    ],
+    "pair_mark ENS3": [
+      0.8783,
+      0.0165
+    ],
+    "pair+pair_mark ENS6": [
+      0.8806,
+      0.0164
+    ],
+    "BioLinkBERT pair s1": [
+      0.8757,
+      0.0167
+    ],
+    "DeBERTa-v3 pair s1": [
+      0.8699,
+      0.0173
+    ],
+    "MiniLMv2-L6 pair s1": [
+      0.8502,
+      0.0174
+    ],
+    "paired_delta_vs_V3ens": {
+      "pair ENS3": [
+        0.0239,
+        0.93
+      ],
+      "pair_mark ENS3": [
+        0.0261,
+        0.943
+      ],
+      "pair+pair_mark ENS6": [
+        0.0283,
+        0.963
+      ],
+      "mark_canon s1": [
+        0.0174,
+        0.825
+      ],
+      "BioLinkBERT pair s1": [
+        0.0234,
+        0.924
+      ]
+    },
+    "paired_delta_vs_V2ens": {
+      "pair ENS3": [
+        0.0273,
+        0.949
+      ],
+      "pair_mark ENS3": [
+        0.0295,
+        0.958
+      ],
+      "pair+pair_mark ENS6": [
+        0.0317,
+        0.97
+      ],
+      "mark_canon s1": [
+        0.0207,
+        0.859
+      ],
+      "BioLinkBERT pair s1": [
+        0.0268,
+        0.934
+      ]
+    }
+  },
+  "verdict": "Dropping the relation from the query is the win: +0.025 AUPRC over V3ens (paired bootstrap p=0.003) and +0.028 held-out F1 (better on 96% of 1000 splits), at identical CPU cost. Entity markers alone are null. No encoder swap beat BiomedBERT-base. McNemar vs the deployed V1 on its 141 rows never clears 3.84 (best p=0.17), because 5 of the 8 remaining errors are rows whose TRAINING label is full-triple - they need the species-level relabel, not an architecture change.",
+  "cpu_throughput_pairs_per_s_quiet": {
+    "method": "8 torch threads, batch 16, dynamic padding, real test-set inputs, 3 interleaved repeats, load avg ~7",
+    "xenc_s1 [triple, 109.5M]": {
+      "median": 39.4,
+      "rel": 1.0
+    },
+    "fmt_pair_s1 [pair, 109.5M]": {
+      "median": 40.17,
+      "rel": 1.02
+    },
+    "fmt_pair_mark_s1 [pair_mark, 109.5M]": {
+      "median": 39.13,
+      "rel": 0.99
+    },
+    "encp_minilm6_s1 [pair, 22.7M]": {
+      "median": 217.84,
+      "rel": 5.53
+    },
+    "encp_deberta3mb_s1 [pair, 184.4M]": {
+      "median": 24.69,
+      "rel": 0.63
+    }
+  },
+  "cpu_throughput_note": "On a quiet box with dynamic padding all three 110M input formats run within 3% of each other (39-40 pairs/s), so the input format is throughput-neutral. Two real speed findings: (1) dynamic padding instead of padding every example to max_length raises 110M throughput from the recorded 24.2 to 39.4 pairs/s with numerically identical outputs (max logit diff 3.6e-7); (2) MiniLMv2-L6 (22.7M) reaches 217.8 pairs/s, 5.5x, but costs 0.041 AUPRC.",
+  "relabel_job_status": "NOTE FOR THE LABEL LEVER: scripts/relabel_species_level.py is NOT running and its output data/training/distill/species_relabel.csv stopped growing at 13:41 with 2000 of 31764 rows. It died ~2.6h before this was written; Ollama itself is up. It needs restarting (it is resumable)."
+}

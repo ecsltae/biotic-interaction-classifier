@@ -1,0 +1,9 @@
+{
+  "model": "models/dirhead/joint_a05_s1",
+  "path": "experiments/multitask/predict_joint.py",
+  "device": "cpu", "threads": 8, "batch": 16, "n": 256,
+  "pairs_per_s_median": 33.9,
+  "runs": [32.3, 34.0, 33.9],
+  "loadavg_during": [4.1, 2.9, 3.6],
+  "note": "measured through the shipped inference entry point, not a synthetic loop; V1 binary-only on the same rig is 33.8 pairs/s"
+}

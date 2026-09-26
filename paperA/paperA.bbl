@@ -1,0 +1,447 @@
+\begin{thebibliography}{50}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Ai and Kavuluru(2023)}]{ai2023endtoend}
+Xuguang Ai and Ramakanth Kavuluru. 2023.
+\newblock End-to-end models for chemical--protein interaction extraction:
+  Better tokenization and span-based pipeline strategies.
+\newblock In \emph{2023 IEEE 11th International Conference on Healthcare
+  Informatics (ICHI)}, pages 610--618. IEEE.
+\newblock ArXiv:2304.01344.
+
+\bibitem[{Baldini~Soares et~al.(2019)Baldini~Soares, FitzGerald, Ling, and
+  Kwiatkowski}]{soares2019matching}
+Livio Baldini~Soares, Nicholas FitzGerald, Jeffrey Ling, and Tom Kwiatkowski.
+  2019.
+\newblock \href {https://doi.org/10.18653/v1/P19-1279} {Matching the blanks:
+  Distributional similarity for relation learning}.
+\newblock In \emph{Proceedings of the 57th Annual Meeting of the Association
+  for Computational Linguistics}, pages 2895--2905, Florence, Italy.
+  Association for Computational Linguistics.
+
+\bibitem[{Britan et~al.(2018)Britan, Cusin, Hinard, Mottin, Pasche, Gobeill,
+  Rech~de Laval, Gleizes, Teixeira, Michel, Ruch, and
+  Gaudet}]{britan2018nexta5}
+Aurore Britan, Isabelle Cusin, Val{\'e}rie Hinard, Luc Mottin, Emilie Pasche,
+  Julien Gobeill, Valentine Rech~de Laval, Anne Gleizes, Daniel Teixeira,
+  Pierre-Andr{\'e} Michel, Patrick Ruch, and Pascale Gaudet. 2018.
+\newblock \href {https://doi.org/10.1093/database/bay129} {Accelerating
+  annotation of articles via automated approaches: evaluation of the {neXtA5}
+  curation-support tool by {neXtProt}}.
+\newblock \emph{Database}, 2018:bay129.
+
+\bibitem[{Brokman et~al.(2025)Brokman, Ai, Jiang, Gupta, and
+  Kavuluru}]{brokman2025benchmark}
+Aviv Brokman, Xuguang Ai, Yuhang Jiang, Shashank Gupta, and Ramakanth Kavuluru.
+  2025.
+\newblock \href {https://doi.org/10.18653/v1/2025.wasp-main.6} {A benchmark for
+  end-to-end zero-shot biomedical relation extraction with {LLM}s: experiments
+  with {O}pen{AI} models}.
+\newblock In \emph{Proceedings of the Third Workshop for Artificial
+  Intelligence for Scientific Publications}, pages 44--55, Mumbai, India and
+  virtual. Association for Computational Linguistics.
+
+\bibitem[{Cuzick et~al.(2023)Cuzick, Seager, Wood, Urban, Rutherford, and
+  Hammond-Kosack}]{cuzick2023interspecies}
+Alayne Cuzick, James Seager, Valerie Wood, Martin Urban, Kim Rutherford, and
+  Kim~E. Hammond-Kosack. 2023.
+\newblock \href {https://doi.org/10.7554/eLife.84658} {A framework for
+  community curation of interspecies interactions literature}.
+\newblock \emph{eLife}, 12:e84658.
+
+\bibitem[{Dimitrova et~al.(2020)Dimitrova, Poelen, Zhelezov, Georgiev, Agosti,
+  and Penev}]{dimitrova2020semantic}
+Mariya Dimitrova, Jorrit Poelen, Georgi Zhelezov, Teodor Georgiev, Donat
+  Agosti, and Lyubomir Penev. 2020.
+\newblock \href {https://doi.org/10.3897/biss.4.59036} {Semantic publishing
+  enables text mining of biotic interactions}.
+\newblock \emph{Biodiversity Information Science and Standards}, 4:e59036.
+
+\bibitem[{D'Souza et~al.(2025)D'Souza, Laubach, Al~Mustafa, Zarrie{\ss},
+  Fr{\"u}hst{\"u}ckl, and Illari}]{dsouza2025mining}
+Jennifer D'Souza, Zachary Laubach, Tarek Al~Mustafa, Sina Zarrie{\ss}, Robert
+  Fr{\"u}hst{\"u}ckl, and Phyllis Illari. 2025.
+\newblock \href {https://aclanthology.org/2025.nlp4ecology-1.6/} {Mining for
+  species, locations, habitats, and ecosystems from scientific papers in
+  invasion biology: A large-scale exploratory study with large language
+  models}.
+\newblock In \emph{Proceedings of the 1st Workshop on Ecology, Environment, and
+  Natural Language Processing (NLP4Ecology2025)}, pages 16--23, Tallinn,
+  Estonia. University of Tartu Library.
+
+\bibitem[{Du et~al.(2024)Du, He, Zou, Tao, and Hu}]{du-etal-2024-shortcut}
+Mengnan Du, Fengxiang He, Na~Zou, Dacheng Tao, and Xia Hu. 2024.
+\newblock \href {https://doi.org/10.1145/3596490} {Shortcut learning of large
+  language models in natural language understanding}.
+\newblock \emph{Communications of the ACM}, 67(1):110--120.
+
+\bibitem[{Farrell et~al.(2024)Farrell, Le~Guillarme, Brierley, Hunter,
+  Scheepens, Willoughby, Yates, and Mideo}]{farrell2024landscape}
+Maxwell~J. Farrell, Nicolas Le~Guillarme, Liam Brierley, Bronwen Hunter, Daan
+  Scheepens, Anna Willoughby, Andrew Yates, and Nicole Mideo. 2024.
+\newblock \href {https://doi.org/10.1098/rspb.2024.0423} {The changing
+  landscape of text mining: a review of approaches for ecology and evolution}.
+\newblock \emph{Proceedings of the Royal Society B: Biological Sciences},
+  291(2027):20240423.
+
+\bibitem[{Feng et~al.(2019)Feng, Wallace, and
+  Boyd-Graber}]{feng-etal-2019-misleading}
+Shi Feng, Eric Wallace, and Jordan Boyd-Graber. 2019.
+\newblock \href {https://doi.org/10.18653/v1/P19-1554} {Misleading failures of
+  partial-input baselines}.
+\newblock In \emph{Proceedings of the 57th Annual Meeting of the Association
+  for Computational Linguistics}, pages 5533--5538, Florence, Italy.
+  Association for Computational Linguistics.
+
+\bibitem[{Geifman and El-Yaniv(2017)}]{geifman2017selective}
+Yonatan Geifman and Ran El-Yaniv. 2017.
+\newblock Selective classification for deep neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems 30 (NIPS
+  2017)}, pages 4878--4887.
+
+\bibitem[{Geirhos et~al.(2020)Geirhos, Jacobsen, Michaelis, Zemel, Brendel,
+  Bethge, and Wichmann}]{geirhos-etal-2020-shortcut}
+Robert Geirhos, J{\"o}rn-Henrik Jacobsen, Claudio Michaelis, Richard Zemel,
+  Wieland Brendel, Matthias Bethge, and Felix~A. Wichmann. 2020.
+\newblock \href {https://doi.org/10.1038/s42256-020-00257-z} {Shortcut learning
+  in deep neural networks}.
+\newblock \emph{Nature Machine Intelligence}, 2(11):665--673.
+
+\bibitem[{Gekhman et~al.(2023)Gekhman, Herzig, Aharoni, Elkind, and
+  Szpektor}]{gekhman2023trueteacher}
+Zorik Gekhman, Jonathan Herzig, Roee Aharoni, Chen Elkind, and Idan Szpektor.
+  2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.emnlp-main.127}
+  {{T}rue{T}eacher: Learning factual consistency evaluation with large language
+  models}.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing}, pages 2053--2070, Singapore. Association for
+  Computational Linguistics.
+
+\bibitem[{Gerner et~al.(2010)Gerner, Nenadic, and Bergman}]{gerner2010linnaeus}
+Martin Gerner, Goran Nenadic, and Casey~M. Bergman. 2010.
+\newblock \href {https://doi.org/10.1186/1471-2105-11-85} {{LINNAEUS}: A
+  species name identification system for biomedical literature}.
+\newblock \emph{BMC Bioinformatics}, 11:85.
+
+\bibitem[{Gobeill et~al.(2020)Gobeill, Caucheteur, Michel, Mottin, Pasche, and
+  Ruch}]{gobeill2020sibils}
+Julien Gobeill, D{\'e}borah Caucheteur, Pierre-Andr{\'e} Michel, Luc Mottin,
+  Emilie Pasche, and Patrick Ruch. 2020.
+\newblock \href {https://doi.org/10.1093/nar/gkaa328} {{SIB} literature
+  services: {RESTful} customizable search engines in biomedical literature,
+  enriched with automatically mapped biomedical concepts}.
+\newblock \emph{Nucleic Acids Research}, 48(W1):W12--W16.
+
+\bibitem[{Gururangan et~al.(2018)Gururangan, Swayamdipta, Levy, Schwartz,
+  Bowman, and Smith}]{gururangan-etal-2018-annotation}
+Suchin Gururangan, Swabha Swayamdipta, Omer Levy, Roy Schwartz, Samuel~R.
+  Bowman, and Noah~A. Smith. 2018.
+\newblock \href {https://doi.org/10.18653/v1/N18-2017} {Annotation artifacts in
+  natural language inference data}.
+\newblock In \emph{Proceedings of the 2018 Conference of the North {A}merican
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies, Volume 2 (Short Papers)}, pages 107--112, New Orleans,
+  Louisiana. Association for Computational Linguistics.
+
+\bibitem[{Hirschman et~al.(2012)Hirschman, Burns, Krallinger, Arighi, Cohen,
+  Valencia, Wu, Chatr-Aryamontri, Dowell, Huala, Louren{\c c}o, Nash, Veuthey,
+  Wiegers, and Winter}]{hirschman2012biocuration}
+Lynette Hirschman, Gully A. P.~C. Burns, Martin Krallinger, Cecilia Arighi,
+  K.~Bretonnel Cohen, Alfonso Valencia, Cathy~H. Wu, Andrew Chatr-Aryamontri,
+  Karen~G. Dowell, Eva Huala, An{\'a}lia Louren{\c c}o, Robert Nash, Anne-Lise
+  Veuthey, Thomas Wiegers, and Andrew~G. Winter. 2012.
+\newblock \href {https://doi.org/10.1093/database/bas020} {Text mining for the
+  biocuration workflow}.
+\newblock \emph{Database}, 2012:bas020.
+
+\bibitem[{Jimenez~Gutierrez et~al.(2022)Jimenez~Gutierrez, McNeal, Washington,
+  Chen, Li, Sun, and Su}]{jimenezgutierrez2022thinking}
+Bernal Jimenez~Gutierrez, Nikolas McNeal, Clayton Washington, You Chen, Lang
+  Li, Huan Sun, and Yu~Su. 2022.
+\newblock \href {https://doi.org/10.18653/v1/2022.findings-emnlp.329} {Thinking
+  about {GPT}-3 in-context learning for biomedical {IE}? think again}.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2022}, pages 4497--4512, Abu Dhabi, United Arab Emirates. Association
+  for Computational Linguistics.
+
+\bibitem[{Kaushik and Lipton(2018)}]{kaushik-lipton-2018-much}
+Divyansh Kaushik and Zachary~C. Lipton. 2018.
+\newblock \href {https://doi.org/10.18653/v1/D18-1546} {How much reading does
+  reading comprehension require? {A} critical investigation of popular
+  benchmarks}.
+\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in
+  Natural Language Processing}, pages 5010--5015, Brussels, Belgium.
+  Association for Computational Linguistics.
+
+\bibitem[{Keck et~al.(2025)Keck, Broadbent, and Altermatt}]{keck2025extracting}
+Fran{\c c}ois Keck, Henry Broadbent, and Florian Altermatt. 2025.
+\newblock \href {https://doi.org/10.1101/2025.01.24.634685} {Extracting massive
+  ecological data on state and interactions of species using large language
+  models}.
+\newblock \emph{bioRxiv}.
+\newblock Preprint, posted 27 January 2025.
+
+\bibitem[{Lee et~al.(2018)Lee, Famiglietti, McMahon, Wei, MacArthur, Poux,
+  Breuza, Bridge, Cunningham, Xenarios, and Lu}]{lee2018scaling}
+Kyubum Lee, Maria~Livia Famiglietti, Aoife McMahon, Chih-Hsuan Wei, Jacqueline
+  Ann~Langdon MacArthur, Sylvain Poux, Lionel Breuza, Alan Bridge, Fiona
+  Cunningham, Ioannis Xenarios, and Zhiyong Lu. 2018.
+\newblock \href {https://doi.org/10.1371/journal.pcbi.1006390} {Scaling up data
+  curation using deep learning: An application to literature triage in genomic
+  variation resources}.
+\newblock \emph{PLOS Computational Biology}, 14(8):e1006390.
+
+\bibitem[{Levy et~al.(2017)Levy, Seo, Choi, and Zettlemoyer}]{levy2017zero}
+Omer Levy, Minjoon Seo, Eunsol Choi, and Luke Zettlemoyer. 2017.
+\newblock \href {https://doi.org/10.18653/v1/K17-1034} {Zero-shot relation
+  extraction via reading comprehension}.
+\newblock In \emph{Proceedings of the 21st Conference on Computational Natural
+  Language Learning ({C}o{NLL} 2017)}, pages 333--342, Vancouver, Canada.
+  Association for Computational Linguistics.
+
+\bibitem[{Li et~al.(2023)Li, Wang, and Ke}]{li2023zeroshotre}
+Guozheng Li, Peng Wang, and Wenjun Ke. 2023.
+\newblock Revisiting large language models as zero-shot relation extractors.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2023}, pages 6877--6892, Singapore. Association for Computational
+  Linguistics.
+
+\bibitem[{Lu and Smith(2025)}]{lu2025feeding}
+Yucheng Lu and Kazimier Smith. 2025.
+\newblock Feeding {LLM} annotations to {BERT} classifiers at your own risk.
+\newblock \emph{arXiv preprint arXiv:2504.15432}.
+
+\bibitem[{Mintz et~al.(2009)Mintz, Bills, Snow, and
+  Jurafsky}]{mintz2009distant}
+Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky. 2009.
+\newblock Distant supervision for relation extraction without labeled data.
+\newblock In \emph{Proceedings of ACL-IJCNLP}, pages 1003--1011.
+
+\bibitem[{Mtumbuka and Schockaert(2024)}]{mtumbuka2024entity}
+Frank~Martin Mtumbuka and Steven Schockaert. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.findings-emnlp.348} {Entity
+  or relation embeddings? an analysis of encoding strategies for relation
+  extraction}.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2024}, pages 6003--6022, Miami, Florida, USA. Association for
+  Computational Linguistics.
+
+\bibitem[{Nogueira and Cho(2019)}]{nogueira2019passage}
+Rodrigo Nogueira and Kyunghyun Cho. 2019.
+\newblock \href {https://doi.org/10.48550/arXiv.1901.04085} {Passage re-ranking
+  with {BERT}}.
+\newblock \emph{arXiv preprint arXiv:1901.04085}.
+
+\bibitem[{Obamuyide and Vlachos(2018)}]{obamuyide2018zero}
+Abiola Obamuyide and Andreas Vlachos. 2018.
+\newblock \href {https://doi.org/10.18653/v1/W18-5511} {Zero-shot relation
+  classification as textual entailment}.
+\newblock In \emph{Proceedings of the First Workshop on Fact Extraction and
+  {VER}ification ({FEVER})}, pages 72--78, Brussels, Belgium. Association for
+  Computational Linguistics.
+
+\bibitem[{Parmar et~al.(2023)Parmar, Mishra, Geva, and
+  Baral}]{parmar-etal-2023-dont}
+Mihir Parmar, Swaroop Mishra, Mor Geva, and Chitta Baral. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.eacl-main.130} {Don{'}t blame
+  the annotator: Bias already starts in the annotation instructions}.
+\newblock In \emph{Proceedings of the 17th Conference of the European Chapter
+  of the Association for Computational Linguistics}, pages 1779--1789,
+  Dubrovnik, Croatia. Association for Computational Linguistics.
+
+\bibitem[{Peng et~al.(2020)Peng, Gao, Han, Lin, Li, Liu, Sun, and
+  Zhou}]{peng2020learning}
+Hao Peng, Tianyu Gao, Xu~Han, Yankai Lin, Peng Li, Zhiyuan Liu, Maosong Sun,
+  and Jie Zhou. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.298} {Learning
+  from context or names? an empirical study on neural relation extraction}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 3661--3672, Online. Association
+  for Computational Linguistics.
+
+\bibitem[{Poelen et~al.(2014)Poelen, Simons, and Mungall}]{poelen2014global}
+Jorrit~H Poelen, James~D Simons, and Chris~J Mungall. 2014.
+\newblock Global biotic interactions: An open infrastructure to share and
+  analyze species-interaction datasets.
+\newblock \emph{Ecological Informatics}, 24:148--159.
+
+\bibitem[{Poliak et~al.(2018)Poliak, Naradowsky, Haldar, Rudinger, and
+  Van~Durme}]{poliak-etal-2018-hypothesis}
+Adam Poliak, Jason Naradowsky, Aparajita Haldar, Rachel Rudinger, and Benjamin
+  Van~Durme. 2018.
+\newblock \href {https://doi.org/10.18653/v1/S18-2023} {Hypothesis only
+  baselines in natural language inference}.
+\newblock In \emph{Proceedings of the Seventh Joint Conference on Lexical and
+  Computational Semantics}, pages 180--191, New Orleans, Louisiana. Association
+  for Computational Linguistics.
+
+\bibitem[{{Qwen Team}(2025)}]{qwen2025technical}
+{Qwen Team}. 2025.
+\newblock Qwen3 technical report.
+\newblock \emph{arXiv preprint arXiv:2505.09388}.
+
+\bibitem[{Rees and Cranston(2017)}]{rees2017opentree}
+Jonathan~A. Rees and Karen Cranston. 2017.
+\newblock \href {https://doi.org/10.3897/BDJ.5.e12581} {Automated assembly of a
+  reference taxonomy for phylogenetic data synthesis}.
+\newblock \emph{Biodiversity Data Journal}, 5:e12581.
+
+\bibitem[{Riedel et~al.(2010)Riedel, Yao, and McCallum}]{riedel2010modeling}
+Sebastian Riedel, Limin Yao, and Andrew McCallum. 2010.
+\newblock \href {https://doi.org/10.1007/978-3-642-15939-8_10} {Modeling
+  relations and their mentions without labeled text}.
+\newblock In \emph{Machine Learning and Knowledge Discovery in Databases (ECML
+  PKDD 2010)}, Lecture Notes in Computer Science, pages 148--163, Barcelona,
+  Spain. Springer Berlin Heidelberg.
+
+\bibitem[{Rodriguez-Esteban et~al.(2006)Rodriguez-Esteban, Iossifov, and
+  Rzhetsky}]{rodriguezesteban2006imitating}
+Raul Rodriguez-Esteban, Ivan Iossifov, and Andrey Rzhetsky. 2006.
+\newblock \href {https://doi.org/10.1371/journal.pcbi.0020118} {Imitating
+  manual curation of text-mined facts in biomedicine}.
+\newblock \emph{PLoS Computational Biology}, 2(9):e118.
+
+\bibitem[{Rosenman et~al.(2020)Rosenman, Jacovi, and
+  Goldberg}]{rosenman2020exposing}
+Shachar Rosenman, Alon Jacovi, and Yoav Goldberg. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.302} {Exposing
+  shallow heuristics of relation extraction models with challenge data}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 3702--3710, Online. Association
+  for Computational Linguistics.
+
+\bibitem[{Ruch et~al.(2024)Ruch, Pasche, Michel, and
+  Caucheteur}]{ruch2024biotxplorer}
+Patrick Ruch, Emilie Pasche, Pierre-Andr{\'e} Michel, and D{\'e}borah
+  Caucheteur. 2024.
+\newblock \href {https://doi.org/10.3897/biss.8.135453} {{BiotXplorer}:
+  Navigating evidence-based biotic interactions}.
+\newblock \emph{Biodiversity Information Science and Standards}, 8:e135453.
+
+\bibitem[{Sainz et~al.(2021)Sainz, Lopez~de Lacalle, Labaka, Barrena, and
+  Agirre}]{sainz2021label}
+Oscar Sainz, Oier Lopez~de Lacalle, Gorka Labaka, Ander Barrena, and Eneko
+  Agirre. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.emnlp-main.92} {Label
+  verbalization and entailment for effective zero and few-shot relation
+  extraction}.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing}, pages 1199--1212, Online and Punta Cana,
+  Dominican Republic. Association for Computational Linguistics.
+
+\bibitem[{Schuster et~al.(2019)Schuster, Shah, Yeo, Roberto Filizzola~Ortiz,
+  Santus, and Barzilay}]{schuster-etal-2019-towards}
+Tal Schuster, Darsh Shah, Yun Jie~Serene Yeo, Daniel Roberto Filizzola~Ortiz,
+  Enrico Santus, and Regina Barzilay. 2019.
+\newblock \href {https://doi.org/10.18653/v1/D19-1341} {Towards debiasing fact
+  verification models}.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing and the 9th International Joint Conference on
+  Natural Language Processing (EMNLP-IJCNLP)}, pages 3419--3425, Hong Kong,
+  China. Association for Computational Linguistics.
+
+\bibitem[{Swaminathan et~al.(2024)Swaminathan, Lopez, Wang, Srivastava, Tran,
+  Bhargava-Shah, Wu, Ren, Caoili, Bui, Alkhani, Lee, Mohit, Seo, Macedo, Cheng,
+  Liu, Thomas, Chen, and Gevaert}]{swaminathan2024selective}
+Akshay Swaminathan, Ivan Lopez, William Wang, Ujwal Srivastava, Edward Tran,
+  Aarohi Bhargava-Shah, Janet~Y. Wu, Alexander~L. Ren, Kaitlin Caoili, Brandon
+  Bui, Layth Alkhani, Susan Lee, Nathan Mohit, Noel Seo, Nicholas Macedo,
+  Winson Cheng, Charles Liu, Reena Thomas, Jonathan~H. Chen, and Olivier
+  Gevaert. 2024.
+\newblock \href {https://doi.org/10.1093/jamia/ocad182} {Selective prediction
+  for extracting unstructured clinical data}.
+\newblock \emph{Journal of the American Medical Informatics Association},
+  31(1):188--197.
+
+\bibitem[{Taill{\'e} et~al.(2020)Taill{\'e}, Guigue, Scoutheeten, and
+  Gallinari}]{taille-etal-2020-lets}
+Bruno Taill{\'e}, Vincent Guigue, Geoffrey Scoutheeten, and Patrick Gallinari.
+  2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.301} {Let's stop
+  incorrect comparisons in end-to-end relation extraction!}
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 3689--3701. Association for
+  Computational Linguistics.
+
+\bibitem[{Wadden et~al.(2020)Wadden, Lin, Lo, Wang, van Zuylen, Cohan, and
+  Hajishirzi}]{wadden2020fact}
+David Wadden, Shanchuan Lin, Kyle Lo, Lucy~Lu Wang, Madeleine van Zuylen, Arman
+  Cohan, and Hannaneh Hajishirzi. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.609} {Fact or
+  fiction: Verifying scientific claims}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 7534--7550, Online. Association
+  for Computational Linguistics.
+
+\bibitem[{Wadhwa et~al.(2023)Wadhwa, Amir, and Wallace}]{wadhwa2023revisiting}
+Somin Wadhwa, Silvio Amir, and Byron Wallace. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.acl-long.868} {Revisiting
+  relation extraction in the era of large language models}.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pages 15566--15589,
+  Toronto, Canada. Association for Computational Linguistics.
+
+\bibitem[{West et~al.(2022)West, Bhagavatula, Hessel, Hwang, Jiang, Le~Bras,
+  Lu, Welleck, and Choi}]{west2022symbolic}
+Peter West, Chandra Bhagavatula, Jack Hessel, Jena~D. Hwang, Liwei Jiang, Ronan
+  Le~Bras, Ximing Lu, Sean Welleck, and Yejin Choi. 2022.
+\newblock \href {https://doi.org/10.18653/v1/2022.naacl-main.341} {Symbolic
+  knowledge distillation: from general language models to commonsense models}.
+\newblock In \emph{Proceedings of the 2022 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 4602--4625, Seattle, United States. Association for
+  Computational Linguistics.
+
+\bibitem[{Wiegand et~al.(2019)Wiegand, Ruppenhofer, and
+  Kleinbauer}]{wiegand-etal-2019-detection}
+Michael Wiegand, Josef Ruppenhofer, and Thomas Kleinbauer. 2019.
+\newblock \href {https://doi.org/10.18653/v1/N19-1060} {Detection of abusive
+  language: the problem of biased datasets}.
+\newblock In \emph{Proceedings of the 2019 Conference of the North {A}merican
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies, Volume 1 (Long and Short Papers)}, pages 602--608, Minneapolis,
+  Minnesota. Association for Computational Linguistics.
+
+\bibitem[{Wu and He(2019)}]{wu2019enriching}
+Shanchan Wu and Yifan He. 2019.
+\newblock \href {https://doi.org/10.1145/3357384.3358119} {Enriching
+  pre-trained language model with entity information for relation
+  classification}.
+\newblock In \emph{Proceedings of the 28th ACM International Conference on
+  Information and Knowledge Management (CIKM)}, pages 2361--2364, Beijing,
+  China. Association for Computing Machinery.
+
+\bibitem[{Zhang et~al.(2017)Zhang, Zhong, Chen, Angeli, and
+  Manning}]{zhang2017position}
+Yuhao Zhang, Victor Zhong, Danqi Chen, Gabor Angeli, and Christopher~D.
+  Manning. 2017.
+\newblock \href {https://doi.org/10.18653/v1/D17-1004} {Position-aware
+  attention and supervised data improve slot filling}.
+\newblock In \emph{Proceedings of the 2017 Conference on Empirical Methods in
+  Natural Language Processing}, pages 35--45, Copenhagen, Denmark. Association
+  for Computational Linguistics.
+
+\bibitem[{Zhou and Chen(2022)}]{zhou2022improved}
+Wenxuan Zhou and Muhao Chen. 2022.
+\newblock \href {https://doi.org/10.18653/v1/2022.aacl-short.21} {An improved
+  baseline for sentence-level relation extraction}.
+\newblock In \emph{Proceedings of the 2nd Conference of the Asia-Pacific
+  Chapter of the Association for Computational Linguistics and the 12th
+  International Joint Conference on Natural Language Processing (Volume 2:
+  Short Papers)}, pages 161--168, Online only. Association for Computational
+  Linguistics.
+
+\bibitem[{Zou et~al.(2026)Zou, Yang, Hajamaideen, Stein, Beltran, Freeman,
+  Lindquist, Miller, Mengarelli, Probst, Valdovinos, Van~Berkel, Zarnetske,
+  Weeks, and Zhu}]{zou2026llm}
+Heng-Xing Zou, Xiaohao Yang, Thabassum~H. Hajamaideen, Olivia~J. Stein,
+  Roxanne~S. Beltran, Benjamin~G. Freeman, Mark Lindquist, Eliot~T. Miller,
+  Summer Mengarelli, Charlotte~M. Probst, Fernanda~S. Valdovinos, Derek
+  Van~Berkel, Phoebe~L. Zarnetske, Brian~C. Weeks, and Kai Zhu. 2026.
+\newblock \href {https://doi.org/10.64898/2026.02.06.704115} {Large language
+  models unlock the ecology of species interactions}.
+\newblock \emph{bioRxiv}.
+\newblock Preprint, posted 10 February 2026.
+
+\end{thebibliography}

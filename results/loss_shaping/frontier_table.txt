@@ -1,0 +1,48 @@
+PRECISION AT FIXED RECALL -- full 440 clean rows, species-level labels
+V1 operating point (its 141 rows): P 0.8352 R 0.8941 F1 0.8636
+
+model          P@R>=0.85   P@R>=0.89   P@R>=0.8941 P@R>=0.92   P@R>=0.95     maxF1
+----------------------------------------------------------------------------------
+V2              0.8583     0.8042     0.8042     0.8042     0.6404     0.8614
+V3              0.8474     0.8315     0.8315     0.7533     0.6841     0.8627
+CEens3          0.8719     0.8533     0.8485     0.7524     0.6930     0.8750
+WT200ens3       0.8640     0.8533     0.8377     0.7516     0.6713     0.8718
+ce_s1           0.8724     0.8605     0.8605     0.7718     0.6005     0.8775
+ce_s2           0.8526     0.8014     0.8014     0.7484     0.6860     0.8577
+ce_s3           0.8577     0.8022     0.8022     0.7460     0.6791     0.8606
+V3_seed1        0.8683     0.8538     0.8538     0.7541     0.5980     0.8740
+V3_seed2        0.8320     0.8007     0.7943     0.7452     0.6819     0.8494
+V3_seed3        0.8440     0.8277     0.8259     0.7533     0.5649     0.8610
+wt150_s1        0.8618     0.8246     0.8199     0.7692     0.6982     0.8644
+wt200_s1        0.8520     0.8427     0.8427     0.7924     0.6791     0.8743
+wt200_s2        0.8828     0.7936     0.7936     0.7468     0.6567     0.8694
+wt200_s3        0.8452     0.8185     0.8168     0.7558     0.6870     0.8588
+wt300_s1        0.8543     0.8296     0.8296     0.7657     0.6801     0.8649
+focal_g1_s1     0.8406     0.8036     0.8022     0.7558     0.7108     0.8495
+focal_g2_s1     0.8210     0.7837     0.7797     0.7583     0.6921     0.8460
+ls010_s1        0.8161     0.8066     0.8043     0.7365     0.6514     0.8479
+lsneg020_s1     0.8379     0.7797     0.7797     0.7340     0.6676     0.8479
+lsneg035_s1     0.8217     0.7845     0.7845     0.7468     0.6880     0.8460
+
+McNEMAR vs V1 (141 rows) at each model's own best-F1 threshold and at V1's recall
+model             thr  fix  brk   chi2       p   note
+V2                 --   --   --     --      --   never ahead of V1 at V1's recall
+V3              0.020   15   13   0.04   0.850   below 3.84 bar
+CEens3          0.020   16   12   0.32   0.571   below 3.84 bar
+WT200ens3       0.020   15   14   0.00   1.000   below 3.84 bar
+ce_s1           0.030   17   11   0.89   0.345   below 3.84 bar
+ce_s2              --   --   --     --      --   never ahead of V1 at V1's recall
+ce_s3              --   --   --     --      --   never ahead of V1 at V1's recall
+V3_seed1           --   --   --     --      --   never ahead of V1 at V1's recall
+V3_seed2           --   --   --     --      --   never ahead of V1 at V1's recall
+V3_seed3           --   --   --     --      --   never ahead of V1 at V1's recall
+wt150_s1           --   --   --     --      --   never ahead of V1 at V1's recall
+wt200_s1           --   --   --     --      --   never ahead of V1 at V1's recall
+wt200_s2           --   --   --     --      --   never ahead of V1 at V1's recall
+wt200_s3           --   --   --     --      --   never ahead of V1 at V1's recall
+wt300_s1           --   --   --     --      --   never ahead of V1 at V1's recall
+focal_g1_s1        --   --   --     --      --   never ahead of V1 at V1's recall
+focal_g2_s1        --   --   --     --      --   never ahead of V1 at V1's recall
+ls010_s1           --   --   --     --      --   never ahead of V1 at V1's recall
+lsneg020_s1        --   --   --     --      --   never ahead of V1 at V1's recall
+lsneg035_s1        --   --   --     --      --   never ahead of V1 at V1's recall

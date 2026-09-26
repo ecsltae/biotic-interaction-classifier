@@ -101,6 +101,25 @@ def load_benchmark(
     )
 
 
+def degenerate(pred) -> str | None:
+    """Name the degenerate operating point, or None if the prediction is non-trivial.
+
+    An all-positive or all-negative prediction can produce a spectacular McNemar p-value
+    that says nothing about the model -- results/loss_shaping/summary.csv carries
+    p=3.18e-10 from exactly this. Any table that reports a p-value should call this and
+    refuse to print the p, or print it flagged.
+    """
+    import numpy as _np
+    a = _np.asarray(pred)
+    if a.size == 0:
+        return "empty"
+    if (a == 1).all():
+        return "all-positive"
+    if (a == 0).all():
+        return "all-negative"
+    return None
+
+
 # ── thresholds (never fitted on the reporting set) ────────────────────────
 
 def threshold_from_prior(train_pos_rate: float, target_pos_rate: float) -> float:

@@ -23,7 +23,7 @@ import json
 import logging
 import sqlite3
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional
 
@@ -59,6 +59,9 @@ class RetractionResult:
     retraction_date: Optional[str]
     source: str  # "retraction_watch" | "crossref" | "cache" | "unknown"
     score: float  # 0.0 / 0.6 / 1.0 / 0.85
+    # Retraction Watch reason codes, e.g. ["Paper Mill", "Compromised Peer Review"].
+    # Empty when the verdict came from Crossref, which publishes no reason.
+    reason: List[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -69,6 +72,7 @@ class RetractionResult:
             "retraction_date": self.retraction_date,
             "source": self.source,
             "score": self.score,
+            "reason": self.reason,
         }
 
 
@@ -77,38 +81,108 @@ class RetractionResult:
 # ---------------------------------------------------------------------------
 
 def _load_retraction_watch(csv_path: Path = DEFAULT_RW_CSV) -> None:
+    """Load the Retraction Watch dump into memory.
+
+    Accepts the column names of the official Crossref-distributed dump
+    (``OriginalPaperDOI`` / ``OriginalPaperPubMedID`` / ``RetractionNature`` / ``Reason``)
+    and falls back to the short schema (``DOI`` / ``PMID``) for hand-made files.
+
+    ``RetractionNature`` matters: the dump also carries expressions of concern,
+    corrections and *reinstatements*. Treating every row as a retraction would mark
+    a reinstated paper as retracted forever, so nature is preserved per record and
+    a reinstatement clears any retraction seen for the same identifier.
+    """
     global _rw_doi_set, _rw_pmid_set, _rw_loaded
     if _rw_loaded:
         return
-    _rw_doi_set = set()
-    _rw_pmid_set = set()
+    _rw_doi_set = {}
+    _rw_pmid_set = {}
     if not csv_path.exists():
         logger.debug("Retraction Watch CSV not found at %s — skipping", csv_path)
         _rw_loaded = True
         return
+
+    # The dump has free-text notes fields that can exceed the default field limit.
+    try:
+        csv.field_size_limit(10 ** 9)
+    except Exception:
+        pass
+
+    def _rank(nature: str) -> int:
+        return {"retraction": 3, "expression of concern": 2, "correction": 1}.get(nature, 0)
+
     try:
         with csv_path.open("r", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                doi = (row.get("DOI") or "").strip().lower()
-                pmid = (row.get("PMID") or "").strip()
-                if doi:
-                    _rw_doi_set.add(doi)
-                if pmid:
-                    _rw_pmid_set.add(pmid)
-        logger.info("Retraction Watch: loaded %d DOIs, %d PMIDs", len(_rw_doi_set), len(_rw_pmid_set))
+                doi = (row.get("OriginalPaperDOI") or row.get("DOI") or "").strip().lower()
+                pmid = (row.get("OriginalPaperPubMedID") or row.get("PMID") or "").strip()
+                nature = (row.get("RetractionNature") or "retraction").strip().lower()
+                record = {
+                    "nature": nature,
+                    "reason": [
+                        r.strip().lstrip("+").strip()
+                        for r in (row.get("Reason") or "").split(";")
+                        if r.strip().lstrip("+").strip()
+                    ],
+                    "date": (row.get("RetractionDate") or "").strip() or None,
+                    "title": (row.get("Title") or "").strip() or None,
+                }
+                for store, key in ((_rw_doi_set, doi), (_rw_pmid_set, pmid)):
+                    if not key or key == "0":
+                        continue
+                    prev = store.get(key)
+                    # A reinstatement supersedes anything previously recorded.
+                    if nature == "reinstatement":
+                        store[key] = record
+                    elif prev is None or prev.get("nature") == "reinstatement":
+                        store[key] = record if prev is None else store[key]
+                    elif _rank(nature) > _rank(prev.get("nature", "")):
+                        store[key] = record
+        n_retr = sum(1 for v in _rw_doi_set.values() if v["nature"] == "retraction")
+        logger.info(
+            "Retraction Watch: %d DOIs (%d retractions), %d PMIDs",
+            len(_rw_doi_set), n_retr, len(_rw_pmid_set),
+        )
     except Exception as e:
         logger.warning("Failed to load Retraction Watch CSV: %s", e)
     _rw_loaded = True
 
 
-def _in_retraction_watch(doi: str, pmid: Optional[str] = None) -> bool:
+def _lookup_retraction_watch(doi: str, pmid: Optional[str] = None) -> Optional[dict]:
+    """Return the Retraction Watch record for this paper, or None."""
     _load_retraction_watch()
-    if _rw_doi_set and doi.lower() in _rw_doi_set:
-        return True
-    if pmid and _rw_pmid_set and pmid in _rw_pmid_set:
-        return True
-    return False
+    if _rw_doi_set and doi:
+        rec = _rw_doi_set.get(doi.lower())
+        if rec:
+            return rec
+    if pmid and _rw_pmid_set:
+        return _rw_pmid_set.get(str(pmid).strip())
+    return None
+
+
+def _result_from_rw(doi: str, rec: dict) -> Optional[RetractionResult]:
+    """Build a RetractionResult from a Retraction Watch record.
+
+    Returns None when the record says nothing adverse (a reinstatement), so the
+    caller falls through to Crossref rather than reporting a stale retraction.
+    """
+    nature = rec.get("nature", "retraction")
+    if nature == "reinstatement":
+        return None
+    if nature == "retraction":
+        retracted, corrected, rtype, score = True, False, "retraction", SCORE_RETRACTED
+    elif nature == "expression of concern":
+        retracted, corrected, rtype, score = False, True, "expression_of_concern", SCORE_CORRECTED
+    elif nature == "correction":
+        retracted, corrected, rtype, score = False, True, "correction", SCORE_CORRECTED
+    else:
+        return None
+    return RetractionResult(
+        doi=doi, retracted=retracted, corrected=corrected,
+        retraction_type=rtype, retraction_date=rec.get("date"),
+        source="retraction_watch", score=score, reason=rec.get("reason") or [],
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -273,10 +347,9 @@ def check_retraction(
     _load_retraction_watch()
 
     # Priority 1: local Retraction Watch CSV (instant, no network)
-    if _in_retraction_watch(doi, pmid):
-        result = RetractionResult(doi=doi, retracted=True, corrected=False,
-                                  retraction_type="retraction", retraction_date=None,
-                                  source="retraction_watch", score=SCORE_RETRACTED)
+    rw_rec = _lookup_retraction_watch(doi, pmid)
+    result = _result_from_rw(doi, rw_rec) if rw_rec else None
+    if result is not None:
         try:
             conn = _init_cache(db_path)
             _cache_put(conn, result)
@@ -339,16 +412,15 @@ def check_retraction_batch(
 
         doi = doi.strip()
 
-        if _in_retraction_watch(doi, pmid):
-            r = RetractionResult(doi=doi, retracted=True, corrected=False,
-                                 retraction_type="retraction", retraction_date=None,
-                                 source="retraction_watch", score=SCORE_RETRACTED)
+        rw_rec = _lookup_retraction_watch(doi, pmid)
+        rw_result = _result_from_rw(doi, rw_rec) if rw_rec else None
+        if rw_result is not None:
             if conn:
                 try:
-                    _cache_put(conn, r)
+                    _cache_put(conn, rw_result)
                 except Exception:
                     pass
-            results.append(r)
+            results.append(rw_result)
             continue
 
         if conn:

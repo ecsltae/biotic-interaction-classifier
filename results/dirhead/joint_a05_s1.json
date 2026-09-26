@@ -1,0 +1,354 @@
+{
+  "model": "models/dirhead/joint_a05_s1",
+  "tag": "joint_a05_s1",
+  "config": {
+    "input_format": "mark_canon",
+    "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+    "max_len": 256,
+    "epochs": 2,
+    "lr": 2e-05,
+    "seed": 1,
+    "alpha": 0.5,
+    "detach_dir": false,
+    "threshold_dev": 0.5,
+    "direction_head_params": 594465,
+    "bin_data": "/home/egaillac/MetaP/classifier/data/training/distill/v4_species_train.csv",
+    "dir_data": "/home/egaillac/MetaP/classifier/data/training/distill/direction_train.parquet"
+  },
+  "direction": {
+    "all_decidable": {
+      "name": "all decidable",
+      "n": 17,
+      "correct": 13,
+      "acc": 0.7647058823529411,
+      "ci95": [
+        0.5273820188043501,
+        0.9044495567791988
+      ],
+      "p_vs_chance": 0.0245208740234375
+    },
+    "polarity_covered": {
+      "name": "relation polarity in lexicon",
+      "n": 17,
+      "correct": 13,
+      "acc": 0.7647058823529411,
+      "ci95": [
+        0.5273820188043501,
+        0.9044495567791988
+      ],
+      "p_vs_chance": 0.0245208740234375
+    },
+    "polarity_missing": {
+      "name": "relation polarity NOT in lexicon",
+      "n": 0,
+      "correct": 0,
+      "acc": null,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "p_vs_chance": 1.0
+    },
+    "n_polarity_covered": 17,
+    "markers_found_frac": 1.0,
+    "items": [
+      {
+        "item": 1,
+        "s1": "cats",
+        "rel": "infested",
+        "s2": "Heterodoxus spiniger",
+        "gold": "REVERSE",
+        "pred": "FORWARD",
+        "correct": false,
+        "p_s1_subject": 0.9968553781509399,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 2,
+        "s1": "Ulvaria fusca",
+        "rel": "hosts",
+        "s2": "Pseudoalteromonas",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.5573297739028931,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 3,
+        "s1": "Meloidogyne enterolobii",
+        "rel": "Infecting",
+        "s2": "Ixora chinensis",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.8164243698120117,
+        "polarity": 1.0,
+        "polarity_src": "morph_active_participle",
+        "markers_ok": true
+      },
+      {
+        "item": 6,
+        "s1": "Haemophilus influenzae",
+        "rel": "pathogen of",
+        "s2": "human",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.9994148015975952,
+        "polarity": 1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 7,
+        "s1": "Neisseria perflava",
+        "rel": "pathogens",
+        "s2": "human",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.9697302579879761,
+        "polarity": 1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 8,
+        "s1": "Ichthyophthirius multifiliis",
+        "rel": "host",
+        "s2": "Nile tilapia|Oreochromis niloticus",
+        "gold": "REVERSE",
+        "pred": "FORWARD",
+        "correct": false,
+        "p_s1_subject": 0.7663233876228333,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 9,
+        "s1": "Simulium pertinax",
+        "rel": "infection",
+        "s2": "Polydispyrenia simulii",
+        "gold": "REVERSE",
+        "pred": "REVERSE",
+        "correct": true,
+        "p_s1_subject": 0.41441625356674194,
+        "polarity": 1.0,
+        "polarity_src": "morph_agent_verb",
+        "markers_ok": true
+      },
+      {
+        "item": 10,
+        "s1": "human",
+        "rel": "pathogen",
+        "s2": "Corynebacterium amycolatum",
+        "gold": "REVERSE",
+        "pred": "FORWARD",
+        "correct": false,
+        "p_s1_subject": 0.564078688621521,
+        "polarity": 1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 11,
+        "s1": "M. gallisepticum",
+        "rel": "hosts|host",
+        "s2": "Spinus tristis|American goldfinch",
+        "gold": "REVERSE",
+        "pred": "REVERSE",
+        "correct": true,
+        "p_s1_subject": 0.008411833085119724,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 12,
+        "s1": "Ephestia kuehniella",
+        "rel": "host",
+        "s2": "Trichogramma euproctidis",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.8568987846374512,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 13,
+        "s1": "Platanus orientalis",
+        "rel": "Pathogen of",
+        "s2": "Phytopythium litorale",
+        "gold": "REVERSE",
+        "pred": "REVERSE",
+        "correct": true,
+        "p_s1_subject": 0.0021048784255981445,
+        "polarity": 1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 15,
+        "s1": "Elymus",
+        "rel": "hosts",
+        "s2": "Epichlo",
+        "gold": "FORWARD",
+        "pred": "REVERSE",
+        "correct": false,
+        "p_s1_subject": 0.3302052319049835,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 16,
+        "s1": "Gossypium mustelinum",
+        "rel": "exposed to",
+        "s2": "Verticillium",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.9990353584289551,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 17,
+        "s1": "Leptodora",
+        "rel": "prey",
+        "s2": "Bosmina",
+        "gold": "REVERSE",
+        "pred": "REVERSE",
+        "correct": true,
+        "p_s1_subject": 0.10308253765106201,
+        "polarity": 1.0,
+        "polarity_src": "morph_active_participle",
+        "markers_ok": true
+      },
+      {
+        "item": 18,
+        "s1": "ciliates",
+        "rel": "prey",
+        "s2": "Navicula cryptocephala",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.9431897401809692,
+        "polarity": 1.0,
+        "polarity_src": "morph_active_participle",
+        "markers_ok": true
+      },
+      {
+        "item": 19,
+        "s1": "Olfersia spinifera",
+        "rel": "ectoparasite of",
+        "s2": "Fregata minor",
+        "gold": "FORWARD",
+        "pred": "FORWARD",
+        "correct": true,
+        "p_s1_subject": 0.9975911378860474,
+        "polarity": 1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      },
+      {
+        "item": 20,
+        "s1": "Lecanicillium lecanii",
+        "rel": "host",
+        "s2": "Coccus viridis",
+        "gold": "REVERSE",
+        "pred": "REVERSE",
+        "correct": true,
+        "p_s1_subject": 0.29921114444732666,
+        "polarity": -1.0,
+        "polarity_src": "robi_id",
+        "markers_ok": true
+      }
+    ]
+  },
+  "binary": {
+    "n": 440,
+    "prevalence": 0.5636363636363636,
+    "auprc": 0.9313590158801643,
+    "train_pos_rate": 0.6692250403409326,
+    "threshold_policy": "0.5 pre-specified; no threshold is fitted on this set",
+    "oracle_best_f1": 0.8998109640831758,
+    "oracle_thr": 0.48000000000000004,
+    "_oracle_note": "labelled upper bound, threshold swept on the reporting set; NOT achievable",
+    "at_0.5": {
+      "thr": 0.5,
+      "P": 0.8464285714285714,
+      "R": 0.9556451612903226,
+      "F1": 0.8977272727272727
+    },
+    "v1_subset_n": 141,
+    "v1_f1": 0.8636363636363636,
+    "vs_v1_top5_by_f1": [
+      {
+        "thr": 0.9600000000000001,
+        "f1": 0.8961748633879781,
+        "precision": 0.8367346938775511,
+        "recall": 0.9647058823529412,
+        "mcnemar_p": 0.48623432138829725,
+        "v1_only_right": 14,
+        "model_only_right": 19
+      },
+      {
+        "thr": 0.77,
+        "f1": 0.8936170212765957,
+        "precision": 0.8155339805825242,
+        "recall": 0.9882352941176471,
+        "mcnemar_p": 0.5707503880581739,
+        "v1_only_right": 12,
+        "model_only_right": 16
+      },
+      {
+        "thr": 0.78,
+        "f1": 0.8936170212765957,
+        "precision": 0.8155339805825242,
+        "recall": 0.9882352941176471,
+        "mcnemar_p": 0.5707503880581739,
+        "v1_only_right": 12,
+        "model_only_right": 16
+      },
+      {
+        "thr": 0.79,
+        "f1": 0.8936170212765957,
+        "precision": 0.8155339805825242,
+        "recall": 0.9882352941176471,
+        "mcnemar_p": 0.5707503880581739,
+        "v1_only_right": 12,
+        "model_only_right": 16
+      },
+      {
+        "thr": 0.8,
+        "f1": 0.8936170212765957,
+        "precision": 0.8155339805825242,
+        "recall": 0.9882352941176471,
+        "mcnemar_p": 0.5707503880581739,
+        "v1_only_right": 12,
+        "model_only_right": 16
+      }
+    ],
+    "vs_v1_prespecified": {
+      "thr": 0.5,
+      "f1": 0.8795811518324608,
+      "precision": 0.7924528301886793,
+      "recall": 0.9882352941176471,
+      "mcnemar_p": 1.0,
+      "v1_only_right": 14,
+      "model_only_right": 15
+    },
+    "_vs_v1_min_p_oracle_selected": 0.017706065807366642,
+    "_vs_v1_n_thresholds_p_lt_05": 1
+  }
+}

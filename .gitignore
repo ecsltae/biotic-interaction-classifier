@@ -180,3 +180,33 @@ data/processed/*.sqlite
 data/geonames/
 experiments/knowledge_graph/results/tier3/spert_model/
 data/training/distill/*.parquet
+
+# ---------------------------------------------------------------------------
+# 2026-09-26: keep the repo to code, docs and small result artefacts.
+# Nothing over ~10 MB, no weights, no bulk training data. Everything excluded
+# here is reproducible from the scripts that are committed.
+# ---------------------------------------------------------------------------
+# bulk training / supervision corpora (regenerate with scripts/build_*.py)
+data/training/distill/*.csv
+data/training/distill/*.parquet
+*.parquet
+
+# large reference and harvest data
+data/trust/retraction_watch.csv
+data/trust/*.db
+data/evaluation/biotx_recall/
+experiments/knowledge_graph/results/verified_kg/
+
+# cached score vectors and model artefacts (regenerate by re-scoring)
+*.npy
+*.npz
+*.pt
+*.pkl
+*.safetensors
+
+# the handoff bundle ships out of band, not through git
+handoff/biotic_verifier/model/
+
+# keep the benchmark itself - it is small and it is the thing being pinned
+!data/evaluation/unified_test_set.csv
+!data/evaluation/BENCHMARKS.json

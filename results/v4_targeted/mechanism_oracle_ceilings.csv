@@ -1,0 +1,11 @@
+scenario,n_rows_fixed,k_fixed,m_broken,chi2,mcnemar_p,F1_141,beats_v1
+V3 as-is (no oracle),0,15,13,0.04,0.8501,0.8736,no
+perfect co_participant only,8,17,11,0.89,0.3447,0.8941,no
+perfect synonym only,3,17,12,0.55,0.4576,0.8889,no
+perfect ancestor only,1,16,13,0.14,0.7103,0.8786,no
+perfect authority only,1,15,13,0.04,0.8501,0.8736,no
+perfect label_semantics only,16,17,6,4.35,0.0371,0.929,YES
+MY LEVER ceiling: all four targeted mechanisms,13,20,10,2.7,0.1003,0.9157,no
+label_semantics only,16,17,6,4.35,0.0371,0.929,YES
+label_semantics + all four targeted,29,22,3,12.96,0.0003,0.9714,YES
+all mechanisms except gold_noise,34,23,2,16.0,0.0001,0.9827,YES

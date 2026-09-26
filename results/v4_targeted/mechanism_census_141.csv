@@ -1,0 +1,38 @@
+source,species1,relation,species2,label,v1_pred,v3_pred,v3_score,mechanism,who_errs
+biotx100,Dikarya,Symbiont,Basidiobolus,0,1,1,0.199,ancestor,both
+biotx100,Pterostichus melanarius,predator,Illiger,0,1,0,0.005,authority,V1 only
+biotx100,Mycoplasma,parasitized,gut metagenome,1,1,0,0.001,label_semantics,V3 only
+biotx100,Mycobacterium marinum,pathogen of,Mycobacterium tuberculosis,0,1,0,0.002,relatedness,V1 only
+biotx100,Arvicanthis neumanni,hosts of,Mastomys natalensis,0,1,0,0.001,co_participant,V1 only
+biotx100,Galea leucoblephara,parasite of,Holochilus brasiliensis,0,1,0,0.003,co_participant,V1 only
+biotx100,Salmonella Poona,affected by,cantaloupe,1,1,0,0.001,label_semantics,V3 only
+biotx100,avian,host for,Chilina,0,1,1,0.141,co_participant,both
+biotx100,human,contributes to,Entamoeba histolytica,1,1,0,0.0,label_semantics,V3 only
+biotx100,Salmonella,contaminated,humans,1,1,0,0.0,label_semantics,V3 only
+biotx100,loquat|Eriobotrya japonica,colonized,wheat,0,1,1,0.157,co_participant,both
+biotx100,Campylobacter jejuni,Feeding on,Human,0,1,0,0.001,not_asserted,V1 only
+biotx100,bat tick,feed on,humans,0,1,1,0.999,gold_noise,both
+biotx100,copia,symbiont,Symbiodinium microadriaticum,0,1,0,0.002,non_organism,V1 only
+biotx100,boars,pathogens,humans,0,0,1,0.025,co_participant,V3 only
+biotx100,Lactobacillus,exposed to,Campylobacter,0,1,0,0.001,co_participant,V1 only
+biotx100,Alternaria alternata,Positively Regulate,Pear,1,1,0,0.0,label_semantics,V3 only
+biotx100,sulla,symbionts of,Hedysarum coronarium,0,1,1,0.065,synonym,both
+biotx100,human,invade,Mycobacterium leprae,1,1,0,0.002,label_semantics,V3 only
+biotx100,Blastocystis,exposed to,human,1,1,0,0.001,label_semantics,V3 only
+biotx100,rhesus macaques,colonizes,humans,0,0,1,0.054,co_participant,V3 only
+biotx100,rhinoceros beetle,phoretic,Oryctes agamemnon,0,1,1,0.098,synonym,both
+biotx100,Sulcospira quangtriensis,hosts of,Triculinae,0,1,0,0.001,co_participant,V1 only
+biotx100,cardinalis,visits,bees,0,1,1,0.72,negation,both
+reject50,Salmonella,pathogens,human,1,0,1,0.294,label_semantics,V1 only
+reject50,ticks,infestation,rabbits,1,0,1,0.978,label_semantics,V1 only
+reject50,viruses,pathogens,human,1,0,1,0.198,label_semantics,V1 only
+reject50,human,pathogens,Babesia,1,0,1,0.898,label_semantics,V1 only
+reject50,wasps,prey,spiders,0,0,1,0.977,gold_noise,V3 only
+reject50,paralysis,migration,Yersinia pestis,0,0,1,0.025,non_organism,V3 only
+reject50,nervous necrosis virus,affecting,European sea bass,0,0,1,0.973,gold_noise,V3 only
+reject50,SARS-CoV-2,interacts with,human,1,0,0,0.0,label_semantics,both
+reject50,Shigella flexneri,pathogens,human,1,0,1,0.107,label_semantics,V1 only
+reject50,Sitobion miscanthi,symbiont,aphid,0,0,1,0.998,synonym,V3 only
+reject50,Mycobacterium tuberculosis,regulate,human,1,0,0,0.0,label_semantics,both
+reject50,copepods,trophic,diatoms,1,0,1,0.396,label_semantics,V1 only
+reject50,Togaviridae,transmitted by,arthropods,1,0,1,0.946,label_semantics,V1 only

@@ -1,0 +1,113 @@
+n,row_id,source,species1,relation,species2,rule_pol,rule_pred
+1,61,ep_curation,leopard,absorbing,T. brucei,,
+2,68,ep_curation,Klebsiella pneumoniae,activated by,Legionella pneumophila serogroup 1,-1.0,
+3,151,biotx100,horses,affected by,Culicoides obsoletus,-1.0,F
+4,164,biotx100,Epichlo√´ elymi,affecting,Elymus hystrix,1.0,
+5,86,ep_curation,Manduca sexta,affects,Nicotiana attenuata,1.0,F
+6,93,ep_curation,sesbania,altered,soybean,,
+7,188,ep_curation,X. glabratus,attracted,swampbay|Persea palustris,1.0,
+8,170,biotx100,Saprochaete capitata,colonize,human,1.0,F
+9,150,ep_curation,Nitrospira,copies,Nitrosomonas,,
+10,46,ep_curation,Pthirus pubis,ectoparasite,Homo sapiens,1.0,F
+11,45,ep_curation,Phyllocnistis citrella,ectoparasitoid of,Cirrospilus vittatus,1.0,R
+12,144,biotx100,Aroplectrus dimerus,Ectoparasitoid of,Oxyplax pallivitta,1.0,F
+13,140,biotx100,human,exposed to,Actinomyces viscosus,-1.0,F
+14,157,ep_curation,Trichophyton rubrum,exposed to,human,-1.0,R
+15,94,ep_curation,Bifidobacterium,facilitated,Bacteroides,,
+16,118,ep_curation,Giardia duodenalis,farmed,human,,
+17,180,ep_curation,E. acervulina,feces,birds,,
+18,111,biotx100,Onthophagus taurus,fed on,cattle,1.0,F
+19,29,ep_curation,Battus philenor|pipevine swallowtail,feed on,Aristolochia,1.0,F
+20,59,ep_curation,Chrysomela vigintipunctata,feed on,Salicaceae,1.0,F
+21,186,biotx100,Caryedes brasiliensis,feeding on,Dioclea megacarpa,1.0,F
+22,173,biotx100,Polyarthra,grazed,Chlorophyta,1.0,F
+23,105,biotx100,chicory,grazing|grazed,cattle,1.0,R
+24,184,ep_curation,chimpanzees,grooming,humans,,
+25,85,ep_curation,S. eubayanus,habitat|habitats,Araucaria araucana,,
+26,83,biotx100,Calamagrostis epigejos,hemiparasite,Thesium linophyllon,1.0,
+27,102,ep_curation,Musca domestica,Host,Spalangia cameroni,-1.0,F
+28,129,ep_curation,soybean|Glycine max,host,Phytophthora megasperma f. sp. glycinea,-1.0,F
+29,34,ep_curation,Quercus palustris|Pin oak,host for,Callirhytis,-1.0,F
+30,80,biotx100,Galba truncatula,host for,Fasciola hepatica,-1.0,F
+31,23,ep_curation,Sarcocystis hirsuta,host for|host,cats,-1.0,R
+32,136,biotx100,Conepatus chinga,host of,Trypanosoma cruzi,-1.0,F
+33,152,biotx100,Gallotia galloti,host of,Angiostrongylus cantonensis,-1.0,F
+34,28,ep_curation,Ixodes canisuga,hosts,Vulpes vulpes,-1.0,R
+35,81,ep_curation,Symbiodinium californium,hosts,Anthopleura elegantissima,-1.0,F
+36,130,biotx100,Columbidae,hosts for,Trichomonas gallinae,-1.0,R
+37,57,ep_curation,Passer domesticus,hosts of,N. caninum,-1.0,F
+38,63,biotx100,Breinlia booliati,hosts of,Rattus,-1.0,R
+39,165,ep_curation,Balamuthia mandrillaris,hosts|host,human,-1.0,R
+40,89,ep_curation,Eucalyptus,hosts|Hosts|host,Ceratocystis fimbriata,-1.0,F
+41,73,ep_curation,Steinernema carpocapsae,impact,Hirsutella rhossiliensis,,
+42,84,ep_curation,Pseudomonas palleroniana,impact,kidney bean,,
+43,82,ep_curation,Notemigonus crysoleucas,infected with,Neochasmus,1.0,R
+44,97,ep_curation,Notemigonus crysoleucas,infected with,Neochasmus,1.0,R
+45,67,ep_curation,Leishmania infantum,infecting,Nasua nasua,1.0,F
+46,161,ep_curation,amphistome,infecting,Bubalus bubalis,1.0,F
+47,65,ep_curation,Alouatta villosa,infection,Plasmodium falciparum,1.0,R
+48,124,ep_curation,perch|Perca fluviatilis,infection,Diplostomum baeri,1.0,R
+49,183,ep_curation,Kocuria salsicia,infections,humans,1.0,F
+50,193,ep_curation,Tupaia tana,infections,Cryptococcus neoformans,1.0,R
+51,35,ep_curation,Uromastyx,infection|infected with,Pogona vitticeps,1.0,
+52,181,ep_curation,horses,infection|infections,Sarcocystis neurona,1.0,R
+53,121,biotx100,Lithodes santolla,Infestation,Eremitione,-1.0,
+54,177,biotx100,Nerocila phaiopleura,infestation,Whitefin wolf-herring|Chirocentrus nudus,-1.0,R
+55,162,biotx100,rhododendron,infested,Phytophthora ramorum,-1.0,F
+56,37,biotx100,human,invade,Mycobacterium leprae,1.0,R
+57,40,biotx100,Paramecium,invade,Holospora,1.0,R
+58,56,biotx100,Phytophthora,invasion,Limonium,1.0,F
+59,74,biotx100,Cronobacter sakazakii,invasion,human,1.0,F
+60,92,ep_curation,Seriola quinqueradiata,killed,Lactobacillus plantarum,1.0,R
+61,172,biotx100,Human|human,migration,Toxocara,0.0,
+62,33,ep_curation,Pronoprymna ventricosa,parasite of,twaite shad|Alosa fallax,1.0,F
+63,60,ep_curation,Sturnira lilium,parasite of,Megistopoda proxima,1.0,R
+64,187,ep_curation,Lissemys punctata andersonii,parasite-host,Myxidium mackiei,0.0,
+65,169,ep_curation,Myodes,parasites of,Eimeria,1.0,R
+66,185,biotx100,Philometra ovata,parasites of,Gobio gobio|gudgeon,1.0,F
+67,50,ep_curation,Trygonorrhina fasciata,parasitized by,Branchotenthes octohamatus,-1.0,F
+68,159,biotx100,Elephantulus myurus,parasitized by,Rhipicephalus,-1.0,F
+69,91,biotx100,Venturia canescens,parasitizing,Mediterranean flour moth,1.0,F
+70,160,biotx100,Psoroptidae,parasitizing,Atelerix albiventris,1.0,F
+71,32,ep_curation,Prokelisia crocea,parasitoid,Anagrus columbi,1.0,R
+72,51,ep_curation,emerald ash borer|Agrilus planipennis,parasitoid,Oobius agrili,1.0,R
+73,104,biotx100,Dolichogenidea gelechiidivoris,parasitoid of,Tuta absoluta,1.0,F
+74,175,ep_curation,Leptocybe invasa,parasitoid of,Quadrastichus mendeli,1.0,
+75,76,ep_curation,Drosophila melanogaster,parasitoids,Pachycrepoideus vindemmiae,1.0,R
+76,145,ep_curation,Anagrus,parasitoids,leafhoppers,1.0,F
+77,58,ep_curation,Sclerotium cepivorum,pathogen,Allium,1.0,F
+78,78,ep_curation,M. hiratsukanum,pathogen,Alnus incana,1.0,F
+79,64,biotx100,Colletotrichum sansevieriae,pathogen of,Sansevieria trifasciata,1.0,F
+80,69,biotx100,Streptococcus agalactiae,pathogen of,tilapia,1.0,F
+81,21,ep_curation,Alphitobius diaperinus|lesser mealworm,pathogens,humans,1.0,F
+82,113,biotx100,chinchillas,pathogens,Haemophilus influenzae,1.0,R
+83,131,biotx100,Puccinia,pathogens of,wheat,1.0,F
+84,141,ep_curation,Pseudomonas aeruginosa,pathogens of,bovine,1.0,F
+85,99,ep_curation,BUMBLEBEES,POLLINATOR,POLEMONIUM VISCOSUM,1.0,
+86,127,ep_curation,Hibiscus trionum,pollinators,butterflies,1.0,R
+87,142,ep_curation,Cucurbita pepo,pollinators,Peponapis pruinosa,1.0,R
+88,48,ep_curation,Philodryas chamissonis,predator,Dusicyon culpaeus,1.0,
+89,41,biotx100,Chaetogaster limnaei,predator of,Fasciola hepatica,1.0,R
+90,70,biotx100,birds,predators,northern pikeminnow|Ptychocheilus oregonensis,1.0,
+91,75,ep_curation,Tomato,Predators,Tuta absoluta,1.0,R
+92,44,biotx100,Iphiseius degenerans,predatory,western flower thrips|Frankliniella occidentalis,1.0,F
+93,174,ep_curation,Carlina acaulis,predatory,Neoseiulus californicus,1.0,R
+94,171,biotx100,Harmonia axyridis,predator|predator of,aphid,1.0,
+95,24,ep_curation,honey bee,presence of,Tyrophagus curvipenis,,
+96,103,ep_curation,P. polymyxa,presence of,F. oxysporum,,
+97,22,ep_curation,Clupeaharengus|Atlantic herring,prey,Atlantic bluefin tuna|bluefin tuna,1.0,
+98,178,ep_curation,Polykrikos kofoidii,prey,Lingulodinium polyedrum,1.0,
+99,134,ep_curation,Solaster endeca,preyed on,Cucumaria frondosa,-1.0,
+100,79,ep_curation,dragonflies,preys on,Micronycteris microtis,1.0,F
+101,90,ep_curation,Solanum multidissectum,resistance|resistance to,Globodera pallida,-1.0,F
+102,132,ep_curation,bivalves,resistant,human,,
+103,123,biotx100,bats,roosts,bugs,0.0,
+104,156,ep_curation,Pinnotheridae,symbiont of,Crepidula striolata,1.0,F
+105,42,ep_curation,Candidatus Synechococcus spongiarum,Symbionts of,Aplysina aerophoba,1.0,F
+106,135,ep_curation,Lactococcus,transfer,Debaryomyces,,
+107,77,biotx100,"tomato spotted wilt virus, TSWV|Orthotospovirus tomatomaculae",transmitted by,western flower thrips|Frankliniella occidentalis,1.0,F
+108,137,biotx100,Orchid fleck virus,transmitted by,Brevipalpus californicus,1.0,F
+109,107,ep_curation,Fusarium,transport,almond,,
+110,108,ep_curation,Chironomus tentans,trophic,fathead minnow|Pimephales promelas,0.0,
+111,43,ep_curation,house fly|Musca domestica,vector of,Campylobacter,-1.0,F
+112,116,ep_curation,alfalfa,visiting,honey bee,1.0,R

@@ -83,6 +83,7 @@ class ScoreRequest(BaseModel):
     interaction_type: str = ""
     pub_year: Optional[int] = None
     doi: Optional[str] = None
+    publication_types: Optional[List[str]] = None
 
 
 class ScoreDoiRequest(BaseModel):
@@ -206,6 +207,7 @@ async def score(req: ScoreRequest) -> dict:
             interaction_type=req.interaction_type,
             pub_year=req.pub_year,
             doi=req.doi,
+            publication_types=req.publication_types,
         )
         return result.to_dict()
     except Exception as e:
@@ -247,6 +249,7 @@ async def score_batch(req: BatchScoreRequest) -> dict:
                 interaction_type=item.interaction_type,
                 pub_year=item.pub_year,
                 doi=item.doi,
+                publication_types=item.publication_types,
             )
             results.append(r.to_dict())
 
