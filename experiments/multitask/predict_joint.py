@@ -38,7 +38,7 @@ from transformers import AutoTokenizer                    # noqa: E402
 #                   At 0.71 the head was right 9/10 on the 17-item gold (see the model
 #                   card). That estimate rests on 17 items; treat it as indicative.
 INTERACT_THR = 0.5
-DIR_ABSTAIN = 0.71
+DIR_ABSTAIN = 0.60
 
 
 def load(md, device="cpu", threads=8):

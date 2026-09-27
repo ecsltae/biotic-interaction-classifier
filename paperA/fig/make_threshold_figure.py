@@ -54,9 +54,9 @@ def main(out_stem="fig4_threshold", wide=False):
     vP, vR, vF = precision_score(y, V), recall_score(y, V), f1_score(y, V)
 
     i50 = int(np.argmin(np.abs(grid - 0.50)))
-    # Recommended operating point, under the project's stated policy (precision first,
-    # F1 secondary): the highest precision that still keeps recall >= 0.90 -- i.e. a clear
-    # recall margin over V1's 0.785 -- and F1 within 2 points of its maximum.
+    # The chosen operating point is 0.50: maximum F1, and precision already matches the
+    # model it replaces. The second marker is the highest-precision alternative that keeps
+    # recall >= 0.90 and F1 within 2 points of maximum -- shown for reference, not adopted.
     ok = np.where((R >= 0.90) & (F >= F.max() - 0.020))[0]
     irec = ok[np.argmax(P[ok])]
     trec = grid[irec]
@@ -82,7 +82,7 @@ def main(out_stem="fig4_threshold", wide=False):
               labelcolor=GREY, borderaxespad=0.3, handletextpad=0.5,
               borderpad=0.1, labelspacing=0.25)
 
-    for t, lab, col in ((0.50, "shipped\n0.50", INK), (trec, f"proposed\n{trec:.2f}", BLUE)):
+    for t, lab, col in ((0.50, "operating point", INK), (trec, "precision alt.", BLUE)):
         ax.axvline(t, color=col, lw=0.8, ls=(0, (2, 2)), alpha=0.55, zorder=2)
     ax.scatter([0.50] * 3, [P[i50], R[i50], F[i50]], s=17, zorder=6,
                c=[BLUE, VERM, GREEN], edgecolor="white", linewidth=0.7)
@@ -93,8 +93,8 @@ def main(out_stem="fig4_threshold", wide=False):
     for val, name, col in ((P[-1], "precision", BLUE), (R[-1], "recall", VERM), (F[-1], "F1", GREEN)):
         ax.text(xt, val, name, color=col, fontsize=7, va="center", ha="left")
 
-    ax.text(0.50, 1.000, "shipped 0.50", color=INK, fontsize=6.4, ha="center", va="bottom")
-    ax.text(trec, 1.000, f"proposed {trec:.2f}", color=BLUE, fontsize=6.4, ha="center", va="bottom")
+    ax.text(0.50, 1.000, "operating point 0.50", color=INK, fontsize=6.4, ha="center", va="bottom")
+    ax.text(trec, 1.000, f"{trec:.2f}", color=BLUE, fontsize=6.4, ha="center", va="bottom")
 
     ax.set_xlabel("decision threshold")
     ax.set_ylabel("score")

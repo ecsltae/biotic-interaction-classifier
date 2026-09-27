@@ -27,7 +27,7 @@ from transformers import AutoTokenizer                   # noqa: E402
 # DIR_ABSTAIN  0.71 -- report a direction only when the head is at least this confident.
 #                      Below it the output is UNCERTAIN rather than a guess.
 INTERACT_THR = 0.50
-DIR_ABSTAIN = 0.71
+DIR_ABSTAIN = 0.60
 
 
 def load(model_dir, device="cpu", threads=8):

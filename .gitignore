@@ -210,3 +210,10 @@ handoff/biotic_verifier/model/
 # keep the benchmark itself - it is small and it is the thing being pinned
 !data/evaluation/unified_test_set.csv
 !data/evaluation/BENCHMARKS.json
+
+# third-party papers kept locally for reference, not ours to redistribute
+*.pdf.local
+/Enhancing Biomedical Relation Extraction with Directionality.pdf
+
+# ACL submission source stays in the anonymous mirror during the review period
+paper_sym/

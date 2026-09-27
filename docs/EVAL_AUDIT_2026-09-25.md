@@ -439,3 +439,44 @@ Dev P≥0.90 thresholds: 0.19 / 0.27 / 0.19, giving benchmark precision 0.822 / 
 none reaches the floor. The dev-holdout models are also statistically indistinguishable from
 the shipped checkpoint (AUPRC 0.9392 ± 0.0041 vs 0.9336; paired bootstrap ΔAUPRC +0.0063,
 CI [−0.0033, +0.0188]; head-to-head McNemar k=3, m=4, p=1.000), so `joint_a05_s1` stays.
+
+---
+
+## 20. Does the direction head read the passage, or recall taxon priors?
+
+The obvious control, which had not been run: mask the passage and give the head only the two
+taxon names. If accuracy holds, it is recalling that ticks parasitise mammals rather than
+reading the sentence.
+
+**On the 17-item human gold the control is inconclusive**, and that is worth stating plainly:
+
+| input | gold (n=17) |
+|---|---|
+| full passage | 13/17 = 0.765 |
+| taxon names only | 12/17 = 0.706 |
+| same words, order destroyed | 11/17 = 0.647 |
+
+One item. At n=17 this cannot distinguish passage-reading from taxon priors, and a direction
+claim resting on the gold set alone would not survive review.
+
+**On the 4,644 held-out taxon-disjoint rows it is unambiguous:**
+
+| input | accuracy |
+|---|---|
+| full passage | **0.9244** |
+| taxon names only | **0.4188** |
+
+Paired McNemar on the 4,644 overlapping rows: full-passage-only correct 2,497, names-only-only
+correct 149, χ² = 2082, **p ≈ 0**. The passage is worth **+50.6 accuracy points**.
+
+Names-only lands *below* chance, which is what you would expect if the head has no usable signal
+and falls back on a bias that is uncorrelated with the label.
+
+**Conclusion: the head reads the passage.** The 17-item gold simply lacks the power to show it —
+13 versus 12 is noise. The standing caveat on direction is therefore about the *size of the human
+gold set*, not about whether the mechanism works.
+
+One honest qualification: the 4,644 labels are derived from dependency parses of those same
+passages, so what is demonstrated is that the head recovers parse-grounded direction from text it
+has not seen, for taxon pairs it has not seen. Whether that rule matches human judgement is a
+separate question, and the only evidence for it remains n=17.

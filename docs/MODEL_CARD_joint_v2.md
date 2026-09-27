@@ -243,26 +243,49 @@ direction objective, no dev holdout), so this is not an attribution to any singl
 
 ### Direction
 
-Human gold: 20 curated items, 17 decidable (`data/evaluation/direction_gold_combined.csv`).
+Human gold: **131 curated items, 84 decidable** (`data/evaluation/direction_gold_v2.csv`) —
+20 from the first curation round and 112 from a second sheet covering 79 distinct relation forms.
+One curator-flagged duplicate removed (a double-encoded copy of its neighbour).
 
-| | accuracy | |
+| | accuracy (n=84) | |
 |---|---|---|
-| **direction head** | **13/17 = 0.765** | p=0.025 vs chance |
-| positional/syntactic rule | 9/17 = 0.529 | |
-| stored order | 9/17 = 0.529 | |
+| **direction head** | **66/84 = 0.786** | p = 6.7e-08 vs chance |
+| same head, passage hidden (names only) | 39/84 = 0.464 | chance — the passage is worth **+32 points** |
+| stored order | 9/17 = 0.529 (first batch) | |
+
+Consistent across batches: 13/17 on the first 20, 53/67 on the second sheet.
+
+**By relation form** — the head is strong where the relation word carries direction and weak
+where it does not, which is exactly the split the curator flagged in their own notes:
+
+| relation form | n | accuracy | mean confidence |
+|---|---|---|---|
+| prep-headed (*pathogen of*, *ectoparasite of*) | 33 | **0.909** | 0.956 |
+| present participle (*infecting*) | 7 | 0.857 | 0.877 |
+| bare noun (*host*, *pathogen*, *infection*) | 40 | **0.725** | 0.615 |
+| past participle (*infested with*) | 4 | 0.250 | 0.806 |
+
+The past-participle cell does **not** replicate on 490 held-out distant-labelled rows (0.898),
+so the 1/4 is either noise or a human-vs-parse disagreement about passives. Four items; do not
+build a rule on it.
 
 With abstention on head confidence:
 
-| confidence cutoff | coverage | accuracy |
-|---|---|---|
-| 0.71 (the shipped default) | 59% | 9/10 = 0.90 |
-| 1.00 | 24% | 4/4 = 1.00 |
-| none | 100% | 13/17 = 0.765 |
+| confidence cutoff | coverage | accuracy | 95% CI |
+|---|---|---|---|
+| none | 100% | 0.786 | [0.690, 0.869] |
+| 0.40 | 83% | 0.871 | [0.789, 0.944] |
+| **0.60 (shipped)** | **75%** | **0.889** | [0.810, 0.957] |
+| 0.71 | 74% | 0.887 | [0.803, 0.956] |
+| 0.90 | 57% | 0.896 | [0.800, 0.978] |
 
-**n=17. Every one of these numbers has a very wide confidence interval** — the 0.90 is nine
-items out of ten. Separating this head from the syntactic rule at 80% power would need
-roughly 2,700 annotated items. `data/evaluation/direction_curation_v2.xlsx` holds 112 more
-candidates, unannotated.
+0.60 weakly dominates 0.71 — one more item answered at the same accuracy — and 0.40 is
+statistically indistinguishable from 0.60 (Δ +0.018, CI [−0.012, +0.059]).
+
+The gold set is now 84 decidable items, not 17, and the passage-ablation control is decisive at
+that size. What it still cannot do is separate this head from a *good dependency-parse rule* —
+that needs roughly 2,700 items. 23 rows of the second sheet remain unannotated, and
+`direction_curation_SHORT.xlsx` (35 rows) is untouched.
 
 ### A larger, weaker check: held-out silver
 
@@ -283,6 +306,19 @@ pairs rather than memorising, and (b) the joint/frozen-trunk ordering seen on hu
 17-item accident.
 
 Human gold remains the only measure of whether the *rule itself* is right, and it is n=17.
+
+### Does it read the passage, or recall taxon priors?
+
+Masking the passage and giving the head only the two taxon names:
+
+| input | gold (n=17) | held-out dev (n=4,644) |
+|---|---|---|
+| full passage | 13/17 = 0.765 | **0.9244** |
+| taxon names only | 12/17 = 0.706 | **0.4188** |
+
+On the gold set the control is **inconclusive** — one item, no power. On the held-out rows the
+passage is worth **+50.6 points** (paired McNemar χ²=2082, p≈0). The head reads the passage; the
+17-item gold simply cannot show it.
 
 The annotation convention, confirmed by the curator's own notes: **direction is judged
 against the canonical relation, not the surface form.** "Leptodora --prey--> Bosmina" is

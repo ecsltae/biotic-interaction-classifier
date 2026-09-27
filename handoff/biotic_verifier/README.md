@@ -63,7 +63,7 @@ Useful flags: `--threshold 0.95` (see §4), `--threads 16`, `--batch-size 32`.
 | `p_interact` | the score behind it, 0–1. Use this if you want your own cutoff |
 | `direction` | `FORWARD` (species1 is the subject), `REVERSE` (species2 is), or `UNCERTAIN` |
 | `p_species1_is_subject` | 0–1; `direction` is this thresholded with an abstention band |
-| `direction_confidence` | `abs(p − 0.5) × 2`. Below 0.71 the direction is reported as `UNCERTAIN` |
+| `direction_confidence` | `abs(p − 0.5) × 2`. Below 0.60 the direction is reported as `UNCERTAIN` |
 | `both_taxa_located` | 0 if a taxon string was not found in the passage — **see §5** |
 | `unknown_polarity` | 1 if the relation is not in the polarity lexicon and the direction head fell back to a default. A high rate here means the direction column is weaker than §4 suggests |
 
@@ -105,9 +105,12 @@ Raise the threshold to buy precision; the table is the exact trade.
   pair-binding (this model addresses them) and about half are wrong taxon resolution upstream
   (it does not). If the rule layer hands it the wrong species, it will happily verify the wrong
   species.
-* **Direction rests on a small gold set.** 13 of 17 human-graded items correct, 9 of 10 when the
-  abstention band is applied. Seventeen items. Treat direction as a useful signal, not a
-  measurement. `interacts` is the well-evidenced output.
+* **Direction is measured on 84 human-graded items**: 66/84 = 0.786 overall (chance 0.5,
+  p = 6.7e-08), and **0.889 on the 75% of rows it is confident enough to answer**. A control that
+  hides the passage and shows only the two taxon names scores 0.464 — chance — so the head is
+  reading the sentence, not recalling which organisms usually parasitise which.
+  It is weakest on bare relational nouns (*host*, *pathogen*, *infection*: 0.725) and strongest
+  where the relation word itself carries direction (*pathogen of*, *ectoparasite of*: 0.909).
 * **Relations outside the polarity lexicon** fall back to agent-side polarity silently. Common
   interaction vocabulary is covered; an unusual verb may not be.
 
