@@ -1,0 +1,189 @@
+{
+  "pi": {
+    "biodiversity": 0.708,
+    "semeval": 0.544,
+    "biored": 0.486
+  },
+  "arms": {
+    "biored/ours_canonical_sym": {
+      "acc": {
+        "mean": 0.9107,
+        "sd": 0.002,
+        "k": 3
+      },
+      "swap": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "k": 3
+      },
+      "auc": {
+        "mean": 0.8455,
+        "sd": 0.023,
+        "k": 3
+      },
+      "maxdev": 2.98e-08
+    },
+    "biored/text_uncon": {
+      "acc": {
+        "mean": 0.9116,
+        "sd": 0.0015,
+        "k": 3
+      },
+      "swap": {
+        "mean": 0.9691,
+        "sd": 0.012,
+        "k": 3
+      },
+      "auc": {
+        "mean": 0.8646,
+        "sd": 0.0028,
+        "k": 3
+      },
+      "maxdev": 0.975
+    },
+    "semeval/ours_canonical_sym": {
+      "acc": {
+        "mean": 0.9625,
+        "sd": 0.0021,
+        "k": 3
+      },
+      "swap": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "k": 3
+      },
+      "auc": {
+        "mean": 0.9474,
+        "sd": 0.0307,
+        "k": 3
+      },
+      "maxdev": 2.98e-08
+    },
+    "semeval/text_uncon": {
+      "acc": {
+        "mean": 0.9658,
+        "sd": 0.0016,
+        "k": 3
+      },
+      "swap": {
+        "mean": 0.9383,
+        "sd": 0.0279,
+        "k": 3
+      },
+      "auc": {
+        "mean": 0.9071,
+        "sd": 0.0197,
+        "k": 3
+      },
+      "maxdev": 0.978
+    },
+    "semeval/canonical_uncon": {
+      "acc": {
+        "mean": 0.9642,
+        "sd": null,
+        "k": 1
+      },
+      "swap": {
+        "mean": 1.0,
+        "sd": null,
+        "k": 1
+      },
+      "auc": {
+        "mean": 0.9297,
+        "sd": null,
+        "k": 1
+      },
+      "maxdev": 2.98e-08
+    },
+    "semeval/text_sym": {
+      "acc": {
+        "mean": 0.9668,
+        "sd": null,
+        "k": 1
+      },
+      "swap": {
+        "mean": 0.9894,
+        "sd": null,
+        "k": 1
+      },
+      "auc": {
+        "mean": 0.9794,
+        "sd": null,
+        "k": 1
+      },
+      "maxdev": 0.999
+    },
+    "biodiversity/ours_canonical_sym": {
+      "acc": {
+        "mean": 0.869,
+        "sd": null,
+        "k": 1
+      },
+      "swap": {
+        "mean": 1.0,
+        "sd": null,
+        "k": 1
+      },
+      "auc": {
+        "mean": 0.748,
+        "sd": null,
+        "k": 1
+      },
+      "maxdev": 2.98e-08
+    },
+    "biodiversity/canonical_uncon": {
+      "acc": {
+        "mean": 0.857,
+        "sd": null,
+        "k": 1
+      },
+      "swap": {
+        "mean": 1.0,
+        "sd": null,
+        "k": 1
+      },
+      "auc": {
+        "mean": 0.787,
+        "sd": null,
+        "k": 1
+      },
+      "maxdev": 2.98e-08
+    },
+    "biodiversity/text_sym": {
+      "acc": {
+        "mean": 0.81,
+        "sd": null,
+        "k": 1
+      },
+      "swap": {
+        "mean": 0.969,
+        "sd": null,
+        "k": 1
+      },
+      "auc": {
+        "mean": 0.718,
+        "sd": null,
+        "k": 1
+      },
+      "maxdev": null
+    },
+    "biodiversity/text_uncon": {
+      "acc": {
+        "mean": 0.786,
+        "sd": null,
+        "k": 1
+      },
+      "swap": {
+        "mean": 0.473,
+        "sd": null,
+        "k": 1
+      },
+      "auc": {
+        "mean": 0.811,
+        "sd": null,
+        "k": 1
+      },
+      "maxdev": null
+    }
+  }
+}
