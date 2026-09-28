@@ -132,11 +132,26 @@ def main():
         if missing:
             sys.exit(f"input is missing required columns: {sorted(missing)}\n"
                      f"found: {list(d.columns)}")
+        need_text = ["species1", "relation", "species2", "sentence"]
+        blank = d[need_text].isna().any(axis=1) | (
+            d[need_text].astype(str).apply(lambda col: col.str.strip() == "").any(axis=1))
+        if blank.any():
+            rows = ", ".join(str(i) for i in d.index[blank][:10])
+            sys.exit(f"{int(blank.sum())} row(s) have an empty or missing value in one of "
+                     f"{need_text}: rows {rows}{' ...' if blank.sum() > 10 else ''}\n"
+                     f"These would be scored as the literal text 'nan'. Fix or drop them first.")
+
         r = predict(m, tok, d.species1, d.species2, d.relation, d.sentence,
                     bs=a.batch_size)
+        clashes = [c for c in d.columns if c in r.columns and c not in need_text]
+        if clashes:
+            print(f"note: your input has column(s) {clashes} whose names collide with this "
+                  f"tool's output; yours are kept as {[c + '_input' for c in clashes]}",
+                  file=sys.stderr)
         for c in d.columns:                       # carry the caller's own columns through
-            if c not in r.columns:
-                r[c] = d[c].values
+            if c in need_text:
+                continue
+            r[c if c not in r.columns else f"{c}_input"] = d[c].values
         if a.out:
             r.to_csv(a.out, index=False)
             n = int(r.interacts.sum())

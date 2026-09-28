@@ -32,7 +32,7 @@ from typing import List, Optional
 import numpy as np
 import torch
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from transformers import (
@@ -97,6 +97,10 @@ GENERATIVE_MODEL_PATH = _os.environ.get(
 )
 
 ML_THRESHOLD = 0.5
+
+
+class ModelsUnavailable(RuntimeError):
+    """No scoring model is loaded. Raised instead of returning a fabricated probability."""
 MAX_LENGTH = 256
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -242,6 +246,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.exception_handler(ModelsUnavailable)
+async def _models_unavailable(request, exc):
+    """503 rather than a 500, so a caller can tell 'not ready' from 'crashed'."""
+    from fastapi.responses import JSONResponse
+    return JSONResponse(status_code=503, content={"detail": str(exc), "error": "models_unavailable"})
+
 # Global model store
 _models: dict = {}
 _tokenizers: dict = {}
@@ -347,7 +358,13 @@ def _ml_predict(
 
     # Discriminative ensemble fallback
     if not _models:
-        return [0.5] * len(sentences)
+        # Fail closed. Returning 0.5 here would clear ML_THRESHOLD (also 0.5), so a
+        # deployment that silently failed to load any model would label every input
+        # "interaction" with a 200 OK. Refusing is the only safe answer.
+        raise ModelsUnavailable(
+            "no classifier is loaded: neither the generative model nor the discriminative "
+            "ensemble is available"
+        )
 
     preprocessed = [_preprocess(s) for s in sentences]
     all_weighted_probs = []

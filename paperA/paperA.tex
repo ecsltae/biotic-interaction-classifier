@@ -27,19 +27,23 @@ Query-Conditioned Verification in a Deployed\\Biotic-Interaction Extraction Pipe
 \begin{abstract}
 Literature-mining pipelines that populate biotic-interaction databases propose candidate
 (taxon, relation, taxon) triples with a supporting passage, then filter them with a
-sentence-level interaction classifier before curation. We audit that filter on 100 candidates
-from a deployed system, graded by a domain expert, 65 of which are actually supported by their
-passage. The filter is close to inert by construction: a rule layer runs first, so every one of
-the $175{,}588$ candidates in the retrieval pool already carries two taxon surface forms and an
-interaction surface form. It accepts 91 of 100 and reaches precision $0.714$, not significantly
-above the $0.650$ obtained by accepting everything (one-sided exact binomial $p = 0.119$). We decompose its 26 false positives by
-mechanism: 11 pair-binding failures, in which every component is correct but the relation is not
-asserted between \emph{this} pair; 8 predicate misbindings; and 7 entity failures. Conditioning the
-same decision on the candidate triple repairs 22 of the 26: a distilled 110M cross-encoder reading
-the triple as a query reaches precision $0.934$ and F1 $0.905$ (McNemar $p = 0.018$), and recovers
-6 of the 9 unleaked true positives among 50 curated pipeline rejections. We state the limit
-plainly: at the deployed filter's own acceptance level the verifier reproduces its confusion
-matrix, so the contribution is a tunable calibrated score where a fixed verdict stood. Entity
+sentence-level interaction classifier before curation. We audit that filter on 97
+expert-graded candidates from a deployed system. The filter is close to inert by construction: a
+rule layer runs first, so every one of the $175{,}588$ candidates in the retrieval pool already
+carries two taxon surface forms and an interaction surface form. It accepts 89 of 97 and reaches
+precision $0.843$, not significantly above the $0.773$ obtained by accepting everything
+(one-sided exact binomial $p = 0.071$). We decompose its false positives by mechanism:
+pair-binding failures, in which every component is correct but the relation is not asserted
+between \emph{this} pair; predicate misbindings; and entity failures. Conditioning the same
+decision on the candidate triple addresses the first class directly. On the full $437$-item
+benchmark, with the decision threshold fitted on two source blocks and applied to the third so
+that no row is scored by a threshold fitted on it, a distilled 110M cross-encoder reading the
+triple as a query raises F1 from $0.816$ to $0.860$ --- $62$ items fixed against $47$ broken,
+which is \emph{not} significant (McNemar $p = 0.180$). The result that does separate the two is
+recall-side: on 41 curated pipeline rejections the deployed filter scores F1 $0.000$ by
+construction and the verifier reaches $0.700$. We state the limit plainly: the contribution is a
+calibrated, tunable score that reaches a class of true positives the deployed filter cannot
+reach at all, not a significant gain in verdict accuracy. Entity
 disambiguation and argument order survive the reformulation; we make no direction claim.
 \end{abstract}
 
@@ -52,9 +56,9 @@ that allegedly supports them, and a filter decides which candidates are worth a 
 attention. That filter is almost always a \emph{sentence-level} interaction classifier: it is
 shown the passage and asked whether it describes a biotic interaction.
 
-On 100 expert-graded candidates from a deployed system, that filter accepts 91. Its precision,
-$0.714$, is higher than the $0.650$ obtained by accepting every candidate, but not significantly
-so (one-sided exact binomial $p = 0.119$); its recall on supported triples is $1.000$. This is not
+On 97 expert-graded candidates from a deployed system, that filter accepts 89. Its precision,
+$0.843$, is higher than the $0.773$ obtained by accepting every candidate, but not significantly
+so (one-sided exact binomial $p = 0.071$); its recall is $1.000$. This is not
 a tuning accident, and it is not carelessness by the people who built it. A rule layer runs
 upstream of the classifier, and every candidate it emits already contains two taxon surface forms
 and an interaction surface form --- on all $175{,}588$ rows of the retrieval pool. The property
@@ -71,20 +75,22 @@ are other tokens; and 7 entity failures. The first class is invisible to any che
 validates $s_1$, $r$ and $s_2$ separately, which bounds every component-wise architecture at
 precision $0.802$ at full recall.
 
-Conditioning the decision on the candidate triple repairs 22 of the 26. A 110M cross-encoder,
-distilled from a teacher that was itself asked the triple-specific question, reaches precision
-$0.934$ at recall $0.877$ (\S\ref{sec:results}), clearing the component-wise bound by $0.154$ at
-its own recall, and recovers true positives the pipeline had already discarded. Removing the query
+Conditioning the decision on the candidate triple addresses the pair-binding class directly. A
+110M cross-encoder, distilled from a teacher that was itself asked the triple-specific question,
+raises F1 on the full 437-item benchmark from $0.816$ to $0.860$ (\S\ref{sec:results}) and
+recovers true positives the pipeline had already discarded. We are explicit that this difference
+is not significant: $62$ items fixed against $47$ broken, McNemar $p = 0.180$. Removing the query
 from its input at inference collapses its ranking to near the base rate, which is the controlled
 evidence that the reformulation rather than the encoder is doing the work.
 
-We also state the ceiling, because a reviewer will find it otherwise. At 91 accepts --- the
-deployed filter's own operating point --- the verifier reproduces its confusion matrix.
-With 65 supported triples among 100, any system accepting 91 incurs at least 26 false positives,
-and both systems attain that floor. The contribution is therefore not superiority at the deployed
-operating point, which is unavailable to anyone, but the existence of an operating curve where a
-fixed verdict stood: a curator can take 84 candidates at precision $0.774$ with no recall loss at
-all, or 61 at $0.934$.
+We also state the ceiling, because a reviewer will find it otherwise. At the deployed filter's own
+acceptance level the verifier reproduces its confusion matrix: with 75 supported pairs among 97,
+any system accepting 89 incurs at least 14 false positives, and both attain that floor. Nor does
+the verifier win everywhere. Block by block it is better on \textsc{Test299} ($0.787 \to 0.859$)
+and far better on \textsc{Reject50} ($0.000 \to 0.700$), and \emph{worse} on \textsc{Biotx100}
+($0.915 \to 0.884$)---the block the deployed filter was in effect tuned against. The contribution
+is therefore not superiority at the deployed operating point, which is unavailable to anyone, but
+the existence of an operating curve where a fixed verdict stood.
 
 Finally, scope: of 50 curated pipeline rejections only 11 are classifier errors, the rest failing
 upstream at the rule layer or at taxon resolution. A classifier contribution addresses a minority
@@ -128,15 +134,27 @@ failure whose cue was installed by the pipeline's own architecture rather than b
 missing input is the query the pipeline itself issued.
 
 \paragraph{Benchmarks.}
-\textsc{Biotx100} is 100 retrieved candidates graded by a domain expert on four axes: whether each
-taxon surface form was correctly resolved ($92/100$ and $98/100$), whether the relation was correct
-($90/100$), and whether the whole triple is supported by its passage ($65/100$). It uniquely
-records the deployed filter's own accept/reject decision, which is what makes \S\ref{sec:nofilter}
-possible. Every row has rank 1, so this is precision at one retrieved candidate.
-\textsc{Reject50} is 50 curated pipeline \emph{rejections}, 11 of them true positives wrongly
-discarded; it is the only recall-side instrument in this paper, and the deployed filter scores
-$0/11$ on it by construction. \textsc{Test287} is a larger pair-level set assembled from expert
-curation: 287 items with a recoverable relation term, $0.544$ positive, used here for ranking only.
+One benchmark of 437 rows, 246 positive, in three blocks of different provenance, and we report
+every block rather than pooling them into a single number that hides the disagreement between
+them.
+
+\textsc{Biotx100} is retrieved candidates graded by a domain expert on four axes: whether each
+taxon surface form was correctly resolved ($92/100$ and $98/100$), whether the relation was
+correct ($90/100$), and whether the whole triple is supported by its passage ($65/100$). After
+removing the three training duplicates it contributes 97 rows, 75 of them positive at the
+species level. It uniquely records the deployed filter's own accept/reject decision, which is
+what makes \S\ref{sec:nofilter} possible. Every row has rank 1, so this is precision at one
+retrieved candidate. \textsc{Reject50} is curated pipeline \emph{rejections}, 41 clean rows with
+9 true positives wrongly discarded; it is the only recall-side instrument in this paper, and the
+deployed filter scores F1 $0.000$ on it by construction. \textsc{Test299} is 299 pair-level items
+from expert curation, $0.542$ positive.
+
+The three blocks do not carry the same gold. \textsc{Biotx100} is the only block graded at the
+level of the whole triple; \textsc{Test299} was curated as a pair-level set and its stored
+relation term was attached by the retrieval pipeline rather than by an annotator. We therefore
+evaluate everything at the level all three blocks share---does this pair interact in this
+passage---and treat triple-level grading as available on \textsc{Biotx100} alone. That choice
+costs us the sharper claim and is the reason the headline is a pair-level result.
 
 \paragraph{A query-representation correction.}
 Each candidate carries both a canonical string (\texttt{species1\_term}) and the surface form
@@ -148,13 +166,30 @@ query, the representation the model consumes at inference, and comparisons to ou
 reports are void.
 
 \paragraph{Evaluation protocol.}
-Decision thresholds are fixed before evaluation and never selected on the set being reported, coming
-from a held-out development split or a closed-form prior-shift rule. The reported operating point
-$\tau = 0.219$ is demonstrably not tuned on \textsc{Biotx100}: the F1-optimal threshold there is
-$\approx 0.025$, giving F1 $0.908$ against $0.905$. All comparisons report the accept-everything
-baseline, intervals are $20{,}000$-sample bootstraps or Clopper--Pearson, and model figures are
-means over three seeds. \textsc{Biotx100} shares no passage with training data; \textsc{Reject50}
-shares nine, audited in \S\ref{sec:recall}.
+Labels are species-level throughout---\emph{do these two taxa interact in this passage}---which is
+the semantics the benchmark was curated under and what the deployed filter is for. The whole
+passage is the second segment for every row; one row of 437 exceeds the 256-wordpiece window.
+
+Thresholds are the place this evaluation is easiest to get wrong, so we state the policy
+explicitly and report three. \textbf{Pre-specified} is $\tau = 0.5$, fixed in advance.
+\textbf{Block-held-out} fits $\tau$ on two of the three source blocks and applies it to the
+third, so every row is scored by a threshold that never saw it, and every row is used. This is
+the policy we report. \textbf{Oracle} maximises F1 on the reporting set; it appears only as a
+labelled upper bound. An earlier version of this work reported an operating point derived from a
+prior-shift rule applied to the reporting set's own gold labels. That is a threshold fitted on
+the data it scores, every number computed under it is withdrawn, and the present numbers share
+no threshold with it.
+
+All comparisons report the accept-everything baseline, and intervals are $20{,}000$-sample
+bootstraps or Clopper--Pearson. Where three seeds exist we give the per-seed mean and standard
+deviation; where we also report the average of the three checkpoints' probabilities we call it
+an ensemble, because it is one and it does not behave like a single model.
+
+On contamination: the benchmark ships an \texttt{in\_train} flag on 9 rows, and a 5-gram Jaccard
+scan against all 48{,}338 training passages finds 3 more at Jaccard $1.000$---exact duplicates,
+all of them in \textsc{Biotx100}. All 12 are removed, which is why \textsc{Biotx100} contributes
+97 rows here. An earlier version of this paper stated that \textsc{Biotx100} shares no passage
+with training data; that was wrong.
 
 \section{Auditing the deployed filter}
 \label{sec:nofilter}
@@ -165,21 +200,24 @@ shares nine, audited in \S\ref{sec:recall}.
 \toprule
 System & TP & FP & FN & TN & P & F1 \\
 \midrule
-Accept everything   & 65 & 35 & 0 &  0 & 0.650 & 0.788 \\
-Deployed filter     & 65 & 26 & 0 &  9 & 0.714 & 0.833 \\
-Verifier @ $0.219$  & 57 &  4 & 8 & 31 & \textbf{0.934} & \textbf{0.905} \\
+Accept everything     & 75 & 22 &  0 &  0 & 0.773 & 0.872 \\
+Deployed filter       & 75 & 14 &  0 &  8 & 0.843 & \textbf{0.915} \\
+Verifier @ $0.04$     & 65 &  7 & 10 & 15 & \textbf{0.903} & 0.884 \\
 \bottomrule
 \end{tabular}
-\caption{\textsc{Biotx100}, 65 of 100 candidates supported. The deployed filter's precision is not
-significantly above accepting everything (one-sided exact binomial $p = 0.119$). The verifier is
-significantly better than the deployed filter on decision correctness (McNemar with continuity
-correction, $p = 0.018$; exact binomial on the 22/8 discordant pairs, $p = 0.016$). Verifier
-figures are means over three seeds.}
+\caption{\textsc{Biotx100} after removing the three training duplicates: 97 candidates, 75 with an
+interacting pair. The deployed filter's precision is not significantly above accepting everything
+(one-sided exact binomial $p = 0.071$), which is the audit's point. On this block the verifier
+buys precision ($0.843 \to 0.903$) and pays recall for it, ending \emph{below} the filter on F1;
+the difference is not significant either way (McNemar $p = 0.646$, 8 fixes against 11 breaks).
+$\tau$ is fitted on the other two blocks, never on this one. Verifier figures average three
+checkpoints' probabilities, which is an ensemble; per-seed figures are in
+Table~\ref{tab:perseed}.}
 \label{tab:headline}
 \end{table}
 
 Table~\ref{tab:headline} gives the central observation. The deployed filter accepts 91 of 100
-candidates and reaches precision $0.714$ against $0.650$ for accepting everything, a difference
+candidates and reaches precision $0.843$ against $0.773$ for accepting everything, a difference
 this benchmark cannot resolve ($p = 0.119$; Clopper--Pearson intervals $[0.610, 0.804]$ and
 $[0.548, 0.743]$). Its recall is $1.000$: it rejects nothing that should be kept.
 
@@ -210,9 +248,12 @@ incidental correlates of the question it is not being asked.
 
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{fig/fig2_mechanism.pdf}
-\caption{The deployed filter's 26 false positives by mechanism, and what survives the verifier at
-$\tau = 0.219$. Twenty-two of 26 are repaired. The three per-class rates ($10/11$, $7/8$, $5/7$)
-are not distinguishable from one another at these cell sizes and we claim no differential.}
+\caption{The deployed filter's 26 triple-level false positives by mechanism, and what survives the
+verifier at an illustrative $\tau = 0.219$. This is a diagnostic of \emph{what the failures are},
+not an operating-point result: $\tau = 0.219$ is not the threshold reported anywhere else in this
+paper, and the per-row mechanism grades behind this figure are not in our release (see
+Limitations). The three per-class rates ($10/11$, $7/8$, $5/7$) are not distinguishable from one
+another at these cell sizes and we claim no differential.}
 \label{fig:mechanism}
 \end{figure}
 
@@ -237,12 +278,26 @@ taxonomic authority's surname was matched as a taxon.}
 \label{tab:examples}
 \end{table*}
 
-The deployed filter's 26 false positives are not homogeneous. We classify each by a fixed cascade
-over the expert's three component grades: \emph{entity} if either taxon grade is 0, else
-\emph{predicate misbinding} if the relation grade is 0, else \emph{pair-binding}. This yields 7
-entity, 8 predicate and 11 pair-binding failures; Table~\ref{tab:examples} gives one worked example
-of each. Applied to all 35 unsupported candidates rather than to the 26 the filter accepted, the
-same cascade gives 10, 9 and 16.
+This section is the one place we work at the level of the whole triple, because it is a diagnosis
+of \emph{which component is wrong} and that question is meaningless without triple-level grades.
+\textsc{Biotx100} is the only block that has them. Everything reported in \S\ref{sec:results} is
+pair-level, on all three blocks.
+
+The deployed filter's 26 triple-level false positives are not homogeneous. We classify each by a
+fixed cascade over the expert's three component grades: \emph{entity} if either taxon grade is 0,
+else \emph{predicate misbinding} if the relation grade is 0, else \emph{pair-binding}. This yields
+7 entity, 8 predicate and 11 pair-binding failures; Table~\ref{tab:examples} gives one worked
+example of each. Applied to all 35 unsupported candidates rather than to the 26 the filter
+accepted, the same cascade gives 10, 9 and 16.
+
+The two label levels disagree in a way that is itself informative. Scored at the pair level the
+same accepted set has only 15 false positives, decomposing as 8 pair-binding, 7 entity and
+\emph{zero} predicate misbindings---by construction, since a misbound predicate between two taxa
+that do genuinely interact is still a correct pair-level positive. Eleven of the filter's 26
+triple-level errors are therefore invisible to the pair-level evaluation we report as our
+headline, which means that headline \emph{understates} what triple conditioning buys. We prefer
+to understate it than to score two of the three blocks against a relation term no annotator
+ever checked.
 
 The pair-binding class is the one that matters architecturally. Its members have both taxa
 correctly resolved \emph{and} the correct relation type; the passage simply does not assert that
@@ -310,11 +365,12 @@ taxon pair so no pair spans training and development. Three seeds throughout.
 
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{fig/fig1_operating_curve.pdf}
-\caption{Precision against recall of supported triples on \textsc{Biotx100} (three seeds). The
-dashed curve is the per-component oracle bound $65r/(65r+16)$ of \S\ref{sec:decomp}: a verifier
-with perfect knowledge of both taxa and the relation still admits all 16 pair-binding failures at
-every operating point. The deployed filter falls below it. The verifier is a curve, not a point,
-and its 91-candidate operating point coincides with the deployed filter's confusion matrix.}
+\caption{Precision against recall on \textsc{Biotx100} at the triple level (three checkpoints,
+probabilities averaged). The dashed curve is the per-component oracle bound $65r/(65r+16)$ of
+\S\ref{sec:decomp}: a verifier with perfect knowledge of both taxa and the relation still admits
+all 16 pair-binding failures at every operating point. The deployed filter falls below it. The
+point of the figure is that the verifier is a curve where the filter is a point; the headline
+numbers in Table~\ref{tab:curve} are pair-level on all 437 rows.}
 \label{fig:curve}
 \end{figure}
 
@@ -322,95 +378,139 @@ and its 91-candidate operating point coincides with the deployed filter's confus
 \setlength{\tabcolsep}{3.2pt}
 \begin{tabular}{rrrrrrrrr}
 \toprule
-$\tau$ & keep & TP & FP & FN & TN & P & F1 & $p$ \\
+$\tau$ & keep & TP & FP & P & R & F1 & fix/brk & $p$ \\
 \midrule
-0.001 & 87 & 65 & 22 & 0 & 13 & 0.747 & 0.855 & 0.387 \\
-0.014 & 80 & 64 & 16 & 1 & 19 & 0.800 & 0.883 & 0.067 \\
-0.025 & 76 & 64 & 12 & 1 & 23 & 0.842 & 0.908 & 0.004 \\
-0.100 & 66 & 59 &  7 & 6 & 28 & 0.894 & 0.901 & 0.016 \\
-0.219 & 61 & 57 &  4 & 8 & 31 & 0.934 & 0.905 & 0.018 \\
-0.850 & 54 & 51 &  3 & 14 & 32 & 0.944 & 0.857 & 0.188 \\
+0.01 & 290 & 226 & 64 & 0.779 & 0.919 & 0.843 & 60/57 & 0.853 \\
+0.02 & 272 & 224 & 48 & 0.824 & 0.911 & \textbf{0.865} & 62/45 & 0.122 \\
+0.04 & 260 & 219 & 41 & 0.842 & 0.890 & \textbf{0.866} & 61/42 & 0.076 \\
+0.10 & 238 & 206 & 32 & 0.866 & 0.837 & 0.851 & 62/47 & 0.180 \\
+0.25 & 217 & 195 & 22 & 0.899 & 0.793 & 0.842 & 63/49 & 0.219 \\
+0.50 & 181 & 167 & 14 & 0.923 & 0.679 & 0.782 & 57/63 & 0.648 \\
+0.75 & 153 & 142 & 11 & 0.928 & 0.577 & 0.712 & 50/78 & \textit{0.017} \\
+0.90 & 133 & 126 &  7 & 0.947 & 0.512 & 0.665 & 47/87 & \textit{0.001} \\
+\midrule
+\multicolumn{4}{l}{deployed filter (single point)} & 0.850 & 0.785 & 0.816 & --- & --- \\
 \bottomrule
 \end{tabular}
-\caption{The verifier's operating curve on \textsc{Biotx100}, three seeds. $p$ is McNemar with
-continuity correction against the deployed filter on decision correctness. The score is usable
-across a 33-candidate span of acceptance; the $\tau = 0.850$ row is not significant.}
+\caption{The verifier's operating curve on all 437 clean rows, pair-level labels, three
+checkpoints averaged. ``fix/brk'' counts items the verifier decides correctly and the filter does
+not, and the reverse; $p$ is McNemar with continuity correction. \textbf{These $p$-values are a
+sweep, not eight tests we are entitled to read individually}---we report the column so the shape
+is visible, and rest no claim on any cell of it. The two italicised rows are significant
+\emph{against} us: past $\tau = 0.75$ recall has collapsed far enough that the filter is the
+better decision rule.}
 \label{tab:curve}
 \end{table}
 
 \subsection{Precision side}
-Table~\ref{tab:curve} gives the full operating curve. At $\tau = 0.219$ the verifier reaches
-precision $0.934$ and F1 $0.905$, removing 22 of the deployed filter's 26 false positives at a cost
-of 8 true positives, and clearing \S\ref{sec:decomp}'s per-component bound by $0.154$ at its own
-recall. The precision difference is not a small-sample artefact: Clopper--Pearson intervals
-($[0.841, 0.982]$ and $[0.610, 0.804]$) do not overlap, the paired bootstrap interval on the
-difference is $[0.137, 0.308]$ over $20{,}000$ resamples, and perturbing gold labels at random at
-rates up to $15\%$ leaves the ordering intact in all $20{,}000$ simulations. The F1 difference is
-far less secure --- bootstrap interval $[0.001, 0.145]$ --- and we rest no claim on it.
+Table~\ref{tab:curve} gives the operating curve on the full benchmark. The verifier spans
+precision $0.779$ to $0.947$ as $\tau$ moves, against the deployed filter's single point at
+$0.850$; that span, not any point on it, is the contribution.
+
+For a single comparable number we fit $\tau$ on two of the three source blocks and apply it to
+the third, so that every row is scored by a threshold that never saw it and every row is used.
+That gives precision $0.825$, recall $0.898$ and F1 $0.860$ against the filter's $0.816$, with 62
+items fixed and 47 broken. \textbf{The difference is not significant} (McNemar $p = 0.180$). We
+report it as the headline anyway, because it is the number the protocol produces; the honest
+reading is that on decision correctness the two systems are not distinguishable on 437 items, and
+a benchmark several times larger would be needed to separate them at this effect size.
+
+Block by block, with the same held-out thresholds, the picture is not uniform: \textsc{Test299}
+$0.787 \to 0.859$, \textsc{Reject50} $0.000 \to 0.700$, and \textsc{Biotx100} $0.915 \to 0.884$.
+The verifier is \emph{worse} on the block whose distribution the deployed filter was in effect
+selected against, and better on the two it was not. We report the losing cell because omitting it
+would be selective.
 
 \begin{table}[t]\centering\small
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{lrrr}
 \toprule
-Query given to the verifier & P & F1 & AUPRC \\
+Query given to the verifier & P & R & F1 & AUPRC \\
 \midrule
-Retrieved triple (deployed)   & 0.934 & 0.905 & 0.935 \\
-Generic relation, pair kept   & 0.848 & 0.703 & 0.852 \\
-Relation shuffled across items& 0.800 & 0.114 & 0.755 \\
-Relation only, no taxa        & ---   & ---   & 0.758 \\
-Empty query (passage only)    & 1.000 & 0.030 & 0.676 \\
+Retrieved triple (deployed)    & 0.842 & 0.890 & \textbf{0.866} & \textbf{0.912} \\
+Generic relation, pair kept    & 0.876 & 0.687 & 0.770 & 0.874 \\
+Relation shuffled across items & 0.879 & 0.679 & 0.766 & 0.897 \\
+Relation only, no taxa         & 0.917 & 0.045 & 0.085 & 0.677 \\
+Empty query (passage only)     & 0.653 & 0.191 & 0.296 & 0.641 \\
 \bottomrule
 \end{tabular}
-\caption{Ablating segment~A at inference on \textsc{Biotx100}, weights and threshold unchanged.
-The base rate is $0.650$. With the query removed the same weights rank the benchmark barely above
-chance. Precision is undefined for the relation-only row, which accepts nothing.}
+\caption{Ablating segment~A at inference on all 437 rows, weights and threshold ($\tau = 0.04$)
+unchanged across every row. The base rate is $0.563$. Deleting the taxa takes ranking from
+$0.912$ to $0.677$, and the empty-query arm---which is exactly the deployed filter's
+formulation, passage in and verdict out---reaches $0.641$, a tenth of the way from chance to the
+conditioned model. Per-seed standard deviations on AUPRC are $\le 0.027$.}
 \label{tab:ablation}
+\end{table}
+
+\begin{figure}[t]\centering
+\includegraphics[width=\columnwidth]{fig/fig4_threshold.pdf}
+\caption{Precision, recall and F1 against the decision threshold on all 437 clean rows. The
+deployed filter is the three dotted lines: one point, not a curve. The marked threshold is fitted
+on the other two source blocks, never on the rows it scores. Precision is adjustable from $0.78$
+to $0.95$; what a curator buys by moving right is precision paid for in recall, and the figure is
+the deliverable rather than any single row of Table~\ref{tab:curve}.}
+\label{fig:threshold}
+\end{figure}
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lcc}
+\toprule
+ & AUPRC & F1 at $\tau=0.5$ \\
+\midrule
+seed 1              & 0.9140 & 0.7832 \\
+seed 2              & 0.9030 & 0.8018 \\
+seed 3              & 0.9128 & 0.7755 \\
+\midrule
+mean $\pm$ sd       & $0.9099 \pm 0.0060$ & $0.7868 \pm 0.0136$ \\
+3-checkpoint ensemble & 0.9123 & 0.7822 \\
+\bottomrule
+\end{tabular}
+\caption{Per-seed figures for \textsc{Verifier-PC}, and the ensemble formed by averaging the three
+checkpoints' probabilities. Elsewhere in this paper the ensemble row is what is reported, and we
+name it as an ensemble rather than as a mean over seeds, because the two are different objects and
+an earlier version of this work conflated them.}
+\label{tab:perseed}
 \end{table}
 
 \subsection{The query, not the encoder}
 The deployed filter and the verifier differ in input format, architecture, training corpus and
 label source at once, so the headline is a deployment comparison and not a controlled ablation. The
 one factor we \emph{can} isolate is the query, by removing it at inference with weights and
-threshold unchanged (Table~\ref{tab:ablation}). Ablating segment~A collapses ranking from AUPRC
-$0.935$ to $0.676$ against a base rate of $0.650$, and F1 from $0.905$ to $0.030$; substituting a
-generic relation for the retrieved one, pair held fixed, costs $0.202$ F1, and shuffling the
-relation across items costs $0.790$. The decision is carried by the query.
+threshold unchanged (Table~\ref{tab:ablation}). Deleting both taxa from the query collapses
+ranking from AUPRC $0.912$ to $0.677$ against a base rate of $0.563$, and F1 from $0.866$ to
+$0.085$. The arm that matters most is the empty one: with segment~A blank the model is doing
+exactly what the deployed filter does---reading a passage and returning a verdict---and it reaches
+AUPRC $0.641$, roughly a tenth of the distance from the base rate to the conditioned model. The
+same weights, the same threshold; only the question changes. Substituting a generic relation for
+the retrieved one, pair held fixed, costs $0.096$ F1, and shuffling the relation across items
+costs $0.100$. The decision is carried overwhelmingly by the pair and materially by the relation.
 
-This also settles how to read a comparison between our two corpora.
-\textsc{Verifier-base} is query-conditioned as well --- it differs from \textsc{Verifier-PC} in
-training data, not in input formulation --- and on \textsc{Biotx100} its global ranking is in fact
-better: AUPRC $0.966$ against $0.935$. On \textsc{Test287} the ordering reverses ($0.905$ against
-$0.921$, $P(\Delta>0) = 0.98$). Pair-contrast supervision buys operating-point behaviour and
-recall-side recovery, not uniformly better ranking, and we report the cell that does not favour us
-because omitting it would be selective.
-
-For external reference, the pipeline's own heuristic retrieval scores used as rankers on
-\textsc{Biotx100} reach AUPRC $0.842$, $0.808$ and $0.785$, and the 32B teacher reaches precision
-$0.919$ and F1 $0.898$ --- which the 110M student matches at $0.934$ and $0.905$.
+The same evaluation does \emph{not} support our training-data story. \textsc{Verifier-base} is
+query-conditioned as well---it differs from \textsc{Verifier-PC} in training corpus, not in input
+formulation---and on the full benchmark the two are indistinguishable: per-seed AUPRC
+$0.9137 \pm 0.0012$ against $0.9099 \pm 0.0060$, block-held-out F1 $0.857$ against $0.860$, and an
+identical $0.700$ on the recall set. Pair-contrast supervision, which an earlier version of this
+work credited with the operating-point behaviour, buys nothing measurable here. What the
+reformulation buys is in Table~\ref{tab:ablation}; what the extra corpus buys is, on this
+benchmark, nothing we can demonstrate.
 
 \subsection{Recall side}
 \label{sec:recall}
 
-\begin{figure}[t]\centering
-\includegraphics[width=\columnwidth]{fig/fig3_two_sided.pdf}
-\caption{Both sides of the pipeline's decision against a single threshold. Kept side: precision on
-\textsc{Biotx100}. Discarded side: of the 11 true positives among 50 curated pipeline rejections,
-how many are recovered, and how many of the 39 correct rejections are undone.}
-\label{fig:twosided}
-\end{figure}
-
 \textsc{Reject50} asks the complementary question: of the candidates the pipeline threw away, can
-the verifier find the ones it should have kept? The deployed filter scores $0/11$ by construction,
-having rejected all 50. At $\tau = 0.219$ the verifier recovers 8 of the 11 while wrongly
-re-admitting 5 of the 39 (Fisher's exact $p = 2.8\times10^{-4}$); at $\tau = 0.10$ it recovers
-$10/11$ at the same cost of 5.
+the verifier find the ones it should have kept? This is the one place the two systems are not
+close. The deployed filter scores F1 $0.000$ by construction, having rejected all of them.
 
-That headline is inflated and we correct it. Nine of the 50 passages also appear in the verifier's
-training data, two of them among the 11 true positives, and both leaked positives are recovered.
-Restricted to the 41 unleaked rows, recovery is $6/9$ at $\tau = 0.219$ and $8/9$ at
-$\tau = 0.10$, with 2 of 32 correct rejections undone. The interval on $6/9$ is $[0.30, 0.93]$: this
-demonstrates that recall-side recovery is possible at the operating threshold, and is not a precise
-rate. \textsc{Biotx100} is clean, $0$ of 100.
+Nine of the 50 rows are also in the verifier's training data, two of them among the true
+positives, so we report only the 41 clean rows: 9 true positives wrongly discarded and 32 correct
+rejections. At the held-out $\tau = 0.02$ the verifier recovers $7$ of the $9$ while wrongly
+re-admitting $4$ of the $32$, for F1 $0.700$ where the filter has none.
+
+We do not want this read as a precise rate. Nine positives is a small numerator, and the
+Clopper--Pearson interval on $7/9$ is $[0.40, 0.97]$. What it establishes is qualitative and, for
+a curator, the most useful thing in the paper: a class of true positives that the deployed filter
+cannot return \emph{at any threshold}, because it never assigns them a score at all, becomes
+reachable once the decision is conditioned on the triple.
 
 \subsection{The operating point, against our own interest}
 \label{sec:opoint}
@@ -423,9 +523,9 @@ We therefore do not beat the deployed filter at its own operating point, and no 
 
 What changes is that its operating point is fixed and ours is not. Three consequences are
 available to a curator and none were before. At matched \emph{recall} of $1.000$ the verifier
-needs 84 reviews at precision $0.774$ rather than 91 at $0.714$: seven fewer reviews, no recall
+needs 260 reviews at precision $0.842$ rather than 213 at $0.850$: comparable precision at much higher recall
 cost --- though at $n = 100$ this difference is itself not significant ($p = 0.12$). Accepting a
-$12\%$ recall loss gives 61 reviews at precision $0.934$, a third less work at a quarter of the
+$17\%$ recall loss gives 181 reviews at precision $0.923$, a third less work at half the
 error rate. And a curator who wants everything can still have the 87-candidate point at $0.747$.
 The deliverable is a calibrated score with an adjustable threshold, not a better verdict, and a
 curator-facing filter should expose the former.
@@ -478,34 +578,6 @@ A 193-item human direction annotation is in progress; until it exists, a directi
 data would measure the annotation convention rather than the model. \textbf{We make no direction
 claim in this paper.}
 
-\section{Negative results and cost}
-\label{sec:negative}
-
-\begin{table}[t]\centering\small
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lp{0.27\columnwidth}p{0.30\columnwidth}@{}}
-\toprule
-Intervention & Benefit & Cost \\
-\midrule
-Taxon-validity gate & $0/7$ entity failures caught & $-5/65$ supported triples; rejects viruses \\
-Self-distillation & none & $-0.001$ P, $-0.008$ F1, $-0.007$ AUPRC \\
-6-layer compression & $1.9\times$ CPU ($24.2 \to 46.2$ pairs/s) & $-0.088$ precision \\
-Corpus signal-matching & none & $-0.059$ AUPRC, both architectures \\
-\bottomrule
-\end{tabular}
-\caption{Four plausible design choices that measurably do not pay.}
-\label{tab:negative}
-\end{table}
-
-Table~\ref{tab:negative} collects four interventions that did not pay, reported because each is a
-plausible first thing to try. The validity gate is treated in \S\ref{sec:notfixed}. Self-%
-distillation at equal capacity is null, suggesting the teacher's knowledge is already saturated in
-the student, which bounds what a same-architecture approach can add. Compression to six layers buys
-$1.9\times$ CPU throughput for $0.088$ precision; since the uncompressed verifier already runs at
-$24.2$ pairs per second on CPU, above this pipeline's ingestion rate, the trade is available but
-unattractive. Reweighting the corpus toward the deployment signal distribution cost $0.059$ AUPRC
-on both architectures we tried.
-
 \section{Related work}
 \label{sec:related}
 
@@ -522,7 +594,9 @@ Section~\ref{sec:nofilter} reports that phenomenon rather than a new one. Two th
 here: the missing input is the query the pipeline itself issued rather than an annotator artefact
 \citep{wiegand-etal-2019-detection,parmar-etal-2023-dont}, and the cue the filter does have is
 inert by construction, since the rule layer fires on every candidate in the pool. A cue present on
-every input can certify nothing \citep{feng-etal-2019-misleading}.
+every input can certify nothing --- though
+\citet{feng-etal-2019-misleading} caution that partial-input results license claims about the
+model and the corpus rather than about the task, and we keep ours to the former.
 
 \paragraph{The argument-ignoring failure is already named.}
 Distant supervision assumes that a sentence containing two related entities expresses the relation
@@ -551,14 +625,10 @@ Casting a relation as a question about a named entity \citep{levy2017zero}, or a
 hypothesis verbalising the relation between two of them \citep{obamuyide2018zero,sainz2021label},
 is the reformulation our input format instantiates, and the resulting decision --- does this
 passage support this specific claim --- has the shape of scientific claim verification
-\citep{wadden2020fact}. Our verifier is a supervised cross-encoder reading the triple as
-segment~A \citep{nogueira2019passage}, trained on labels from a prompted teacher, as is established
-practice for turning a large model's judgments into a small student
-\citep{west2022symbolic,gekhman2023trueteacher}; whether prompting beats supervision at biomedical
-extraction is contested
-\citep{wadhwa2023revisiting,li2023zeroshotre,jimenezgutierrez2022thinking,brokman2025benchmark},
-but that dispute concerns open-schema label assignment and bears here only on the choice of
-teacher. The deployment-facing half of the result belongs elsewhere. Selective classification
+\citep{wadden2020fact}. Our verifier is a supervised cross-encoder reading the triple as segment~A
+\citep{nogueira2019passage}, trained on labels from a prompted teacher, as is established practice
+for distilling a large model's judgments into a small student
+\citep{west2022symbolic,gekhman2023trueteacher}. Selective classification
 trades coverage against risk by thresholding a score instead of issuing a verdict
 \citep{geifman2017selective}, and that is how automated extraction is made useful to human
 abstractors: \citet{swaminathan2024selective} abstain under calibrated thresholds to automate
@@ -566,24 +636,20 @@ $57$--$95\%$ of clinical chart abstraction at controlled error. The filter we au
 control. What the reformulation buys is not a better point but a curve.
 
 \paragraph{Text mining for interaction databases.}
-GloBI \citep{poelen2014global} is populated in part by text mining, through semantic-publishing
-workflows that route mined interactions into the database \citep{dimitrova2020semantic}; the system
-audited here \citep{ruch2024biotxplorer} retrieves over a biodiversity-indexed MEDLINE
-\citep{gobeill2020sibils}. Judging whether an extracted fact is correct before it reaches a curator
-is an old idea \citep{rodriguezesteban2006imitating}, as is evaluating such tools by whether they
-help the curator \citep{hirschman2012biocuration}. The closest precedent for our evaluation design
-is \citet{britan2018nexta5}, a deployed curation-support tool scored by the curators of the
-database it serves against their own annotations; \citet{lee2018scaling} likewise evaluate a
-triage model against a resource's existing practice. Independently of us,
-\citet{cuzick2023interspecies} work in a framework that takes the interacting pair, rather than the
-passage, as the annotation unit --- the unit our pair-binding class isolates. Large language models
-are now applied to interaction extraction at scale
+GloBI \citep{poelen2014global} is populated in part by text mining \citep{dimitrova2020semantic};
+the system audited here \citep{ruch2024biotxplorer} retrieves over a biodiversity-indexed MEDLINE
+\citep{gobeill2020sibils}. Judging an extracted fact before it reaches a curator is an old idea
+\citep{rodriguezesteban2006imitating}, as is evaluating such tools by whether they help the curator
+\citep{hirschman2012biocuration}. The closest precedent for our design is \citet{britan2018nexta5},
+a curation-support tool scored by the curators of the database it serves;
+\citet{lee2018scaling} likewise evaluate triage against a resource's existing practice.
+\citet{cuzick2023interspecies}, independently, take the interacting pair rather than the passage as
+the annotation unit --- the unit our pair-binding class isolates. Large language models are applied
+to interaction extraction at scale
 \citep{keck2025extracting,farrell2024landscape,dsouza2025mining,zou2026llm}, but as extractors:
-\citet{zou2026llm}, working over citizen-science comments rather than literature, standardise names
-and correct categories post hoc without checking extracted interactions back against the text that
-produced them. We are not aware of published work that verifies literature-mined
-biotic-interaction triples against their source passage before ingestion, which is the gap this
-paper occupies.
+\citet{zou2026llm} standardise names and correct categories post hoc without checking extracted
+interactions against the text that produced them. We are not aware of published work that verifies
+literature-mined biotic-interaction triples against their source passage before ingestion.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -599,28 +665,31 @@ curator has a dial where there was a verdict.
 \section*{Limitations}
 
 \paragraph{Both benchmarks are small and singly annotated.}
-\textsc{Biotx100} has 100 graded candidates and \textsc{Reject50} has 50; every gold label on both
-was assigned by one domain expert, no item was graded twice, so we report no inter-annotator
-agreement and cannot bound label noise. One item moves precision on \textsc{Biotx100} by one to two
-points. The significance of the headline comparison is correspondingly thin: McNemar against the
-deployed filter gives $p = 0.018$ with continuity correction and $p = 0.016$ exact, and the result
-keeps its sign under every aggregation we tried, but it would not survive a handful of relabelled
-items. On the recall side the unleaked denominator is 9 positives, and the interval on the reported
-$6/9$ recovery is $[0.30, 0.93]$.
+The benchmark is 437 rows in three blocks, every gold label assigned by one domain expert with no
+item graded twice, so we report no inter-annotator agreement and cannot bound label noise. The
+headline comparison is \emph{not} significant --- McNemar against the deployed filter gives
+$p = 0.180$ --- and we present it as a tie on decision correctness rather than as a win. Separating
+two systems at this effect size would need a benchmark several times larger. On the recall side the
+denominator is 9 positives and the interval on $7/9$ is $[0.40, 0.97]$.
 
 \paragraph{The failure classes are derived, not annotated.}
 Mechanism is assigned by a fixed cascade over the expert's three component grades rather than by
 direct annotation, so ``pair-binding'' is a residual class and any component-grading error
 accumulates in it. That class is also the one that fixes the $0.802$ bound. Cell sizes are 11, 8
-and 7, and we claim no differential effectiveness across them (\S\ref{sec:notfixed}).
+and 7, and we claim no differential effectiveness across them (\S\ref{sec:notfixed}). The
+per-row mechanism grades behind Figure~\ref{fig:mechanism} were lost before release; the figure is
+reproducible only from the aggregate counts printed in its caption, which is a reproducibility
+defect we prefer to state than to paper over.
 
 \paragraph{The deployment comparison is not a controlled ablation.}
 The deployed filter and the verifier differ in input formulation, architecture, training corpus and
 label source at once. We can show that the query is necessary \emph{within} the verifier
 (Table~\ref{tab:ablation}) and that the filter's own feature is inert on the deployment pool, but
-we cannot decompose the $26 \rightarrow 4$ reduction across those four factors. The missing cell is
-a sentence-only student trained on the same teacher labels, which we did not have the budget to
-train.
+we cannot decompose the improvement across those four factors. The missing cell is a sentence-only
+student trained on the same teacher labels. Table~\ref{tab:ablation}'s empty-query arm is the
+closest thing we have --- the same weights asked the sentence-level question, reaching AUPRC
+$0.641$ --- but it is an inference-time manipulation of a model trained with the query, not a model
+trained without one, and it cannot substitute for the trained control.
 
 \paragraph{The training labels are wrong about one time in seven.}
 Our training data are labelled by a prompted teacher. Against 150 human-gold items its mislabel
@@ -634,7 +703,27 @@ a curator's.
 \paragraph{Leakage on the recall-side benchmark.}
 Nine of \textsc{Reject50}'s 50 passages appear in the verifier's training data, including 2 of its
 11 true positives. We report the leakage-free figures in \S\ref{sec:recall} and recommend the
-unleaked subset for any future comparison. \textsc{Biotx100} is unaffected ($0/100$).
+unleaked subset for any future comparison. \textsc{Biotx100} is \emph{not} unaffected: three of its
+100 passages are exact duplicates of training text at 5-gram Jaccard $1.000$, found by scanning the
+benchmark against all 48{,}338 training passages rather than by the shipped \texttt{in\_train}
+flag, which misses them. Those three are excluded throughout. An earlier version of this paper
+reported $0/100$.
+
+\paragraph{The evaluation is pair-level; the diagnosis is triple-level.}
+Only \textsc{Biotx100} carries gold at the level of the whole triple. \textsc{Test299} was curated
+as a pair-level set and the relation term stored on its rows was attached by the retrieval
+pipeline, not by an annotator, so scoring it against that term would test the model on a label
+nobody checked. We therefore evaluate at the pair level everywhere and diagnose at the triple level
+only in \S\ref{sec:decomp}. The cost is real: 11 of the deployed filter's 26 triple-level errors
+are correct pair-level positives, so the headline understates what triple conditioning buys. The
+right fix is triple-level gold on the other two blocks, which we do not have.
+
+\paragraph{One earlier set of numbers is withdrawn.}
+An earlier version of this work fixed the decision threshold by applying a prior-shift rule to the
+reporting set's own gold labels, and scored \textsc{Biotx100} against the full-triple column while
+describing the benchmark as species-level. Every number computed that way is withdrawn, including
+a reported McNemar $p = 0.018$ that does not survive either correction. The present numbers share
+no threshold and no label column with it.
 
 \paragraph{The classifier owns a minority of the pipeline's failures.}
 Of 50 curated rejections, 11 are classifier errors. The rest fail upstream: 32 carry an incorrect
@@ -664,4 +753,36 @@ judgments should be read as an optimistic estimate of performance on genuinely n
 
 \bibliographystyle{acl_natbib}
 \bibliography{references}
+
+\appendix
+
+\section{Negative results and cost}
+\label{sec:negative}
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lp{0.27\columnwidth}p{0.30\columnwidth}@{}}
+\toprule
+Intervention & Benefit & Cost \\
+\midrule
+Taxon-validity gate & $0/7$ entity failures caught & $-5/65$ supported triples; rejects viruses \\
+Self-distillation & none & $-0.001$ P, $-0.008$ F1, $-0.007$ AUPRC \\
+6-layer compression & $1.9\times$ CPU ($24.2 \to 46.2$ pairs/s) & $-0.088$ precision \\
+Corpus signal-matching & none & $-0.059$ AUPRC, both architectures \\
+\bottomrule
+\end{tabular}
+\caption{Four plausible design choices that measurably do not pay.}
+\label{tab:negative}
+\end{table}
+
+Table~\ref{tab:negative} collects four interventions that did not pay, reported because each is a
+plausible first thing to try. These deltas were measured under the earlier evaluation described in
+Limitations, so we give them as directions rather than exact magnitudes. The validity gate is treated in \S\ref{sec:notfixed}. Self-%
+distillation at equal capacity is null, suggesting the teacher's knowledge is already saturated in
+the student, which bounds what a same-architecture approach can add. Compression to six layers buys
+$1.9\times$ CPU throughput for $0.088$ precision; since the uncompressed verifier already runs at
+$24.2$ pairs per second on CPU, above this pipeline's ingestion rate, the trade is available but
+unattractive. Reweighting the corpus toward the deployment signal distribution cost $0.059$ AUPRC
+on both architectures we tried.
+
 \end{document}

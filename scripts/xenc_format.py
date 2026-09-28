@@ -23,25 +23,37 @@ M1O, M1C, M2O, M2C = "@", "@", "#", "#"
 
 
 def _locate(sp, txt):
-    """Character span of taxon `sp` in `txt`, with graceful fallbacks. None if absent."""
+    """Character span of taxon `sp` in `txt`, with graceful fallbacks. None if absent.
+
+    Every candidate is matched at word boundaries. Without them a genus matches inside an
+    unrelated one -- "Aedes" fires on "Aedeomyia" and "Bos" on "Bostrichidae" -- and because
+    the caller reports a successful location, the model is handed a marked fragment of the
+    wrong organism with no indication that anything went wrong.
+    """
     sp = str(sp).strip()
     if not sp:
         return None
-    for cand in (sp,):
-        m = re.search(re.escape(cand), txt, re.I)
-        if m:
-            return m.span()
+
+    def _find(cand):
+        if not cand:
+            return None
+        m = re.search(rf"\b{re.escape(cand)}\b", txt, re.I)
+        return m.span() if m else None
+
+    span = _find(sp)
+    if span:
+        return span
     toks = sp.split()
     if len(toks) > 1:                      # binomial -> genus, then epithet/head noun
         for cand in (toks[0], toks[-1]):
-            m = re.search(re.escape(cand), txt, re.I)
-            if m:
-                return m.span()
+            span = _find(cand)
+            if span:
+                return span
     for cand in (sp + "s", sp.rstrip("s")):  # trivial plural / singular
         if cand and cand != sp:
-            m = re.search(re.escape(cand), txt, re.I)
-            if m:
-                return m.span()
+            span = _find(cand)
+            if span:
+                return span
     return None
 
 

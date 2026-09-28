@@ -95,8 +95,14 @@ Raise the threshold to buy precision; the table is the exact trade.
 
 * **`both_taxa_located = 0`.** The model marks the two taxa in the passage so it knows which pair
   it is being asked about. If a taxon string is not found, that marking failed and the answer is
-  much weaker. Treat those rows as unreviewed. (This is rare — it did not fire once across 48,338
-  training and 437 evaluation rows — but it is the one silent failure mode.)
+  much weaker. Treat those rows as unreviewed. It fires on 5 of the 449 benchmark rows.
+
+  An earlier version of this note said the flag never fired at all. That was true and misleading:
+  taxon matching had no word boundaries, so a genus matched inside an unrelated one — `Aedes`
+  matched the fragment `Aede` in *Aedeomyia*, `Bos` matched inside *Bostrichidae* — and the flag
+  reported a successful location for a marked fragment of the wrong organism. Matching is now
+  anchored at word boundaries, so the flag means what it says. If you scored data with an earlier
+  copy of this package, rows whose taxa are substrings of other words are worth re-checking.
 * **Co-occurrence in a shared host.** The clearest residual error class. When two organisms are
   both mentioned in relation to a *third* one, the model can read that as an interaction between
   them. `example_input.csv` row 3 is a real case: *Acanthamoeba* and *Pseudomonas* both infect

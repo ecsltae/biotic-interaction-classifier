@@ -1,0 +1,87 @@
+{
+  "model": "student_v3",
+  "n": 440,
+  "prevalence": 0.5613636363636364,
+  "input_format": [
+    "triple"
+  ],
+  "auprc": 0.9113624556280507,
+  "best_f1": 0.8644400785854617,
+  "best_thr": 0.04,
+  "per_source": {
+    "biotx100": {
+      "n": 100,
+      "pos": 76,
+      "auprc": 0.9363624259857775
+    },
+    "reject50": {
+      "n": 41,
+      "pos": 9,
+      "auprc": 0.4966362819811096
+    },
+    "test299": {
+      "n": 299,
+      "pos": 162,
+      "auprc": 0.9251802462891248
+    }
+  },
+  "v1_subset": {
+    "n": 141,
+    "precision": 0.8351648351648352,
+    "recall": 0.8941176470588236,
+    "f1": 0.8636363636363636
+  },
+  "vs_v1": [
+    {
+      "thr": 0.02,
+      "degenerate": null,
+      "f1": 0.8735632183908046,
+      "precision": 0.8539325842696629,
+      "recall": 0.8941176470588236,
+      "mcnemar_p": 0.8501067391385259,
+      "v1_only_right": 13,
+      "model_only_right": 15
+    },
+    {
+      "thr": 0.03,
+      "degenerate": null,
+      "f1": 0.8705882352941177,
+      "precision": 0.8705882352941177,
+      "recall": 0.8705882352941177,
+      "mcnemar_p": 0.8501067391385259,
+      "v1_only_right": 13,
+      "model_only_right": 15
+    },
+    {
+      "thr": 0.04,
+      "degenerate": null,
+      "f1": 0.863905325443787,
+      "precision": 0.8690476190476191,
+      "recall": 0.8588235294117647,
+      "mcnemar_p": 1.0,
+      "v1_only_right": 14,
+      "model_only_right": 15
+    },
+    {
+      "thr": 0.01,
+      "degenerate": null,
+      "f1": 0.8491620111731844,
+      "precision": 0.8085106382978723,
+      "recall": 0.8941176470588236,
+      "mcnemar_p": 0.7277235466695502,
+      "v1_only_right": 18,
+      "model_only_right": 15
+    },
+    {
+      "thr": 0.06999999999999999,
+      "degenerate": null,
+      "f1": 0.8466257668711656,
+      "precision": 0.8846153846153846,
+      "recall": 0.8117647058823529,
+      "mcnemar_p": 1.0,
+      "v1_only_right": 17,
+      "model_only_right": 16
+    }
+  ],
+  "n_degenerate_thresholds": 0
+}
