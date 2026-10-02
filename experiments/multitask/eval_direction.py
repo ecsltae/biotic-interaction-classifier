@@ -21,12 +21,14 @@ import numpy as np, pandas as pd, torch
 from scipy.stats import binomtest
 from sklearn.metrics import average_precision_score, f1_score, precision_score, recall_score
 
-REPO = Path("/home/egaillac/MetaP/classifier")
+REPO = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(REPO / "src"))
 sys.path.insert(0, str(REPO / "scripts"))
 sys.path.insert(0, str(REPO / "experiments" / "dirhead"))
 sys.path.insert(0, str(REPO / "experiments" / "direction"))
 sys.path.insert(0, str(REPO / "experiments" / "multitask"))
 import xenc_format as X                                     # noqa: E402
+from eval.core import clean_benchmark                       # noqa: E402  (the one 437-row loader)
 from train_direction import Student, AT_ID, HASH_ID, span_pool  # noqa: E402
 from transformers import AutoTokenizer                      # noqa: E402
 import eval_unified as EU                                   # noqa: E402
@@ -117,8 +119,7 @@ def direction_eval(m, tok, dev):
 
 
 def binary_eval(m, tok, dev, cfg):
-    d = pd.read_csv(REPO / "data/evaluation/unified_test_set.csv")
-    d = d[~d.in_train].reset_index(drop=True)
+    d = clean_benchmark()             # 437 clean rows: in_train and near-duplicates dropped
     y = d.label.to_numpy()
     S, _, _ = run(m, tok, d.species1, d.species2, d.relation, d.sentence, pol=None, dev=dev)
 

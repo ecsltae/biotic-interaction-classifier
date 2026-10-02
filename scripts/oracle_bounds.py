@@ -15,9 +15,12 @@ from scipy.stats import chi2
 REPO = Path(__file__).resolve().parents[1]
 R = REPO/"results/v4_targeted"
 
-d = pd.read_csv(REPO/"data/evaluation/unified_test_set.csv"); d = d[~d.in_train].reset_index(drop=True)
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from eval.core import clean_benchmark, to_clean  # noqa: E402  (the one 437-row loader)
+d = clean_benchmark()
 y = d.label.to_numpy(); hv = d.v1.notna().to_numpy(); v1 = d.v1.fillna(0).to_numpy().astype(int)
-V3 = np.load(R/"scores_V3.npy")
+V3 = to_clean(np.load(R/"scores_V3.npy"))
 
 def sp(t, n):
     n = str(n).split("|")[0].strip()

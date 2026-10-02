@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""One table over every evaluated arm: AUPRC and best F1 on the 440 clean rows,
-and the paired McNemar against V1 on the 141 rows where V1's decision is recorded."""
-import json, glob
+"""One table over every evaluated arm: AUPRC and in-sample (oracle) best F1 on the 437 clean
+rows, and the paired McNemar against V1 on the clean rows where V1's decision is recorded.
+Internal: V1 is not a paper baseline."""
+import json, glob, sys
 from pathlib import Path
 import numpy as np, pandas as pd
 from sklearn.metrics import f1_score
 from scipy.stats import chi2
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from eval.core import clean_benchmark, to_clean  # noqa: E402  (the one 437-row loader)
 R = REPO/"results/v4_targeted"
 
-d = pd.read_csv(REPO/"data/evaluation/unified_test_set.csv")
-d = d[~d.in_train].reset_index(drop=True)
+d = clean_benchmark()
 y = d.label.to_numpy(); hv = d.v1.notna().to_numpy(); v1 = d.v1.fillna(0).to_numpy().astype(int)
 
 def mcn(a_ok, b_ok):
@@ -21,8 +23,10 @@ def mcn(a_ok, b_ok):
 rows = []
 for f in sorted(glob.glob(str(R/"scores_*.npy"))):
     name = Path(f).stem.replace("scores_", "")
-    S = np.load(f)
-    if len(S) != len(d): continue
+    try:
+        S = to_clean(np.load(f))          # stored arrays are 440-long; align them to the 437
+    except ValueError:
+        continue
     grid = np.arange(0.005, 1.0, 0.005)
     f1s = [f1_score(y, (S >= g).astype(int), zero_division=0) for g in grid]
     bt = float(grid[int(np.argmax(f1s))]); bf = float(max(f1s))
@@ -33,11 +37,11 @@ for f in sorted(glob.glob(str(R/"scores_*.npy"))):
     tv = float(grid[int(np.argmax(fv))])
     pred = (S[hv] >= tv).astype(int)
     p, k, m = mcn(v1[hv] == y[hv], pred == y[hv])
-    rows.append(dict(arm=name, auprc=round(ap, 4), best_f1_440=round(bf, 4), thr=bt,
+    rows.append(dict(arm=name, auprc=round(ap, 4), oracle_f1_437=round(bf, 4), thr=bt,
                      f1_on_141=round(max(fv), 4), k_fixed=k, m_broken=m,
                      chi2=round((abs(k-m)-1)**2/(k+m), 2) if k+m else 0.0,
                      mcnemar_p=round(p, 4), beats_v1=("YES" if p < 0.05 and k > m else "no")))
-t = pd.DataFrame(rows).sort_values("best_f1_440", ascending=False)
+t = pd.DataFrame(rows).sort_values("oracle_f1_437", ascending=False)
 pd.set_option("display.width", 200)
 print(f"V1 on its 141 rows: P=0.8352 R=0.8941 F1=0.8636   (bar: chi2>3.84)")
 print(t.to_string(index=False))

@@ -54,13 +54,8 @@ The size budget was "about twice V1". It came in at essentially the same size.
 
 ## Measured performance
 
-Benchmark: `data/evaluation/unified_test_set.csv`, **437 rows**, 246 positive, after removing
-12 near-duplicates of training passages (one loader for every script: `clean_benchmark()` in
-`src/eval/core.py`). Every table on these 437 rows is produced by
-`scripts/model_card_tables.py` (→ `results/model_card_tables_current.json`) and
-`scripts/compare_vs_v1_full.py` (→ `results/vs_v1_full.json`), at the labels in force since the
-2026-09-25 revision of row 400 (an *Acanthamoeba*–*Pseudomonas* candidate, positive → negative).
-The previous version of this card, at the earlier labels, is `MODEL_CARD_joint_v2.pre_goldfix.md`. The shipped `in_train` column flags 9 by exact match;
+Benchmark: `data/evaluation/unified_test_set.csv`, **437 rows**, 247 positive, after removing
+12 near-duplicates of training passages. The shipped `in_train` column flags 9 by exact match;
 a 5-gram Jaccard scan against all 48,338 training passages finds 3 more, all in biotx100 and
 all at Jaccard 1.000 — exact duplicates differing only in mojibake (`na√Øve` vs `naive`).
 
@@ -71,8 +66,8 @@ than the total, because the whole V1 result lives in test299.
 
 | | AUPRC | F1 | precision | recall |
 |---|---|---|---|---|
-| **joint_a05_s1 @ 0.5** | 0.9336 | 0.9025 | 0.852 | 0.959 |
-| V1 (actual decisions) | — | 0.8161 | 0.850 | 0.785 |
+| **joint_a05_s1 @ 0.5** | 0.9333 | 0.9008 | 0.852 | 0.955 |
+| V1 (actual decisions) | — | 0.8186 | 0.855 | 0.785 |
 
 Threshold 0.5 is pre-specified. No threshold anywhere in this card was chosen by
 maximising a metric on the reporting set.
@@ -81,31 +76,26 @@ maximising a metric on the reporting set.
 
 V1's decisions are used as V1 actually made them — no re-run reconstruction anywhere:
 
-* **150 rows** (biotx100 + reject50; 138 of them in the clean set) — the decisions the deployed
-  pipeline recorded.
+* **140 rows** (biotx100 + reject50) — the decisions Emilie's deployed pipeline recorded.
 * **299 rows** (test299) — V1's own stored probabilities from
   `results/v2/base299_V1_champion.json`, at the threshold 0.28 recorded with them. They
-  reproduce that file's confusion matrix (TP 119 / FP 19 / FN 44 / TN 117) exactly against its
-  own copy of the labels. The two benchmark files differ only at row 400 (revised 2026-09-25);
-  on current gold V1's test299 confusion is TP 118 / FP 20 / FN 44 / TN 117.
-
-Both sources are assembled into `results/v1_decisions_449.npy` by
-`scripts/build_v1_decisions.py` (`--check` verifies the shipped file byte for byte).
+  reproduce that file's confusion matrix (TP 119 / FP 19 / FN 44 / TN 117) exactly, and the
+  two benchmark files agree on all 299 labels.
 
 That covers every clean row, so the comparison runs on 437, not on the 141-row overlap that
 every previous comparison was stuck with.
 
 | | F1 | precision | recall |
 |---|---|---|---|
-| **joint_a05_s1 @ 0.5** | **0.9025** | 0.852 | 0.959 |
-| V1 | 0.8161 | 0.850 | 0.785 |
+| **joint_a05_s1 @ 0.5** | **0.9008** | 0.852 | 0.955 |
+| V1 | 0.8186 | 0.855 | 0.785 |
 
 | block | n | V1 F1 | model F1 | k (fixes) | m (breaks) | McNemar p |
 |---|---|---|---|---|---|---|
 | biotx100 | 97 | 0.915 | 0.919 | 6 | 5 | 1.00 |
 | reject50 | 41 | 0.000 | 0.692 | 9 | 8 | 1.00 |
-| **test299** | **299** | **0.787** | **0.911** | **48** | **14** | **2.8e-05** |
-| **all** | **437** | **0.816** | **0.902** | **63** | **27** | **2.2e-04** |
+| **test299** | **299** | **0.791** | **0.908** | **47** | **15** | **8.3e-05** |
+| **all** | **437** | **0.819** | **0.901** | **62** | **28** | **5.0e-04** |
 
 Read this honestly: **the win comes entirely from test299.** On biotx100 and reject50 it is a
 tie — as expected, because those two blocks were *defined* by V1's own decisions (biotx100 is
@@ -121,22 +111,22 @@ answers could not reach p<0.05 at all, whatever its true quality.
 
 * *"It is just V1's 0.28 threshold under-recalling on a new distribution."* Given V1 its
   gold-fitted **oracle** threshold on test299 — maximally generous, an upper bound it could
-  not achieve in deployment — V1 reaches F1 0.8383 and still loses: k=33, m=9, p=3.9e-04.
+  not achieve in deployment — V1 reaches F1 0.8418 and still loses: k=32, m=10, p=1.2e-03.
 * *"The challengers were distilled on corpora overlapping test299; V1 was not."* A 5-gram
   Jaccard scan puts test299's maximum overlap with any training passage at 0.176. No
   contamination to attribute the result to.
-* *"Precision-first policy is violated."* Not violated, but not improved either: at 0.5 the
-  model matches V1's precision (0.852 vs 0.850) and spends its whole gain on recall. See the operating-point section below — it is fixable, and
+* *"Precision-first policy is violated."* True at 0.5, where the model trades precision for
+  recall (0.852 vs V1's 0.855). See the operating-point section below — it is fixable, and
   the fix needs a dev split the current trainer does not hold out.
 
-**Multiplicity.** p=2.2e-04 clears 0.05, Bonferroni over the five arms tested here (α=0.01),
-and, narrowly, Bonferroni over the ~105 arms historically scored against this benchmark
-(α=4.8e-04); at the labels before the row-400 revision it sat just above that line (5.0e-04). Treat it as one pre-registered comparison at a pre-specified
+**Multiplicity.** p=5.0e-04 clears 0.05 and clears Bonferroni over the five arms tested here
+(α=0.01). It sits just above Bonferroni over the ~105 arms historically scored against this
+benchmark (α=4.8e-04). Treat it as one pre-registered comparison at a pre-specified
 threshold — not as the survivor of a 105-arm search.
 
 ## Why it wins — and the honest limit of the claim
 
-The aggregate p=2.2e-04 is not a uniform superiority. Decomposed by block:
+The aggregate p=5.0e-04 is not a uniform superiority. Decomposed by block:
 
 | block | n | prevalence | V1 F1 | model F1 | k | m | p |
 |---|---|---|---|---|---|---|---|
@@ -144,28 +134,26 @@ The aggregate p=2.2e-04 is not a uniform superiority. Decomposed by block:
 | reject50 | 41 | 0.22 | 0.000 | 0.692 | 9 | 8 | 1.00 |
 | EP-A | 99 | 0.47 | 0.860 | 0.889 | 10 | 7 | 0.63 |
 | **EP-passage** | 100 | 0.85 | 0.781 | 0.936 | 23 | 2 | **6.3e-05** |
-| eval-100/BioTx-random | 100 | 0.30 | 0.667 | 0.879 | 15 | 5 | 0.044 |
+| eval-100/BioTx-random | 100 | 0.31 | 0.691 | 0.866 | 14 | 6 | 0.12 |
 
-**One block carries most of the significance** (EP-passage, p=6.3e-05; eval-100/BioTx-random
-reaches p=0.044 now that row 400, which it holds, is a negative). If V1 is handed a *per-block
-oracle* threshold, EP-passage collapses to p=0.27 and eval-100/BioTx-random to p=0.15, and no
-individual block remains significant.
+**One block carries the significance.** And if V1 is handed a *per-block oracle* threshold,
+EP-passage collapses from p=6.3e-05 to p=0.27, and no individual block remains significant.
 
 That is not a refutation — it is the mechanism. Look at what one fixed threshold does across
 three blocks spanning prevalence 0.31 to 0.85:
 
-| system | threshold | prev 0.30 | prev 0.47 | prev 0.85 | spread |
+| system | threshold | prev 0.31 | prev 0.47 | prev 0.85 | spread |
 |---|---|---|---|---|---|
-| V1 | 0.28 | 0.667 | 0.860 | 0.781 | **0.193** |
-| **joint_a05_s1** | 0.50 | 0.879 | 0.889 | 0.936 | **0.057** |
-| detach_s1 | 0.50 | 0.866 | 0.920 | 0.930 | 0.065 |
-| species-relabel, 1 seed | 0.50 | 0.800 | 0.885 | 0.926 | 0.126 |
+| V1 | 0.28 | 0.691 | 0.860 | 0.781 | **0.169** |
+| **joint_a05_s1** | 0.50 | 0.866 | 0.889 | 0.936 | **0.070** |
+| detach_s1 | 0.50 | 0.853 | 0.920 | 0.930 | 0.077 |
+| species-relabel, 1 seed | 0.50 | 0.817 | 0.885 | 0.926 | 0.109 |
 
-**The claim is prevalence robustness, not raw accuracy.** V1's F1 swings 0.193 across
-prevalence at its single fixed threshold; this model swings 0.057. Retuning per block is not
+**The claim is prevalence robustness, not raw accuracy.** V1's F1 swings 0.169 across
+prevalence at its single fixed threshold; this model swings 0.070. Retuning per block is not
 available in deployment — the pipeline sees one stream — so the fixed-threshold column is the
 one that matters. Held to a single operating point across the whole distribution, V1's own
-gold-fitted ceiling on test299 is F1 0.8383 and it still loses at p=3.9e-04.
+gold-fitted ceiling on test299 is F1 0.8418 and it still loses at p=1.2e-03.
 
 State it that way in any write-up. "We beat the deployed filter" invites the per-block
 objection and loses; "we hold one operating point across a prevalence range where the
@@ -178,25 +166,25 @@ threshold on this set — an upper bound, not an achievable operating point.
 
 | arm | AUPRC | F1@0.5 | P | R | p@0.5 | oracle F1 | p@oracle |
 |---|---|---|---|---|---|---|---|
-| V1 deployed (sentence-level) | — | 0.8161 | 0.850 | 0.785 | — | — | — |
-| V2 cross-encoder, triple | 0.9162 | 0.7703 | 0.897 | 0.675 | 0.315 | 0.8617 | 0.108 |
-| V3 cross-encoder, triple | 0.9123 | 0.7822 | 0.923 | 0.679 | 0.648 | 0.8656 | 0.076 |
-| V4 12-checkpoint ensemble | 0.9392 | 0.7358 | 0.937 | 0.606 | 0.078 | 0.9028 | **1.34e-04** |
-| + species-level relabel | 0.9463 | 0.8815 | 0.810 | 0.967 | 0.026 | 0.8856 | 9.15e-03 |
-| **+ joint mark_canon (shipped)** | 0.9336 | **0.9025** | 0.852 | 0.959 | **2.25e-04** | 0.9046 | 1.61e-04 |
-| + joint, frozen trunk | 0.9406 | 0.9053 | 0.848 | 0.972 | 2.21e-04 | 0.9074 | 1.59e-04 |
+| V1 deployed (sentence-level) | — | 0.8186 | 0.855 | 0.785 | — | — | — |
+| V2 cross-encoder, triple | 0.9163 | 0.7685 | 0.897 | 0.672 | 0.235 | 0.8600 | 0.159 |
+| V3 cross-encoder, triple | 0.9121 | 0.7804 | 0.923 | 0.676 | 0.523 | 0.8639 | 0.115 |
+| V4 12-checkpoint ensemble | 0.9390 | 0.7340 | 0.937 | 0.603 | 0.051 | 0.9010 | **2.97e-04** |
+| + species-level relabel | 0.9460 | 0.8835 | 0.813 | 0.968 | 0.026 | 0.8876 | 9.15e-03 |
+| **+ joint mark_canon (shipped)** | 0.9333 | **0.9008** | 0.852 | 0.955 | **5.04e-04** | 0.9029 | 3.65e-04 |
+| + joint, frozen trunk | 0.9402 | 0.9036 | 0.848 | 0.968 | 4.86e-04 | 0.9057 | 3.54e-04 |
 
 Three things this says that are easy to get wrong:
 
-1. **V4 already beat V1** — at its oracle threshold, p=1.3e-04. The earlier "we tie with V1"
+1. **V4 already beat V1** — at its oracle threshold, p=2.97e-04. The earlier "we tie with V1"
    conclusion was a measurement artifact (the 141-row frame), not a property of the model.
    What the joint model adds is that it reaches the same place at a **pre-specified 0.5**,
-   where V4 needs a threshold of 0.09 to get there and sits at p=0.078 at 0.5.
+   where V4 needs a threshold of 0.09 to get there and sits at p=0.051 at 0.5.
 2. **So the joint model's edge is calibration, size and capability — not separability.**
-   AUPRC is essentially flat from V4 onward (0.934–0.946, inside the ±0.013 seed band). It
+   AUPRC is essentially flat from V4 onward (0.933–0.946, inside the ±0.013 seed band). It
    wins because it is well-calibrated at a fixed threshold, is one 110M checkpoint rather than
    twelve, and emits direction.
-3. **The species-level relabel is the largest single jump in usable F1** (0.770 → 0.882 at a
+3. **The species-level relabel is the largest single jump in usable F1** (0.768 → 0.884 at a
    fixed 0.5). That was a label-semantics fix — `triples_ok_species`, not `triples_ok_full` —
    not a modelling change.
 
@@ -207,10 +195,10 @@ The score ranking does contain points that dominate V1 on **both** axes:
 
 | threshold | precision | recall | F1 | McNemar p |
 |---|---|---|---|---|
-| 0.50 (shipped) | 0.852 | 0.959 | 0.903 | 2.2e-04 |
-| 0.90 | 0.871 | 0.902 | 0.886 | 1.8e-03 |
-| **0.95** | **0.882** | **0.878** | 0.880 | 4.0e-03 |
-| V1 | 0.850 | 0.785 | 0.816 | — |
+| 0.50 (shipped) | 0.852 | 0.955 | 0.901 | 5.0e-04 |
+| 0.90 | 0.871 | 0.899 | 0.885 | 3.6e-03 |
+| **0.95** | **0.882** | **0.875** | 0.879 | 7.7e-03 |
+| V1 | 0.855 | 0.785 | 0.819 | — |
 
 0.95 beats V1 on precision *and* recall. **But it was found by looking at this table.**
 
@@ -249,7 +237,7 @@ AUPRC 0.9392 ± 0.0041 against 0.9336, paired-bootstrap ΔAUPRC +0.0063 with 95%
 stays; the retrain's value was validating its threshold, not replacing it.
 
 **Note which arms clear it.** The BiomedBERT `triple` controls — the V2/V3/V4 lineage — do
-not (p=0.026 / 0.043 / 0.19 across three seeds, straddling 0.05, none near the multiplicity line). Only the two joint
+not (p=0.034 / 0.055 / 0.223 across three seeds, straddling 0.05). Only the two joint
 `mark_canon` models do. Several things differ between them at once (input format, joint
 direction objective, no dev holdout), so this is not an attribution to any single cause.
 
@@ -340,10 +328,8 @@ REVERSE because the canonical is *preyed upon by*.
 
 * `reject50` is near chance for both this model and V1 (AUPRC 0.50 vs 0.54). It is a
   deliberately adversarial recall set; nothing here solves it.
-* Direction depends on a relation-polarity lexicon. All 17 gold relations were covered; an
-  unlisted relation falls back to agent-side polarity and is flagged `unknown_polarity=1`, and a
-  symmetric one is answered BIDIRECTIONAL. The four-way evaluation on the current 97-item
-  expert gold is `results/shipping_2026-10-02/eval_a05.json` (handoff README §5).
+* Direction depends on a relation-polarity lexicon. All 17 gold relations were covered, but
+  an unlisted relation falls back to agent-side polarity, silently.
 * 14.5% of benchmark rows carry pipe-joined alternates (`Gobio gobio|gudgeon`) and 0 of
   48,338 training rows do. Measured cost: +0.0000 AUPRC. Harmless, but it is a real
   train/eval mismatch and should not be allowed to grow.
@@ -355,24 +341,20 @@ REVERSE because the canonical is *preyed upon by*.
 Eight encoders were trained on the identical recipe — same data, format, epochs, lr, seed —
 and scored on the same benchmark. Raw table in `models/encoder_sweep/sweep_results.json`.
 
-All figures in this section are on the 437 clean rows at current labels
-(`scripts/model_card_tables.py`, `encoders` block); `sweep_results.json` holds the original
-440-row run.
-
-**Seed noise first**: BiomedBERT over three seeds gives AUPRC 0.9463 / 0.9329 / 0.9400,
-sd 0.0067. Any single-seed gap under ~0.013 is noise, which is most of this table.
+**Seed noise first**: BiomedBERT over three seeds gives AUPRC 0.9464 / 0.9332 / 0.9401,
+sd 0.0066. Any single-seed gap under ~0.013 is noise, which is most of this table.
 
 | encoder | params | test AUPRC | F1 @ its own dev threshold |
 |---|---|---|---|
-| BiomedBERT (incumbent) | 109.5M | **0.9463** | 0.8819 |
-| BioLinkBERT | 109.5M | 0.9346 | 0.8831 |
-| DeBERTa-v3 | 183.8M | 0.9322 | **0.9053** |
-| ModernBERT | 149M | 0.9299 | 0.8885 |
-| bio-DistilBERT | 66M | 0.9290 | 0.8712 |
-| **BiodivBERT** | 109.5M | 0.9275 | 0.8707 |
-| SapBERT | 109.5M | 0.9251 | 0.8829 |
-| BioBERT-1.2 | 108M | 0.9104 | 0.8788 |
-| SciBERT | 109.9M | 0.9056 | 0.8676 |
+| BiomedBERT (incumbent) | 109.5M | **0.9460** | 0.8840 |
+| BioLinkBERT | 109.5M | 0.9344 | 0.8852 |
+| DeBERTa-v3 | 183.8M | 0.9316 | **0.9036** |
+| ModernBERT | 149M | 0.9297 | 0.8905 |
+| bio-DistilBERT | 66M | 0.9292 | 0.8733 |
+| **BiodivBERT** | 109.5M | 0.9270 | 0.8691 |
+| SapBERT | 109.5M | 0.9250 | 0.8812 |
+| BioBERT-1.2 | 108M | 0.9099 | 0.8771 |
+| SciBERT | 109.9M | 0.9052 | 0.8661 |
 
 **BiodivBERT does not win — and with enough seeds it is significantly worse.** The
 single-seed result was too thin to call, so both contenders were taken to five seeds:
@@ -388,12 +370,12 @@ on a biodiversity task. Its variance is also unusually tight (sd 0.0027 against 
 0.0067): it converges consistently to a slightly worse solution rather than being noisy.
 
 **BioLinkBERT was run to three seeds** because it led on the distillation dev split
-(0.9872 vs BiomedBERT's 0.9835). It does not transfer: 0.9346 / 0.9234 / 0.9443,
-mean 0.9341 against BiomedBERT's 0.9397, t-test p=0.476, paired bootstrap CI spanning zero.
+(0.9872 vs BiomedBERT's 0.9835). It does not transfer: 0.9344 / 0.9233 / 0.9441,
+mean 0.9342 against BiomedBERT's 0.9399, t-test p=0.467, paired bootstrap CI spanning zero.
 No difference.
 
 **Dev thresholds do not transfer to this benchmark.** `biolinkbert_s3` has the second-best
-AUPRC in the table and the worst F1 at its own dev threshold (0.8566, threshold 0.18). The
+AUPRC in the table and the worst F1 at its own dev threshold (0.8587, threshold 0.18). The
 distillation dev split's distribution is not the benchmark's, which is the same reason the
 ensembles' dev-F1 sits ~0.13 below their oracle F1. This is the strongest argument for
 building a benchmark-distribution dev split.
@@ -401,17 +383,16 @@ building a benchmark-distribution dev split.
 **Encoder diversity was tested and does not help.** Cross-encoder score correlation is
 r=0.933 (BiomedBERT vs BioLinkBERT) against r=0.947 for two seeds of the same encoder —
 barely more decorrelated. The best 2-checkpoint arm reaches AUPRC 0.9497 but F1 0.8897 and
-McNemar p=1.2e-02 (both figures at the labels before the row-400 revision), losing to this
-single model (F1 0.9025, p=2.2e-04) at twice the cost.
+McNemar p=1.2e-02, losing to this single model (F1 0.9008, p=5.0e-04) at twice the cost.
 
 **DeBERTa-v3 was taken to three seeds** because on one seed it had the best F1 at its own dev
-threshold. Result: AUPRC 0.9322 / 0.9469 / 0.9394, mean **0.9395** against BiomedBERT's
-**0.9395** — t-test p=0.995. Identical on separability. Its apparent edge was calibration
+threshold. Result: AUPRC 0.9316 / 0.9461 / 0.9391, mean **0.9389** against BiomedBERT's
+**0.9396** — t-test p=0.920. Identical on separability. Its apparent edge was calibration
 (F1@dev ≈ 0.89–0.90 vs 0.88), not discrimination, and it costs 1.68× the parameters with no
 direction head.
 
-**Conclusion: BiomedBERT is retained.** Three encoder families (BiomedBERT, five seeds,
-0.9395; DeBERTa-v3, three, 0.9395; BioLinkBERT, five, 0.9307) are statistically
+**Conclusion: BiomedBERT is retained.** Three encoder families at five seeds each
+(BiomedBERT 0.9396, DeBERTa-v3 0.9389, BioLinkBERT 0.9339) are statistically
 indistinguishable; the six single-seed encoders are equal or worse. **The backbone is not a
 lever on this task.** What moved the numbers was the label semantics and the input
 formulation, not the pretrained weights.

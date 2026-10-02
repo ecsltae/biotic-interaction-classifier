@@ -1,4 +1,4 @@
-\begin{thebibliography}{54}
+\begin{thebibliography}{57}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Ai and Kavuluru(2023)}]{ai2023endtoend}
@@ -164,6 +164,12 @@ Lynette Hirschman, Gully A. P.~C. Burns, Martin Krallinger, Cecilia Arighi,
   biocuration workflow}.
 \newblock \emph{Database}, 2012:bas020.
 
+\bibitem[{Islamaj et~al.(2024)}]{islamaj2024overview}
+Rezarta Islamaj and 1 others. 2024.
+\newblock The overview of the {BioRED} ({Biomedical Relation Extraction
+  Dataset}) track at {BioCreative VIII}.
+\newblock \emph{Database}, 2024.
+
 \bibitem[{Kaushik and Lipton(2018)}]{kaushik-lipton-2018-much}
 Divyansh Kaushik and Zachary~C. Lipton. 2018.
 \newblock \href {https://doi.org/10.18653/v1/D18-1546} {How much reading does
@@ -180,6 +186,17 @@ Fran{\c c}ois Keck, Henry Broadbent, and Florian Altermatt. 2025.
   models}.
 \newblock \emph{bioRxiv}.
 \newblock Preprint, posted 27 January 2025.
+
+\bibitem[{Lai et~al.(2023)Lai, Wei, Luo, Chen, and Lu}]{lai2023biorex}
+Po-Ting Lai, Chih-Hsuan Wei, Ling Luo, Qingyu Chen, and Zhiyong Lu. 2023.
+\newblock {BioREx}: Improving biomedical relation extraction by leveraging
+  heterogeneous datasets.
+\newblock \emph{Journal of Biomedical Informatics}, 146:104487.
+
+\bibitem[{Lai et~al.(2025)Lai, Wei, Tian, Leaman, and Lu}]{lai2025bioredirect}
+Po-Ting Lai, Chih-Hsuan Wei, Shubo Tian, Robert Leaman, and Zhiyong Lu. 2025.
+\newblock Enhancing biomedical relation extraction with directionality.
+\newblock \emph{Bioinformatics}, 41(Supplement\_1):i68--i76.
 
 \bibitem[{Le~Guillarme and Thuiller(2022)}]{leguillarme2022taxonerd}
 Nicolas Le~Guillarme and Wilfried Thuiller. 2022.

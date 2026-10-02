@@ -13,7 +13,7 @@ Why this script exists
   all 440 rows. That is what this does.
 
 Two V1s, and they are not the same thing
-  recorded -- the decisions Emilie's deployed pipeline produced (rules + NER + classifier).
+  recorded -- the decisions the deployed pipeline produced (rules + NER + classifier).
               Authoritative, but only on 150 rows.
   stored   -- V1's own probabilities on the 299 test299 rows, saved when V1 was scored
               there (results/v2/base299_V1_champion.json), at the threshold recorded with
@@ -31,20 +31,22 @@ from pathlib import Path
 import numpy as np, pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from eval_unified import mcnemar                                      # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from eval.core import clean_mask, to_clean                            # noqa: E402
 from sklearn.metrics import (average_precision_score, f1_score,       # noqa: E402
                              precision_score, recall_score)
 
 REPO = Path(__file__).resolve().parents[1]
-# Authoritative V1 decisions on every clean row, built by build_v1_authoritative():
-#   140 rows -- the decisions Emilie's deployed pipeline recorded (the `v1` column)
+# Authoritative V1 decisions on every clean row, built by scripts/build_v1_decisions.py:
+#   150 rows -- the decisions the deployed pipeline recorded (the `v1` column)
 #   299 rows -- V1's own stored probabilities for test299 from
 #               results/v2/base299_V1_champion.json, thresholded at its recorded 0.28.
-#               These reproduce that file's confusion (TP119/FP19/FN44/TN117) exactly,
-#               and the two benchmark files agree on all 299 labels.
+#               These reproduce that file's confusion (TP119/FP19/FN44/TN117) against its
+#               own copy of the labels. The two benchmark files differ only at row 400
+#               (gold revised 1 -> 0 on 2026-09-25); on current gold V1's test299 confusion is
+#               TP118/FP20/FN44/TN117.
 # Nothing here is a re-run reconstruction.
 V1_DECISIONS = REPO / "results/v1_decisions_449.npy"   # full length, -1 = no decision
-CONTAM = REPO / "results/test_contamination_scan.csv"       # 5-gram Jaccard vs training text
-JACCARD_MAX = 0.5
 CHALLENGER_THR = 0.5
 
 
@@ -64,16 +66,14 @@ def clean_benchmark():
     test299 is clean by this measure: 0 rows above 0.5, max 0.176, mean 0.008. Since the
     whole V1 result lives in test299, that matters more than the total count.
     """
+    keep = clean_mask()               # the shared loader of src/eval/core.py
     d = pd.read_csv(REPO / "data/evaluation/unified_test_set.csv")
-    d["maxj"] = pd.read_csv(CONTAM).maxj.values
-    leak = (d.maxj >= JACCARD_MAX) | d.in_train
-    return d[~leak].reset_index(drop=True), (~leak).to_numpy(), int(leak.sum())
+    return d[keep].reset_index(drop=True), keep, int((~keep).sum())
 
 
-def compare(scores_440, name, d, sel):
+def compare(scores, name, d, sel):
     y = d.label.to_numpy()
-    keep = sel[~pd.read_csv(REPO / "data/evaluation/unified_test_set.csv").in_train.to_numpy()]
-    S = np.asarray(scores_440)[keep]
+    S = to_clean(scores)              # 440-long arrays (older runs) or 437-long
     assert len(S) == len(d), f"{name}: {len(S)} scores for {len(d)} rows"
     V = np.load(V1_DECISIONS)[sel]
     assert (V >= 0).all(), "a kept row has no V1 decision"
@@ -110,7 +110,7 @@ def main():
     for spec in a.scores:
         name, path = spec.split("=", 1)
         res.append(compare(np.load(REPO / path), name, d, sel))
-    hdr = f'{"arm":18} {"AUPRC":>7} {"F1":>6} {"P":>6} {"R":>6} {"k":>4} {"m":>4} {"p(440)":>10} {"p(rec141)":>10}'
+    hdr = f'{"arm":18} {"AUPRC":>7} {"F1":>6} {"P":>6} {"R":>6} {"k":>4} {"m":>4} {"p(437)":>10} {"p(rec141)":>10}'
     print(hdr); print("-" * len(hdr))
     for r in res:
         b = r["blocks"]["ALL"]; v = r.get("vs_recorded_v1", {})

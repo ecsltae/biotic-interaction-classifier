@@ -26,12 +26,13 @@ from scipy.stats import chi2
 import eval_unified as EU
 
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from eval.core import clean_benchmark, to_clean  # noqa: E402  (the one 437-row loader)
 CACHE = REPO/"results/final_v4/scores"
 
 
 def load_clean():
-    d = pd.read_csv(REPO/"data/evaluation/unified_test_set.csv")
-    return d[~d.in_train].reset_index(drop=True)
+    return clean_benchmark()          # 437 rows: in_train and near-duplicates dropped
 
 
 def scores_for(model_dirs, d, tag):

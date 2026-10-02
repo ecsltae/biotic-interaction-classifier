@@ -18,7 +18,7 @@ Thresholds are never chosen on the evaluation rows: --crossfit picks the thresho
 4/5 of the rows and scores the held-out 5th, rotating, repeated over 10 seeds.
 """
 from __future__ import annotations
-import argparse, json
+import argparse, json, sys
 from pathlib import Path
 import numpy as np, pandas as pd, torch
 from scipy.stats import chi2, rankdata
@@ -29,6 +29,8 @@ from eval_unified import model_format as _model_format
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from eval.core import clean_benchmark  # noqa: E402  (the one 437-row loader)
 
 # Ten most frequent interaction types among POSITIVE rows of
 # data/training/distill/v3_combined_train.csv. Order matters: --probes N takes a prefix.
@@ -169,8 +171,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     torch.set_float32_matmul_precision("high")
 
-    data = pd.read_csv(REPO / "data/evaluation/unified_test_set.csv")
-    data = data[~data.in_train].reset_index(drop=True)     # 440 clean rows
+    data = clean_benchmark()          # 437 clean rows: in_train and near-duplicates dropped
     y = data.label.to_numpy()
     strata = np.array([f"{s}_{l}" for s, l in zip(data.source, y)])
 

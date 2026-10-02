@@ -10,6 +10,8 @@ REPO = HERE.parents[1]
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(REPO / "scripts"))
 import dirlib, eval_dirhead as E
 import eval_unified
+sys.path.insert(0, str(REPO / "src"))
+from eval.core import clean_benchmark  # noqa: E402  (the one 437-row loader)
 
 
 def dir_metrics(P, truth, name, ok=None):
@@ -125,8 +127,7 @@ def main():
 
     # ---------------- binary task
     if not a.skip_binary:
-        d = pd.read_csv(REPO / "data/evaluation/unified_test_set.csv")
-        d = d[~d.in_train].reset_index(drop=True)
+        d = clean_benchmark()         # 437 clean rows: in_train and near-duplicates dropped
         dd = d.rename(columns={"sentence": "text", "species1": "s1", "species2": "s2",
                                "relation": "rel"})
         PB, _, _ = E.score(m, tok, dd, dev)

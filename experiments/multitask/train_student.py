@@ -54,6 +54,9 @@ def main():
     ap.add_argument("--lr", type=float, default=2e-5)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--val-frac", type=float, default=0.1)
+    ap.add_argument("--dev-data", default=None,
+                    help="external development set for epoch selection and the threshold; "
+                         "default a pair-grouped --val-frac split of --data")
     ap.add_argument("--input-format", default="triple", choices=list(xenc_format.FORMATS))
     ap.add_argument("--max-len", type=int, default=256)
     ap.add_argument("--micro-batch", type=int, default=0,
@@ -70,12 +73,16 @@ def main():
     # group split on taxon pair so a pair never spans train and dev
     df["_pk"] = [tuple(sorted([str(x).lower(), str(y).lower()]))
                  for x, y in zip(df.source_species, df.target_species)]
-    rng = np.random.RandomState(a.seed)
-    pairs = df._pk.unique(); rng.shuffle(pairs)
-    ndev = int(len(pairs)*a.val_frac)
-    devp = set(pairs[:ndev])
-    tr, va = df[~df._pk.isin(devp)], df[df._pk.isin(devp)]
-    print(f"train {len(tr)} / dev {len(va)}  (pair-grouped split, {len(devp)} dev pairs)", flush=True)
+    if a.dev_data:
+        tr, va = df, pd.read_csv(REPO/a.dev_data)
+        print(f"train {len(tr)} / dev {len(va)}  (external dev set {a.dev_data})", flush=True)
+    else:
+        rng = np.random.RandomState(a.seed)
+        pairs = df._pk.unique(); rng.shuffle(pairs)
+        ndev = int(len(pairs)*a.val_frac)
+        devp = set(pairs[:ndev])
+        tr, va = df[~df._pk.isin(devp)], df[df._pk.isin(devp)]
+        print(f"train {len(tr)} / dev {len(va)}  (pair-grouped split, {len(devp)} dev pairs)", flush=True)
 
     tok = AutoTokenizer.from_pretrained(a.encoder)
     model = AutoModelForSequenceClassification.from_pretrained(a.encoder, num_labels=2).to(dev)
@@ -120,18 +127,20 @@ def main():
         ap_ = average_precision_score(Y, P)
         hist.append({"epoch": ep+1, "dev_auprc": float(ap_)})
         print(f"  ep{ep+1} dev AUPRC {ap_:.4f} ({time.time()-t0:.0f}s)", flush=True)
-        if ap_ > best: best, best_state = ap_, {k: v.cpu().clone() for k, v in model.state_dict().items()}
+        if ap_ > best:
+            best, best_state = ap_, {k: v.cpu().clone() for k, v in model.state_dict().items()}
+            best_P, best_Y = np.array(P), np.array(Y)     # the threshold must come from the saved epoch
     model.load_state_dict(best_state)
     out = REPO/a.out; out.mkdir(parents=True, exist_ok=True)
     model.save_pretrained(out); tok.save_pretrained(out)
     # dev-derived threshold, never from test
     grid = np.arange(0.01,1.0,0.01)
-    t = float(grid[int(np.argmax([f1_score(Y,(np.array(P)>=g).astype(int),zero_division=0) for g in grid]))])
+    t = float(grid[int(np.argmax([f1_score(best_Y,(best_P>=g).astype(int),zero_division=0) for g in grid]))])
     (out/"student_config.json").write_text(json.dumps({
         "threshold_dev": t, "best_dev_auprc": best, "seed": a.seed, "epochs": a.epochs,
         "input_format": a.input_format, "encoder": a.encoder, "max_len": a.max_len, "lr": a.lr,
         "micro_batch": a.micro_batch,
-        "data": a.data, "train_pos_rate": float(df.label.mean()), "pos_weight": a.pos_weight,
+        "data": a.data, "dev_data": a.dev_data, "train_pos_rate": float(df.label.mean()), "pos_weight": a.pos_weight,
         "git": subprocess.run(["git","describe","--always","--dirty"],cwd=REPO,capture_output=True,text=True).stdout.strip(),
         "history": hist}, indent=2))
     print(f"saved {out}  dev_t={t:.3f}  dev AUPRC {best:.4f}", flush=True)

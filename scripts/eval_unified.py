@@ -17,6 +17,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from sklearn.metrics import average_precision_score, f1_score, precision_score, recall_score
 from scipy.stats import chi2, norm as snorm
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from eval.core import clean_benchmark, to_clean  # noqa: E402  (the one 437-row loader)
 
 def model_format(md):
     """Input format a checkpoint was trained with; pre-format checkpoints are triple-query."""
@@ -26,8 +28,18 @@ def model_format(md):
         except Exception: pass
     return "triple"
 
+def model_max_len(md):
+    """Token budget a checkpoint was trained with (256 for every checkpoint before the
+    document-level BioRED arm); scoring at a shorter budget would truncate what it was trained on."""
+    cfg = Path(md)/"student_config.json"
+    if cfg.exists():
+        try: return int(json.loads(cfg.read_text()).get("max_len", 256))
+        except Exception: pass
+    return 256
+
 def score(md, d, dev, bs=64):
     fmt = model_format(md)
+    ml = model_max_len(md)
     q, p = xenc_format.build_many(fmt, d.species1, d.relation, d.species2, d.sentence.astype(str))
     tok = AutoTokenizer.from_pretrained(md, local_files_only=True)
     m = AutoModelForSequenceClassification.from_pretrained(md, local_files_only=True).to(dev).eval()
@@ -35,10 +47,10 @@ def score(md, d, dev, bs=64):
     with torch.no_grad():
         for i in range(0, len(q), bs):
             if p is None:
-                e = tok(q[i:i+bs], truncation=True, max_length=256,
+                e = tok(q[i:i+bs], truncation=True, max_length=ml,
                         padding=True, return_tensors="pt").to(dev)
             else:
-                e = tok(q[i:i+bs], p[i:i+bs], truncation="only_second", max_length=256,
+                e = tok(q[i:i+bs], p[i:i+bs], truncation="only_second", max_length=ml,
                         padding=True, return_tensors="pt").to(dev)
             P.extend(torch.softmax(m(**e).logits.float(), -1)[:, 1].cpu().numpy())
     del m; torch.cuda.empty_cache()
@@ -67,10 +79,16 @@ def wilson(k, n):
 def evaluate(model_dirs, name, exclude_leaked=True, thresholds=None, df=None, scores=None):
     dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     torch.set_float32_matmul_precision("high")
-    d = pd.read_csv(REPO/"data/evaluation/unified_test_set.csv") if df is None else df.copy()
-    if exclude_leaked: d = d[~d.in_train].reset_index(drop=True)
+    if df is None:   # the shared 437-row clean benchmark (in_train and near-duplicates dropped)
+        d = clean_benchmark() if exclude_leaked else pd.read_csv(REPO/"data/evaluation/unified_test_set.csv")
+    else:
+        d = df.copy()
+        if exclude_leaked: d = d[~d.in_train].reset_index(drop=True)
     y = d.label.to_numpy()
-    S = np.asarray(scores) if scores is not None else np.mean([score(md, d, dev) for md in model_dirs], axis=0)
+    if scores is not None:
+        S = to_clean(scores) if df is None and exclude_leaked else np.asarray(scores)
+    else:
+        S = np.mean([score(md, d, dev) for md in model_dirs], axis=0)
     out = {"model": name, "n": int(len(d)), "prevalence": float(y.mean()),
            "input_format": sorted({model_format(md) for md in model_dirs}),
            "auprc": float(average_precision_score(y, S)), "by_threshold": []}

@@ -1,5 +1,4 @@
 {
-  "_note": "binary_unified here was scored on 440 rows (in_train dropped, not the 3 near-duplicates) at the labels before the 2026-09-25 revision of row 400. Current figures on the 437 clean rows: results/vs_v1_full.json and results/model_card_tables_current.json (AUPRC 0.9336, F1 0.9025, P 0.852, R 0.959 at 0.5).",
   "model": "models/dirhead/joint_a05_s1",
   "tag": "joint_a05_s1",
   "config": {

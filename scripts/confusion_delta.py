@@ -6,12 +6,14 @@ prints, for every one of V1's errors, whether the model fixed it, and for every 
 V1 got right, whether the model broke it -- which is exactly the k and m that decide
 the McNemar test.
 """
-import argparse, json
+import argparse, json, sys
 from pathlib import Path
 import numpy as np, pandas as pd
 from sklearn.metrics import f1_score, precision_score, recall_score
 from scipy.stats import chi2
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from eval.core import clean_benchmark, to_clean  # noqa: E402  (the one 437-row loader)
 
 def mcnemar(a_ok, b_ok):
     n01 = int((~a_ok & b_ok).sum()); n10 = int((a_ok & ~b_ok).sum())
@@ -25,12 +27,11 @@ def main():
     ap.add_argument("--name", default="model")
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--baseline", nargs="*", default=[],
-                    help="name=scores.npy of another model, for a paired McNemar on all 440")
+                    help="name=scores.npy of another model, for a paired McNemar on all 437")
     a = ap.parse_args()
 
-    d = pd.read_csv(REPO/"data/evaluation/unified_test_set.csv")
-    d = d[~d.in_train].reset_index(drop=True)
-    S = np.load(REPO/a.scores if not Path(a.scores).is_absolute() else a.scores)
+    d = clean_benchmark()
+    S = to_clean(np.load(REPO/a.scores if not Path(a.scores).is_absolute() else a.scores))
     assert len(S) == len(d), f"{len(S)} scores vs {len(d)} rows"
     hv = d.v1.notna().to_numpy()
     y = d.label.to_numpy(); v1 = d.v1.fillna(0).to_numpy().astype(int)
@@ -77,7 +78,7 @@ def main():
     # comparison can use all 440.
     for spec in a.baseline:
         bname, bpath = spec.split("=", 1)
-        B = np.load(REPO/bpath if not Path(bpath).is_absolute() else bpath)
+        B = to_clean(np.load(REPO/bpath if not Path(bpath).is_absolute() else bpath))
         grid = np.arange(0.005, 1.0, 0.005)
         bt = float(grid[int(np.argmax([f1_score(y, (B >= g).astype(int), zero_division=0) for g in grid]))])
         bp = (B >= bt).astype(int)

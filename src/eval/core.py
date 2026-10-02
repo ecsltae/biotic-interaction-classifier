@@ -49,6 +49,59 @@ def sha256(path: str | Path) -> str:
     return h.hexdigest()
 
 
+# ── the clean biodiversity benchmark ─────────────────────────────────────
+#
+# One loader for every script that scores the 437-row benchmark. unified_test_set.csv has 449
+# rows; 9 are flagged `in_train` (exact match with a training passage) and the 5-gram scan of
+# scripts/scan_contamination.py finds 3 more (Jaccard 1.000, all biotx100). Scripts that dropped
+# only `in_train` scored 440 rows, so their numbers did not line up with the papers' 437.
+
+UNIFIED = BASE / "data/evaluation/unified_test_set.csv"
+UNIFIED_SHA = "057416074764bdb1c6697d95fa58b68b9755176f6b2d2ad2e78b4ae3656b547b"  # after the 2026-09-25 row-400 fix
+CONTAM = BASE / "results/test_contamination_scan.csv"
+JACCARD_MAX = 0.5          # no row sits at exactly 0.5, so > and >= agree
+CLEAN_N, CLEAN_POS = 437, 246
+
+
+def clean_mask() -> np.ndarray:
+    """Boolean mask over the 449 benchmark rows: True for the 437 clean ones."""
+    if sha256(UNIFIED) != UNIFIED_SHA:
+        raise ValueError(f"{UNIFIED} changed (sha {sha256(UNIFIED)}); refusing to score a mutated benchmark")
+    d = pd.read_csv(UNIFIED)
+    scan = pd.read_csv(CONTAM)
+    if len(scan) != len(d) or not (scan.sentence.values == d.sentence.values).all():
+        raise ValueError(f"{CONTAM} is not row-aligned with {UNIFIED}")
+    keep = ~(d.in_train.to_numpy().astype(bool) | (scan.maxj.to_numpy() > JACCARD_MAX))
+    if keep.sum() != CLEAN_N or int(d.label.to_numpy()[keep].sum()) != CLEAN_POS:
+        raise ValueError(f"clean benchmark is {keep.sum()} rows / {int(d.label.to_numpy()[keep].sum())} positive, "
+                         f"expected {CLEAN_N} / {CLEAN_POS}")
+    return keep
+
+
+def clean_benchmark() -> pd.DataFrame:
+    """The 437 clean rows of unified_test_set.csv (246 positive), in file order."""
+    return pd.read_csv(UNIFIED)[clean_mask()].reset_index(drop=True)
+
+
+def to_clean(a) -> np.ndarray:
+    """Restrict a per-row array to the 437 clean rows.
+
+    Accepts arrays over all 449 rows, over the 440 rows left after dropping `in_train` (what
+    the older scripts saved), or already over the 437.
+    """
+    a = np.asarray(a)
+    keep = clean_mask()
+    if len(a) == CLEAN_N:
+        return a
+    if len(a) == len(keep):
+        return a[keep]
+    in_train = pd.read_csv(UNIFIED).in_train.to_numpy().astype(bool)
+    if len(a) == int((~in_train).sum()):
+        return a[keep[~in_train]]
+    raise ValueError(f"cannot align an array of length {len(a)} with the benchmark "
+                     f"({len(keep)} rows, {int((~in_train).sum())} after in_train, {CLEAN_N} clean)")
+
+
 @dataclass
 class Benchmark:
     name: str
