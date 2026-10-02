@@ -1,4 +1,4 @@
-\begin{thebibliography}{50}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Ai and Kavuluru(2023)}]{ai2023endtoend}
@@ -29,17 +29,6 @@ Aurore Britan, Isabelle Cusin, Val{\'e}rie Hinard, Luc Mottin, Emilie Pasche,
   annotation of articles via automated approaches: evaluation of the {neXtA5}
   curation-support tool by {neXtProt}}.
 \newblock \emph{Database}, 2018:bay129.
-
-\bibitem[{Brokman et~al.(2025)Brokman, Ai, Jiang, Gupta, and
-  Kavuluru}]{brokman2025benchmark}
-Aviv Brokman, Xuguang Ai, Yuhang Jiang, Shashank Gupta, and Ramakanth Kavuluru.
-  2025.
-\newblock \href {https://doi.org/10.18653/v1/2025.wasp-main.6} {A benchmark for
-  end-to-end zero-shot biomedical relation extraction with {LLM}s: experiments
-  with {O}pen{AI} models}.
-\newblock In \emph{Proceedings of the Third Workshop for Artificial
-  Intelligence for Scientific Publications}, pages 44--55, Mumbai, India and
-  virtual. Association for Computational Linguistics.
 
 \bibitem[{Cuzick et~al.(2023)Cuzick, Seager, Wood, Urban, Rutherford, and
   Hammond-Kosack}]{cuzick2023interspecies}
@@ -155,16 +144,6 @@ Lynette Hirschman, Gully A. P.~C. Burns, Martin Krallinger, Cecilia Arighi,
   biocuration workflow}.
 \newblock \emph{Database}, 2012:bas020.
 
-\bibitem[{Jimenez~Gutierrez et~al.(2022)Jimenez~Gutierrez, McNeal, Washington,
-  Chen, Li, Sun, and Su}]{jimenezgutierrez2022thinking}
-Bernal Jimenez~Gutierrez, Nikolas McNeal, Clayton Washington, You Chen, Lang
-  Li, Huan Sun, and Yu~Su. 2022.
-\newblock \href {https://doi.org/10.18653/v1/2022.findings-emnlp.329} {Thinking
-  about {GPT}-3 in-context learning for biomedical {IE}? think again}.
-\newblock In \emph{Findings of the Association for Computational Linguistics:
-  EMNLP 2022}, pages 4497--4512, Abu Dhabi, United Arab Emirates. Association
-  for Computational Linguistics.
-
 \bibitem[{Kaushik and Lipton(2018)}]{kaushik-lipton-2018-much}
 Divyansh Kaushik and Zachary~C. Lipton. 2018.
 \newblock \href {https://doi.org/10.18653/v1/D18-1546} {How much reading does
@@ -199,13 +178,6 @@ Omer Levy, Minjoon Seo, Eunsol Choi, and Luke Zettlemoyer. 2017.
 \newblock In \emph{Proceedings of the 21st Conference on Computational Natural
   Language Learning ({C}o{NLL} 2017)}, pages 333--342, Vancouver, Canada.
   Association for Computational Linguistics.
-
-\bibitem[{Li et~al.(2023)Li, Wang, and Ke}]{li2023zeroshotre}
-Guozheng Li, Peng Wang, and Wenjun Ke. 2023.
-\newblock Revisiting large language models as zero-shot relation extractors.
-\newblock In \emph{Findings of the Association for Computational Linguistics:
-  EMNLP 2023}, pages 6877--6892, Singapore. Association for Computational
-  Linguistics.
 
 \bibitem[{Lu and Smith(2025)}]{lu2025feeding}
 Yucheng Lu and Kazimier Smith. 2025.
@@ -373,14 +345,6 @@ David Wadden, Shanchuan Lin, Kyle Lo, Lucy~Lu Wang, Madeleine van Zuylen, Arman
 \newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
   Natural Language Processing (EMNLP)}, pages 7534--7550, Online. Association
   for Computational Linguistics.
-
-\bibitem[{Wadhwa et~al.(2023)Wadhwa, Amir, and Wallace}]{wadhwa2023revisiting}
-Somin Wadhwa, Silvio Amir, and Byron Wallace. 2023.
-\newblock \href {https://doi.org/10.18653/v1/2023.acl-long.868} {Revisiting
-  relation extraction in the era of large language models}.
-\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
-  for Computational Linguistics (Volume 1: Long Papers)}, pages 15566--15589,
-  Toronto, Canada. Association for Computational Linguistics.
 
 \bibitem[{West et~al.(2022)West, Bhagavatula, Hessel, Hwang, Jiang, Le~Bras,
   Lu, Welleck, and Choi}]{west2022symbolic}

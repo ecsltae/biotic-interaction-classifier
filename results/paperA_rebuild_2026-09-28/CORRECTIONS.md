@@ -57,3 +57,56 @@ it is better on test299 (0.787 -> 0.859, p=0.115), far better on reject50 (0.000
 **worse on biotx100** (0.915 -> 0.884). The paper must claim a calibrated, adjustable operating
 point that reaches a recall class the deployed filter cannot reach at all -- not a significant
 accuracy win.
+
+---
+
+# 2026-10-02: the deployed filter is removed as a baseline, and a controlled one replaces it
+
+The deployed filter is an artefact nobody outside the project can reproduce, so it is no longer a
+baseline anywhere. Its role is taken by a baseline trained here and fully described: the same
+BiomedBERT-base encoder, the same 48,338 teacher-labelled rows (`data/training/distill/
+v3_combined_train.csv`), the same recipe, three seeds -- with the passage alone as input
+(`--input-format sentence`, added to `scripts/xenc_format.py`). Only the input differs.
+
+| system | per-seed AUPRC | P | R | F1 (block-held-out tau) |
+|---|---|---|---|---|
+| sentence-only baseline | 0.8513 +/- 0.0064 | 0.730 | 0.825 | 0.775 |
+| triple-query verifier  | 0.9099 +/- 0.0060 | 0.825 | 0.898 | 0.860 |
+
+76 items fixed, 30 broken, McNemar p = 1.24e-05. Per block AUPRC: test299 0.819 -> 0.925,
+biotx100 0.954 -> 0.939, reject50 0.465 -> 0.497.
+
+## Candidate rules (scripts/candidate_rules.py)
+
+Eight deterministic rejection rules. Seven were frozen (sha256 4d953f3f...) before evaluation;
+`co_listed` was added afterwards and frozen separately (8e9e8fc3...). All eight were validated on
+training data first: each rule's rejections are teacher-negative at least 88% of the time
+(42,747 rows; co_listed on a fixed 6,000-row sample at 93.1%). Four rules (non_biotic_relation,
+negated, not_an_organism, pathogen_modifier) were written after error analysis of this benchmark's
+false positives, so improvements they produce here are an upper estimate.
+
+| system | P | R | F1 | vs. without rules |
+|---|---|---|---|---|
+| triple-query, block-held-out | 0.825 | 0.898 | 0.860 | |
+| + 7 rules | 0.859 | 0.890 | 0.874 | 11 fixed / 2 broken, p = 0.027 |
+| + 8 rules | 0.878 | 0.878 | 0.878 | 17 fixed / 5 broken, p = 0.019 |
+
+## The shipped two-head model
+
+`dirhead/joint_a05_s1` (verification head + antisymmetric direction head), threshold 0.5
+pre-specified on its own dev split (`threshold_dev: 0.5`):
+
+| system | P | R | F1 |
+|---|---|---|---|
+| joint, tau = 0.5 | 0.852 | 0.959 | 0.902 |
+| + 7 rules | 0.870 | 0.951 | 0.909 (6 fixed / 2 broken, p = 0.29) |
+
+co_listed is net-negative on the joint model (1 FP removed, 3 TP removed) and is not used there.
+The joint model already rejects most of what the rules catch.
+
+## Open: contestable gold
+
+Several of the most confident false positives read as gold errors (e.g. a bat tick reported to
+feed on humans, labelled negative). They are NOT changed. A blind review sheet mixing 12 of them
+with 12 random controls, model scores hidden, is at
+`data/evaluation/gold_review_2026-10-02_BLIND.csv`; the key is kept separately.

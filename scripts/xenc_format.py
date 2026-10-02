@@ -10,6 +10,7 @@ Formats
   triple_mark  A = "s1 [SEP] relation [SEP] s2"   B = marked passage
   pair_mark    A = "s1 [SEP] s2"                  B = marked passage
   mark_only    A = marked passage                 B = None (single segment)
+  sentence     A = passage                        B = None (no query: the baseline)
 
 Marking follows the punctuation "typed entity marker" of Zhou & Chen (2021):
 the first taxon is wrapped in @ ... @, the second in # ... #, in place, so the
@@ -18,7 +19,7 @@ encoder sees which spans the question is about rather than having to align them.
 import re
 
 FORMATS = ("triple", "pair", "triple_mark", "pair_mark", "mark_only",
-           "pair_canon", "mark_canon")
+           "pair_canon", "mark_canon", "sentence")
 M1O, M1C, M2O, M2C = "@", "@", "#", "#"
 
 
@@ -86,6 +87,12 @@ def build(fmt, s1, rel, s2, text):
         return f"{s1} [SEP] {s2}", mark_passage(text, s1, s2)
     if fmt == "mark_only":
         return mark_passage(text, s1, s2), None
+    if fmt == "sentence":
+        # The sentence-level formulation: the passage alone, with no query and no marking.
+        # A model given only this cannot tell which pair it is being asked about, which is
+        # the point of training it -- it is the baseline the triple formats are measured
+        # against, on the same data and encoder.
+        return text, None
     if fmt in ("pair_canon", "mark_canon"):
         # the evaluated label is symmetric ("do these two taxa interact?"), so make the
         # representation order-invariant instead of asking the model to learn the symmetry

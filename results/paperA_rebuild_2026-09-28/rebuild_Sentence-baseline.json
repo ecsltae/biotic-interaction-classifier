@@ -1,0 +1,213 @@
+{
+  "name": "Sentence-baseline",
+  "checkpoints": [
+    "models/sentence_baseline/xenc_s1",
+    "models/sentence_baseline/xenc_s2",
+    "models/sentence_baseline/xenc_s3"
+  ],
+  "input_format": [
+    "sentence"
+  ],
+  "benchmark": {
+    "n": 437,
+    "positives": 246,
+    "prevalence": 0.562929061784897,
+    "n_dropped_as_contaminated": 12,
+    "dropped_by_jaccard_beyond_in_train": 3,
+    "per_source": {
+      "biotx100": {
+        "n": 97,
+        "pos": 75
+      },
+      "reject50": {
+        "n": 41,
+        "pos": 9
+      },
+      "test299": {
+        "n": 299,
+        "pos": 162
+      }
+    },
+    "label_semantics": "species-level: do these two taxa interact in this passage"
+  },
+  "truncation": {
+    "max_passage_wordpieces": 372,
+    "median": 48,
+    "n_over_240": 1,
+    "pos_rate_over": 0.0
+  },
+  "per_seed": {
+    "seeds": [
+      {
+        "checkpoint": "models/sentence_baseline/xenc_s1",
+        "auprc": 0.8578246906758211,
+        "prespecified": {
+          "thr": 0.5,
+          "precision": 0.8714285714285714,
+          "recall": 0.4959349593495935,
+          "f1": 0.6321243523316062,
+          "n_accept": 140
+        },
+        "oracle_UPPER_BOUND": {
+          "thr": 0.01,
+          "precision": 0.685459940652819,
+          "recall": 0.9390243902439024,
+          "f1": 0.7924528301886793,
+          "n_accept": 337
+        }
+      },
+      {
+        "checkpoint": "models/sentence_baseline/xenc_s2",
+        "auprc": 0.8512540469838672,
+        "prespecified": {
+          "thr": 0.5,
+          "precision": 0.8719512195121951,
+          "recall": 0.5813008130081301,
+          "f1": 0.697560975609756,
+          "n_accept": 164
+        },
+        "oracle_UPPER_BOUND": {
+          "thr": 0.03,
+          "precision": 0.7640449438202247,
+          "recall": 0.8292682926829268,
+          "f1": 0.7953216374269005,
+          "n_accept": 267
+        }
+      },
+      {
+        "checkpoint": "models/sentence_baseline/xenc_s3",
+        "auprc": 0.8449341458726854,
+        "prespecified": {
+          "thr": 0.5,
+          "precision": 0.868421052631579,
+          "recall": 0.5365853658536586,
+          "f1": 0.6633165829145728,
+          "n_accept": 152
+        },
+        "oracle_UPPER_BOUND": {
+          "thr": 0.02,
+          "precision": 0.7764705882352941,
+          "recall": 0.8048780487804879,
+          "f1": 0.7904191616766467,
+          "n_accept": 255
+        }
+      }
+    ],
+    "mean_auprc": 0.8513376278441246,
+    "sd_auprc": 0.0064456788355116675,
+    "mean_f1_at_prespecified": 0.6643339702853117,
+    "sd_f1_at_prespecified": 0.0327301729953911
+  },
+  "ensemble": {
+    "note": "probabilities averaged across seeds; this is an ensemble, not a per-seed mean",
+    "auprc": 0.8554887384458607,
+    "prespecified": {
+      "thr": 0.5,
+      "precision": 0.8657718120805369,
+      "recall": 0.524390243902439,
+      "f1": 0.6531645569620254,
+      "n_accept": 149
+    },
+    "block_held_out": {
+      "per_block": [
+        {
+          "block": "biotx100",
+          "n": 97,
+          "thr_from_other_blocks": 0.01,
+          "precision": 0.7956989247311828,
+          "recall": 0.9866666666666667,
+          "f1": 0.8809523809523809,
+          "n_accept": 93
+        },
+        {
+          "block": "reject50",
+          "n": 41,
+          "thr_from_other_blocks": 0.01,
+          "precision": 0.3181818181818182,
+          "recall": 0.7777777777777778,
+          "f1": 0.45161290322580644,
+          "n_accept": 22
+        },
+        {
+          "block": "test299",
+          "n": 299,
+          "thr_from_other_blocks": 0.04,
+          "precision": 0.7484662576687117,
+          "recall": 0.7530864197530864,
+          "f1": 0.7507692307692307,
+          "n_accept": 163
+        }
+      ],
+      "pooled": {
+        "precision": 0.7302158273381295,
+        "recall": 0.8252032520325203,
+        "f1": 0.7748091603053435
+      }
+    },
+    "oracle_UPPER_BOUND": {
+      "thr": 0.03,
+      "precision": 0.7574626865671642,
+      "recall": 0.8252032520325203,
+      "f1": 0.7898832684824902,
+      "n_accept": 268
+    }
+  },
+  "vs_v1": {
+    "prespecified": {
+      "mcnemar_p": 7.430983723414125e-07,
+      "arm_fixes": 24,
+      "arm_breaks": 74,
+      "arm": {
+        "thr": 0.5,
+        "precision": 0.8657718120805369,
+        "recall": 0.524390243902439,
+        "f1": 0.6531645569620254,
+        "n_accept": 149
+      },
+      "v1_f1": 0.8160676532769556,
+      "v1_precision": 0.8502202643171806,
+      "v1_recall": 0.7845528455284553
+    },
+    "block_held_out": {
+      "mcnemar_p": 0.0014727828467661257,
+      "arm_fixes": 29,
+      "arm_breaks": 60,
+      "arm": {
+        "thr": 0.5,
+        "precision": 0.7302158273381295,
+        "recall": 0.8252032520325203,
+        "f1": 0.7748091603053435,
+        "n_accept": 278
+      },
+      "v1_f1": 0.8160676532769556,
+      "v1_precision": 0.8502202643171806,
+      "v1_recall": 0.7845528455284553
+    },
+    "per_block": {
+      "biotx100": {
+        "n": 97,
+        "mcnemar_p": 0.07709987174354202,
+        "arm_fixes": 1,
+        "arm_breaks": 7,
+        "v1_f1": 0.9146341463414634,
+        "arm_f1": 0.8809523809523809
+      },
+      "reject50": {
+        "n": 41,
+        "mcnemar_p": 0.13559300126630158,
+        "arm_fixes": 7,
+        "arm_breaks": 15,
+        "v1_f1": 0.0,
+        "arm_f1": 0.45161290322580644
+      },
+      "test299": {
+        "n": 299,
+        "mcnemar_p": 0.03724916580683402,
+        "arm_fixes": 21,
+        "arm_breaks": 38,
+        "v1_f1": 0.7866666666666666,
+        "arm_f1": 0.7507692307692307
+      }
+    }
+  }
+}

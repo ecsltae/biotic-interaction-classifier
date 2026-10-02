@@ -217,3 +217,6 @@ handoff/biotic_verifier/model/
 
 # ACL submission source stays in the anonymous mirror during the review period
 paper_sym/
+
+# blind gold review: the key stays out of git until the review is done
+results/paperA_rebuild_2026-09-28/gold_review_KEY_do_not_open_before_review.csv
