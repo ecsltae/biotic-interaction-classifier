@@ -380,7 +380,10 @@ def _ml_predict(
             probs = torch.softmax(logits, dim=-1)[:, 1].cpu().numpy()
         all_weighted_probs.append(probs * weight)
 
-    return np.sum(all_weighted_probs, axis=0).tolist()
+    # normalise by the weight actually loaded: if one ensemble member failed to load, an
+    # un-normalised sum would shrink every probability and push everything below threshold
+    total_w = sum(MODEL_CONFIG[name]["weight"] for name in _models)
+    return (np.sum(all_weighted_probs, axis=0) / total_w).tolist()
 
 
 def _run_pipeline(text: str, prob: float, doi: Optional[str] = None) -> PipelinePredictionResponse:
@@ -497,8 +500,17 @@ def health():
         if _is_generative
         else f"Discriminative ensemble: {list(_models.keys()) or 'none loaded'}"
     )
+    generative_ready = bool(_is_generative and _gen_model is not None)
+    loaded = list(_models.keys())
+    if not generative_ready and not loaded:
+        # nothing can score: report it, rather than "ok", so a monitor sees the outage
+        from fastapi.responses import JSONResponse
+        return JSONResponse(status_code=503, content={
+            "status": "unavailable", "detail": "no classifier is loaded", "device": DEVICE})
+    missing = [n for n in MODEL_CONFIG if n not in _models] if not generative_ready else []
     return {
-        "status": "ok",
+        "status": "degraded" if missing else "ok",
+        "models_missing": missing,
         "device": DEVICE,
         "layer3_backend": "generative" if _is_generative else "discriminative",
         "layer3_detail": layer3,

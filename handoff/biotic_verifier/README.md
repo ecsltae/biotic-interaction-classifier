@@ -60,49 +60,66 @@ Useful flags: `--threshold 0.95` (see §4), `--threads 16`, `--batch-size 32`.
 | column | meaning |
 |---|---|
 | `interacts` | **0/1 — the decision.** This is the column that replaces the old classifier's verdict |
-| `p_interact` | the score behind it, 0–1. Use this if you want your own cutoff |
-| `direction` | `FORWARD` (species1 is the subject), `REVERSE` (species2 is), or `UNCERTAIN` |
-| `p_species1_is_subject` | 0–1; `direction` is this thresholded with an abstention band |
-| `direction_confidence` | `abs(p − 0.5) × 2`. Below 0.60 the direction is reported as `UNCERTAIN` |
+| `p_interact` | the model's score, 0–1, before the candidate rules. Use this if you want your own cutoff |
+| `rejected_by_rule` | empty, or the name of the candidate rule that rejected the row (§5); a rejected row has `interacts = 0` whatever its score |
+| `direction` | one of four: `FORWARD` (species1 acts on species2), `REVERSE` (species2 acts on species1), `BIDIRECTIONAL` (the relation is mutual — mutualism, symbiosis, *interacts with*, *co-occurs with* — so neither taxon is the subject), `UNCERTAIN` (the model is not confident, a taxon was not found, or the pair does not interact) |
+| `p_species1_is_subject` | 0–1; `direction` is this thresholded with an abstention band. Empty for `BIDIRECTIONAL` rows |
+| `direction_confidence` | `abs(p − 0.5) × 2`. Below 0.60 a directed relation is reported as `UNCERTAIN`. Empty for `BIDIRECTIONAL` rows |
+| `symmetric_relation` | 1 if the polarity lexicon calls the relation mutual; these rows are `BIDIRECTIONAL` |
 | `both_taxa_located` | 0 if a taxon string was not found in the passage — **see §5** |
-| `unknown_polarity` | 1 if the relation is not in the polarity lexicon and the direction head fell back to a default. A high rate here means the direction column is weaker than §4 suggests |
+| `unknown_polarity` | 1 if the relation is not in the polarity lexicon (§5) |
+| `truncated` | 1 if the passage was longer than the model's 256-wordpiece window and its end was cut |
 
 `FORWARD`/`REVERSE` are judged against the **canonical** relation, not the surface string. So
 `Leptodora --prey--> Bosmina` comes back `REVERSE`, because the canonical relation is
 *preyed upon by* and Leptodora is the predator. That is the convention the gold annotation uses.
 
 **Order does not matter.** Give the same pair the other way round and `p_interact` is bit-for-bit
-identical while `direction` flips. That is a property of the architecture, not of training, so it
-cannot drift.
+identical while `FORWARD` and `REVERSE` swap (`BIDIRECTIONAL` and `UNCERTAIN` stay put). That is a
+property of the architecture, not of training, so it cannot drift.
 
 ## 4. Which threshold to use
 
-The default is **0.50**. Measured on a 437-item expert-graded evaluation set:
+The default is **0.50**, fixed before evaluation rather than tuned. Measured on a 437-item
+expert-graded evaluation set, with the candidate rules on (the default):
 
 | `--threshold` | precision | recall | false pos | false neg | |
 |---|---|---|---|---|---|
-| 0.50 | 0.852 | 0.959 | 41 | 10 | **default** — catches nearly everything |
-| 0.70 | 0.856 | 0.939 | 39 | 15 | |
-| 0.90 | 0.871 | 0.902 | 33 | 24 | |
-| 0.95 | 0.882 | 0.878 | 29 | 30 | best balance if curation time is scarce |
-| 0.99 | 0.924 | 0.744 | 15 | 63 | only when a false positive is expensive |
+| 0.50 | 0.869 | 0.947 | 35 | 13 | **default** — catches nearly everything |
+| 0.70 | 0.871 | 0.931 | 34 | 17 | |
+| 0.90 | 0.887 | 0.890 | 28 | 27 | |
+| 0.95 | 0.899 | 0.866 | 24 | 33 | best balance if curation time is scarce |
+| 0.99 | 0.943 | 0.740 | 11 | 64 | only when a false positive is expensive |
 | *the filter this replaces* | *0.850* | *0.785* | *34* | *53* | |
 
-At the default the model has **the same precision as the old filter with 17 points more recall**.
-Raise the threshold to buy precision; the table is the exact trade.
+At the default the model is **more precise than the old filter (0.869 against 0.850) with 16
+points more recall**. Raise the threshold to buy precision; the table is the exact trade. Without
+the rules (`--no-rules`) the default gives precision 0.851, recall 0.955.
 
 ## 5. When to distrust it
 
 * **`both_taxa_located = 0`.** The model marks the two taxa in the passage so it knows which pair
   it is being asked about. If a taxon string is not found, that marking failed and the answer is
-  much weaker. Treat those rows as unreviewed. It fires on 5 of the 449 benchmark rows.
+  much weaker. Treat those rows as unreviewed. It fires on 4 of the 437 evaluation rows.
 
-  An earlier version of this note said the flag never fired at all. That was true and misleading:
-  taxon matching had no word boundaries, so a genus matched inside an unrelated one — `Aedes`
-  matched the fragment `Aede` in *Aedeomyia*, `Bos` matched inside *Bostrichidae* — and the flag
-  reported a successful location for a marked fragment of the wrong organism. Matching is now
-  anchored at word boundaries, so the flag means what it says. If you scored data with an earlier
-  copy of this package, rows whose taxa are substrings of other words are worth re-checking.
+  An earlier copy of this package matched taxon strings with no word boundaries, so a genus could
+  match inside an unrelated one — `Aedes` marked the fragment `Aede` in *Aedeomyia* — and the flag
+  still reported success; alternative forms joined with `|` (`African buffalo|Syncerus caffer`)
+  were never matched in full, so one word of one alternative was marked instead (`@African@
+  elephant`). Both are fixed. If you scored data with an earlier copy, rows whose taxa are
+  substrings of other words, or that carry `|`-joined forms, are worth re-scoring.
+* **`truncated = 1`.** Only the first 256 wordpieces of a passage are read; a taxon or the
+  interaction stated after the cut is invisible. One of the 437 evaluation rows is affected.
+  Whole abstracts often exceed the window — split them into sentences first.
+* **Candidate rules** (`candidate_rules.py`) reject, before the model's verdict, candidates that
+  cannot be an interaction between two distinct organisms: the same organism named twice
+  (*sulla (Hedysarum coronarium)*), a taxon and its own clade, a taxonomic author parsed as a
+  taxon (*Pterostichus melanarius (Illiger)*), a relation term that is not biotic (*relative to*,
+  *hybridization*), an explicit negation of the pair (*found only on non-wheat hosts*), an organ
+  or syndrome parsed as a taxon, and an adjective inside a pathogen's name (*equine* influenza
+  virus). Each rule was checked on 42,000 training rows before use: what it rejects is a teacher
+  negative 88–100% of the time. On the evaluation set they remove 6 false positives and 2 true
+  ones. `rejected_by_rule` says which rule fired; `--no-rules` turns them off.
 * **Co-occurrence in a shared host.** The clearest residual error class. When two organisms are
   both mentioned in relation to a *third* one, the model can read that as an interaction between
   them. `example_input.csv` row 3 is a real case: *Acanthamoeba* and *Pseudomonas* both infect
@@ -111,14 +128,20 @@ Raise the threshold to buy precision; the table is the exact trade.
   pair-binding (this model addresses them) and about half are wrong taxon resolution upstream
   (it does not). If the rule layer hands it the wrong species, it will happily verify the wrong
   species.
-* **Direction is measured on 84 human-graded items**: 66/84 = 0.786 overall (chance 0.5,
-  p = 6.7e-08), and **0.889 on the 75% of rows it is confident enough to answer**. A control that
-  hides the passage and shows only the two taxon names scores 0.464 — chance — so the head is
-  reading the sentence, not recalling which organisms usually parasitise which.
+* **Direction is measured on the 97 human-graded direction items** (84 with a direction, 12
+  marked undecidable, 1 bidirectional): on the 84, it answers 74% and is right on **0.887** of
+  those; of the 12 the curator could not decide, it also abstains on 9; the bidirectional one comes
+  back `BIDIRECTIONAL`. A control that hides the passage and shows only the two taxon names scores
+  0.464 — chance — so the head is reading the sentence, not recalling which organisms usually
+  parasitise which. `BIDIRECTIONAL` comes from the relation lexicon, not from the model: it is only
+  as complete as the lexicon's list of mutual relations.
   It is weakest on bare relational nouns (*host*, *pathogen*, *infection*: 0.725) and strongest
   where the relation word itself carries direction (*pathogen of*, *ectoparasite of*: 0.909).
-* **Relations outside the polarity lexicon** fall back to agent-side polarity silently. Common
-  interaction vocabulary is covered; an unusual verb may not be.
+* **Relations outside the polarity lexicon** get the patient-side polarity the head was trained
+  with for them, and `unknown_polarity = 1`. The polarity input turned out to matter little to the
+  trained head — flipping it on every held-out row changes 5 predictions in about 4,700 — so an
+  unknown relation weakens the direction answer less than one might fear. A mutual relation the
+  lexicon does not list is not reported `BIDIRECTIONAL`; competition and co-infection are listed.
 
 ## 6. Speed
 

@@ -220,3 +220,15 @@ paper_sym/
 
 # blind gold review: the key stays out of git until the review is done
 results/paperA_rebuild_2026-09-28/gold_review_KEY_do_not_open_before_review.csv
+
+# audit findings and verdicts stay local
+results/audit_2026-10-02/
+
+# full bibliography incl. uncited and self-identifying entries: local only
+paperA/references_full.bib
+results/paperA_rebuild_2026-09-28/gold_review_v2_KEY_do_not_open_before_review.csv
+
+# expert direction annotations and notes stay local
+results/shipping_2026-10-02/direction_*.csv
+# BioRED-derived candidates: regenerate with scripts/convert_biored_verify.py
+data/benchmarks/

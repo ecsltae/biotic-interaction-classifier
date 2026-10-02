@@ -1,0 +1,438 @@
+source,species1,species2,n_taxa
+biotx100,horses,Culicoides obsoletus,4
+biotx100,Cronobacter sakazakii,human,1
+biotx100,Dikarya,Basidiobolus,1
+biotx100,Onthophagus taurus,cattle,1
+biotx100,Olfersia spinifera,Fregata minor,1
+biotx100,Pterostichus melanarius,Illiger,2
+biotx100,Calamagrostis epigejos,Thesium linophyllon,3
+biotx100,Crinipellis brasiliensis,Heteropterys acutifolia,2
+biotx100,cats,Heterodoxus spiniger,2
+biotx100,Clinostomum,Alosa sapidissima,3
+biotx100,"tomato spotted wilt virus, TSWV|Orthotospovirus tomatomaculae",western flower thrips|Frankliniella occidentalis,2
+biotx100,Venturia canescens,Mediterranean flour moth,6
+biotx100,Caryedes brasiliensis,Dioclea megacarpa,4
+biotx100,Leptodora,Bosmina,3
+biotx100,Chaetogaster limnaei,Fasciola hepatica,2
+biotx100,Philometra ovata,Gobio gobio|gudgeon,4
+biotx100,Melanoides tuberculata,Centrocestus formosanus,6
+biotx100,Parhyale hawaiensis,lined seahorse|Hippocampus erectus,2
+biotx100,Mycoplasma,gut metagenome,3
+biotx100,Gyrodactylus carolinae,Characidium lanei,7
+biotx100,Plagiotremus laudandus,Meiacanthus atrodorsalis,3
+biotx100,Orchid fleck virus,Brevipalpus californicus,4
+biotx100,Mycobacterium marinum,Mycobacterium tuberculosis,2
+biotx100,Rickettsiella chironomi,midge,1
+biotx100,Polyarthra,Chlorophyta,0
+biotx100,Human,Aspergillus giganteus,2
+biotx100,Arvicanthis neumanni,Mastomys natalensis,6
+biotx100,Nerocila phaiopleura,Whitefin wolf-herring|Chirocentrus nudus,4
+biotx100,Fusarium zanthoxyli,Zanthoxylum bungeanum,3
+biotx100,Aroplectrus dimerus,Oxyplax pallivitta,8
+biotx100,Galea leucoblephara,Holochilus brasiliensis,4
+biotx100,Neotyphodium,Festuca arizonica,1
+biotx100,NanA,human,0
+biotx100,Conepatus chinga,Trypanosoma cruzi,3
+biotx100,Gallotia galloti,Angiostrongylus cantonensis,3
+biotx100,Paranoplocephala etholeni,Microtus pennsylvanicus|meadow vole,2
+biotx100,Inquilina,Exoneura,1
+biotx100,Saprochaete capitata,human,1
+biotx100,Human|human,Toxocara,2
+biotx100,Colletotrichum sansevieriae,Sansevieria trifasciata,1
+biotx100,Haemophilus influenzae,human,2
+biotx100,Streptococcus agalactiae,Oreochromis niloticus|Nile tilapia,3
+biotx100,Nucleospora salmonis,salmonid fish,2
+biotx100,Gossypium mustelinum,Verticillium,2
+biotx100,Streptococcus agalactiae,tilapia,1
+biotx100,Breinlia booliati,Rattus,3
+biotx100,Galba truncatula,Fasciola hepatica,1
+biotx100,Demidospermus,Ageneiosus inermis,6
+biotx100,human,Glossina|tsetse flies,4
+biotx100,Epichlo√´ elymi,Elymus hystrix,2
+biotx100,Ichthyocotylurus erraticus,Coregonus autumnalis,5
+biotx100,Salmonella Poona,cantaloupe,1
+biotx100,avian,Chilina,4
+biotx100,human,Entamoeba histolytica,1
+biotx100,Blattella germanica,Pterygodermatites nycticebi,4
+biotx100,chinchillas,Haemophilus influenzae,1
+biotx100,Salmonella,humans,1
+biotx100,Puccinia,wheat,1
+biotx100,Phytophthora,Limonium,3
+biotx100,Mycoplasma,cat flea|Ctenocephalides felis,4
+biotx100,norovirus,oysters,1
+biotx100,loquat|Eriobotrya japonica,wheat,4
+biotx100,Campylobacter jejuni,Human,1
+biotx100,Dolichogenidea gelechiidivoris,Tuta absoluta,1
+biotx100,Paramecium,Holospora,2
+biotx100,Human,Ruminococcus gnavus E1,2
+biotx100,bat tick,humans,2
+biotx100,Humans,Brucella,2
+biotx100,copia,Symbiodinium microadriaticum,2
+biotx100,human,Actinomyces viscosus,1
+biotx100,Lithodes santolla,Eremitione,1
+biotx100,Trypanosoma murmanensis,Johanssonia arctica,4
+biotx100,Iphiseius degenerans,western flower thrips|Frankliniella occidentalis,4
+biotx100,boars,humans,1
+biotx100,Lactobacillus,Campylobacter,4
+biotx100,Pavlovskyella,Lycalopex culpaeus|culpeo fox,5
+biotx100,Alternaria alternata,Pear,1
+biotx100,sulla,Hedysarum coronarium,2
+biotx100,bats,bugs,3
+biotx100,human,Mycobacterium leprae,1
+biotx100,Blastocystis,human,3
+biotx100,Psoroptidae,Atelerix albiventris,4
+biotx100,rhododendron,Phytophthora ramorum,2
+biotx100,rhesus macaques,humans,2
+biotx100,Elephantulus myurus,Rhipicephalus,3
+biotx100,Columbidae,Trichomonas gallinae,3
+biotx100,SARS-CoV-2,rhesus monkeys,2
+biotx100,rhinoceros beetle,Oryctes agamemnon,2
+biotx100,Sulcospira quangtriensis,Triculinae,6
+biotx100,chicory,cattle,3
+biotx100,birds,northern pikeminnow|Ptychocheilus oregonensis,4
+biotx100,Harmonia axyridis,aphid,0
+biotx100,Agaricus bisporus,mycelium,2
+biotx100,Colorado tick fever virus,Dermacentor andersoni,1
+biotx100,black tiger shrimp|Penaeus monodon,ammonia,3
+biotx100,Sitobion avenae,Schizaphis graminum,3
+biotx100,mast,bovine,2
+reject50,Renilla,human,1
+reject50,adenovirus,Escherichia coli,2
+reject50,Salmonella,human,1
+reject50,rainbow trout,cerium,3
+reject50,Siberia,birds,0
+reject50,ticks,rabbits,1
+reject50,spinach,radish,0
+reject50,Tadarida brasiliensis,human,2
+reject50,Trypanosoma rangeli,Trypanosoma cruzi,3
+reject50,viruses,human,1
+reject50,Ancylostoma ceylanicum,human,2
+reject50,dogs,cats,4
+reject50,camel crickets,human,3
+reject50,coxsackievirus A16,enterovirus 71,2
+reject50,human,Babesia,2
+reject50,Alternaria solani,Phytophthora infestans,2
+reject50,Australia,Alice,0
+reject50,Streptococcus,Neisseria,3
+reject50,Fusarium oxysporum,chickpea,1
+reject50,wasps,spiders,4
+reject50,Clostridium difficile,amoeba,1
+reject50,paralysis,Yersinia pestis,1
+reject50,Prospero,Drosophila,1
+reject50,nervous necrosis virus,European sea bass,4
+reject50,viruses,Aphanomyces astaci,3
+reject50,pilus,Salmonella,2
+reject50,Brassica napus,Enterobacter sp. MN17,2
+reject50,SARS-CoV-2,human,1
+reject50,Shigella flexneri,human,1
+reject50,Sitobion miscanthi,aphid,0
+reject50,PICUs,ICUs,0
+reject50,Mycobacterium tuberculosis,human,1
+reject50,adenovirus,human,0
+reject50,dogs,cats,0
+reject50,dogs,humans,0
+reject50,Xanthomonas citri subsp. citri,Xanthomonas arboricola pv. pruni,3
+reject50,copepods,diatoms,2
+reject50,policemen,comet,0
+reject50,Togaviridae,arthropods,3
+reject50,SARS-CoV-2,rhesus macaque,2
+reject50,head lice,anise,4
+test299,ambrosia,Scolytinae,5
+test299,Platanus orientalis,Phytopythium litorale,2
+test299,Piptadenia,Mimosa,4
+test299,C. salsa,Caroxylon passerinum,8
+test299,Armillifer grandis,human,1
+test299,D. isaea,endosymbionts,8
+test299,Nicotiana benthamiana,Chenopodium quinoa,4
+test299,Arabidopsis thaliana,Sisymbrium altissimum,12
+test299,Colletotrichum gloeosporioides,Fusicoccum putrefaciens,12
+test299,Bursaphelenchus okinawaensis,Ashbya gossypii,5
+test299,Hibiscus trionum,butterflies,7
+test299,M. pharyngeus,Dero digitata,4
+test299,Leptocybe invasa,Quadrastichus mendeli,6
+test299,Metarhizium anisopliae,Cylas formicarius|Sweetpotato weevil,6
+test299,Trachydium roylei,Geum elatum,4
+test299,Streptococcus pluranimalium,humans,1
+test299,Pronoprymna ventricosa,twaite shad|Alosa fallax,7
+test299,horses,Sarcocystis neurona,4
+test299,Toxoplasma gondii,Myocoptes musculinus,2
+test299,Cutibacterium acnes,Spongia officinalis,9
+test299,G. nahaensis,suckers,1
+test299,Alloptes,Zachvatkinia,4
+test299,Entyloma spilanthis,Acmella papposa,3
+test299,Capillaria erinacei,Crenosoma striatum,4
+test299,Notemigonus crysoleucas,Neochasmus,8
+test299,Geophaps smithii,Petrophassa rufipennis,18
+test299,Rana pipiens,leopard,3
+test299,equine,human,1
+test299,Hylomantis lemur,Atelopus zeteki,5
+test299,moose,Pneumostrongylus tenuis,2
+test299,Moloch horridus,Phrynosoma platyrhinos,5
+test299,Eupatorium capillifolium,Pyrrhopappus carolinianus,11
+test299,Androlaelaps fahrenholzi,Rhabdomys pumilio,12
+test299,peach,almond,5
+test299,Meloidogyne enterolobii,Ixora chinensis,1
+test299,Diglyphus isaea,Halticoptera arduine,9
+test299,Phytomyza prava,Dizygomyza,3
+test299,Rhizopus,Absidia orchidis,4
+test299,X. glabratus,swampbay|Persea palustris,11
+test299,Agelena labyrinthica,honey bee,2
+test299,M. hiratsukanum,Alnus incana,4
+test299,Acrobates pygmaeus,Australia,2
+test299,Chaetosphaeria,Phialosporostilbe,8
+test299,seals,walrus,4
+test299,Lutreolina crassicaudata,Trypanosoma cruzi,2
+test299,Lagothrix lagotricha,Tayassu pecari|white-lipped peccary,10
+test299,Ephestia kuehniella,Trichogramma euproctidis,6
+test299,dragonflies,Micronycteris microtis,4
+test299,humans,Alaria alata,3
+test299,Caminibacter mediatlanticus,Campylobacter curvus,7
+test299,Tomato,Tuta absoluta,2
+test299,Alnus rubra,Frankia,3
+test299,Aythya americana,Leucocytozoon,7
+test299,Persicaria chinensis,Chinese knotweed,4
+test299,Pyrus elaeagrifolia,Amelanchier,1
+test299,perch|Perca fluviatilis,Diplostomum baeri,5
+test299,Kocuria salsicia,humans,1
+test299,Papaipema nebris,Mythimna unipuncta,7
+test299,Rana latastei,agile frog,3
+test299,Dactylopius coccus,Dactylopiibacterium carminicum,5
+test299,Akkermansia muciniphila,Bacteroides cellulosilyticus,6
+test299,Solaster endeca,Cucumaria frondosa,3
+test299,Rorippa sylvestris,Nasturtium officinale,6
+test299,Etmopterus spinax|velvet belly lanternshark,Aporhynchus menezesi,3
+test299,fungi,Martius,6
+test299,Simulium pertinax,Polydispyrenia simulii,3
+test299,Sycoryctes,Arachonia,4
+test299,Battus philenor|pipevine swallowtail,Aristolochia,4
+test299,garden tiger moth|Arctia caja,Acherontia atropos,8
+test299,phyllodes,Acacia farnesiana,3
+test299,soybean|Glycine max,Phytophthora megasperma f. sp. glycinea,4
+test299,Cystocaulus ocreatus,Protostrongylus rufescens,8
+test299,Phyllocnistis citrella,Cirrospilus vittatus,6
+test299,Baylisascaris columnaris,Toxocara canis,6
+test299,Conidiobolus coronatus,Dicyrtoma,7
+test299,Odontaster validus,Cheirimedon femoratus,1
+test299,Calystegia soldanella,C. hederacea,1
+test299,Rainlily,Hong Kong,0
+test299,goose,Anser brachyrhynchus,3
+test299,Phymaturus extrilidus,Parapharyngodon riojensis,4
+test299,Tupaia tana,Cryptococcus neoformans,7
+test299,Eriogonum arborescens,Artemisia californica,4
+test299,striped mullet,Metamicrocotyla macracantha,4
+test299,Prokelisia crocea,Anagrus columbi,10
+test299,red lionfish|Pterois volitans,Chromis viridis,2
+test299,Ursus arctos horribilis,greater kudu|Tragelaphus strepsiceros,27
+test299,Euhaplorchis,longnose killifish|Fundulus similis,5
+test299,Aeromonas salmonicida,Pichia membranifaciens,6
+test299,Buteo regalis,Athene cunicularia,8
+test299,Pseudomonas aeruginosa,Swietenia macrophylla,2
+test299,Isoodon macrourus,Rattus sordidus,7
+test299,Cyclodontostomum purvisi,Murinae,2
+test299,Ustilago maydis,Zea mays,3
+test299,Macropipus,Micromesistius poutassou,6
+test299,Plecoptera,Trichoptera,2
+test299,Chrysomela vigintipunctata,Salicaceae,4
+test299,emerald ash borer|Agrilus planipennis,Oobius agrili,8
+test299,okra,cotton,7
+test299,Carlina acaulis,Neoseiulus californicus,5
+test299,Toxoplasma gondii,swine,2
+test299,Zea mays,Rhizoctonia solani,2
+test299,V. parahaemolyticus,human,1
+test299,Echinuria uncinata,Anas platyrhynchos,29
+test299,Musca domestica,Spalangia cameroni,6
+test299,Erwinia chrysanthemi,Escherichia coli,3
+test299,tobacco,Bemisia tabaci,3
+test299,Spheniscus magellanicus,C. pelagicum,3
+test299,Meloidogyne,tomato,7
+test299,Prosotocus confusus,Pelophylax ridibundus,17
+test299,cocoa,Helopeltis theivora,3
+test299,Charadrius marginatus,Helicoductus thulakoceras,3
+test299,North American deer mouse|Peromyscus maniculatus,fleas,10
+test299,Meloidogyne artiellia,chickpea,5
+test299,Ixodes trianguliceps,Eurasian shrew,6
+test299,Asphondylia borrichiae,Borrichia frutescens,13
+test299,Nocardia cyriacigeorgica,human,2
+test299,shrews,cats,1
+test299,Cotesia plutellae,Oomyzus sokolowskii,4
+test299,Eucalyptus,Ceratocystis fimbriata,10
+test299,Lissemys punctata andersonii,Myxidium mackiei,4
+test299,Claviceps,Bromus inermis,8
+test299,Lactarius,alders,6
+test299,Cotesia melitaearum,Glanville fritillary|Melitaea cinxia,7
+test299,Rothia dentocariosa,human,1
+test299,Coregonus lavaretus,Triaenophorus crassus,6
+test299,katydids,beetles,5
+test299,human,Treponema denticola,1
+test299,Orthoptera,ground beetles,4
+test299,Actinobacillus pleuropneumoniae,swine,1
+test299,Polykrikos kofoidii,Lingulodinium polyedrum,9
+test299,Cucurbita pepo,Peponapis pruinosa,6
+test299,Pthirus pubis,Homo sapiens,4
+test299,alfalfa,honey bee,4
+test299,Alternaria brassicicola,Cabbage,4
+test299,Symbiodinium californium,Anthopleura elegantissima,5
+test299,Sarcocystis cruzi,cattle,5
+test299,Elymus,Epichloe,0
+test299,Serratia marcescens,human,1
+test299,Babesia divergens,human,3
+test299,Cheirodendron,Drosophila,4
+test299,Pseudopercis numida,Microcotyle pseudopercis,3
+test299,Sturnira lilium,Megistopoda proxima,7
+test299,Xyleborus Glabratus,Raffaelea lauricola,4
+test299,Procyon lotor,Dermacentor variabilis,5
+test299,Pteromalus puparum,Papilio xuthus,2
+test299,Heterophyopsis continua,cats,6
+test299,Hoplopsyllus,Otospermophilus beecheyi,5
+test299,winter flounder|Pseudopleuronectes americanus,Glugea stephani,2
+test299,Musca domestica,Pseudomonas aeruginosa,2
+test299,Passer domesticus,N. caninum,7
+test299,Myodes,Eimeria,4
+test299,Orcinus orca,Oncorhynchus,4
+test299,human,Dietzia maris,2
+test299,Drosophila melanogaster,Pachycrepoideus vindemmiae,7
+test299,Lecanicillium lecanii,Coccus viridis,3
+test299,Steinernema longicaudum,Xenorhabdus ehlersii,3
+test299,Manduca sexta,Xenorhabdus nematophila,4
+test299,human,Corynebacterium amycolatum,2
+test299,Helicobacter felis,human,3
+test299,abalone,Echinocephalus pseudouncinatus,1
+test299,Plasmopara viticola,Vitis vinifera,3
+test299,Balamuthia mandrillaris,human,2
+test299,Entamoeba histolytica,humans,1
+test299,Solanum tuberosum,Bactericera cockerelli,6
+test299,Anastrepha obliqua,mango|Mangifera indica,7
+test299,C. ciconia,Chaunocephalus ferox,8
+test299,dogs,Y. pestis|Yersinia pestis,5
+test299,Sarcocystis hirsuta,cats,10
+test299,cattle,flies,2
+test299,Brachycladium atlanticum,common dolphin,4
+test299,rock ptarmigan,Eimeria,1
+test299,Sitobion avenae,Entomophthora planchoniana,6
+test299,BUMBLEBEES,POLEMONIUM VISCOSUM,1
+test299,Pseudomonas aeruginosa,bovine,1
+test299,Centropomus undecimalis|common snook,Rhabdosynochus hudsoni,11
+test299,alfalfa,S. festinus,6
+test299,Micropterus salmoides|largemouth bass,northern pike|Esox lucius,14
+test299,humpback chub,Ornithodiplostomum,6
+test299,bovine,Bibersteinia trehalosi,6
+test299,peach,Xylella fastidiosa,6
+test299,rabbits,Linguatula serrata,3
+test299,Travassiella avitellina,Paulicea luetkeni,6
+test299,Chelone glabra|turtlehead,Euphydryas phaeton|Baltimore checkerspot,5
+test299,Leucaena leucocephala,Rhizobium etli,6
+test299,M. gallisepticum,Spinus tristis|American goldfinch,8
+test299,Ixodes canisuga,Vulpes vulpes,12
+test299,Peromyscus leucopus,Dermacentor variabilis,3
+test299,tomato,Sclerotinia sclerotiorum,7
+test299,wheat,F. acuminatum,1
+test299,Quercus palustris|Pin oak,Callirhytis,4
+test299,Entomophthora planchoniana,Rhopalosiphum padi,5
+test299,Sclerotium cepivorum,Allium,1
+test299,Neisseria perflava,Homo sapiens,5
+test299,Trygonorrhina fasciata,Branchotenthes octohamatus,10
+test299,P. irritans,Lycalopex,5
+test299,Trichogramma chilonis,Samia cynthia ricini,3
+test299,Lactobacillus crispatus,human,5
+test299,Leptographium,Pinus,6
+test299,Euzetiella tetraphylliformis,Paulicea luetkeni,7
+test299,Acanthocephala,Fessisentis fessus,2
+test299,Oreochromis mossambicus,Portunus pelagicus,3
+test299,Brevibacillus agri,Brevibacillus formosus,4
+test299,Rickettsia,Hemiclepsis marginata,6
+test299,Pseudomonas aeruginosa,Enterococcus faecium,7
+test299,TALIS,simulator,0
+test299,Acrodonta,Chamaeleonidae,3
+test299,Capra hircus,African buffalo|Syncerus caffer,17
+test299,Trichophyton rubrum,human,2
+test299,Patagonia,sei whale,0
+test299,Papiliotrema,Rhizomucor,16
+test299,Pyrus calleryana,Primates,1
+test299,Steinernema carpocapsae,Hirsutella rhossiliensis,6
+test299,proboscis,micro,1
+test299,Anaplasma,Ehrlichia,5
+test299,Psychodopygus,Leishmania braziliensis,5
+test299,G. ellingtonae,G. rostochiensis,3
+test299,Giardia duodenalis,human,6
+test299,head lice|Pediculus humanus,Cheyletiella,16
+test299,Leishmania infantum,Nasua nasua,3
+test299,European seabass|Dicentrarchus labrax,Anguilla anguilla,4
+test299,crickets,policemen,3
+test299,C. burnetii,Rickettsia felis,7
+test299,Manduca sexta,Nicotiana attenuata,3
+test299,Pseudomyrmex penetrator,fungus,4
+test299,bivalves,human,1
+test299,Polytrichastrum alpinum,Pleurozium schreberi,10
+test299,Tagus,Platichthys flesus,6
+test299,whitecheek surgeonfish|Acanthurus nigricans,Paracirrhites arcatus|arc-eye hawkfish,11
+test299,Paridae,fleas,1
+test299,Uromastyx,Pogona vitticeps,5
+test299,Drosophila,Flamingo,0
+test299,Amaranthus retroflexus,pear,2
+test299,E. acervulina,birds,2
+test299,Dreissenidae,Ciliata,6
+test299,Treponema pallidum,guinea pigs,1
+test299,Bombus|bumble bees,Apicystis bombi,3
+test299,dogs,Grande,3
+test299,house fly|Musca domestica,Campylobacter,4
+test299,Clupeaharengus|Atlantic herring,Atlantic bluefin tuna|bluefin tuna,2
+test299,I. ricinus,Babesia sp. (EU1,2
+test299,Paullinia pinnata,Ageratum conyzoides,6
+test299,Lipaphis erysimi,Rhopalosiphum padi,7
+test299,spot,Thrips palmi,1
+test299,Alouatta villosa,Plasmodium falciparum,4
+test299,Chironomus tentans,fathead minnow|Pimephales promelas,2
+test299,sesbania,soybean,0
+test299,chickens,E. acervulina,1
+test299,Trifolium repens,Oryza sativa,8
+test299,Cysticercus fasciolaris,humans,3
+test299,Toxoplasma gondii,Morris,1
+test299,Acanthamoeba sp,Pseudomonas sp,7
+test299,Pythium acanthicum,rooibos,9
+test299,Borrelia garinii,Babesia microti,11
+test299,amphistome,Bubalus bubalis,4
+test299,honeybee,homo,3
+test299,Brachypodium,barley,13
+test299,nervosa,unspecified,1
+test299,human,Phialophora,11
+test299,Aptenia cordifolia,Carpobrotus edulis,2
+test299,Enterobacter,Campylobacter jejuni,7
+test299,familiaris,B. arietans,6
+test299,thymus,cats,12
+test299,Candida albicans,Penicilliummarneffei,19
+test299,Sulfolobus islandicus,lysis,2
+test299,Micrococcus luteus,Lactobacillus acidophilus,8
+test299,Saccharomyces cerevisiae,Schizosaccharomyces pombe|fission yeast,4
+test299,Philodryas chamissonis,Dusicyon culpaeus,16
+test299,Pseudosida variabilis,Daphnia magna,6
+test299,Citrobacter,Proteus,5
+test299,Burkholderia pseudomallei,Proteus mirabilis,7
+test299,Clostridium perfringens,Opisthorchis viverrini,11
+test299,T. gammatolerans,Thermococcus sp. AM4,5
+test299,sweetpotato,Mara,0
+test299,Arabidopsis,bovine,1
+test299,zebrafish|Danio rerio,mammals,2
+test299,chimpanzees,humans,1
+test299,Mycoplasma gallisepticum,"Mycoplasma gallisepticum ""F",1
+test299,Aloe vera,citrus,4
+test299,Pinnotheridae,Crepidula striolata,6
+test299,higher plants,humans,2
+test299,Angiostrongylus vasorum,Aelurostrongylus abstrusus,4
+test299,Ulvaria fusca,Pseudoalteromonas,5
+test299,Botryosphaeria,Guignardia,5
+test299,Salmonella enterica serovar Typhimurium,Chlamydia muridarum,8
+test299,Alphitobius diaperinus|lesser mealworm,humans,4
+test299,bats,Carios vespertilionis,2
+test299,Salmonella,Variovorax,10
+test299,guava|Psidium guajava,Citrus sinensis,8
+test299,Cerastoderma edule,Venerupis corrugata,2
+test299,Allantophomopsis cytisporea,Fusicoccum putrefaciens,6
+test299,per se,Neospora,3
+test299,Megasphaera,Fissidentalium rectum,17
+test299,flavolineata,Trichostetha fascicularis,6
+test299,Succinivibrio,Selenomonas,5
+test299,Borrelia burgdorferi,Salmonella,10
+test299,strata,waterfowl|Waterfowl,0
+test299,zillii,B. bajad,4
+test299,dogs,terminalis,0
+test299,Myrsine lanaiensis,P. kolea,5

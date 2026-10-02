@@ -33,6 +33,21 @@ def _locate(sp, txt):
     sp = str(sp).strip()
     if not sp:
         return None
+    if "|" in sp:
+        # The benchmark joins alternative surface forms with "|" ("African buffalo|Syncerus
+        # caffer"). The joined string never occurs in a passage, so without this the fallback
+        # below fires on one token of one alternative and marks "@African@ elephant". Try
+        # every alternative in full first, then fall back alternative by alternative.
+        alts = [x.strip() for x in sp.split("|") if x.strip()]
+        for alt in alts:
+            m = re.search(rf"\b{re.escape(alt)}\b", txt, re.I)
+            if m:
+                return m.span()
+        for alt in alts:
+            span = _locate(alt, txt)
+            if span:
+                return span
+        return None
 
     def _find(cand):
         if not cand:

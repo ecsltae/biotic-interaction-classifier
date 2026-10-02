@@ -1,0 +1,104 @@
+{
+  "model": "models/dirhead/joint_v3_s1",
+  "name": "v3",
+  "threshold": 0.42000000000000004,
+  "n_pol": 3,
+  "has_undirected_branch": true,
+  "no_rules": {
+    "P": 0.8404255319148937,
+    "R": 0.9634146341463414,
+    "F1": 0.8977272727272727,
+    "accepts": 282,
+    "fp": 45
+  },
+  "auprc": 0.9477499746814824,
+  "truncated_rows": 1,
+  "taxon_not_located_rows": 4,
+  "with_rules": {
+    "P": 0.8608058608058609,
+    "R": 0.9552845528455285,
+    "F1": 0.905587668593449,
+    "accepts": 273,
+    "fp": 38
+  },
+  "direction": {
+    "pred": {
+      "directional_items": 84,
+      "answered": 67,
+      "coverage": 0.7976190476190477,
+      "accuracy_on_answered": 0.9104477611940298,
+      "accuracy_counting_abstention_as_wrong": 0.7261904761904762,
+      "uncertain_gold_items": 12,
+      "uncertain_gold_answered_uncertain": 8,
+      "bidirectional_gold_items": 1,
+      "bidirectional_gold_answered_bidirectional": 1,
+      "confusion": {
+        "BIDIRECTIONAL": {
+          "BIDIRECTIONAL": 1,
+          "FORWARD": 0,
+          "REVERSE": 0,
+          "UNCERTAIN": 0
+        },
+        "FORWARD": {
+          "BIDIRECTIONAL": 0,
+          "FORWARD": 44,
+          "REVERSE": 4,
+          "UNCERTAIN": 3
+        },
+        "REVERSE": {
+          "BIDIRECTIONAL": 0,
+          "FORWARD": 2,
+          "REVERSE": 17,
+          "UNCERTAIN": 1
+        },
+        "UNCERTAIN": {
+          "BIDIRECTIONAL": 0,
+          "FORWARD": 7,
+          "REVERSE": 10,
+          "UNCERTAIN": 8
+        }
+      }
+    },
+    "pred_head": {
+      "directional_items": 84,
+      "answered": 67,
+      "coverage": 0.7976190476190477,
+      "accuracy_on_answered": 0.9104477611940298,
+      "accuracy_counting_abstention_as_wrong": 0.7261904761904762,
+      "uncertain_gold_items": 12,
+      "uncertain_gold_answered_uncertain": 6,
+      "bidirectional_gold_items": 1,
+      "bidirectional_gold_answered_bidirectional": 1,
+      "confusion": {
+        "BIDIRECTIONAL": {
+          "BIDIRECTIONAL": 1,
+          "FORWARD": 0,
+          "REVERSE": 0,
+          "UNCERTAIN": 1
+        },
+        "FORWARD": {
+          "BIDIRECTIONAL": 0,
+          "FORWARD": 44,
+          "REVERSE": 4,
+          "UNCERTAIN": 4
+        },
+        "REVERSE": {
+          "BIDIRECTIONAL": 0,
+          "FORWARD": 2,
+          "REVERSE": 17,
+          "UNCERTAIN": 1
+        },
+        "UNCERTAIN": {
+          "BIDIRECTIONAL": 0,
+          "FORWARD": 7,
+          "REVERSE": 10,
+          "UNCERTAIN": 6
+        }
+      }
+    }
+  },
+  "direction_no_interaction_gold": {
+    "items": 11,
+    "model_says_no_interaction": 4
+  }
+}

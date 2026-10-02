@@ -1,0 +1,438 @@
+species1,relation,species2,interacts,p_interact,rejected_by_rule,direction,p_species1_is_subject,direction_confidence,symmetric_relation,both_taxa_located,unknown_polarity,truncated,label,source
+horses,affected by,Culicoides obsoletus,1,0.9969,,FORWARD,0.9831,0.9663,0,1,0,0,1,biotx100
+Cronobacter sakazakii,invasion,human,1,0.9988,,FORWARD,0.9996,0.9993,0,1,0,0,1,biotx100
+Dikarya,Symbiont,Basidiobolus,1,0.9794,,REVERSE,0.1452,0.7096,0,1,0,0,0,biotx100
+Onthophagus taurus,fed on,cattle,1,0.9985,,FORWARD,0.9961,0.9922,0,1,0,0,1,biotx100
+Olfersia spinifera,ectoparasite of,Fregata minor,1,0.9993,,FORWARD,0.9976,0.9952,0,1,0,0,1,biotx100
+Pterostichus melanarius,predator,Illiger,0,0.0096,,UNCERTAIN,0.7603,0.5205,0,1,0,0,0,biotx100
+Calamagrostis epigejos,hemiparasite,Thesium linophyllon,1,0.9977,,UNCERTAIN,0.2662,0.4676,0,1,0,0,1,biotx100
+Crinipellis brasiliensis,parasite of,Heteropterys acutifolia,1,0.9989,,FORWARD,0.9973,0.9947,0,1,0,0,1,biotx100
+cats,infested,Heterodoxus spiniger,1,0.9991,,FORWARD,0.9969,0.9937,0,1,0,0,1,biotx100
+Clinostomum,parasite of,Alosa sapidissima,1,0.9788,,REVERSE,0.0193,0.9614,0,1,0,0,1,biotx100
+"tomato spotted wilt virus, TSWV|Orthotospovirus tomatomaculae",transmitted by,western flower thrips|Frankliniella occidentalis,1,0.9988,,FORWARD,0.9984,0.9967,0,1,0,0,1,biotx100
+Venturia canescens,parasitizing,Mediterranean flour moth,1,0.9992,,FORWARD,0.9878,0.9756,0,1,0,0,1,biotx100
+Caryedes brasiliensis,feeding on,Dioclea megacarpa,1,0.9977,,FORWARD,0.9957,0.9914,0,1,0,0,1,biotx100
+Leptodora,prey,Bosmina,1,0.9989,,REVERSE,0.1031,0.7938,0,1,0,0,1,biotx100
+Chaetogaster limnaei,predator of,Fasciola hepatica,1,0.9992,,FORWARD,0.999,0.9979,0,1,0,0,1,biotx100
+Philometra ovata,parasites of,Gobio gobio|gudgeon,1,0.972,,UNCERTAIN,0.2475,0.505,0,1,0,0,1,biotx100
+Melanoides tuberculata,host of,Centrocestus formosanus,1,0.9991,,FORWARD,0.9969,0.9938,0,1,0,0,1,biotx100
+Parhyale hawaiensis,prey,lined seahorse|Hippocampus erectus,1,0.9992,,FORWARD,0.9856,0.9713,0,1,0,0,1,biotx100
+Mycoplasma,parasitized,gut metagenome,0,0.3257,,UNCERTAIN,0.8481,0.6963,0,1,0,0,1,biotx100
+Gyrodactylus carolinae,parasite of,Characidium lanei,1,0.9987,,FORWARD,0.9985,0.997,0,1,0,0,1,biotx100
+Plagiotremus laudandus,feed on,Meiacanthus atrodorsalis,1,0.9882,,UNCERTAIN,0.6483,0.2965,0,1,0,0,1,biotx100
+Orchid fleck virus,transmitted by,Brevipalpus californicus,1,0.9954,,FORWARD,0.9933,0.9866,0,1,0,0,1,biotx100
+Mycobacterium marinum,pathogen of,Mycobacterium tuberculosis,0,0.0128,,UNCERTAIN,0.9958,0.9915,0,1,0,0,0,biotx100
+Rickettsiella chironomi,parasite of,midge,1,0.9993,,FORWARD,0.9993,0.9986,0,1,0,0,1,biotx100
+Polyarthra,grazed,Chlorophyta,1,0.9988,,FORWARD,0.9995,0.9989,0,1,0,0,1,biotx100
+Human,Pathogens,Aspergillus giganteus,1,0.9889,,UNCERTAIN,0.544,0.0879,0,1,0,0,0,biotx100
+Arvicanthis neumanni,hosts of,Mastomys natalensis,0,0.0052,,UNCERTAIN,0.0686,0.8627,0,1,0,0,0,biotx100
+Nerocila phaiopleura,infestation,Whitefin wolf-herring|Chirocentrus nudus,1,0.9989,,FORWARD,0.9998,0.9995,0,1,0,0,1,biotx100
+Fusarium zanthoxyli,pathogens of,Zanthoxylum bungeanum,1,0.9925,,FORWARD,0.977,0.9539,0,1,0,0,1,biotx100
+Aroplectrus dimerus,Ectoparasitoid of,Oxyplax pallivitta,1,0.9988,,FORWARD,0.9769,0.9538,0,1,0,0,1,biotx100
+Galea leucoblephara,parasite of,Holochilus brasiliensis,0,0.0352,,UNCERTAIN,0.3051,0.3897,0,1,0,0,0,biotx100
+Neotyphodium,coevolution,Festuca arizonica,1,0.9951,,BIDIRECTIONAL,,,1,1,0,0,1,biotx100
+NanA,invasion,human,1,0.9914,,FORWARD,0.9981,0.9963,0,1,0,0,0,biotx100
+Conepatus chinga,host of,Trypanosoma cruzi,1,0.9993,,FORWARD,0.9993,0.9987,0,1,0,0,1,biotx100
+Gallotia galloti,host of,Angiostrongylus cantonensis,1,0.9992,,FORWARD,0.9995,0.999,0,1,0,0,1,biotx100
+Paranoplocephala etholeni,parasitizing,Microtus pennsylvanicus|meadow vole,1,0.9993,,FORWARD,0.9962,0.9925,0,1,0,0,1,biotx100
+Inquilina,parasite of,Exoneura,1,0.999,,FORWARD,0.9996,0.9992,0,1,0,0,1,biotx100
+Saprochaete capitata,colonize,human,1,0.9092,,UNCERTAIN,0.7735,0.547,0,1,0,0,1,biotx100
+Human|human,migration,Toxocara,1,0.9993,,BIDIRECTIONAL,,,1,1,0,0,1,biotx100
+Colletotrichum sansevieriae,pathogen of,Sansevieria trifasciata,1,0.9927,,FORWARD,0.9948,0.9897,0,1,0,0,1,biotx100
+Haemophilus influenzae,pathogen of,human,1,0.9991,,FORWARD,0.9994,0.9988,0,1,0,0,1,biotx100
+Streptococcus agalactiae,pathogen of,Oreochromis niloticus|Nile tilapia,1,0.9988,,FORWARD,0.9987,0.9974,0,1,0,0,1,biotx100
+Nucleospora salmonis,parasite of,salmonid fish,1,0.9988,,FORWARD,0.9994,0.9988,0,1,0,0,1,biotx100
+Gossypium mustelinum,exposed to,Verticillium,1,0.9984,,FORWARD,0.999,0.9981,0,1,0,0,1,biotx100
+Streptococcus agalactiae,pathogen of,tilapia,1,0.9991,,FORWARD,0.9994,0.9988,0,1,0,0,1,biotx100
+Breinlia booliati,hosts of,Rattus,1,0.9992,,REVERSE,0.0143,0.9715,0,1,0,0,1,biotx100
+Galba truncatula,host for,Fasciola hepatica,1,0.9993,,FORWARD,0.9976,0.9953,0,1,0,0,1,biotx100
+Demidospermus,parasitizing,Ageneiosus inermis,1,0.9993,,FORWARD,0.9916,0.9833,0,1,0,0,1,biotx100
+human,transmitted by,Glossina|tsetse flies,1,0.9938,,FORWARD,0.9877,0.9753,0,1,0,0,1,biotx100
+Epichlo√´ elymi,affecting,Elymus hystrix,1,0.9988,,FORWARD,0.9324,0.8647,0,1,0,0,1,biotx100
+Ichthyocotylurus erraticus,affecting,Coregonus autumnalis,1,0.9956,,UNCERTAIN,0.2094,0.5812,0,1,0,0,1,biotx100
+Salmonella Poona,affected by,cantaloupe,1,0.9985,,REVERSE,0.0246,0.9508,0,1,0,0,1,biotx100
+avian,host for,Chilina,1,0.9935,,REVERSE,0.0023,0.9955,0,1,0,0,0,biotx100
+human,contributes to,Entamoeba histolytica,1,0.9987,,BIDIRECTIONAL,,,1,1,0,0,1,biotx100
+Blattella germanica,hosts of,Pterygodermatites nycticebi,1,0.999,,FORWARD,0.9983,0.9966,0,1,0,0,1,biotx100
+chinchillas,pathogens,Haemophilus influenzae,1,0.9971,,UNCERTAIN,0.2195,0.5609,0,1,0,0,1,biotx100
+Salmonella,contaminated,humans,1,0.999,,UNCERTAIN,0.4806,0.0388,0,1,0,0,1,biotx100
+Puccinia,pathogens of,wheat,1,0.9991,,FORWARD,0.9993,0.9987,0,1,0,0,1,biotx100
+Phytophthora,invasion,Limonium,1,0.9755,,FORWARD,0.9994,0.9988,0,1,0,0,1,biotx100
+Mycoplasma,transmitted by,cat flea|Ctenocephalides felis,1,0.9948,,FORWARD,0.9435,0.8871,0,1,0,0,1,biotx100
+norovirus,contribute to,oysters,1,0.9977,,BIDIRECTIONAL,,,1,1,0,0,1,biotx100
+loquat|Eriobotrya japonica,colonized,wheat,1,0.9803,,REVERSE,0.1087,0.7825,0,1,0,0,0,biotx100
+Campylobacter jejuni,Feeding on,Human,1,0.9067,,UNCERTAIN,0.6611,0.3221,0,1,0,0,0,biotx100
+Dolichogenidea gelechiidivoris,parasitoid of,Tuta absoluta,1,0.999,,FORWARD,0.9988,0.9976,0,1,0,0,1,biotx100
+Paramecium,invade,Holospora,1,0.9984,,REVERSE,0.0264,0.9472,0,1,0,0,1,biotx100
+Human,Symbiont,Ruminococcus gnavus E1,1,0.9957,,UNCERTAIN,0.391,0.2181,0,1,0,0,1,biotx100
+bat tick,feed on,humans,1,0.9993,,FORWARD,0.998,0.996,0,1,0,0,0,biotx100
+Humans,depends on,Brucella,1,0.9989,,BIDIRECTIONAL,,,1,1,0,0,1,biotx100
+copia,symbiont,Symbiodinium microadriaticum,1,0.6702,,UNCERTAIN,0.5082,0.0164,0,1,0,0,0,biotx100
+human,exposed to,Actinomyces viscosus,1,0.9974,,FORWARD,0.9997,0.9995,0,1,0,0,1,biotx100
+Lithodes santolla,Infestation,Eremitione,1,0.9984,,REVERSE,0.0552,0.8895,0,1,0,0,1,biotx100
+Trypanosoma murmanensis,transmitted by,Johanssonia arctica,1,0.9941,,FORWARD,0.9995,0.9989,0,1,0,0,1,biotx100
+Iphiseius degenerans,predatory,western flower thrips|Frankliniella occidentalis,1,0.9991,,REVERSE,0.1411,0.7178,0,1,0,0,1,biotx100
+boars,pathogens,humans,1,0.983,,FORWARD,0.9739,0.9477,0,1,0,0,0,biotx100
+Lactobacillus,exposed to,Campylobacter,1,0.9287,,UNCERTAIN,0.4571,0.0857,0,1,0,0,0,biotx100
+Pavlovskyella,parasite of,Lycalopex culpaeus|culpeo fox,1,0.9993,,FORWARD,0.9746,0.9493,0,1,0,0,1,biotx100
+Alternaria alternata,Positively Regulate,Pear,1,0.9976,,UNCERTAIN,0.359,0.2821,0,1,0,0,1,biotx100
+sulla,symbionts of,Hedysarum coronarium,0,0.0466,,UNCERTAIN,0.0923,0.8153,0,1,0,0,0,biotx100
+bats,roosts,bugs,1,0.9953,,BIDIRECTIONAL,,,1,1,0,0,1,biotx100
+human,invade,Mycobacterium leprae,1,0.9955,,REVERSE,0.0266,0.9468,0,1,0,0,1,biotx100
+Blastocystis,exposed to,human,1,0.995,,FORWARD,0.9953,0.9907,0,1,0,0,1,biotx100
+Psoroptidae,parasitizing,Atelerix albiventris,1,0.9993,,FORWARD,0.9979,0.9958,0,1,0,0,1,biotx100
+rhododendron,infested,Phytophthora ramorum,1,0.9984,,FORWARD,0.9988,0.9976,0,1,0,0,1,biotx100
+rhesus macaques,colonizes,humans,0,0.2886,,UNCERTAIN,0.9792,0.9585,0,1,0,0,0,biotx100
+Elephantulus myurus,parasitized by,Rhipicephalus,1,0.9992,,FORWARD,0.9986,0.9973,0,1,0,0,1,biotx100
+Columbidae,hosts for,Trichomonas gallinae,1,0.9991,,FORWARD,0.9895,0.979,0,1,0,0,1,biotx100
+SARS-CoV-2,invade,rhesus monkeys,1,0.9985,,FORWARD,0.998,0.996,0,1,0,0,1,biotx100
+rhinoceros beetle,phoretic,Oryctes agamemnon,1,0.958,,BIDIRECTIONAL,,,1,1,0,0,0,biotx100
+Sulcospira quangtriensis,hosts of,Triculinae,0,0.008,,UNCERTAIN,0.6008,0.2015,0,1,0,0,0,biotx100
+chicory,grazing|grazed,cattle,1,0.8765,,FORWARD,0.997,0.994,0,1,0,0,1,biotx100
+birds,predators,northern pikeminnow|Ptychocheilus oregonensis,1,0.9837,,UNCERTAIN,0.6465,0.2929,0,1,0,0,1,biotx100
+Harmonia axyridis,predator|predator of,aphid,1,0.9935,,FORWARD,0.9204,0.8408,0,1,0,0,1,biotx100
+Agaricus bisporus,colonized,mycelium,1,0.759,,REVERSE,0.0688,0.8624,0,1,0,0,0,biotx100
+Colorado tick fever virus,transmitted by,Dermacentor andersoni,1,0.9992,,FORWARD,0.9992,0.9984,0,1,0,0,1,biotx100
+black tiger shrimp|Penaeus monodon,pathogens,ammonia,0,0.0169,,UNCERTAIN,0.5129,0.0258,0,1,0,0,0,biotx100
+Sitobion avenae,feeding by,Schizaphis graminum,0,0.0133,,UNCERTAIN,0.4653,0.0693,0,1,0,0,0,biotx100
+mast,seropositive to,bovine,0,0.4219,,UNCERTAIN,0.9574,0.9148,0,1,0,0,0,biotx100
+Renilla,Vectors for,human,0,0.0038,,UNCERTAIN,0.65,0.3,0,1,0,0,0,reject50
+adenovirus,exposed to,Escherichia coli,0,0.4638,,UNCERTAIN,0.4252,0.1496,0,1,0,0,0,reject50
+Salmonella,pathogens,human,1,0.9944,,UNCERTAIN,0.5812,0.1623,0,1,0,0,1,reject50
+rainbow trout,contaminated by,cerium,0,0.091,,UNCERTAIN,0.5175,0.035,0,1,0,0,0,reject50
+Siberia,migrating,birds,0,0.0787,,UNCERTAIN,,,1,1,0,0,0,reject50
+ticks,infestation,rabbits,1,0.9976,,REVERSE,0.0021,0.9959,0,1,0,0,1,reject50
+spinach,Contamination,radish,0,0.0017,,UNCERTAIN,0.6474,0.2947,0,1,0,0,0,reject50
+Tadarida brasiliensis,roosts,human,0,0.106,,UNCERTAIN,,,1,1,0,0,0,reject50
+Trypanosoma rangeli,infestation,Trypanosoma cruzi,0,0.0049,,UNCERTAIN,0.7605,0.521,0,1,0,0,0,reject50
+viruses,pathogens,human,1,0.9942,,UNCERTAIN,0.3463,0.3074,0,1,0,0,1,reject50
+Ancylostoma ceylanicum,Migration,human,1,0.9772,,BIDIRECTIONAL,,,1,1,0,0,0,reject50
+dogs,affecting,cats,0,0.0021,,UNCERTAIN,0.1381,0.7238,0,1,0,0,0,reject50
+camel crickets,invading,human,0,0.4237,,UNCERTAIN,0.3469,0.3061,0,1,0,0,0,reject50
+coxsackievirus A16,pathogens,enterovirus 71,0,0.0014,,UNCERTAIN,0.7622,0.5245,0,1,0,0,0,reject50
+human,pathogens,Babesia,1,0.9983,,REVERSE,0.003,0.994,0,1,0,0,1,reject50
+Alternaria solani,pathogen of,Phytophthora infestans,0,0.002,,UNCERTAIN,0.6264,0.2529,0,1,0,0,0,reject50
+Australia,contamination,Alice,0,0.0018,,UNCERTAIN,0.4629,0.0743,0,1,0,0,0,reject50
+Streptococcus,exposed to,Neisseria,0,0.0011,,UNCERTAIN,0.5241,0.0482,0,1,0,0,0,reject50
+Fusarium oxysporum,negatively regulates,chickpea,1,0.9985,,UNCERTAIN,0.6534,0.3067,0,1,0,0,0,reject50
+wasps,prey,spiders,1,0.9937,,REVERSE,0.161,0.678,0,1,0,0,0,reject50
+Clostridium difficile,pathogens,amoeba,0,0.0022,,UNCERTAIN,0.4983,0.0034,0,1,0,0,0,reject50
+paralysis,migration,Yersinia pestis,0,0.0182,,UNCERTAIN,,,1,1,0,0,0,reject50
+Prospero,regulated by,Drosophila,0,0.0994,,UNCERTAIN,0.9918,0.9836,0,1,0,0,0,reject50
+nervous necrosis virus,affecting,European sea bass,1,0.9981,,UNCERTAIN,0.3857,0.2286,0,1,0,0,0,reject50
+viruses,pathogens,Aphanomyces astaci,0,0.0709,,UNCERTAIN,0.713,0.426,0,1,0,0,0,reject50
+pilus,adjacent to,Salmonella,0,0.0054,,UNCERTAIN,,,1,1,0,0,0,reject50
+Brassica napus,contaminated,Enterobacter sp. MN17,1,0.996,,UNCERTAIN,0.636,0.272,0,1,0,0,0,reject50
+SARS-CoV-2,interacts with,human,1,0.9957,,BIDIRECTIONAL,,,1,1,0,0,1,reject50
+Shigella flexneri,pathogens,human,1,0.964,,UNCERTAIN,0.6324,0.2648,0,1,0,0,1,reject50
+Sitobion miscanthi,symbiont,aphid,1,0.9962,,UNCERTAIN,0.3228,0.3543,0,1,0,0,0,reject50
+PICUs,contamination,ICUs,0,0.0017,,UNCERTAIN,0.9482,0.8965,0,1,0,0,0,reject50
+Mycobacterium tuberculosis,regulate,human,1,0.9985,,UNCERTAIN,0.2341,0.5317,0,1,0,0,1,reject50
+adenovirus,migration,human,1,0.9913,,BIDIRECTIONAL,,,1,1,0,0,0,reject50
+dogs,exposed to,cats,0,0.0025,,UNCERTAIN,0.3079,0.3842,0,1,0,0,0,reject50
+dogs,affected by,humans,0,0.0352,,UNCERTAIN,0.7558,0.5116,0,1,0,0,0,reject50
+Xanthomonas citri subsp. citri,pathogens,Xanthomonas arboricola pv. pruni,0,0.1103,,UNCERTAIN,0.2026,0.5948,0,1,0,0,0,reject50
+copepods,trophic,diatoms,1,0.9678,,BIDIRECTIONAL,,,1,1,0,0,1,reject50
+policemen,exposed to,comet,0,0.0065,,UNCERTAIN,0.9626,0.9252,0,1,0,0,0,reject50
+Togaviridae,transmitted by,arthropods,1,0.997,,FORWARD,0.9993,0.9986,0,1,0,0,1,reject50
+SARS-CoV-2,neutralize,rhesus macaque,1,0.9906,,UNCERTAIN,0.3174,0.3652,0,1,0,0,0,reject50
+head lice,exposed to,anise,0,0.2539,,UNCERTAIN,0.9177,0.8353,0,1,0,0,0,reject50
+ambrosia,host,Scolytinae,0,0.1505,,UNCERTAIN,0.3206,0.3589,0,1,0,0,0,test299
+Platanus orientalis,Pathogen of,Phytopythium litorale,1,0.9989,,REVERSE,0.0021,0.9958,0,1,0,0,1,test299
+Piptadenia,hosts for,Mimosa,0,0.0031,,UNCERTAIN,0.7722,0.5443,0,1,0,0,0,test299
+C. salsa,host,Caroxylon passerinum,1,0.8878,,UNCERTAIN,0.481,0.0381,0,1,0,0,1,test299
+Armillifer grandis,infections,human,1,0.998,,UNCERTAIN,0.4579,0.0843,0,1,0,0,1,test299
+D. isaea,infected with,endosymbionts,1,0.7885,,UNCERTAIN,0.4101,0.1798,0,1,0,0,0,test299
+Nicotiana benthamiana,infection|infect,Chenopodium quinoa,0,0.007,,UNCERTAIN,0.0878,0.8243,0,1,0,0,0,test299
+Arabidopsis thaliana,herbivory,Sisymbrium altissimum,0,0.0212,,UNCERTAIN,0.7239,0.4479,0,1,1,0,0,test299
+Colletotrichum gloeosporioides,pathogens,Fusicoccum putrefaciens,0,0.0029,,UNCERTAIN,0.2988,0.4024,0,1,0,0,0,test299
+Bursaphelenchus okinawaensis,host,Ashbya gossypii,1,0.9834,,FORWARD,0.9244,0.8488,0,1,0,0,1,test299
+Hibiscus trionum,pollinators,butterflies,1,0.998,,REVERSE,0.0904,0.8191,0,1,0,0,1,test299
+M. pharyngeus,host,Dero digitata,1,0.9986,,UNCERTAIN,0.5166,0.0332,0,1,0,0,1,test299
+Leptocybe invasa,parasitoid of,Quadrastichus mendeli,1,0.9989,,REVERSE,0.0029,0.9942,0,1,0,0,1,test299
+Metarhizium anisopliae,host,Cylas formicarius|Sweetpotato weevil,1,0.9986,,UNCERTAIN,0.6086,0.2172,0,1,0,0,1,test299
+Trachydium roylei,grazing,Geum elatum,0,0.0034,,UNCERTAIN,0.4038,0.1924,0,1,0,0,0,test299
+Streptococcus pluranimalium,infections,humans,1,0.9953,,FORWARD,0.9973,0.9946,0,1,0,0,1,test299
+Pronoprymna ventricosa,parasite of,twaite shad|Alosa fallax,1,0.999,,FORWARD,0.9986,0.9972,0,1,0,0,1,test299
+horses,infection|infections,Sarcocystis neurona,1,0.9977,,UNCERTAIN,0.2555,0.489,0,1,0,0,1,test299
+Toxoplasma gondii,infection|infected with,Myocoptes musculinus,1,0.7496,,UNCERTAIN,0.5993,0.1987,0,1,0,0,0,test299
+Cutibacterium acnes,symbiont,Spongia officinalis,1,0.8737,,FORWARD,0.9658,0.9315,0,1,0,0,0,test299
+G. nahaensis,hosts,suckers,0,0.0384,,UNCERTAIN,0.6011,0.2022,0,1,0,0,0,test299
+Alloptes,host,Zachvatkinia,0,0.0935,,UNCERTAIN,0.9026,0.8051,0,1,0,0,0,test299
+Entyloma spilanthis,host,Acmella papposa,1,0.9986,,UNCERTAIN,0.649,0.298,0,1,0,0,1,test299
+Capillaria erinacei,endoparasites,Crenosoma striatum,0,0.0018,,UNCERTAIN,0.4329,0.1342,0,1,0,0,0,test299
+Notemigonus crysoleucas,infected with,Neochasmus,1,0.9048,,FORWARD,0.943,0.8861,0,1,0,0,1,test299
+Geophaps smithii,host,Petrophassa rufipennis,0,0.0094,,UNCERTAIN,0.4565,0.0871,0,1,0,0,0,test299
+Rana pipiens,infection,leopard,0,0.1152,,UNCERTAIN,0.4711,0.0579,0,1,0,0,0,test299
+equine,infections,human,1,0.9963,,UNCERTAIN,0.6592,0.3184,0,1,0,0,0,test299
+Hylomantis lemur,infection,Atelopus zeteki,0,0.0089,,UNCERTAIN,0.3162,0.3677,0,1,0,0,0,test299
+moose,infected with,Pneumostrongylus tenuis,1,0.9988,,UNCERTAIN,0.5591,0.1182,0,1,0,0,1,test299
+Moloch horridus,prey,Phrynosoma platyrhinos,0,0.0028,,UNCERTAIN,0.4999,0.0003,0,1,0,0,0,test299
+Eupatorium capillifolium,infection,Pyrrhopappus carolinianus,0,0.002,,UNCERTAIN,0.2958,0.4083,0,1,0,0,0,test299
+Androlaelaps fahrenholzi,host,Rhabdomys pumilio,1,0.9885,,UNCERTAIN,0.7045,0.4091,0,1,0,0,1,test299
+peach,host,almond,0,0.0026,,UNCERTAIN,0.4171,0.1657,0,1,0,0,0,test299
+Meloidogyne enterolobii,Infecting,Ixora chinensis,1,0.9993,,FORWARD,0.8164,0.6328,0,1,0,0,1,test299
+Diglyphus isaea,Parasitoids,Halticoptera arduine,1,0.9591,,UNCERTAIN,0.2238,0.5524,0,1,0,0,1,test299
+Phytomyza prava,host,Dizygomyza,0,0.003,,UNCERTAIN,0.7394,0.4788,0,1,0,0,0,test299
+Rhizopus,infection,Absidia orchidis,0,0.0023,,UNCERTAIN,0.5629,0.1257,0,1,0,0,0,test299
+X. glabratus,attracted,swampbay|Persea palustris,0,0.3177,,UNCERTAIN,0.9758,0.9517,0,1,0,0,1,test299
+Agelena labyrinthica,prey,honey bee,1,0.9979,,REVERSE,0.0216,0.9568,0,1,0,0,0,test299
+M. hiratsukanum,pathogen,Alnus incana,1,0.9972,,UNCERTAIN,0.7314,0.4629,0,1,0,0,1,test299
+Acrobates pygmaeus,infection,Australia,0,0.0058,,UNCERTAIN,0.6036,0.2073,0,1,0,0,0,test299
+Chaetosphaeria,host,Phialosporostilbe,0,0.0049,,UNCERTAIN,0.2628,0.4745,0,1,0,0,0,test299
+seals,predator,walrus,0,0.0101,,UNCERTAIN,0.3665,0.2669,0,1,0,0,0,test299
+Lutreolina crassicaudata,infection,Trypanosoma cruzi,1,0.999,,UNCERTAIN,0.5478,0.0955,0,1,0,0,1,test299
+Lagothrix lagotricha,hunting|hunted,Tayassu pecari|white-lipped peccary,0,0.005,,UNCERTAIN,0.6154,0.2308,0,1,0,0,0,test299
+Ephestia kuehniella,host,Trichogramma euproctidis,1,0.9988,,FORWARD,0.8561,0.7123,0,1,0,0,1,test299
+dragonflies,preys on,Micronycteris microtis,1,0.998,,REVERSE,0.0125,0.975,0,1,0,0,1,test299
+humans,hosts of,Alaria alata,1,0.9954,,FORWARD,0.9994,0.9988,0,1,0,0,1,test299
+Caminibacter mediatlanticus,host,Campylobacter curvus,0,0.0018,,UNCERTAIN,0.3827,0.2345,0,1,0,0,0,test299
+Tomato,Predators,Tuta absoluta,1,0.9724,,FORWARD,0.9993,0.9986,0,1,0,0,1,test299
+Alnus rubra,host,Frankia,1,0.9933,,FORWARD,0.9987,0.9973,0,1,0,0,1,test299
+Aythya americana,infections,Leucocytozoon,1,0.6758,,UNCERTAIN,0.6036,0.2072,0,1,0,0,0,test299
+Persicaria chinensis,pollinators,Chinese knotweed,0,0.3439,,UNCERTAIN,0.9931,0.9862,0,1,0,0,0,test299
+Pyrus elaeagrifolia,pathogen,Amelanchier,0,0.0029,,UNCERTAIN,0.1633,0.6735,0,1,0,0,0,test299
+perch|Perca fluviatilis,infection,Diplostomum baeri,1,0.9929,,UNCERTAIN,0.5041,0.0082,0,1,0,0,1,test299
+Kocuria salsicia,infections,humans,1,0.9982,,UNCERTAIN,0.5068,0.0136,0,1,0,0,1,test299
+Papaipema nebris,host,Mythimna unipuncta,0,0.003,,UNCERTAIN,0.9009,0.8018,0,1,0,0,0,test299
+Rana latastei,predator,agile frog,0,0.0145,,UNCERTAIN,0.8425,0.6849,0,1,0,0,0,test299
+Dactylopius coccus,Symbiont,Dactylopiibacterium carminicum,1,0.9992,,UNCERTAIN,0.5698,0.1396,0,1,0,0,1,test299
+Akkermansia muciniphila,infection,Bacteroides cellulosilyticus,0,0.0018,,UNCERTAIN,0.3901,0.2197,0,1,0,0,0,test299
+Solaster endeca,preyed on,Cucumaria frondosa,1,0.9985,,REVERSE,0.0028,0.9943,0,1,0,0,1,test299
+Rorippa sylvestris,presence of,Nasturtium officinale,0,0.0026,,UNCERTAIN,0.3229,0.3541,0,1,1,0,0,test299
+Etmopterus spinax|velvet belly lanternshark,parasite of,Aporhynchus menezesi,1,0.9993,,REVERSE,0.0013,0.9975,0,1,0,0,1,test299
+fungi,host,Martius,0,0.4279,,UNCERTAIN,0.8505,0.701,0,1,0,0,0,test299
+Simulium pertinax,infection,Polydispyrenia simulii,1,0.999,,UNCERTAIN,0.4144,0.1712,0,1,0,0,1,test299
+Sycoryctes,parasitoid,Arachonia,0,0.0221,,UNCERTAIN,0.9009,0.8017,0,1,0,0,0,test299
+Battus philenor|pipevine swallowtail,feed on,Aristolochia,1,0.9992,,FORWARD,0.9968,0.9936,0,1,0,0,1,test299
+garden tiger moth|Arctia caja,host,Acherontia atropos,0,0.0034,,UNCERTAIN,0.571,0.1421,0,1,0,0,0,test299
+phyllodes,hosts,Acacia farnesiana,0,0.037,,UNCERTAIN,0.4182,0.1636,0,1,0,0,0,test299
+soybean|Glycine max,host,Phytophthora megasperma f. sp. glycinea,1,0.9985,,UNCERTAIN,0.5079,0.0158,0,1,0,0,1,test299
+Cystocaulus ocreatus,infections,Protostrongylus rufescens,0,0.0048,,UNCERTAIN,0.7398,0.4797,0,1,0,0,0,test299
+Phyllocnistis citrella,ectoparasitoid of,Cirrospilus vittatus,1,0.9991,,REVERSE,0.0155,0.9691,0,1,0,0,1,test299
+Baylisascaris columnaris,host,Toxocara canis,0,0.0029,,UNCERTAIN,0.385,0.2299,0,1,0,0,0,test299
+Conidiobolus coronatus,hosts,Dicyrtoma,0,0.2238,,UNCERTAIN,0.8398,0.6795,0,1,0,0,1,test299
+Odontaster validus,predators,Cheirimedon femoratus,0,0.0037,,UNCERTAIN,0.0453,0.9095,0,1,0,0,0,test299
+Calystegia soldanella,pollinator,C. hederacea,0,0.0785,,UNCERTAIN,0.335,0.33,0,1,0,0,0,test299
+Rainlily,stop,Hong Kong,0,0.0032,,UNCERTAIN,0.2972,0.4056,0,1,1,0,0,test299
+goose,hunting,Anser brachyrhynchus,1,0.7315,,FORWARD,0.982,0.964,0,1,0,0,0,test299
+Phymaturus extrilidus,infection,Parapharyngodon riojensis,1,0.9991,,FORWARD,0.8768,0.7536,0,1,0,0,1,test299
+Tupaia tana,infections,Cryptococcus neoformans,1,0.9948,,UNCERTAIN,0.5304,0.0608,0,1,0,0,1,test299
+Eriogonum arborescens,grazing,Artemisia californica,0,0.0037,,UNCERTAIN,0.6821,0.3642,0,1,0,0,0,test299
+striped mullet,parasite of,Metamicrocotyla macracantha,1,0.9993,,REVERSE,0.001,0.9981,0,1,0,0,0,test299
+Prokelisia crocea,parasitoid,Anagrus columbi,0,0.0672,,UNCERTAIN,0.0557,0.8886,0,1,0,0,1,test299
+red lionfish|Pterois volitans,prey,Chromis viridis,1,0.9989,,REVERSE,0.0751,0.8498,0,1,0,0,1,test299
+Ursus arctos horribilis,feces,greater kudu|Tragelaphus strepsiceros,0,0.0044,,UNCERTAIN,0.724,0.4479,0,1,1,0,0,test299
+Euhaplorchis,infected with,longnose killifish|Fundulus similis,1,0.9988,,UNCERTAIN,0.3585,0.2829,0,1,0,0,1,test299
+Aeromonas salmonicida,infection,Pichia membranifaciens,1,0.8385,,UNCERTAIN,0.7008,0.4016,0,1,0,0,1,test299
+Buteo regalis,Prey,Athene cunicularia,0,0.0066,,UNCERTAIN,0.3969,0.2062,0,1,0,0,0,test299
+Pseudomonas aeruginosa,host,Swietenia macrophylla,1,0.9877,,UNCERTAIN,0.5768,0.1536,0,1,0,0,1,test299
+Isoodon macrourus,prey,Rattus sordidus,0,0.0089,,UNCERTAIN,0.392,0.2159,0,1,0,0,0,test299
+Cyclodontostomum purvisi,host,Murinae,1,0.9987,,FORWARD,0.9624,0.9247,0,1,0,0,1,test299
+Ustilago maydis,infection,Zea mays,1,0.9991,,FORWARD,0.893,0.786,0,1,0,0,1,test299
+Macropipus,preys,Micromesistius poutassou,0,0.0169,,UNCERTAIN,0.6691,0.3382,0,1,0,0,0,test299
+Plecoptera,predator,Trichoptera,0,0.0022,,UNCERTAIN,0.2332,0.5336,0,1,0,0,0,test299
+Chrysomela vigintipunctata,feed on,Salicaceae,1,0.9955,,FORWARD,0.9937,0.9874,0,1,0,0,1,test299
+emerald ash borer|Agrilus planipennis,parasitoid,Oobius agrili,1,0.9953,,REVERSE,0.0561,0.8878,0,1,0,0,1,test299
+okra,host,cotton,0,0.0022,,UNCERTAIN,0.8681,0.7362,0,1,0,0,0,test299
+Carlina acaulis,predatory,Neoseiulus californicus,1,0.988,,REVERSE,0.0138,0.9724,0,1,0,0,1,test299
+Toxoplasma gondii,parasite of,swine,1,0.9834,,FORWARD,0.9945,0.9891,0,1,0,0,0,test299
+Zea mays,pathogen,Rhizoctonia solani,1,0.9987,,REVERSE,0.053,0.8939,0,1,0,0,1,test299
+V. parahaemolyticus,host,human,1,0.9972,,UNCERTAIN,0.2204,0.5592,0,1,0,0,1,test299
+Echinuria uncinata,hosts,Anas platyrhynchos,0,0.1726,,UNCERTAIN,0.5279,0.0558,0,0,0,1,0,test299
+Musca domestica,Host,Spalangia cameroni,1,0.9964,,REVERSE,0.0432,0.9136,0,1,0,0,1,test299
+Erwinia chrysanthemi,host,Escherichia coli,0,0.0168,,UNCERTAIN,0.6452,0.2905,0,1,0,0,0,test299
+tobacco,host,Bemisia tabaci,1,0.999,,FORWARD,0.984,0.968,0,1,0,0,1,test299
+Spheniscus magellanicus,parasite of,C. pelagicum,1,0.9993,,REVERSE,0.0005,0.999,0,1,0,0,1,test299
+Meloidogyne,host,tomato,1,0.9198,,UNCERTAIN,0.2529,0.4942,0,1,0,0,1,test299
+Prosotocus confusus,host,Pelophylax ridibundus,0,0.0069,,UNCERTAIN,0.4384,0.1232,0,1,0,0,0,test299
+cocoa,host,Helopeltis theivora,1,0.9465,,UNCERTAIN,0.3911,0.2177,0,1,0,0,0,test299
+Charadrius marginatus,parasite of,Helicoductus thulakoceras,1,0.9994,,REVERSE,0.0024,0.9952,0,1,0,0,1,test299
+North American deer mouse|Peromyscus maniculatus,host of,fleas,1,0.7347,,UNCERTAIN,0.7273,0.4545,0,1,0,0,1,test299
+Meloidogyne artiellia,pathogens,chickpea,1,0.9944,,UNCERTAIN,0.2447,0.5105,0,1,0,0,1,test299
+Ixodes trianguliceps,hosts,Eurasian shrew,1,0.9981,,UNCERTAIN,0.7238,0.4477,0,1,0,0,1,test299
+Asphondylia borrichiae,host,Borrichia frutescens,1,0.686,,FORWARD,0.9754,0.9509,0,1,0,0,1,test299
+Nocardia cyriacigeorgica,pathogen,human,1,0.9966,,UNCERTAIN,0.7419,0.4838,0,1,0,0,1,test299
+shrews,eating,cats,0,0.0023,,UNCERTAIN,0.5815,0.1629,0,1,0,0,0,test299
+Cotesia plutellae,parasitoids,Oomyzus sokolowskii,1,0.9719,,REVERSE,0.0502,0.8996,0,1,0,0,0,test299
+Eucalyptus,hosts|Hosts|host,Ceratocystis fimbriata,1,0.6546,,UNCERTAIN,0.385,0.23,0,1,0,0,1,test299
+Lissemys punctata andersonii,parasite-host,Myxidium mackiei,1,0.9993,,BIDIRECTIONAL,,,1,1,0,0,1,test299
+Claviceps,host,Bromus inermis,0,0.1719,,UNCERTAIN,0.2058,0.5885,0,1,0,0,0,test299
+Lactarius,host,alders,1,0.9692,,UNCERTAIN,0.7296,0.4592,0,1,0,0,1,test299
+Cotesia melitaearum,host,Glanville fritillary|Melitaea cinxia,1,0.9856,,FORWARD,0.988,0.976,0,1,0,0,1,test299
+Rothia dentocariosa,pathogen,human,1,0.9946,,UNCERTAIN,0.7768,0.5535,0,1,0,0,1,test299
+Coregonus lavaretus,host,Triaenophorus crassus,1,0.9985,,FORWARD,0.8835,0.767,0,1,0,0,1,test299
+katydids,prey,beetles,0,0.1679,,UNCERTAIN,0.6424,0.2848,0,1,0,0,0,test299
+human,host,Treponema denticola,1,0.9971,,UNCERTAIN,0.7462,0.4923,0,1,0,0,1,test299
+Orthoptera,prey,ground beetles,0,0.0024,,UNCERTAIN,0.2535,0.4931,0,1,0,0,0,test299
+Actinobacillus pleuropneumoniae,pathogen,swine,1,0.9923,,UNCERTAIN,0.5202,0.0404,0,1,0,0,1,test299
+Polykrikos kofoidii,prey,Lingulodinium polyedrum,1,0.9931,,FORWARD,0.9798,0.9596,0,1,0,0,1,test299
+Cucurbita pepo,pollinators,Peponapis pruinosa,1,0.9989,,REVERSE,0.0173,0.9655,0,1,0,0,1,test299
+Pthirus pubis,ectoparasite,Homo sapiens,1,0.9961,,FORWARD,0.9838,0.9676,0,1,0,0,1,test299
+alfalfa,visiting,honey bee,1,0.9825,,REVERSE,0.0425,0.915,0,1,0,0,1,test299
+Alternaria brassicicola,pathogens,Cabbage,1,0.9731,,REVERSE,0.1365,0.7271,0,1,0,0,1,test299
+Symbiodinium californium,interacts with,Anthopleura elegantissima,1,0.9988,,BIDIRECTIONAL,,,1,1,0,0,1,test299
+Sarcocystis cruzi,host,cattle,1,0.9986,,REVERSE,0.1242,0.7517,0,1,0,0,1,test299
+Elymus,interacts with,Epichloe,1,0.9966,,UNCERTAIN,,,1,0,0,0,1,test299
+Serratia marcescens,pathogen,human,1,0.9971,,UNCERTAIN,0.6594,0.3188,0,1,0,0,1,test299
+Babesia divergens,hosts,human,1,0.995,,REVERSE,0.1402,0.7196,0,1,0,0,1,test299
+Cheirodendron,host,Drosophila,1,0.9975,,FORWARD,0.9969,0.9938,0,1,0,0,1,test299
+Pseudopercis numida,host,Microcotyle pseudopercis,0,0.0633,,UNCERTAIN,0.9667,0.9334,0,1,0,0,1,test299
+Sturnira lilium,interacts with,Megistopoda proxima,1,0.9699,,BIDIRECTIONAL,,,1,1,0,0,1,test299
+Xyleborus Glabratus,Host,Raffaelea lauricola,1,0.999,,UNCERTAIN,0.7991,0.5982,0,1,0,0,1,test299
+Procyon lotor,host,Dermacentor variabilis,1,0.9992,,FORWARD,0.8457,0.6914,0,1,0,0,1,test299
+Pteromalus puparum,parasitized by,Papilio xuthus,1,0.9992,,REVERSE,0.001,0.998,0,1,0,0,1,test299
+Heterophyopsis continua,hosts,cats,1,0.9966,,UNCERTAIN,0.2565,0.487,0,1,0,0,1,test299
+Hoplopsyllus,hosts,Otospermophilus beecheyi,1,0.9982,,UNCERTAIN,0.4068,0.1863,0,1,0,0,1,test299
+winter flounder|Pseudopleuronectes americanus,host,Glugea stephani,1,0.9992,,UNCERTAIN,0.5428,0.0856,0,1,0,0,1,test299
+Musca domestica,Host,Pseudomonas aeruginosa,1,0.9993,,UNCERTAIN,0.765,0.5299,0,1,0,0,1,test299
+Passer domesticus,hosts of,N. caninum,1,0.9986,,FORWARD,0.9996,0.9992,0,1,0,0,1,test299
+Myodes,parasites of,Eimeria,1,0.9638,,FORWARD,0.9871,0.9743,0,1,0,0,1,test299
+Orcinus orca,prey,Oncorhynchus,1,0.9987,,UNCERTAIN,0.4858,0.0285,0,1,0,0,1,test299
+human,pathogens,Dietzia maris,1,0.7027,,UNCERTAIN,0.7695,0.5391,0,1,0,0,1,test299
+Drosophila melanogaster,interacts with,Pachycrepoideus vindemmiae,1,0.9886,,BIDIRECTIONAL,,,1,1,0,0,1,test299
+Lecanicillium lecanii,host,Coccus viridis,1,0.9976,,UNCERTAIN,0.2992,0.4016,0,1,0,0,1,test299
+Steinernema longicaudum,host,Xenorhabdus ehlersii,1,0.9925,,UNCERTAIN,0.469,0.0619,0,1,0,0,1,test299
+Manduca sexta,pathogen,Xenorhabdus nematophila,1,0.9963,,FORWARD,0.888,0.7759,0,1,0,0,1,test299
+human,pathogen,Corynebacterium amycolatum,1,0.9898,,UNCERTAIN,0.5641,0.1282,0,1,0,0,1,test299
+Helicobacter felis,pathogen,human,1,0.9749,,UNCERTAIN,0.3347,0.3305,0,1,0,0,0,test299
+abalone,parasite of,Echinocephalus pseudouncinatus,1,0.9994,,REVERSE,0.0015,0.9971,0,1,0,0,1,test299
+Plasmopara viticola,host,Vitis vinifera,1,0.9992,,UNCERTAIN,0.4481,0.1038,0,1,0,0,1,test299
+Balamuthia mandrillaris,hosts|host,human,1,0.9987,,UNCERTAIN,0.4199,0.1601,0,1,0,0,1,test299
+Entamoeba histolytica,host,humans,1,0.9991,,FORWARD,0.8459,0.6918,0,1,0,0,1,test299
+Solanum tuberosum,pathogen,Bactericera cockerelli,1,0.9985,,UNCERTAIN,0.292,0.416,0,1,0,0,1,test299
+Anastrepha obliqua,hosts of,mango|Mangifera indica,0,0.4056,,UNCERTAIN,0.6391,0.2782,0,1,0,0,1,test299
+C. ciconia,host,Chaunocephalus ferox,0,0.2346,,UNCERTAIN,0.6016,0.2033,0,1,0,0,1,test299
+dogs,hosts of,Y. pestis|Yersinia pestis,1,0.9832,,UNCERTAIN,0.459,0.0821,0,1,0,0,0,test299
+Sarcocystis hirsuta,host for|host,cats,1,0.92,,UNCERTAIN,0.6803,0.3606,0,1,0,0,1,test299
+cattle,host,flies,1,0.97,,UNCERTAIN,0.3212,0.3576,0,1,0,0,1,test299
+Brachycladium atlanticum,host,common dolphin,1,0.9334,,UNCERTAIN,0.2464,0.5073,0,1,0,0,1,test299
+rock ptarmigan,host,Eimeria,1,0.9989,,UNCERTAIN,0.3804,0.2393,0,1,0,0,1,test299
+Sitobion avenae,pathogens,Entomophthora planchoniana,1,0.976,,REVERSE,0.0086,0.9829,0,1,0,0,1,test299
+BUMBLEBEES,POLLINATOR,POLEMONIUM VISCOSUM,1,0.7058,,REVERSE,0.1707,0.6585,0,1,0,0,1,test299
+Pseudomonas aeruginosa,pathogens of,bovine,1,0.9982,,FORWARD,0.9993,0.9985,0,1,0,0,1,test299
+Centropomus undecimalis|common snook,host,Rhabdosynochus hudsoni,1,0.9904,,UNCERTAIN,0.7419,0.4837,0,1,0,0,1,test299
+alfalfa,hosts,S. festinus,0,0.4886,,UNCERTAIN,0.7274,0.4549,0,1,0,0,1,test299
+Micropterus salmoides|largemouth bass,prey,northern pike|Esox lucius,0,0.0353,,UNCERTAIN,0.2032,0.5937,0,1,0,0,0,test299
+humpback chub,host,Ornithodiplostomum,1,0.6159,,FORWARD,0.9271,0.8541,0,1,0,0,1,test299
+bovine,pathogens,Bibersteinia trehalosi,0,0.0102,,UNCERTAIN,0.8567,0.7134,0,1,0,0,1,test299
+peach,host,Xylella fastidiosa,1,0.9821,,UNCERTAIN,0.3496,0.3008,0,1,0,0,1,test299
+rabbits,parasites of,Linguatula serrata,1,0.988,,REVERSE,0.0102,0.9796,0,1,0,0,1,test299
+Travassiella avitellina,parasite of,Paulicea luetkeni,1,0.9992,,FORWARD,0.9976,0.9952,0,1,0,0,1,test299
+Chelone glabra|turtlehead,host,Euphydryas phaeton|Baltimore checkerspot,1,0.9989,,REVERSE,0.0538,0.8925,0,1,0,0,1,test299
+Leucaena leucocephala,host,Rhizobium etli,1,0.9877,,FORWARD,0.8759,0.7517,0,1,0,0,1,test299
+M. gallisepticum,hosts|host,Spinus tristis|American goldfinch,1,0.9986,,REVERSE,0.0053,0.9893,0,1,0,0,1,test299
+Ixodes canisuga,hosts,Vulpes vulpes,1,0.9858,,UNCERTAIN,0.5891,0.1783,0,1,0,0,1,test299
+Peromyscus leucopus,host,Dermacentor variabilis,1,0.9992,,REVERSE,0.0045,0.991,0,1,0,0,1,test299
+tomato,hosts,Sclerotinia sclerotiorum,0,0.4515,,UNCERTAIN,0.2401,0.5197,0,1,0,0,0,test299
+wheat,hosts,F. acuminatum,1,0.994,,FORWARD,0.8368,0.6737,0,1,0,0,0,test299
+Quercus palustris|Pin oak,host for,Callirhytis,1,0.999,,FORWARD,0.999,0.9981,0,1,0,0,1,test299
+Entomophthora planchoniana,Hosts,Rhopalosiphum padi,1,0.9926,,REVERSE,0.1591,0.6818,0,1,0,0,1,test299
+Sclerotium cepivorum,pathogen,Allium,1,0.9741,,UNCERTAIN,0.7735,0.547,0,1,0,0,1,test299
+Neisseria perflava,interacts with,Homo sapiens,0,0.1377,,UNCERTAIN,,,1,0,0,0,1,test299
+Trygonorrhina fasciata,parasitized by,Branchotenthes octohamatus,1,0.6605,,FORWARD,0.9982,0.9964,0,1,0,0,1,test299
+P. irritans,host,Lycalopex,1,0.9941,,FORWARD,0.9714,0.9428,0,1,0,0,1,test299
+Trichogramma chilonis,Hosts,Samia cynthia ricini,1,0.9985,,REVERSE,0.1427,0.7147,0,1,0,0,1,test299
+Lactobacillus crispatus,host,human,1,0.9937,,FORWARD,0.937,0.874,0,1,0,0,1,test299
+Leptographium,host,Pinus,1,0.9989,,FORWARD,0.98,0.9601,0,1,0,0,1,test299
+Euzetiella tetraphylliformis,parasite of,Paulicea luetkeni,1,0.9991,,FORWARD,0.9948,0.9896,0,1,0,0,1,test299
+Acanthocephala,host,Fessisentis fessus,1,0.9088,,UNCERTAIN,0.3812,0.2375,0,1,0,0,0,test299
+Oreochromis mossambicus,interacts with,Portunus pelagicus,1,0.9698,,BIDIRECTIONAL,,,1,1,0,0,0,test299
+Brevibacillus agri,shared,Brevibacillus formosus,0,0.0059,,UNCERTAIN,0.5535,0.1069,0,1,1,0,0,test299
+Rickettsia,infection,Hemiclepsis marginata,1,0.9905,,UNCERTAIN,0.4889,0.0222,0,1,0,0,1,test299
+Pseudomonas aeruginosa,infections,Enterococcus faecium,0,0.0443,,UNCERTAIN,0.1896,0.6208,0,1,0,0,0,test299
+TALIS,transfer,simulator,0,0.0029,,UNCERTAIN,0.5559,0.1117,0,1,1,0,0,test299
+Acrodonta,migration,Chamaeleonidae,0,0.0809,,UNCERTAIN,,,1,1,0,0,0,test299
+Capra hircus,originated from,African buffalo|Syncerus caffer,0,0.0043,,UNCERTAIN,0.8438,0.6877,0,1,1,0,0,test299
+Trichophyton rubrum,exposed to,human,1,0.969,,FORWARD,0.9293,0.8586,0,1,0,0,1,test299
+Patagonia,migration,sei whale,0,0.0306,,UNCERTAIN,,,1,1,0,0,0,test299
+Papiliotrema,interacts with,Rhizomucor,0,0.0023,,UNCERTAIN,,,1,1,0,0,0,test299
+Pyrus calleryana,interacts with,Primates,0,0.1294,,UNCERTAIN,,,1,0,0,0,0,test299
+Steinernema carpocapsae,impact,Hirsutella rhossiliensis,1,0.9749,,REVERSE,0.1421,0.7158,0,1,1,0,1,test299
+proboscis,feed on,micro,0,0.0126,,UNCERTAIN,0.0628,0.8743,0,1,0,0,0,test299
+Anaplasma,transmits,Ehrlichia,0,0.0024,,UNCERTAIN,0.0096,0.9808,0,1,0,0,0,test299
+Psychodopygus,interacts with,Leishmania braziliensis,1,0.9988,,BIDIRECTIONAL,,,1,1,0,0,1,test299
+G. ellingtonae,relative to,G. rostochiensis,0,0.0058,,UNCERTAIN,0.7594,0.5187,0,1,1,0,0,test299
+Giardia duodenalis,farmed,human,1,0.9914,,UNCERTAIN,0.7099,0.4197,0,1,1,0,1,test299
+head lice|Pediculus humanus,ectoparasites,Cheyletiella,0,0.0138,,UNCERTAIN,0.3237,0.3526,0,1,0,0,0,test299
+Leishmania infantum,infecting,Nasua nasua,1,0.999,,FORWARD,0.9438,0.8875,0,1,0,0,1,test299
+European seabass|Dicentrarchus labrax,predator,Anguilla anguilla,0,0.0454,,UNCERTAIN,0.5123,0.0245,0,1,0,0,0,test299
+crickets,infection|infected with,policemen,1,0.9921,,UNCERTAIN,0.2091,0.5819,0,1,0,0,0,test299
+C. burnetii,presence of,Rickettsia felis,0,0.002,,UNCERTAIN,0.428,0.1439,0,1,1,0,0,test299
+Manduca sexta,interacts with,Nicotiana attenuata,1,0.9964,,BIDIRECTIONAL,,,1,1,0,0,1,test299
+Pseudomyrmex penetrator,co-occur with,fungus,1,0.9534,,BIDIRECTIONAL,,,1,1,0,0,0,test299
+bivalves,resistant,human,1,0.7427,,REVERSE,0.0024,0.9953,0,1,1,0,1,test299
+Polytrichastrum alpinum,absorbing,Pleurozium schreberi,0,0.0025,,UNCERTAIN,0.6796,0.3593,0,1,1,0,0,test299
+Tagus,farm,Platichthys flesus,0,0.0043,,UNCERTAIN,0.6298,0.2596,0,1,1,0,0,test299
+whitecheek surgeonfish|Acanthurus nigricans,prey,Paracirrhites arcatus|arc-eye hawkfish,0,0.0063,,UNCERTAIN,0.8183,0.6366,0,1,0,0,0,test299
+Paridae,host,fleas,1,0.9981,,UNCERTAIN,0.6349,0.2698,0,1,0,0,1,test299
+Uromastyx,infection|infected with,Pogona vitticeps,1,0.9913,,UNCERTAIN,0.2368,0.5264,0,1,0,0,1,test299
+Drosophila,alters,Flamingo,0,0.0099,,UNCERTAIN,0.0817,0.8366,0,1,1,0,0,test299
+Amaranthus retroflexus,presence of,pear,0,0.0982,,UNCERTAIN,0.687,0.3741,0,1,1,0,0,test299
+E. acervulina,feces,birds,1,0.9976,,REVERSE,0.0822,0.8356,0,1,1,0,1,test299
+Dreissenidae,infection,Ciliata,1,0.9974,,UNCERTAIN,0.3577,0.2847,0,1,0,0,1,test299
+Treponema pallidum,pathogen,guinea pigs,1,0.9989,,UNCERTAIN,0.2633,0.4733,0,1,0,0,1,test299
+Bombus|bumble bees,hosts,Apicystis bombi,1,0.9985,,UNCERTAIN,0.6204,0.2407,0,1,0,0,1,test299
+dogs,parasite of,Grande,0,0.2662,,UNCERTAIN,0.1586,0.6828,0,1,0,0,0,test299
+house fly|Musca domestica,vector of,Campylobacter,1,0.9986,,UNCERTAIN,0.6557,0.3114,0,1,0,0,1,test299
+Clupeaharengus|Atlantic herring,prey,Atlantic bluefin tuna|bluefin tuna,1,0.9949,,FORWARD,0.8348,0.6697,0,1,0,0,1,test299
+I. ricinus,infections,Babesia sp. (EU1,1,0.999,,FORWARD,0.9459,0.8917,0,1,0,0,1,test299
+Paullinia pinnata,resistant,Ageratum conyzoides,0,0.0015,,UNCERTAIN,0.6718,0.3436,0,1,1,0,0,test299
+Lipaphis erysimi,feed on,Rhopalosiphum padi,0,0.0036,,UNCERTAIN,0.8215,0.6429,0,1,0,0,0,test299
+spot,infection,Thrips palmi,1,0.8562,,FORWARD,0.8199,0.6397,0,1,0,0,0,test299
+Alouatta villosa,infection,Plasmodium falciparum,1,0.9982,,UNCERTAIN,0.2651,0.4698,0,1,0,0,1,test299
+Chironomus tentans,trophic,fathead minnow|Pimephales promelas,1,0.9945,,BIDIRECTIONAL,,,1,1,0,0,1,test299
+sesbania,altered,soybean,1,0.7222,,UNCERTAIN,0.212,0.5759,0,1,1,0,1,test299
+chickens,parasitized by,E. acervulina,1,0.9987,,FORWARD,0.9925,0.985,0,1,0,0,1,test299
+Trifolium repens,attraction,Oryza sativa,0,0.0095,,UNCERTAIN,0.2982,0.4037,0,1,0,0,0,test299
+Cysticercus fasciolaris,host,humans,1,0.9883,,UNCERTAIN,0.5225,0.045,0,1,0,0,0,test299
+Toxoplasma gondii,infection,Morris,0,0.0117,,UNCERTAIN,0.7288,0.4576,0,1,0,0,0,test299
+Acanthamoeba sp,infection|infections,Pseudomonas sp,0,0.3002,,UNCERTAIN,0.3104,0.3793,0,1,0,0,0,test299
+Pythium acanthicum,presence of,rooibos,1,0.8394,,UNCERTAIN,0.4061,0.1878,0,1,1,0,1,test299
+Borrelia garinii,hosts,Babesia microti,0,0.0017,,UNCERTAIN,0.6113,0.2226,0,1,0,0,0,test299
+amphistome,infecting,Bubalus bubalis,1,0.9986,,FORWARD,0.8926,0.7852,0,1,0,0,1,test299
+honeybee,resistant,homo,0,0.0201,,UNCERTAIN,0.3559,0.2881,0,1,1,0,0,test299
+Brachypodium,help,barley,0,0.0017,,UNCERTAIN,0.4758,0.0485,0,1,1,0,0,test299
+nervosa,altered,unspecified,0,0.0055,,UNCERTAIN,0.2906,0.4189,0,1,1,0,0,test299
+human,pathogens,Phialophora,1,0.9487,,UNCERTAIN,0.4336,0.1327,0,1,0,0,1,test299
+Aptenia cordifolia,absorbing,Carpobrotus edulis,0,0.003,,UNCERTAIN,0.7277,0.4554,0,1,1,0,0,test299
+Enterobacter,resistant,Campylobacter jejuni,0,0.0019,,UNCERTAIN,0.3116,0.3768,0,1,1,0,0,test299
+familiaris,predator,B. arietans,1,0.9777,,UNCERTAIN,0.7439,0.4879,0,1,0,0,0,test299
+thymus,resistant|resistance,cats,0,0.0237,,UNCERTAIN,0.0866,0.8269,0,1,1,0,0,test299
+Candida albicans,derived from,Penicilliummarneffei,0,0.002,,UNCERTAIN,0.2632,0.4737,0,1,1,0,0,test299
+Sulfolobus islandicus,host,lysis,0,0.0228,,UNCERTAIN,0.2272,0.5456,0,1,0,0,0,test299
+Micrococcus luteus,inhibited,Lactobacillus acidophilus,0,0.0016,,UNCERTAIN,0.8328,0.6655,0,1,1,0,0,test299
+Saccharomyces cerevisiae,communication,Schizosaccharomyces pombe|fission yeast,0,0.072,,UNCERTAIN,0.5038,0.0075,0,1,1,0,0,test299
+Philodryas chamissonis,predator,Dusicyon culpaeus,0,0.0075,,UNCERTAIN,0.3533,0.2933,0,1,0,0,1,test299
+Pseudosida variabilis,alter,Daphnia magna,0,0.0026,,UNCERTAIN,0.2826,0.4347,0,1,1,0,0,test299
+Citrobacter,copy,Proteus,0,0.0019,,UNCERTAIN,0.601,0.2021,0,1,1,0,0,test299
+Burkholderia pseudomallei,interacts with,Proteus mirabilis,0,0.0032,,UNCERTAIN,,,1,1,0,0,0,test299
+Clostridium perfringens,resistance to,Opisthorchis viverrini,0,0.0025,,UNCERTAIN,0.2465,0.507,0,1,0,0,0,test299
+T. gammatolerans,hybridization,Thermococcus sp. AM4,0,0.0061,,UNCERTAIN,0.6066,0.2133,0,1,1,0,0,test299
+sweetpotato,farms,Mara,0,0.0056,,UNCERTAIN,0.4876,0.0247,0,1,1,0,0,test299
+Arabidopsis,transport,bovine,0,0.0031,,UNCERTAIN,0.4018,0.1964,0,1,1,0,0,test299
+zebrafish|Danio rerio,hybridization,mammals,0,0.0048,,UNCERTAIN,0.2828,0.4343,0,1,1,0,0,test299
+chimpanzees,grooming,humans,1,0.7968,,UNCERTAIN,0.77,0.5401,0,1,1,0,1,test299
+Mycoplasma gallisepticum,vaccination,"Mycoplasma gallisepticum ""F",0,0.0931,,UNCERTAIN,0.5555,0.111,0,1,1,0,0,test299
+Aloe vera,pathogens,citrus,0,0.0012,,UNCERTAIN,0.5617,0.1233,0,1,0,0,0,test299
+Pinnotheridae,symbiont of,Crepidula striolata,1,0.9978,,FORWARD,0.9106,0.8212,0,1,0,0,1,test299
+higher plants,copy,humans,0,0.0017,,UNCERTAIN,0.4295,0.1411,0,1,1,0,0,test299
+Angiostrongylus vasorum,infecting,Aelurostrongylus abstrusus,0,0.0021,,UNCERTAIN,0.5646,0.1292,0,1,0,0,0,test299
+Ulvaria fusca,hosts,Pseudoalteromonas,1,0.9734,,UNCERTAIN,0.5573,0.1147,0,1,0,0,1,test299
+Botryosphaeria,epiphytes,Guignardia,0,0.0022,,UNCERTAIN,0.4174,0.1652,0,1,0,0,0,test299
+Salmonella enterica serovar Typhimurium,activation,Chlamydia muridarum,0,0.0018,,UNCERTAIN,0.4319,0.1362,0,1,1,0,0,test299
+Alphitobius diaperinus|lesser mealworm,pathogens,humans,1,0.9953,,FORWARD,0.9907,0.9813,0,1,0,0,1,test299
+bats,host,Carios vespertilionis,1,0.9974,,UNCERTAIN,0.5826,0.1651,0,1,0,0,1,test299
+Salmonella,infection|infections,Variovorax,0,0.0018,,UNCERTAIN,0.6533,0.3065,0,1,0,0,0,test299
+guava|Psidium guajava,parasitoids,Citrus sinensis,0,0.0064,,UNCERTAIN,0.4059,0.1882,0,1,0,0,0,test299
+Cerastoderma edule,impacts,Venerupis corrugata,0,0.0038,,UNCERTAIN,0.8722,0.7444,0,1,1,0,0,test299
+Allantophomopsis cytisporea,inhibited,Fusicoccum putrefaciens,0,0.0027,,UNCERTAIN,0.1799,0.6402,0,1,1,0,0,test299
+per se,infection|infections,Neospora,0,0.0121,,UNCERTAIN,0.5065,0.0129,0,1,0,0,0,test299
+Megasphaera,interacts with,Fissidentalium rectum,0,0.0025,,UNCERTAIN,,,1,1,0,0,0,test299
+flavolineata,eating,Trichostetha fascicularis,0,0.0025,,UNCERTAIN,0.129,0.7421,0,1,0,0,0,test299
+Succinivibrio,nutrients,Selenomonas,0,0.0019,,UNCERTAIN,0.5588,0.1177,0,1,1,0,0,test299
+Borrelia burgdorferi,pathogens,Salmonella,0,0.0014,,UNCERTAIN,0.1981,0.6038,0,1,0,0,0,test299
+strata,Habitat,waterfowl|Waterfowl,0,0.027,,UNCERTAIN,0.2167,0.5665,0,1,1,0,0,test299
+zillii,infection,B. bajad,0,0.0043,,UNCERTAIN,0.2069,0.5863,0,1,0,0,0,test299
+dogs,activation,terminalis,0,0.0742,,UNCERTAIN,0.6432,0.2864,0,1,1,0,0,test299
+Myrsine lanaiensis,host,P. kolea,0,0.3341,,UNCERTAIN,0.0207,0.9585,0,1,0,0,0,test299

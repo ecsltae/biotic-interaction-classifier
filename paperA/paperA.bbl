@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{54}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Ai and Kavuluru(2023)}]{ai2023endtoend}
@@ -29,6 +29,13 @@ Aurore Britan, Isabelle Cusin, Val{\'e}rie Hinard, Luc Mottin, Emilie Pasche,
   annotation of articles via automated approaches: evaluation of the {neXtA5}
   curation-support tool by {neXtProt}}.
 \newblock \emph{Database}, 2018:bay129.
+
+\bibitem[{Bucilu{\u{a}} et~al.(2006)Bucilu{\u{a}}, Caruana, and
+  Niculescu-Mizil}]{bucilua2006model}
+Cristian Bucilu{\u{a}}, Rich Caruana, and Alexandru Niculescu-Mizil. 2006.
+\newblock Model compression.
+\newblock In \emph{Proceedings of the 12th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining (KDD)}, pages 535--541.
 
 \bibitem[{Cuzick et~al.(2023)Cuzick, Seager, Wood, Urban, Rutherford, and
   Hammond-Kosack}]{cuzick2023interspecies}
@@ -122,6 +129,14 @@ Julien Gobeill, D{\'e}borah Caucheteur, Pierre-Andr{\'e} Michel, Luc Mottin,
   enriched with automatically mapped biomedical concepts}.
 \newblock \emph{Nucleic Acids Research}, 48(W1):W12--W16.
 
+\bibitem[{Gu et~al.(2021)Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao,
+  and Poon}]{gu2021domain}
+Yu~Gu, Robert Tinn, Hao Cheng, Michael Lucas, Naoto Usuyama, Xiaodong Liu,
+  Tristan Naumann, Jianfeng Gao, and Hoifung Poon. 2021.
+\newblock Domain-specific language model pretraining for biomedical natural
+  language processing.
+\newblock \emph{ACM Transactions on Computing for Healthcare}, 3(1):1--23.
+
 \bibitem[{Gururangan et~al.(2018)Gururangan, Swayamdipta, Levy, Schwartz,
   Bowman, and Smith}]{gururangan-etal-2018-annotation}
 Suchin Gururangan, Swabha Swayamdipta, Omer Levy, Roy Schwartz, Samuel~R.
@@ -132,6 +147,11 @@ Suchin Gururangan, Swabha Swayamdipta, Omer Levy, Roy Schwartz, Samuel~R.
   Chapter of the Association for Computational Linguistics: Human Language
   Technologies, Volume 2 (Short Papers)}, pages 107--112, New Orleans,
   Louisiana. Association for Computational Linguistics.
+
+\bibitem[{Hinton et~al.(2015)Hinton, Vinyals, and Dean}]{hinton2015distilling}
+Geoffrey Hinton, Oriol Vinyals, and Jeff Dean. 2015.
+\newblock Distilling the knowledge in a neural network.
+\newblock In \emph{NIPS Deep Learning and Representation Learning Workshop}.
 
 \bibitem[{Hirschman et~al.(2012)Hirschman, Burns, Krallinger, Arighi, Cohen,
   Valencia, Wu, Chatr-Aryamontri, Dowell, Huala, Louren{\c c}o, Nash, Veuthey,
@@ -161,6 +181,13 @@ Fran{\c c}ois Keck, Henry Broadbent, and Florian Altermatt. 2025.
 \newblock \emph{bioRxiv}.
 \newblock Preprint, posted 27 January 2025.
 
+\bibitem[{Le~Guillarme and Thuiller(2022)}]{leguillarme2022taxonerd}
+Nicolas Le~Guillarme and Wilfried Thuiller. 2022.
+\newblock \href {https://doi.org/10.1111/2041-210X.13778} {{TaxoNERD}: deep
+  neural models for the recognition of taxonomic entities in the ecological and
+  evolutionary literature}.
+\newblock \emph{Methods in Ecology and Evolution}, 13(3):625--641.
+
 \bibitem[{Lee et~al.(2018)Lee, Famiglietti, McMahon, Wei, MacArthur, Poux,
   Breuza, Bridge, Cunningham, Xenarios, and Lu}]{lee2018scaling}
 Kyubum Lee, Maria~Livia Famiglietti, Aoife McMahon, Chih-Hsuan Wei, Jacqueline
@@ -170,6 +197,14 @@ Kyubum Lee, Maria~Livia Famiglietti, Aoife McMahon, Chih-Hsuan Wei, Jacqueline
   curation using deep learning: An application to literature triage in genomic
   variation resources}.
 \newblock \emph{PLOS Computational Biology}, 14(8):e1006390.
+
+\bibitem[{Lehmann et~al.(2012)Lehmann, Gerber, Morsey, and
+  Ngonga~Ngomo}]{lehmann2012defacto}
+Jens Lehmann, Daniel Gerber, Mohamed Morsey, and Axel-Cyrille Ngonga~Ngomo.
+  2012.
+\newblock {DeFacto} -- deep fact validation.
+\newblock In \emph{The Semantic Web -- ISWC 2012}, volume 7649 of \emph{Lecture
+  Notes in Computer Science}, pages 312--327. Springer.
 
 \bibitem[{Levy et~al.(2017)Levy, Seo, Choi, and Zettlemoyer}]{levy2017zero}
 Omer Levy, Minjoon Seo, Eunsol Choi, and Luke Zettlemoyer. 2017.
@@ -183,6 +218,17 @@ Omer Levy, Minjoon Seo, Eunsol Choi, and Luke Zettlemoyer. 2017.
 Yucheng Lu and Kazimier Smith. 2025.
 \newblock Feeding {LLM} annotations to {BERT} classifiers at your own risk.
 \newblock \emph{arXiv preprint arXiv:2504.15432}.
+
+\bibitem[{Luo et~al.(2022)Luo, Lai, Wei, Arighi, and Lu}]{luo2022biored}
+Ling Luo, Po-Ting Lai, Chih-Hsuan Wei, Cecilia~N Arighi, and Zhiyong Lu. 2022.
+\newblock {BioRED}: a rich biomedical relation extraction dataset.
+\newblock \emph{Briefings in Bioinformatics}, 23(5):bbac282.
+
+\bibitem[{McNemar(1947)}]{mcnemar1947note}
+Quinn McNemar. 1947.
+\newblock Note on the sampling error of the difference between correlated
+  proportions or percentages.
+\newblock \emph{Psychometrika}, 12(2):153--157.
 
 \bibitem[{Mintz et~al.(2009)Mintz, Bills, Snow, and
   Jurafsky}]{mintz2009distant}
@@ -335,6 +381,14 @@ Bruno Taill{\'e}, Vincent Guigue, Geoffrey Scoutheeten, and Patrick Gallinari.
 \newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
   Natural Language Processing (EMNLP)}, pages 3689--3701. Association for
   Computational Linguistics.
+
+\bibitem[{Thorne et~al.(2018)Thorne, Vlachos, Christodoulopoulos, and
+  Mittal}]{thorne2018fever}
+James Thorne, Andreas Vlachos, Christos Christodoulopoulos, and Arpit Mittal.
+  2018.
+\newblock {FEVER}: a large-scale dataset for fact extraction and
+  {VER}ification.
+\newblock In \emph{Proceedings of NAACL-HLT}, pages 809--819.
 
 \bibitem[{Wadden et~al.(2020)Wadden, Lin, Lo, Wang, van Zuylen, Cohan, and
   Hajishirzi}]{wadden2020fact}
