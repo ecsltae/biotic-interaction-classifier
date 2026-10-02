@@ -34,9 +34,11 @@ from transformers import AutoTokenizer                    # noqa: E402
 # Operating points. Both are pre-specified, not fitted on any reporting set.
 #   INTERACT_THR -- 0.5. Precision has priority over recall by project policy;
 #                   raise it to trade recall for precision.
-#   DIR_ABSTAIN  -- report a direction only when the head is at least this confident.
-#                   At 0.71 the head was right 9/10 on the 17-item gold (see the model
-#                   card). That estimate rests on 17 items; treat it as indicative.
+#   DIR_ABSTAIN  -- 0.60: report a direction only when the head is at least this confident.
+#                   On the 84 expert direction items it then answers 74% and is right on
+#                   0.887 of those. The level was chosen by the curator on that same set, so
+#                   the estimate is optimistic. The handoff scorer adds BIDIRECTIONAL for
+#                   relations the polarity lexicon calls mutual; see handoff/biotic_verifier.
 INTERACT_THR = 0.5
 DIR_ABSTAIN = 0.60
 
