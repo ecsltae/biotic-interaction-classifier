@@ -9,7 +9,8 @@ cd "$(dirname "$0")/.."
 source ../MPvenv/bin/activate
 R=results/overnight_2026-10-03; S=$R/state
 log() { echo "[$(date '+%F %T')] $*" | tee -a $R/queue.log; }
-until { [ -f $S/relabel.done ] || [ -f $S/relabel.failed ]; } && [ ! -f $S/train.done ] || [ -f $S/llm.done ]; do sleep 60; done
+# NOWAIT=1: run now (with no training on the GPU, qwen3:32b, a 4B and the 30B-A3B fit side by side)
+[ -n "${NOWAIT:-}" ] || until { [ -f $S/relabel.done ] || [ -f $S/relabel.failed ]; } && [ ! -f $S/train.done ] || [ -f $S/llm.done ]; do sleep 60; done
 for m in qwen3:4b-q4_K_M qwen3:30b-a3b-q4_K_M; do
   # do not start a model once the 122B is due (train.done without llm.done)
   until [ ! -f $S/train.done ] || [ -f $S/llm.done ]; do sleep 60; done
