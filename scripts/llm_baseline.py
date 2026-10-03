@@ -32,7 +32,8 @@ import requests
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "scripts"))
-URL = "http://localhost:11434/api/generate"
+import os
+URL = os.environ.get("OLLAMA_URL", "http://localhost:11434") + "/api/generate"   # OLLAMA_URL picks another server
 OUT = REPO / "results/paperA_v2/llm"
 
 BIODIV = {
@@ -111,7 +112,9 @@ def load(bench: str, n: int) -> pd.DataFrame:
         d = d[~(d.in_train.to_numpy() | (scan.maxj.to_numpy() > 0.5))].reset_index(drop=True)
         assert len(d) == 437
         return d[["sentence", "species1", "relation", "species2", "label", "source"]]
-    d = pd.read_csv(REPO / "data/benchmarks/biored_bc8/test.csv")
+    # biored = the BC8 test set; bioreddev = BioRED's own test split, the BC8 protocol's development
+    # set -- disjoint from both reporting sets, so it is where a teacher may be chosen
+    d = pd.read_csv(REPO / f"data/benchmarks/biored_bc8/{'dev' if bench == 'bioreddev' else 'test'}.csv")
     d = d.rename(columns={"text": "sentence", "source_species": "species1", "target_species": "species2"})
     d = d.sample(n, random_state=0) if n and n < len(d) else d
     return d[["sentence", "species1", "species2", "label", "pmid", "n_concepts"]].assign(row=d.index)
@@ -119,11 +122,12 @@ def load(bench: str, n: int) -> pd.DataFrame:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--bench", choices=("biodiv", "biored"), required=True)
+    ap.add_argument("--bench", choices=("biodiv", "biored", "bioreddev"), required=True)
     ap.add_argument("--model", default="qwen3:32b")
     ap.add_argument("--forms", nargs="*", default=None)
     ap.add_argument("--n", type=int, default=3000, help="BioRED test candidates to sample (seed 0)")
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--tag", default="", help="suffix for output names, e.g. -v035 for runs on another Ollama version")
     ap.add_argument("--num-gpu", type=int, default=None, help="GPU layers (Ollama num_gpu); default: Ollama decides")
     ap.add_argument("--num-ctx", type=int, default=None, help="context window (Ollama num_ctx)")
     a = ap.parse_args()
@@ -134,7 +138,7 @@ def main() -> None:
     if a.bench == "biodiv":
         prompts["triple"] = teacher_prompt()
     for form in a.forms or list(prompts):
-        out = OUT / f"{a.bench}_{a.model.replace(':', '-')}_{form}.csv"
+        out = OUT / f"{a.bench}_{a.model.replace(':', '-')}{a.tag}_{form}.csv"
         if out.exists() and len(pd.read_csv(out)) == len(d):
             print(f"done already: {out.name}"); continue
         tmpl = prompts[form]

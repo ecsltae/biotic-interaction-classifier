@@ -41,7 +41,7 @@ way, gives $0.738 \to 0.843$ on the BioCreative VIII test set ($p = 5.9\times10^
 $+9.6$ points of its standard entity-pair F1, and the gain lies where the argument puts it: none on
 sentences that name two entities, $+0.120$ on sentences that name more. We analyse the
 remaining errors, test candidate rules, and report the deployed model: a 110M-parameter
-pair-conditioned verifier that also labels direction in four categories, at 33 candidates per
+pair-conditioned verifier that also labels direction in four categories, at 32 candidates per
 second on a CPU.
 % ANONYMOUS LINK: replace XXXX with the anonymous.4open.science repository ID
 % (results/overnight_2026-10-03/ANONYMOUS_4OPEN_SCIENCE.md); camera-ready: the public repository.
@@ -118,7 +118,7 @@ We pulled the retrieval pool in full: $175{,}588$ candidate rows over $165{,}325
 and $115{,}404$ distinct triplet keys. Both taxon surface forms and the interaction surface form are
 non-empty on all $175{,}588$ rows, because the presence of an interaction term is the pool's
 construction filter, and an independent lexical scan for GloBI interaction vocabulary fires on
-$99.82\%$ of the same passages. A classifier trained to separate passages with interaction language
+$99.83\%$ of the same passages. A classifier trained to separate passages with interaction language
 from passages without it is, on this distribution, being asked about a constant. The missing input
 is not an annotator artefact but the query the pipeline itself issued.
 
@@ -157,7 +157,7 @@ advance. A model's reported operating point is either \textbf{pre-specified} ---
 training-development split, never on the benchmark --- or \textbf{block-held-out}: fitted on two of
 the three source blocks and applied to the third, so that every row is scored by a threshold that
 never saw it and every row is used. Comparisons between models use the same policy for both.
-Intervals are $20{,}000$-sample bootstraps or Clopper--Pearson; McNemar tests
+Intervals are Clopper--Pearson; McNemar tests
 \citep{mcnemar1947note} carry a continuity correction. Where three seeds exist we report the per-seed mean and standard deviation, and where we
 report the average of three checkpoints' probabilities we call it an ensemble. The benchmark ships
 an \texttt{in\_train} flag on 9 rows; a 5-gram Jaccard scan against all 48{,}338 training passages
@@ -297,7 +297,7 @@ from Qwen3-1.7B to Qwen3.5-122B the pair question leads, by $+0.04$ to $+0.20$ A
 benchmark and $+0.11$ to $+0.32$ on BioRED (Appendix~\ref{app:scaling}). Against its own teacher the
 pair-conditioned student gives up $0.027$ AUPRC, which distilling the teacher's probabilities does
 not recover (Appendix~\ref{app:soft}), and nothing in F1 at
-block-held-out thresholds ($0.871$ against $0.870$), at 33 candidates per second on a CPU.
+block-held-out thresholds ($0.871$ against $0.870$), at 32 candidates per second on a CPU.
 
 Table~\ref{tab:where} locates the gain, and it is the most direct test of the argument. On passages
 that name three or more taxa, the pair query is worth $+0.084$ AUPRC. On passages naming two or
@@ -370,11 +370,8 @@ of $67.1$, against $57.5$ for the sentence-level one. Systems that read the whol
 $74.1$ to $75.3$ (PubMedBERT, BioREx and BioREDirect; \citealp{lai2023biorex,lai2025bioredirect})
 and zero-shot GPT-4 $42.9$ \citep{islamaj2024overview}. Much of that gap is structural: a quarter of
 the related pairs are never co-mentioned in one sentence, which caps any sentence-scope verifier at
-recall $0.749$. Given the whole abstract instead, with every mention of the two concepts marked, the
-same model and recipe reach $67.0$: recall rises to $0.697$, against a ceiling of $0.912$, and
-precision falls to $0.646$. What the published systems add is document-level modelling our passage
-recipe does not attempt --- relation-type supervision, typed markers, tuned schedules --- which is
-not the question this paper asks.
+recall $0.749$. Given the whole abstract, the same model and recipe reach $67.0$ (recall $0.697$, precision
+$0.646$); what the published systems add is document-level modelling, not the question we ask.
 
 \subsection{The query, not the encoder}
 \label{sec:res-ablation}
@@ -419,7 +416,7 @@ ahead of it by $0.01$ or more on both development splits were scored once on tes
 neither BioRED model, BioLinkBERT-base lifts the BioRED pair model (AUPRC $0.855$, EP F1 $67.9$) but
 not ours (F1 $0.861$ against $0.871$), and BioLinkBERT-large lifts both a little, neither
 significantly. With every encoder trained in both formulations the pair query wins: $+0.103$ to
-$+0.113$ AUPRC on BioRED, $+0.052$ to $+0.067$ on ours.
+$+0.113$ AUPRC on BioRED, $+0.052$ to $+0.069$ on ours.
 
 \subsection{An operating curve, not a verdict}
 \label{sec:opoint}
@@ -539,9 +536,11 @@ tuned. On the 437 rows it reaches AUPRC $0.934$, and precision $0.851$, recall $
 with the candidate rules, precision $0.869$, recall $0.947$, F1 $0.907$ (6 items fixed, 2 broken,
 $p = 0.29$).\footnote{The \emph{co\_listed} rule is omitted from this configuration: on the deployed
 model's accept set it removes one false positive at the cost of three true ones.} It needs no GPU: on
-eight CPU threads it scores $32.7$ candidates per second with both heads, after a one-off $7.5$\,s to
-load, which is faster than the pipeline retrieves them, so every candidate is verified rather than a
-sample.
+eight CPU threads it scores $32.3$ candidates per second with both heads, faster than the pipeline
+retrieves them. Where precision matters more than speed, its least confident candidates can go to
+the zero-shot teacher: escalating the $30\%$ nearest the threshold to Qwen3.5-122B gives precision
+$0.941$ at recall $0.911$, a precision the model alone reaches only at $\tau = 0.99$, with recall
+$0.740$ (Appendix~\ref{app:cascade}).
 
 The second head reports the interaction's \emph{direction} in four categories. \textsc{Forward} and
 \textsc{Reverse} say which taxon acts on the other; they come from a direction score that is exactly
@@ -551,9 +550,8 @@ definition --- mutualism, symbiosis, competition, co-infection, \emph{interacts 
 in a relation-polarity lexicon derived from the Relation Ontology; for those, neither taxon is the
 subject and the model is not asked. Expert curation of the benchmark scores reversed triples as
 correct (Appendix~\ref{sec:notfixed}), so direction is evaluated on a separate expert annotation of 97
-candidates (Table~\ref{tab:direction}): the model answers 74\% of the 84 with a direction and is right
-on $0.887$ of those, leaves 9 of the 12 the expert could not decide as \textsc{Uncertain}, and labels
-the one bidirectional item \textsc{Bidirectional}.
+candidates (Table~\ref{tab:direction}): the model answers 74\% of the directional ones, correctly on
+$0.887$ of those.
 
 \section{Related work}
 \label{sec:related}
@@ -620,8 +618,8 @@ literature-mined biotic-interaction triples against their source passage before 
 When candidates are retrieved by co-occurrence, the sentence-level question is answered before it
 is asked, and a classifier built for it is left with little to decide. Telling the model which pair
 the candidate is about --- with the same encoder and the same data --- raises AUPRC from $0.851$ to
-$0.918$ on the biodiversity benchmark and from $0.738$ to $0.843$ on BioRED, and the relation term adds
-nothing on top. The gain sits where the argument puts it: on passages that name more than one
+$0.918$ on the biodiversity benchmark and from $0.738$ to $0.843$ on BioRED, the same question lifts a
+zero-shot LLM at every size from 1.7B to 122B parameters, and the relation term adds nothing on top. The gain sits where the argument puts it: on passages that name more than one
 candidate pair, and, where candidates come from automatic matching, on candidates whose arguments
 are not organisms. The result is a calibrated score where a verdict stood, with a four-way direction
 label beside it, cheap enough to run on every candidate.
@@ -774,16 +772,17 @@ Encoder & sent. & pair & EP F1 & sent. & pair & triple & pair F1 \\
 \midrule
 BiomedBERT-base  & 0.738 & 0.843 & 57.5/67.1 & 0.851 & 0.918 & 0.909 & 0.871 \\
 BiomedBERT-large & 0.741 & 0.843 & 57.6/67.4 & --- & --- & --- & --- \\
-BioLinkBERT-base & \textbf{0.743} & \textbf{0.855} & \textbf{57.9}/67.9 & \textbf{0.869} & 0.921 & \textbf{0.922} & 0.861 \\
-BioLinkBERT-large & --- & 0.848 & ---/\textbf{68.2} & --- & \textbf{0.927} & --- & \textbf{0.885} \\
+BioLinkBERT-base & \textbf{0.743} & \textbf{0.855} & \textbf{57.9}/67.9 & \textbf{0.869} & 0.921 & 0.922 & 0.861 \\
+BioLinkBERT-large & 0.737 & 0.848 & 56.1/\textbf{68.2} & 0.858 & \textbf{0.927} & \textbf{0.924} & \textbf{0.885} \\
 \bottomrule
 \end{tabular}
 \caption{The arms under the encoders that were scored on test, recipe otherwise that of
 \S\ref{sec:verifier}: AUPRC (per-seed means, three seeds), EP F1 (sentence-level/pair-conditioned)
-and block-held-out F1. The large encoders were not trained on every arm (Appendix~\ref{sec:negative}
-and below). Against the base encoder's model of the same format, BioLinkBERT's
+and block-held-out F1. BiomedBERT-large was not trained on the biodiversity arms
+(Appendix~\ref{sec:negative}). Against the base encoder's model of the same format, BioLinkBERT's
 pair model fixes 621 BioRED items and breaks 537 (McNemar $p = 0.015$) and on ours 20 and 26
-($p = 0.46$); its sentence-level model on ours, 43 and 19 ($p = 0.003$).}
+($p = 0.46$); its sentence-level model on ours, 43 and 19 ($p = 0.003$). No BioLinkBERT-large arm
+differs significantly from the base encoder's on ours ($p \ge 0.15$).}
 \label{tab:encoders}
 \end{table}
 
@@ -807,9 +806,12 @@ BioLinkBERT-large, at $2\times10^{-5}$ for three epochs like BiomedBERT-large, p
 $0.862$). Its pair models gain a little on both benchmarks: on BioRED, AUPRC $0.848 \pm 0.009$ and EP
 F1 $68.2 \pm 0.7$ (seeds $67.7$--$69.0$, each above every base seed); on ours, $0.927 \pm 0.004$ and
 F1 $0.885$. Neither gain is significant: against the base encoder's pair model it fixes 652 BioRED
-items and breaks 653 ($p = 1.0$), and on ours 27 and 21 ($p = 0.47$). Its sentence-level and
-triple-conditioned arms were not trained, so it does not enter the comparison. We keep the base
-encoder: BioLinkBERT-base does not carry to the pair-conditioned model the pipeline runs, and
+items and breaks 653 ($p = 1.0$), and on ours 27 and 21 ($p = 0.47$). Its other arms, trained
+afterwards and scored once, complete the comparison: the sentence-level models reach $0.858$ on ours
+and $0.737$ on BioRED (EP F1 $56.1$), the triple-conditioned model $0.924$, and the
+pair query again wins, by $+0.069$ on ours (74 items fixed, 28 broken,
+$p = 8\times10^{-6}$; $+0.083$ on passages naming three or more taxa, $+0.041$ on the rest) and by
+$+0.111$ on BioRED. We keep the base encoder: BioLinkBERT-base does not carry to the pair-conditioned model the pipeline runs, and
 BioLinkBERT-large's gains are not significant on either benchmark.
 
 
@@ -955,6 +957,45 @@ benchmark better than any trained model ($0.968$; the pair-conditioned student $
 suggests that the headroom left on it lies in a stronger teacher rather than in a different student
 recipe (Appendices~\ref{app:soft} and~\ref{app:encoders}); asked the sentence-level question, it
 scores $0.773$.
+
+\section{Escalating uncertain candidates to the teacher}
+\label{app:cascade}
+
+\begin{table}[t]\centering\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{rrcccccc}
+\toprule
+ & & \multicolumn{3}{c}{Qwen3-32B} & \multicolumn{3}{c}{Qwen3.5-122B} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+Band & LLM calls & P & R & F1 & P & R & F1 \\
+\midrule
+0\% & 0 & 0.869 & 0.947 & 0.907 & 0.869 & 0.947 & 0.907 \\
+10\% & 44 & 0.888 & 0.939 & 0.913 & 0.892 & 0.943 & 0.917 \\
+20\% & 87 & 0.900 & 0.919 & 0.909 & 0.912 & 0.923 & 0.917 \\
+30\% & 131 & 0.929 & 0.911 & 0.920 & 0.941 & 0.911 & 0.926 \\
+50\% & 218 & 0.946 & 0.850 & 0.895 & 0.958 & 0.837 & 0.894 \\
+100\% & 437 & 0.941 & 0.772 & 0.848 & 0.969 & 0.760 & 0.852 \\
+\bottomrule
+\end{tabular}
+\caption{The deployed model with its candidate rules keeps its own decision except on the band of
+candidates whose score lies nearest its threshold, which take the zero-shot teacher's answer to
+the pair question; 437 rows. A rule rejection is final. Band $0\%$ is the deployed model alone,
+$100\%$ the teacher alone (with the rules).}
+\label{tab:cascade}
+\end{table}
+
+The deployed model is cheap and recall-oriented, and the zero-shot teacher, asked about the pair, is
+precise but slow (Appendix~\ref{app:scaling}). Table~\ref{tab:cascade} combines them: the model
+decides every candidate, and those it is least sure of --- a fixed fraction, nearest its threshold
+--- are re-decided by the teacher. Escalating $30\%$ to Qwen3.5-122B raises precision from $0.869$
+to $0.941$ at recall $0.911$, removing 21 of the 35 false positives; the model alone reaches that
+precision only at $\tau = 0.99$, where recall falls to $0.740$. Against the model alone the
+decisions are not significantly better on these 437 rows (25 items fixed, 13 broken,
+McNemar $p = 0.07$; with Qwen3-32B, 22 and 13, $p = 0.18$): the gain is in the
+operating point, more recall at a given precision, not in accuracy at the model's own threshold. The
+band is a dial, reported at six settings and chosen at none of them. Its cost is set by the
+teacher's speed: escalating $30\%$ of the 175{,}588-candidate pool means about 53{,}000 calls, under
+a day on one A100 for Qwen3.5-122B (1.4\,s per call with part of it on the CPU) and less for the 32B.
 
 \section{Error examples}
 \label{app:examples}
