@@ -1324,6 +1324,8 @@
 \@LN{1097}{11}
 \@LN{1098}{11}
 \@LN{1099}{11}
+\citation{qwen2025technical}
+\citation{qwen2025technical}
 \@LN@col{1}
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Per-seed figures on the 437 biodiversity rows, order-free scoring. The body reports three-checkpoint ensembles at block-held-out thresholds; a fixed $\tau = 0.5$ is shown here because the three models are calibrated differently, and a single shared threshold would favour one of them arbitrarily.\relax }}{13}{table.caption.34}\protected@file@percent }
 \newlabel{tab:perseed}{{7}{13}{Per-seed figures on the 437 biodiversity rows, order-free scoring. The body reports three-checkpoint ensembles at block-held-out thresholds; a fixed $\tau = 0.5$ is shown here because the three models are calibrated differently, and a single shared threshold would favour one of them arbitrarily.\relax }{table.caption.34}{}}
@@ -1378,6 +1380,8 @@
 \@LN{1145}{12}
 \@LN{1146}{12}
 \@LN@col{2}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces AUPRC of zero-shot Qwen3 \citep  {qwen2025technical} by size, asked the three questions of Appendix~\ref  {app:prompts} (4-bit builds served locally, thinking disabled; the triple question in both argument orders, maxed). Base rates $0.563$ and $0.476$. Last row: the trained three-checkpoint ensembles on the same rows.\relax }}{13}{table.caption.38}\protected@file@percent }
+\newlabel{tab:scaling}{{8}{13}{AUPRC of zero-shot Qwen3 \citep {qwen2025technical} by size, asked the three questions of Appendix~\ref {app:prompts} (4-bit builds served locally, thinking disabled; the triple question in both argument orders, maxed). Base rates $0.563$ and $0.476$. Last row: the trained three-checkpoint ensembles on the same rows.\relax }{table.caption.38}{}}
 \@LN{1147}{12}
 \@LN{1148}{12}
 \@LN{1149}{12}
@@ -1396,11 +1400,9 @@
 \@LN{1162}{12}
 \@LN{1163}{12}
 \@LN{1164}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Error examples}{13}{appendix.C}\protected@file@percent }
-\newlabel{app:examples}{{C}{13}{Error examples}{appendix.C}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Zero-shot scaling}{13}{appendix.C}\protected@file@percent }
+\newlabel{app:scaling}{{C}{13}{Zero-shot scaling}{appendix.C}{}}
 \@LN{1165}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Candidate rules in detail}{13}{appendix.D}\protected@file@percent }
-\newlabel{app:rules}{{D}{13}{Candidate rules in detail}{appendix.D}{}}
 \@LN{1166}{12}
 \@LN{1167}{12}
 \@LN{1168}{12}
@@ -1414,46 +1416,48 @@
 \@LN{1176}{12}
 \@LN{1177}{12}
 \@LN{1178}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Error examples}{13}{appendix.D}\protected@file@percent }
+\newlabel{app:examples}{{D}{13}{Error examples}{appendix.D}{}}
 \@LN{1179}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Candidate rules in detail}{13}{appendix.E}\protected@file@percent }
+\newlabel{app:rules}{{E}{13}{Candidate rules in detail}{appendix.E}{}}
 \@LN{1180}{12}
 \@LN{1181}{12}
 \@LN{1182}{12}
 \@LN{1183}{12}
 \@LN{1184}{12}
-\@LN{1185}{12}
-\@writefile{toc}{\contentsline {paragraph}{How they were validated, and what that licenses.}{13}{section*.40}\protected@file@percent }
-\@LN{1186}{12}
-\@LN{1187}{12}
-\@LN{1188}{12}
-\@LN{1189}{12}
-\@LN{1190}{12}
-\@LN{1191}{12}
-\@LN{1192}{12}
-\@LN{1193}{12}
-\@LN{1194}{12}
-\@LN{1195}{12}
-\@LN{1196}{12}
-\@LN{1197}{12}
-\@LN{1198}{12}
-\@LN{1199}{12}
-\@LN{1200}{12}
 \citation{rees2017opentree}
 \citation{gerner2010linnaeus}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }}{14}{table.caption.38}\protected@file@percent }
-\newlabel{tab:examples}{{8}{14}{One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }{table.caption.38}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }}{14}{table.caption.39}\protected@file@percent }
+\newlabel{tab:examples}{{9}{14}{One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }{table.caption.39}{}}
 \@LN@col{1}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Deterministic candidate rules applied before the model's decision, all 437 rows, block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair model, $0.18$ and $0.067$ on the triple model.\relax }}{14}{table.caption.39}\protected@file@percent }
-\newlabel{tab:rules}{{9}{14}{Deterministic candidate rules applied before the model's decision, all 437 rows, block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair model, $0.18$ and $0.067$ on the triple model.\relax }{table.caption.39}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Deterministic candidate rules applied before the model's decision, all 437 rows, block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair model, $0.18$ and $0.067$ on the triple model.\relax }}{14}{table.caption.40}\protected@file@percent }
+\newlabel{tab:rules}{{10}{14}{Deterministic candidate rules applied before the model's decision, all 437 rows, block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair model, $0.18$ and $0.067$ on the triple model.\relax }{table.caption.40}{}}
+\@LN{1185}{13}
+\@LN{1186}{13}
+\@LN{1187}{13}
+\@LN{1188}{13}
+\@LN{1189}{13}
+\@LN{1190}{13}
+\@LN{1191}{13}
+\@LN{1192}{13}
+\@LN{1193}{13}
+\@LN{1194}{13}
+\@LN{1195}{13}
+\@LN{1196}{13}
+\@LN{1197}{13}
+\@LN{1198}{13}
+\@LN{1199}{13}
+\@writefile{toc}{\contentsline {paragraph}{How they were validated, and what that licenses.}{14}{section*.41}\protected@file@percent }
+\@LN{1200}{13}
 \@LN{1201}{13}
 \@LN{1202}{13}
 \@LN{1203}{13}
 \@LN{1204}{13}
 \@LN{1205}{13}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Where the reformulation stops}{14}{appendix.E}\protected@file@percent }
-\newlabel{sec:notfixed}{{E}{14}{Where the reformulation stops}{appendix.E}{}}
 \@LN{1206}{13}
-\@writefile{toc}{\contentsline {paragraph}{Entity disambiguation, and a gate that cannot fix it.}{14}{section*.41}\protected@file@percent }
 \@LN{1207}{13}
+\@LN@col{2}
 \@LN{1208}{13}
 \@LN{1209}{13}
 \@LN{1210}{13}
@@ -1466,11 +1470,12 @@
 \@LN{1217}{13}
 \@LN{1218}{13}
 \@LN{1219}{13}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Where the reformulation stops}{14}{appendix.F}\protected@file@percent }
+\newlabel{sec:notfixed}{{F}{14}{Where the reformulation stops}{appendix.F}{}}
 \@LN{1220}{13}
+\@writefile{toc}{\contentsline {paragraph}{Entity disambiguation, and a gate that cannot fix it.}{14}{section*.42}\protected@file@percent }
 \@LN{1221}{13}
 \@LN{1222}{13}
-\@LN@col{2}
-\@writefile{toc}{\contentsline {paragraph}{Direction needs its own gold.}{14}{section*.42}\protected@file@percent }
 \@LN{1223}{13}
 \@LN{1224}{13}
 \@LN{1225}{13}
@@ -1485,21 +1490,18 @@
 \@LN{1234}{13}
 \@LN{1235}{13}
 \@LN{1236}{13}
+\@writefile{toc}{\contentsline {paragraph}{Direction needs its own gold.}{14}{section*.43}\protected@file@percent }
 \@LN{1237}{13}
 \@LN{1238}{13}
 \@LN{1239}{13}
 \@LN{1240}{13}
-\@writefile{toc}{\contentsline {section}{\numberline {F}Negative results and cost}{14}{appendix.F}\protected@file@percent }
-\newlabel{sec:negative}{{F}{14}{Negative results and cost}{appendix.F}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Five plausible design choices that measurably do not pay.\relax }}{14}{table.caption.43}\protected@file@percent }
-\newlabel{tab:negative}{{10}{14}{Five plausible design choices that measurably do not pay.\relax }{table.caption.43}{}}
 \@LN{1241}{13}
 \@LN{1242}{13}
 \@LN{1243}{13}
-\@LN{1244}{13}
-\@LN{1245}{13}
-\@LN{1246}{13}
 \@LN@col{1}
+\@LN{1244}{14}
+\@LN{1245}{14}
+\@LN{1246}{14}
 \@LN{1247}{14}
 \@LN{1248}{14}
 \@LN{1249}{14}
@@ -1508,10 +1510,28 @@
 \@LN{1252}{14}
 \@LN{1253}{14}
 \@LN{1254}{14}
+\@writefile{toc}{\contentsline {section}{\numberline {G}Negative results and cost}{15}{appendix.G}\protected@file@percent }
+\newlabel{sec:negative}{{G}{15}{Negative results and cost}{appendix.G}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Five plausible design choices that measurably do not pay.\relax }}{15}{table.caption.44}\protected@file@percent }
+\newlabel{tab:negative}{{11}{15}{Five plausible design choices that measurably do not pay.\relax }{table.caption.44}{}}
 \@LN{1255}{14}
 \@LN{1256}{14}
 \@LN{1257}{14}
 \@LN{1258}{14}
 \@LN{1259}{14}
+\@LN{1260}{14}
+\@LN{1261}{14}
+\@LN{1262}{14}
+\@LN{1263}{14}
+\@LN{1264}{14}
+\@LN{1265}{14}
+\@LN{1266}{14}
+\@LN{1267}{14}
+\@LN{1268}{14}
+\@LN{1269}{14}
+\@LN{1270}{14}
+\@LN{1271}{14}
+\@LN{1272}{14}
+\@LN{1273}{14}
 \@LN@col{2}
 \gdef \@abspage@last{15}
