@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paperA.aux
 The style file: acl_natbib.bst
-Illegal, another \bibstyle command---line 813 of file paperA.aux
+Illegal, another \bibstyle command---line 815 of file paperA.aux
  : \bibstyle
  :          {acl_natbib}
 I'm skipping whatever remains of this command
@@ -13,45 +13,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: references.bib
-You've used 57 entries,
+You've used 58 entries,
             3764 wiz_defined-function locations,
-            1125 strings with 22000 characters,
-and the built_in function-call counts, 53330 in all, are:
-= -- 4719
-> -- 2815
-< -- 44
-+ -- 1149
-- -- 857
-* -- 3742
-:= -- 7541
-add.period$ -- 256
-call.type$ -- 57
-change.case$ -- 633
-chr.to.int$ -- 58
-cite$ -- 57
-duplicate$ -- 3137
-empty$ -- 3615
-format.name$ -- 1045
-if$ -- 11669
+            1131 strings with 22270 characters,
+and the built_in function-call counts, 54248 in all, are:
+= -- 4812
+> -- 2846
+< -- 45
++ -- 1161
+- -- 866
+* -- 3797
+:= -- 7662
+add.period$ -- 261
+call.type$ -- 58
+change.case$ -- 643
+chr.to.int$ -- 59
+cite$ -- 58
+duplicate$ -- 3197
+empty$ -- 3685
+format.name$ -- 1057
+if$ -- 11882
 int.to.chr$ -- 1
 int.to.str$ -- 2
-missing$ -- 707
-newline$ -- 292
-num.names$ -- 228
-pop$ -- 1739
+missing$ -- 718
+newline$ -- 297
+num.names$ -- 232
+pop$ -- 1765
 preamble$ -- 1
-purify$ -- 513
+purify$ -- 520
 quote$ -- 0
-skip$ -- 2715
+skip$ -- 2768
 stack$ -- 0
-substring$ -- 2145
-swap$ -- 1929
-text.length$ -- 70
+substring$ -- 2196
+swap$ -- 1964
+text.length$ -- 71
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 513
+type$ -- 522
 warning$ -- 0
-while$ -- 288
+while$ -- 294
 width$ -- 0
-write$ -- 793
+write$ -- 808
 (There was 1 error message)

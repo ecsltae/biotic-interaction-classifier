@@ -1,4 +1,4 @@
-\begin{thebibliography}{57}
+\begin{thebibliography}{58}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Ai and Kavuluru(2023)}]{ai2023endtoend}
@@ -446,6 +446,14 @@ Shanchan Wu and Yifan He. 2019.
 \newblock In \emph{Proceedings of the 28th ACM International Conference on
   Information and Knowledge Management (CIKM)}, pages 2361--2364, Beijing,
   China. Association for Computing Machinery.
+
+\bibitem[{Yasunaga et~al.(2022)Yasunaga, Leskovec, and
+  Liang}]{yasunaga2022linkbert}
+Michihiro Yasunaga, Jure Leskovec, and Percy Liang. 2022.
+\newblock {LinkBERT}: Pretraining language models with document links.
+\newblock In \emph{Proceedings of the 60th Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pages 8003--8016,
+  Dublin, Ireland. Association for Computational Linguistics.
 
 \bibitem[{Zhang et~al.(2017)Zhang, Zhong, Chen, Angeli, and
   Manning}]{zhang2017position}
