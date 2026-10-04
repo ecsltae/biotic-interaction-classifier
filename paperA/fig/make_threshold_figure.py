@@ -19,7 +19,9 @@ import numpy as np
 import pandas as pd
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
+plt.rcParams["pdf.fonttype"] = 42   # TrueType, not Type 3: the ACL checker flags Type 3
+plt.rcParams["ps.fonttype"] = 42  # noqa: E402
 from sklearn.metrics import f1_score, precision_score, recall_score  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[2]

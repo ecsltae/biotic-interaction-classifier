@@ -96,6 +96,33 @@ At the default the model is **more precise than the old filter (0.869 against 0.
 points more recall**. Raise the threshold to buy precision; the table is the exact trade. Without
 the rules (`--no-rules`) the default gives precision 0.851, recall 0.955.
 
+### Optional: a second opinion from a local LLM on the uncertain candidates
+
+If you have a GPU, `escalate.py` keeps the verifier's decision on every candidate except the
+fraction whose score lies nearest the threshold, which a local LLM re-decides by answering one
+question: does the passage assert an interaction between *these two* taxa? Rule rejections stay
+final. Nothing leaves the machine (Ollama).
+
+```bash
+python predict.py  --in candidates.csv --out scored.csv
+python escalate.py --in candidates.csv --scored scored.csv --out final.csv --band 0.3
+```
+
+Same 437-item evaluation, default threshold, rules on, LLM `qwen3.8:27b` (needs Ollama >= 0.35):
+
+| `--band` | LLM calls | precision | recall | false pos |
+|---|---|---|---|---|
+| 0 (verifier alone) | 0% | 0.869 | 0.947 | 35 |
+| 0.1 | 10% | 0.891 | 0.927 | 28 |
+| 0.2 | 20% | 0.910 | 0.907 | 22 |
+| **0.3** | 30% | **0.940** | 0.886 | 14 |
+| 0.5 | 50% | 0.953 | 0.817 | 10 |
+
+For the same precision the verifier alone needs `--threshold 0.99` and keeps recall 0.740, so the
+LLM buys about 15 points of recall at that precision; the column to read is `interacts_final`.
+On an older Ollama, `--model qwen3:32b` gives 0.922 / 0.915 at band 0.3. Cost: one LLM call per
+escalated candidate, about 1--2 per second on one A100 for a 27B model.
+
 ## 5. When to distrust it
 
 * **`both_taxa_located = 0`.** The model marks the two taxa in the passage so it knows which pair
@@ -145,7 +172,8 @@ the rules (`--no-rules`) the default gives precision 0.851, recall 0.955.
 
 ## 6. Speed
 
-~**34 candidates/s** on 8 CPU threads on real passages (≈120,000/hour). Short sentences run
+~**32 candidates/s** on 8 CPU threads on real passages (≈115,000/hour; measured through
+`predict.py` on the 437 evaluation rows, rules on). Short sentences run
 faster — the example file benches near 95/s — so plan with the lower figure. `--threads` scales
 roughly linearly to the core count. Memory: about 1.5 GB resident.
 
@@ -156,6 +184,7 @@ parameters, +0.54% on top of the encoder.
 
 ```
 predict.py            what you run
+escalate.py           optional: a local LLM re-decides the least confident candidates (section 4)
 joint_model.py        the architecture (encoder + antisymmetric direction head)
 xenc_format.py        builds the encoder input; do not edit, training used this exact code
 polarity.py           relation-polarity lexicon feeding the direction head

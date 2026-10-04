@@ -26,23 +26,19 @@ Pair-Conditioned Verification of Literature-Mined Biotic Interactions}
 
 \begin{abstract}
 Literature-mining pipelines that populate biotic-interaction databases propose candidate
-(taxon, relation, taxon) triples by co-occurrence, then decide which to keep with a
-\emph{sentence-level} classifier: does this passage describe an interaction? A candidate is retrieved
-precisely because its passage names two taxa near an interaction term, so that question is answered
-before it is asked; what needs deciding is whether the passage asserts an interaction between
-\emph{these two}. We test the claim with a controlled comparison: one encoder, one 48k-row
-teacher-labelled corpus, three seeds, differing only in what the model is shown. On 437
-expert-graded candidates, telling the model which pair the candidate is about raises AUPRC from
-$0.851$ to $0.918$ and F1 from $0.775$ to $0.871$ (75 items fixed against 22 broken, McNemar
-$p = 1.3\times10^{-7}$), at every one of 99 thresholds; adding the relation term to the query buys
-nothing further. The 32B model that labelled the corpus, asked the same questions zero-shot, shows
-the same gap at twice the size ($0.789 \to 0.943$). The same comparison on the public BioRED corpus, with candidates built the same
-way, gives $0.738 \to 0.843$ on the BioCreative VIII test set ($p = 5.9\times10^{-148}$) and
-$+9.6$ points of its standard entity-pair F1, and the gain lies where the argument puts it: none on
-sentences that name two entities, $+0.120$ on sentences that name more. We analyse the
-remaining errors, test candidate rules, and report the deployed model: a 110M-parameter
-pair-conditioned verifier that also labels direction in four categories, at 32 candidates per
-second on a CPU.
+(taxon, relation, taxon) triples by co-occurrence, then filter them with a \emph{sentence-level}
+classifier: does this passage describe an interaction? Candidates are retrieved precisely because
+their passage names two taxa near an interaction term, so that question is answered before it is
+asked; what needs deciding is whether the passage asserts an interaction between \emph{these two}.
+In a controlled comparison --- one encoder, one 48k-row teacher-labelled corpus, three seeds, only
+the input differing --- telling the model which pair it is judging raises AUPRC on 437
+expert-graded candidates from $0.851$ to $0.918$ and F1 from $0.775$ to $0.871$
+(McNemar $p = 1.3\times10^{-7}$), at every threshold; adding the relation term buys nothing. Asked
+the same questions zero-shot, the 32B teacher shows the same gap at twice the size. On the public
+BioRED corpus, with candidates built the same way, conditioning on the pair raises AUPRC from
+$0.738$ to $0.843$ and entity-pair F1 by $9.6$ points, with no gain on sentences naming two entities
+and $+0.120$ on sentences naming more. The deployed verifier, 110M parameters, also labels
+direction in four categories and runs at 32 candidates per second on a CPU.
 % ANONYMOUS LINK: replace XXXX with the anonymous.4open.science repository ID
 % (results/overnight_2026-10-03/ANONYMOUS_4OPEN_SCIENCE.md); camera-ready: the public repository.
 Code: \url{https://anonymous.4open.science/r/XXXX}.
@@ -197,7 +193,7 @@ are identical in the passage and differ only in the candidate and the label.
 
 \paragraph{Three models, one recipe.}
 All three are cross-encoders on BiomedBERT-base \citep{gu2021domain}
-(\texttt{microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext}, 110M parameters), distilled
+(\texttt{microsoft/\allowbreak BiomedNLP-\allowbreak BiomedBERT-\allowbreak base-\allowbreak uncased-\allowbreak abstract-\allowbreak fulltext}, 110M parameters), distilled
 from the teacher's labels \citep{bucilua2006model,hinton2015distilling} with the same recipe:
 AdamW at learning rate $2\times10^{-5}$ and weight decay $0.01$, a linear schedule with 10\% warm-up,
 batch size 32, inputs of at most 256 wordpieces, three epochs, gradient clipping at 1.0, and the
@@ -245,6 +241,7 @@ and breaks 32 ($p = 6.8\times10^{-5}$); triple against pair, 20 fixed and 31 bro
 
 \begin{table}[t]\centering\small
 \setlength{\tabcolsep}{3.4pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lrccc}
 \toprule
 Candidates & $n$ & Sentence & Pair & Triple \\
@@ -261,7 +258,7 @@ an argument is not a taxon, $\ge 3$ & 49 & 0.628 & \textbf{0.808} & --- \\
 \textsc{Biotx100} &  97 & 0.954 & \textbf{0.970} & 0.938 \\
 \textsc{Reject50} &  41 & 0.465 & 0.414 & \textbf{0.503} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{Where the gain lives, AUPRC of the three ensembles. Taxa are counted as distinct mentions
 found in the passage by TaxoNERD \citep{leguillarme2022taxonerd} (\texttt{en\_ner\_eco\_biobert}); an
 argument ``is not a taxon'' when TaxoNERD does not recognise it in the passage. \textsc{Test299}
@@ -316,6 +313,7 @@ gold-annotated, isolates the first.
 
 \begin{table}[t]\centering\small
 \setlength{\tabcolsep}{2.6pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
  & & & \multicolumn{2}{c}{AUPRC, sentences naming} & EP \\
@@ -330,7 +328,7 @@ Pair-conditioned & $\mathbf{0.843}_{\pm .004}$ & \textbf{0.817} & 0.902 & \textb
 Sentence question & 0.566 & 0.662 & 0.921 & 0.555 & --- \\
 Pair question     & 0.813 & 0.766 & 0.958 & 0.799 & --- \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{BioRED, BioCreative VIII test set: 16{,}606 sentence-level candidates from 400 abstracts,
 $0.463$ positive, 538 from sentences naming two concepts. AUPRC is the per-seed mean $\pm$
 standard deviation over three seeds; F1 is at the pre-specified threshold (mean of the
@@ -378,6 +376,7 @@ $0.646$); what the published systems add is document-level modelling, not the qu
 
 \begin{table}[t]\centering\small
 \setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
 Query given to the triple model & P & R & F1 & AUPRC \\
@@ -388,7 +387,7 @@ Relation shuffled across items & 0.881 & 0.720 & 0.792 & 0.904 \\
 Relation only, no taxa         & 0.833 & 0.020 & 0.040 & 0.677 \\
 Empty query                    & 1.000 & 0.037 & 0.071 & 0.641 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{Degrading segment~A of the trained triple-conditioned model at inference, weights and its
 own block-held-out thresholds unchanged. Base rate $0.563$. Per-seed standard deviations on AUPRC
 are $\le 0.027$.}
@@ -617,7 +616,7 @@ literature-mined biotic-interaction triples against their source passage before 
 
 When candidates are retrieved by co-occurrence, the sentence-level question is answered before it
 is asked, and a classifier built for it is left with little to decide. Telling the model which pair
-the candidate is about --- with the same encoder and the same data --- raises AUPRC from $0.851$ to
+the candidate is about raises AUPRC from $0.851$ to
 $0.918$ on the biodiversity benchmark and from $0.738$ to $0.843$ on BioRED, the same question lifts a
 zero-shot LLM at every size from 1.7B to 122B parameters, and the relation term adds nothing on top. The gain sits where the argument puts it: on passages that name more than one
 candidate pair, and, where candidates come from automatic matching, on candidates whose arguments
@@ -764,6 +763,7 @@ verdicts). The body keeps the verdict-trained models, on which every other analy
 
 \begin{table}[t]\centering\footnotesize
 \setlength{\tabcolsep}{2.2pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccccccc}
 \toprule
  & \multicolumn{3}{c}{BioRED, BC8 test} & \multicolumn{4}{c}{Biodiversity, 437} \\
@@ -775,7 +775,7 @@ BiomedBERT-large & 0.741 & 0.843 & 57.6/67.4 & --- & --- & --- & --- \\
 BioLinkBERT-base & \textbf{0.743} & \textbf{0.855} & \textbf{57.9}/67.9 & \textbf{0.869} & 0.921 & 0.922 & 0.861 \\
 BioLinkBERT-large & 0.737 & 0.848 & 56.1/\textbf{68.2} & 0.858 & \textbf{0.927} & \textbf{0.924} & \textbf{0.885} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{The arms under the encoders that were scored on test, recipe otherwise that of
 \S\ref{sec:verifier}: AUPRC (per-seed means, three seeds), EP F1 (sentence-level/pair-conditioned)
 and block-held-out F1. BiomedBERT-large was not trained on the biodiversity arms
@@ -838,16 +838,19 @@ types in place of organisms and biotic interactions (\texttt{scripts/llm\_baseli
 \paragraph{Sentence question.}
 \begin{footnotesize}
 \begin{verbatim}
-You check sentences retrieved from the scientific
-literature for a biotic-interaction database.
+You check sentences retrieved from the
+scientific literature for a
+biotic-interaction database.
 
 Sentence: <passage>
 
-Answer YES only if the sentence asserts a direct
-biological interaction between organisms (for example
-predation, parasitism, infection, herbivory,
-pollination, mutualism, symbiosis or disease
-transmission), and the interaction is not negated.
+Answer YES only if the sentence asserts
+a direct biological interaction between
+organisms (for example predation,
+parasitism, infection, herbivory,
+pollination, mutualism, symbiosis or
+disease transmission), and the
+interaction is not negated.
 
 Reply with exactly one word: YES or NO.
 \end{verbatim}
@@ -856,8 +859,9 @@ Reply with exactly one word: YES or NO.
 \paragraph{Pair question.}
 \begin{footnotesize}
 \begin{verbatim}
-You verify candidate biotic-interaction pairs
-extracted from scientific literature.
+You verify candidate biotic-interaction
+pairs extracted from scientific
+literature.
 
 Sentence: <passage>
 
@@ -865,16 +869,20 @@ Candidate pair:
   Entity 1: "<taxon 1>"
   Entity 2: "<taxon 2>"
 
-Answer YES only if ALL of the following hold:
- 1. Both entities are genuinely the organisms referred
-    to by those surface strings in this sentence (not
-    a gene, protein, chemical, author name, or a
-    different species).
- 2. The sentence asserts a direct biological
-    interaction between these two organisms (not
-    merely a co-mention, and not an interaction each
-    has with some third organism), and the interaction
-    is not negated.
+Answer YES only if ALL of the following
+hold:
+ 1. Both entities are genuinely the
+    organisms referred to by those
+    surface strings in this sentence
+    (not a gene, protein, chemical,
+    author name, or a different
+    species).
+ 2. The sentence asserts a direct
+    biological interaction between these
+    two organisms (not merely a
+    co-mention, and not an interaction
+    each has with some third organism),
+    and the interaction is not negated.
 
 Reply with exactly one word: YES or NO.
 \end{verbatim}
@@ -883,8 +891,9 @@ Reply with exactly one word: YES or NO.
 \paragraph{Triple question (the labelling prompt).}
 \begin{footnotesize}
 \begin{verbatim}
-You verify candidate biotic-interaction triples
-extracted from scientific literature.
+You verify candidate biotic-interaction
+triples extracted from scientific
+literature.
 
 Sentence: <passage>
 
@@ -893,18 +902,23 @@ Candidate triple:
   Relation: "<relation>"
   Entity 2: "<taxon 2>"
 
-Answer YES only if ALL of the following hold:
- 1. Both entities are genuinely the organisms referred
-    to by those surface strings in this sentence (not
-    a gene, protein, chemical, author name, or a
-    different species).
- 2. The sentence asserts a direct biological
-    interaction between these two organisms (not
-    merely a co-mention, and not an interaction each
-    has with some third organism).
- 3. The stated relation is the correct type of
-    interaction between them, in the stated direction,
-    and is not negated.
+Answer YES only if ALL of the following
+hold:
+ 1. Both entities are genuinely the
+    organisms referred to by those
+    surface strings in this sentence
+    (not a gene, protein, chemical,
+    author name, or a different
+    species).
+ 2. The sentence asserts a direct
+    biological interaction between these
+    two organisms (not merely a
+    co-mention, and not an interaction
+    each has with some third organism).
+ 3. The stated relation is the correct
+    type of interaction between them, in
+    the stated direction, and is not
+    negated.
 
 Reply with exactly one word: YES or NO.
 \end{verbatim}
@@ -963,6 +977,7 @@ scores $0.773$.
 
 \begin{table}[t]\centering\footnotesize
 \setlength{\tabcolsep}{2.6pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{rrcccccc}
 \toprule
  & & \multicolumn{3}{c}{Qwen3-32B} & \multicolumn{3}{c}{Qwen3.5-122B} \\
@@ -976,7 +991,7 @@ Band & LLM calls & P & R & F1 & P & R & F1 \\
 50\% & 218 & 0.946 & 0.850 & 0.895 & 0.958 & 0.837 & 0.894 \\
 100\% & 437 & 0.941 & 0.772 & 0.848 & 0.969 & 0.760 & 0.852 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{The deployed model with its candidate rules keeps its own decision except on the band of
 candidates whose score lies nearest its threshold, which take the zero-shot teacher's answer to
 the pair question; 437 rows. A rule rejection is final. Band $0\%$ is the deployed model alone,
@@ -1001,7 +1016,7 @@ a day on one A100 for Qwen3.5-122B (1.4\,s per call with part of it on the CPU) 
 \label{app:examples}
 
 \begin{table*}[t]\centering\small
-\begin{tabular}{@{}llp{0.52\textwidth}@{}}
+\begin{tabular}{@{}llp{0.47\textwidth}@{}}
 \toprule
 Mechanism & Candidate triple & Passage (abridged) \\
 \midrule
@@ -1102,12 +1117,22 @@ Direction-encoding participles and prepositional forms are rejected at $0.51$--$
 at $0.04$--$0.10$ (\emph{host of} $0.08$, \emph{pollinators} $0.04$). Whether supervision encodes
 order at all depends on which string retrieval happened to match.
 
+\section{Artifacts and compute}
+\label{app:artifacts}
+
+The encoders are BiomedBERT-base and -large (MIT licence) and BioLinkBERT-base and -large (Apache
+2.0); the zero-shot models are Qwen3 0.6B--32B and Qwen3.5-122B (Apache 2.0), run locally through
+Ollama; taxon mentions are counted with TaxoNERD (MIT). BioRED and its BioREDirect directionality
+release are public NCBI resources, used as distributed. Everything ran on one NVIDIA A100 (80\,GB):
+an encoder run takes between two and fifteen minutes, and the whole study took about 50 GPU-hours,
+most of them LLM inference for labelling the corpus and for the zero-shot rows.
+
 \section{Negative results and cost}
 \label{sec:negative}
 
 \begin{table}[h]\centering\small
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lp{0.27\columnwidth}p{0.30\columnwidth}@{}}
+\begin{tabular}{@{}lp{0.25\columnwidth}p{0.27\columnwidth}@{}}
 \toprule
 Intervention & Benefit & Cost \\
 \midrule

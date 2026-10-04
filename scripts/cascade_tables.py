@@ -27,7 +27,9 @@ from eval.core import clean_benchmark  # noqa: E402
 import candidate_rules as CR  # noqa: E402
 
 BANDS = (0.0, 0.1, 0.2, 0.3, 0.5, 1.0)
-LLMS = ("qwen3-32b", "qwen3.5-122b")
+LLMS = ("qwen3-32b", "qwen3.5-122b")              # the paper's appendix
+# --deploy: the escalation model recommended in the handoff README (not in the paper)
+DEPLOY_LLMS = ("qwen3.8-27b-v035", "qwen3-32b-v035")
 
 
 def prf(y, p):
@@ -44,6 +46,11 @@ def mcnemar(a, b, y):
 
 
 def main() -> None:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--deploy", action="store_true", help="the handoff's escalation models -> cascade_deploy.json")
+    a = ap.parse_args()
+    llms, out_name = (DEPLOY_LLMS, "cascade_deploy.json") if a.deploy else (LLMS, "cascade.json")
     d = clean_benchmark()
     y = d.label.to_numpy()
     st = pd.read_csv(REPO / "results/shipping_2026-10-02/bench_a05.csv")
@@ -54,7 +61,7 @@ def main() -> None:
     base = (s >= 0.5).astype(int) * ~rej
     order = np.argsort(np.abs(s - 0.5), kind="stable")          # least confident first
     out = {"n": int(len(y)), "positives": int(y.sum()), "student": prf(y, base), "llm": {}}
-    for tag in LLMS:
+    for tag in llms:
         L = pd.read_csv(REPO / f"results/paperA_v2/llm/biodiv_{tag}_pair.csv")
         assert (L.species1.values == d.species1.values).all(), f"{tag} answers misaligned"
         v = L.verdict.to_numpy()
@@ -66,7 +73,7 @@ def main() -> None:
             p, fx, br = mcnemar(base, pred, y)
             rows.append({"band": f, "llm_calls": k, **prf(y, pred), "mcnemar_vs_student": p, "fixed": fx, "broken": br})
         out["llm"][tag] = rows
-    (REPO / "results/paperA_v2/cascade.json").write_text(json.dumps(out, indent=2))
+    (REPO / f"results/paperA_v2/{out_name}").write_text(json.dumps(out, indent=2))
     print(f"student alone: {out['student']}")
     for tag, rows in out["llm"].items():
         print(f"\n{tag}:  band  calls     P      R     F1   FP   p(vs student)")

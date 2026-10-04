@@ -40,9 +40,9 @@ PY
 }
 score() {  # score <model> [extra llm_baseline args]: on the v0.35.1 server, files suffixed -v035
   local m=$1; shift
-  python3 scripts/llm_baseline.py --bench bioreddev --model $m --forms pair --n 1000 --tag -v035 "$@" >> $R/logs/llm.log 2>&1 \
+  python3 scripts/llm_baseline.py --bench bioreddev --model $m --forms pair --n 1000 --tag=-v035 "$@" >> $R/logs/llm.log 2>&1 \
     || log "  FAILED bioreddev $m"
-  python3 scripts/llm_baseline.py --bench biodiv --model $m --tag -v035 "$@" >> $R/logs/llm.log 2>&1 || log "  FAILED biodiv $m"
+  python3 scripts/llm_baseline.py --bench biodiv --model $m --tag=-v035 "$@" >> $R/logs/llm.log 2>&1 || log "  FAILED biodiv $m"
 }
 
 log "search start (v2, Ollama 0.35.1)"
