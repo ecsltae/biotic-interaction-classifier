@@ -19,7 +19,7 @@
   2.5 cm text edges, nothing outside the text area except line and page numbers.
 - 0 LaTeX errors, 0 overfull boxes, no undefined references, all fonts embedded, no Type 3 fonts
   (the figures embed Liberation Serif as TrueType), A4.
-- Abstract: 193 words (ACL limit 200); no URL (the code link is a footnote on the Contributions list).
+- Abstract: 199 words (ACL limit 200); no URL (the code link is a footnote on the Contributions list).
 - Numbers: `scripts/audit_paper_numbers.py` on the final paper (2026-10-06, after the verification
   fixes): 957 numbers checked, 52 not explained by a result file, all of the hand-checked kinds
   (corpus sizes, model names, citation years, the 22/150 interval, BioRED protocol counts, compute
@@ -59,7 +59,7 @@
 
 ## OpenReview fields
 
-- **Title:** Ask About the Pair, Not the Passage: Verifying Literature-Mined Interactions
+- **Title:** Pair-Conditioned Verification of Literature-Mined Species Interactions
 - **Type:** long paper
 - **Area (suggested):** Information Extraction (alternatives: NLP Applications; Resources and Evaluation)
 - **Keywords:** relation extraction; candidate verification; knowledge base population; biotic
@@ -67,9 +67,9 @@
 - **TL;DR** (247 characters): When literature-mining pipelines propose candidates by co-occurrence, ask
   whether the passage supports this pair, not whether it describes an interaction: a controlled
   comparison, a public benchmark and zero-shot LLMs all favour the pair question.
-- **Abstract (plain text, 193 words; 197 if hyphenated words are split; same text as the PDF):**
+- **Abstract (plain text, 199 words; same text as the PDF):**
 
-Species-interaction databases (who eats, infects or pollinates whom), like many biomedical knowledge bases, are partly built by mining the literature. A typical pipeline proposes a candidate wherever a passage names two organisms near an interaction word, and keeps it if a classifier says the passage describes an interaction. That check concerns the passage, not the pair: a passage naming several organisms can support one pair but not another, yet the classifier answers the same whichever pair was proposed. We instead ask whether the passage states that this pair interacts, keeping the encoder and the training data fixed. On 437 expert-graded candidates, asking about the pair raises the area under the precision-recall curve from 0.867 to 0.942 and wins at every decision threshold; adding the interaction word helps only where high precision is needed. The gain is largest on passages naming several entities. It carries over to BioRED, a public biomedical benchmark, and to zero-shot Qwen language models beyond the smallest, where scale helps the pair question far more than the original one. The verifier runs on a CPU and returns a score, not a verdict, letting each database balance missed against wrong entries.
+Species interaction databases (who eats, infects or pollinates whom) are partly built by mining the literature. Candidates are proposed when a passage names two taxa near an interaction term, and the obvious filter asks whether the passage describes an interaction. A passage naming several taxa may support only some of its pairs, yet this filter gives them all the same answer. In our benchmark, passages naming three or more taxa hold 62% of the interacting pairs. Keeping a 110M-parameter encoder and its LLM-labelled training data fixed, we vary the input: the passage alone, the passage with the candidate pair, or the passage with the pair and its interaction term. On 437 expert-graded candidates, adding the pair raises the area under the precision-recall curve (AUPRC) from 0.867 to 0.942, and the interaction term adds no significant further gain. The gain is largest on passages naming three or more taxa. It replicates on the public BioRED corpus and in zero-shot Qwen models from 1.7B to 122B parameters, whose answers improve with size much more when asked about the pair. Asked only about the passage, the 32B model that labelled our training data ranks candidates below the 110M encoder given the pair.
 
 ## Responsible NLP checklist: draft answers
 
@@ -77,7 +77,7 @@ Species-interaction databases (who eats, infects or pollinates whom), like many 
 - A1 Limitations: Yes, section "Limitations".
 - A2 Potential risks: Yes. Verified candidates would feed a public database, so errors propagate; the
   paper reports precision across thresholds and separates ingestion from expert review as operating
-  points (§5 "A score, not a verdict", Figure 2, Appendix C); the Limitations name the upstream
+  points (§5 "Choosing an operating point", Figure 2, Appendix C); the Limitations name the upstream
   errors no verifier can catch.
 
 **B. Scientific artifacts**
