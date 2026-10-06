@@ -53,13 +53,7 @@ it the passage and ask whether it describes a biotic interaction.
 
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{fig/fig_concept.pdf}
-\caption{One passage, several possible pairs. Retrieval proposes a candidate when a passage names
-two organisms near an interaction word (bold). The sentence question is asked of the passage, so it
-has one answer whichever pair the candidate names: even a perfect answer accepts the third pair, two
-bacterial genera merely listed together. Only the third pair is a benchmark item (\textsc{Test299},
-expert-graded negative); the sentence-level model accepts it and the pair- and triple-conditioned
-models reject it at their block-held-out thresholds. The first two pairs are illustrative. Bottom:
-model inputs.}
+\caption{One passage, several candidate pairs. Retrieval proposes a candidate when a passage names two organisms near an interaction word (bold). The sentence question gets one answer for the whole passage, so even a perfect answer accepts the third pair, two bacterial genera merely listed together. The third pair is a real benchmark item (\textsc{Test299}, graded negative) that the sentence-level model accepts and both conditioned models reject at their block-held-out thresholds; the first two pairs are illustrative. Bottom: model inputs.}
 \label{fig:concept}
 \end{figure}
 
@@ -285,30 +279,25 @@ error.
 \section{Results}
 \label{sec:results}
 
-\begin{table}[t]\centering\small
-\setlength{\tabcolsep}{3pt}
+\providecommand{\sd}[1]{\textsubscript{$\pm$#1}}
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3.6pt}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccc}
+\begin{tabular}{@{}lccccc@{}}
 \toprule
- & \multicolumn{2}{c}{Biodiversity, 437} & \multicolumn{3}{c}{BioRED, 16{,}606} \\
-\cmidrule(lr){2-3}\cmidrule(lr){4-6}
+ & \multicolumn{2}{c}{Biodiversity (437)} & \multicolumn{3}{c}{BioRED (16,606)} \\
+\cmidrule(lr){2-3}\cmidrule(l){4-6}
 Model & AUPRC & F1 & AUPRC & F1 & EP F1 \\
 \midrule
-Sentence-level     & $0.867_{\pm .006}$ & 0.790 & $0.738_{\pm .004}$ & 0.718 & 57.5 \\
-Pair-conditioned   & $0.942_{\pm .007}$ & \textbf{0.882} & $\mathbf{0.843}_{\pm .004}$ & \textbf{0.817} & \textbf{67.1} \\
-Triple-conditioned & $\mathbf{0.945}_{\pm .005}$ & 0.867 & n/a & n/a & n/a \\
+Accept all         & 0.574 & 0.730 & 0.463 & 0.633 & -- \\
+Sentence-level     & 0.867\sd{.006} & 0.790 & 0.738\sd{.004} & 0.718 & 57.5 \\
+Pair-conditioned   & 0.942\sd{.007} & \textbf{0.882}$^\dagger$ & \textbf{0.843}\sd{.004} & \textbf{0.817}$^\dagger$ & \textbf{67.1} \\
+Triple-conditioned & \textbf{0.945}\sd{.005} & 0.867$^\dagger$ & -- & -- & -- \\
 \bottomrule
 \end{tabular}}
-\caption{The controlled comparison: one encoder, one training corpus per benchmark, three seeds; only the
-input differs. AUPRC ($\pm$ standard deviation) and EP F1 (BioRED's document-level entity-pair F1)
-are per-seed means; F1 is that of three-checkpoint ensembles at block-held-out thresholds
-(biodiversity) or at the pre-specified threshold (BioRED). BioRED has no relation term, hence no
-triple-conditioned model. Accepting every candidate gives AUPRC $0.574$ and F1 $0.730$ on our
-benchmark; BioRED's base rate is $0.463$. Against the sentence-level model, the pair-conditioned one
-fixes 74 items and breaks 23 (McNemar $p = 3.8\times10^{-7}$), and 2{,}642 and 1{,}064 on BioRED
-($p = 5.9\times10^{-148}$); the triple-conditioned one fixes 74 and breaks 32 ($p = 6.8\times10^{-5}$),
-and against the pair-conditioned one 21 and 30 ($p = 0.26$). Per-seed values (biodiversity):
-Appendix~\ref{app:seeds}.}
+\caption{Within each benchmark, all models share one encoder and one training corpus; only the input differs. AUPRC: mean $\pm$ s.d.\ over three seeds. F1: three-checkpoint ensemble at block-held-out thresholds (biodiversity) or the pre-specified threshold (BioRED). EP F1: BioRED's document-level entity-pair F1 (\%), seed mean. Accept all gives the base rate. $^\dagger$McNemar $p<10^{-4}$ against the sentence-level model; pair- against triple-conditioned, $p=0.26$. BioRED has no relation term, hence no triple-conditioned model.}
 \label{tab:main}
 \end{table}
 
@@ -316,14 +305,8 @@ Appendix~\ref{app:seeds}.}
 \label{sec:res-main}
 
 \begin{figure}[t]\centering
-\includegraphics[width=\columnwidth]{fig/fig_curves.pdf}
-\caption{Operating curves on the 437 expert-graded candidates, three-checkpoint ensembles of the
-models in Table~\ref{tab:main}. (a)~Precision against recall; markers at $\tau = 0.5$; dotted line,
-accepting every candidate. The triple-conditioned model is ahead only in the high-precision region
-and behind at the highest recall. (b)~Precision, recall and F1 of the pair-conditioned model against
-the decision threshold $\tau$, with the sentence-level model's F1; the shaded band spans the pair-conditioned model's three
-block-held-out thresholds. The pair-conditioned model is ahead at every one of 99 thresholds, by at
-least $0.054$ F1. Values at six thresholds: Appendix~\ref{app:curve}.}
+\includegraphics[width=\columnwidth]{fig/fig2_operating_curves.pdf}
+\caption{Operating curves on the 437 expert-graded candidates (three-checkpoint ensembles). (a) Precision against recall. Markers are the operating points of Table~\ref{tab:main}; their thresholds are fitted per block, so they can sit slightly off the pooled curve. Dotted line: accepting every candidate. (b) F1 against the share of candidates accepted, which compares the models at equal review workload whatever their calibration. Values at six thresholds: Appendix~\ref{app:curve}.}
 \label{fig:curves}\label{fig:threshold}
 \end{figure}
 
@@ -331,13 +314,15 @@ Table~\ref{tab:main} gives the comparison. Telling the model which pair a candid
 per-seed AUPRC from $0.867 \pm 0.006$ to $0.942 \pm 0.007$ and, at block-held-out thresholds, F1
 from $0.790$ to $0.882$ (precision $0.752$ to $0.869$, recall $0.833$ to $0.896$). On decision
 correctness the pair-conditioned model fixes 74 items and breaks 23, McNemar
-$p = 3.8\times10^{-7}$. The advantage does not depend on where we cut: it is ahead at every one of
-99 thresholds, by at least $0.054$ F1 (Figure~\ref{fig:curves}b).
+$p = 3.8\times10^{-7}$. The advantage does not depend on calibration: compared at equal review
+workload, it is ahead by $0.07$ to $0.09$ F1 whenever 50\% to 70\% of candidates are accepted, and the
+curves come within $0.01$ F1 of each other only when fewer than 5\% or more than 89\% of candidates
+are accepted (Figure~\ref{fig:curves}b).
 
 Adding the relation term to the query does not add to this. The triple-conditioned model is also far
 ahead of the sentence-level one ($p = 6.8\times10^{-5}$), but against the pair-conditioned model it
 fixes 21 items and breaks 30 ($p = 0.26$), and its AUPRC is level ($0.945$ against $0.942$). The relation term helps only at strict operating points: at ${\tau = 0.5}$ the triple-conditioned model has precision $0.942$ at recall $0.777$, the
-pair-conditioned model $0.940$ at $0.689$ (Figure~\ref{fig:curves}a; Appendix~\ref{app:curve}). In
+pair-conditioned model $0.940$ at $0.689$ (Appendix~\ref{app:curve}). In
 precision-recall space the triple-conditioned model is ahead only in the high-precision region, and
 behind at the highest recall (Figure~\ref{fig:curves}a).
 
@@ -362,13 +347,8 @@ precision $0.646$). The published systems also classify entity pairs, so the rem
 \label{sec:where}
 
 \begin{figure}[t]\centering
-\includegraphics[width=\columnwidth]{fig/fig_where.pdf}
-\caption{AUPRC of the three-checkpoint ensembles by how many entities the
-passage names. Biodiversity: distinct taxa that TaxoNERD \citep{leguillarme2022taxonerd} finds in
-the passage; an argument ``is not a taxon'' when TaxoNERD does not recognise it there. BioRED:
-gold-annotated concepts in the sentence; it has no relation term, hence no triple-conditioned model.
-The grey bar is the gain from asking about the pair. Exact values and per-block results:
-Appendices~\ref{app:where} and~\ref{app:biored}.}
+\includegraphics[width=\columnwidth]{fig/fig3_gain_by_taxa.pdf}
+\caption{AUPRC by the number of entities the passage names (three-checkpoint ensembles). Biodiversity: distinct taxa that TaxoNERD~\citep{leguillarme2022taxonerd} finds in the passage; an argument ``is not a taxon'' when TaxoNERD does not recognise it there. BioRED: gold-annotated concepts in the sentence; BioRED has no relation term, so there is no triple-conditioned model. Triple-conditioned markers sit just below their row so they do not hide the pair-conditioned ones. Grey bars and the $\Delta$ column give the gain from adding the pair (pair-conditioned minus sentence-level). Exact values: Appendices~\ref{app:where} and~\ref{app:biored}.}
 \label{fig:where}
 \end{figure}
 
@@ -394,15 +374,7 @@ small to rank the models (Appendices~\ref{app:where} and~\ref{sec:recall}).
 
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{fig/fig_scaling.pdf}
-\caption{Zero-shot Qwen models: AUPRC of Qwen models \citep{qwen2025technical}
-asked the sentence question (dashed, open squares) or the pair question (solid, filled circles) on
-(a)~the 437 expert-graded candidates and (b)~a 3{,}000-candidate BioRED sample. Dotted: the trained
-110M models on the same rows (three-checkpoint ensembles); grey: base rate. From 1.7B on, the pair
-question leads at each size on both benchmarks, while the sentence question gains little with
-scale. $^*$Mixture of experts, placed by total size; the 32B model is the teacher.
-$^\dagger$Qwen3.5-122B-A10B \citep{qwen2026qwen35}, a later release, ran on the first 1{,}000 BioRED candidates (base rate
-$0.442$; trained models $0.714$ and $0.841$). Asked the triple question (our benchmark only), the
-models track or exceed the pair question (Appendix~\ref{app:scaling}).}
+\caption{Zero-shot Qwen models~\citep{qwen2025technical} asked the sentence question (dashed, open squares) or the pair question (solid, filled circles) on (a) the 437 expert-graded candidates and (b) a 3{,}000-candidate BioRED sample. Dotted: the trained 110M models on the same rows (three-checkpoint ensembles); grey: base rate. The x-axis spaces model sizes evenly. From 1.7B on, the pair question leads at every size, while answers to the sentence question change little with scale. $^*$Mixture of experts, placed by total size; the 32B model is the teacher. $^\dagger$Qwen3.5-122B-A10B, a later release, scored on the first 1{,}000 BioRED candidates (base rate $0.442$; trained models $0.714$ and $0.841$). Asked the triple question (biodiversity only), the models match or exceed the pair question (Appendix~\ref{app:scaling}).}
 \label{fig:scaling}
 \end{figure}
 
@@ -518,7 +490,7 @@ more.
 
 \paragraph{Choosing an operating point.}\label{sec:opoint}
 The pair-conditioned model's precision moves from $0.761$ at $\tau = 0.01$ to $0.981$ at
-$\tau = 0.90$ (Figure~\ref{fig:curves}b), and the right point is not a property of the model. Ingestion into a
+$\tau = 0.90$ (Appendix~\ref{app:curve}), and the right point is not a property of the model. Ingestion into a
 reference database pays for false positives and belongs at the high end; assembling candidates for
 expert review pays for false negatives and belongs at the low end. A verdict fixes that choice at
 training time; a score leaves it to the user \citep{geifman2017selective}, and escalating uncertain
