@@ -20,7 +20,8 @@
 \providecommand\babel@aux[2]{}
 \@nameuse{bbl@beforestart}
 \citation{poelen2014global}
-\citation{luo2022biored}
+\citation{hirschman2012biocuration,lee2018scaling}
+\citation{dimitrova2020semantic}
 \@LN@col{1}
 \babel@aux{english}{}
 \@LN{0}{0}
@@ -52,11 +53,11 @@
 \@LN{26}{0}
 \@LN{27}{0}
 \@LN{28}{0}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
 \@LN{29}{0}
 \@LN{30}{0}
 \@LN{31}{0}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
 \@LN{32}{0}
 \@LN{33}{0}
 \@LN{34}{0}
@@ -67,8 +68,11 @@
 \@LN{39}{0}
 \@LN{40}{0}
 \@LN{41}{0}
-\@LN{42}{0}
 \@LN@col{2}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces One passage, several possible pairs. Retrieval proposes a candidate when a passage names two organisms near an interaction word (bold). The sentence question is asked of the passage, so it has one answer whichever pair the candidate names: even a perfect answer accepts the third pair, two bacterial genera merely listed together. Only the third pair is a benchmark item (\textsc  {Test299}, expert-graded negative); the sentence-level model accepts it and the pair- and triple-conditioned models reject it at their block-held-out thresholds. The first two pairs are illustrative. Bottom: model inputs.\relax }}{1}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:concept}{{1}{1}{One passage, several possible pairs. Retrieval proposes a candidate when a passage names two organisms near an interaction word (bold). The sentence question is asked of the passage, so it has one answer whichever pair the candidate names: even a perfect answer accepts the third pair, two bacterial genera merely listed together. Only the third pair is a benchmark item (\textsc {Test299}, expert-graded negative); the sentence-level model accepts it and the pair- and triple-conditioned models reject it at their block-held-out thresholds. The first two pairs are illustrative. Bottom: model inputs.\relax }{figure.caption.1}{}}
+\@LN{42}{0}
 \@LN{43}{0}
 \@LN{44}{0}
 \@LN{45}{0}
@@ -82,40 +86,50 @@
 \@LN{53}{0}
 \@LN{54}{0}
 \@LN{55}{0}
-\@LN{56}{0}
-\@LN{57}{0}
-\@LN{58}{0}
-\@LN{59}{0}
-\@LN{60}{0}
-\@LN{61}{0}
-\@LN{62}{0}
-\@LN{63}{0}
-\@LN{64}{0}
-\@LN{65}{0}
-\@LN{66}{0}
-\@LN{67}{0}
-\@LN{68}{0}
-\@LN{69}{0}
-\@LN{70}{0}
-\@LN{71}{0}
-\@LN{72}{0}
-\@LN{73}{0}
-\@writefile{toc}{\contentsline {paragraph}{Contributions.}{1}{section*.1}\protected@file@percent }
-\@LN{74}{0}
-\@LN{75}{0}
-\@LN{76}{0}
-\@LN{77}{0}
-\@LN{78}{0}
-\@LN{79}{0}
-\@LN{80}{0}
-\@LN{81}{0}
-\@LN{82}{0}
 \citation{ruch2024biotxplorer}
-\citation{gobeill2020sibils}
-\citation{ruch2024biotxplorer}
-\citation{ruch2024biotxplorer}
-\citation{mcnemar1947note}
+\citation{luo2022biored}
+\citation{gururangan-etal-2018-annotation,poliak-etal-2018-hypothesis}
+\citation{kaushik-lipton-2018-much}
+\citation{geirhos-etal-2020-shortcut,du-etal-2024-shortcut}
+\citation{thorne2018fever}
+\citation{schuster-etal-2019-towards}
+\citation{wiegand-etal-2019-detection,parmar-etal-2023-dont}
+\citation{feng-etal-2019-misleading}
+\citation{mintz2009distant}
+\citation{riedel2010modeling}
+\citation{zhang2017position}
+\citation{soares2019matching,wu2019enriching,zhou2022improved}
+\citation{rosenman2020exposing}
+\citation{peng2020learning,mtumbuka2024entity}
+\citation{taille-etal-2020-lets,ai2023endtoend}
 \@LN@col{1}
+\@LN{56}{1}
+\@LN{57}{1}
+\@LN{58}{1}
+\@LN{59}{1}
+\@LN{60}{1}
+\@LN{61}{1}
+\@LN{62}{1}
+\@LN{63}{1}
+\@LN{64}{1}
+\@LN{65}{1}
+\@LN{66}{1}
+\@LN{67}{1}
+\@LN{68}{1}
+\@LN{69}{1}
+\@LN{70}{1}
+\@LN{71}{1}
+\@LN{72}{1}
+\@LN{73}{1}
+\@LN{74}{1}
+\@LN{75}{1}
+\@LN{76}{1}
+\@LN{77}{1}
+\@LN{78}{1}
+\@LN{79}{1}
+\@LN{80}{1}
+\@LN{81}{1}
+\@LN{82}{1}
 \@LN{83}{1}
 \@LN{84}{1}
 \@LN{85}{1}
@@ -130,9 +144,7 @@
 \@LN{94}{1}
 \@LN{95}{1}
 \@LN{96}{1}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Setting}{2}{section.2}\protected@file@percent }
-\newlabel{sec:setting}{{2}{2}{Setting}{section.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Where candidates come from.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Contributions.}{2}{section*.2}\protected@file@percent }
 \@LN{97}{1}
 \@LN{98}{1}
 \@LN{99}{1}
@@ -143,6 +155,7 @@
 \@LN{104}{1}
 \@LN{105}{1}
 \@LN{106}{1}
+\@LN@col{2}
 \@LN{107}{1}
 \@LN{108}{1}
 \@LN{109}{1}
@@ -154,13 +167,15 @@
 \@LN{115}{1}
 \@LN{116}{1}
 \@LN{117}{1}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Classifiers that answer an easier question.}{2}{section*.3}\protected@file@percent }
 \@LN{118}{1}
 \@LN{119}{1}
 \@LN{120}{1}
 \@LN{121}{1}
 \@LN{122}{1}
 \@LN{123}{1}
-\@writefile{toc}{\contentsline {paragraph}{Why the sentence-level question is constant here.}{2}{section*.3}\protected@file@percent }
 \@LN{124}{1}
 \@LN{125}{1}
 \@LN{126}{1}
@@ -170,13 +185,12 @@
 \@LN{130}{1}
 \@LN{131}{1}
 \@LN{132}{1}
-\@LN@col{2}
 \@LN{133}{1}
 \@LN{134}{1}
 \@LN{135}{1}
 \@LN{136}{1}
 \@LN{137}{1}
-\@writefile{toc}{\contentsline {paragraph}{Benchmark.}{2}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The argument-ignoring failure is already named.}{2}{section*.4}\protected@file@percent }
 \@LN{138}{1}
 \@LN{139}{1}
 \@LN{140}{1}
@@ -193,43 +207,56 @@
 \@LN{151}{1}
 \@LN{152}{1}
 \@LN{153}{1}
-\@LN{154}{1}
-\@LN{155}{1}
-\@LN{156}{1}
-\@LN{157}{1}
-\@LN{158}{1}
-\@LN{159}{1}
-\@LN{160}{1}
-\@LN{161}{1}
-\@LN{162}{1}
-\@LN{163}{1}
-\@LN{164}{1}
-\@LN{165}{1}
-\@LN{166}{1}
-\@LN{167}{1}
-\@LN{168}{1}
-\@LN{169}{1}
-\@LN{170}{1}
-\@LN{171}{1}
-\@LN{172}{1}
-\@LN{173}{1}
-\@LN{174}{1}
-\@writefile{toc}{\contentsline {paragraph}{Query representation.}{2}{section*.5}\protected@file@percent }
-\@LN{175}{1}
-\@LN{176}{1}
-\@LN{177}{1}
-\@LN{178}{1}
-\@LN{179}{1}
-\@LN{180}{1}
-\@LN{181}{1}
+\citation{levy2017zero}
+\citation{obamuyide2018zero,sainz2021label}
+\citation{wadden2020fact}
+\citation{lehmann2012defacto}
+\citation{west2022symbolic,gekhman2023trueteacher}
+\citation{geifman2017selective}
+\citation{swaminathan2024selective}
+\citation{rodriguezesteban2006imitating}
+\citation{hirschman2012biocuration,britan2018nexta5,lee2018scaling}
+\citation{cuzick2023interspecies}
+\citation{farrell2024landscape,dsouza2025mining}
+\citation{keck2025extracting,zou2026llm}
+\citation{zou2026llm}
+\citation{ruch2024biotxplorer}
+\citation{gobeill2020sibils}
 \citation{qwen2025technical}
 \citation{gu2021domain}
 \citation{bucilua2006model,hinton2015distilling}
 \citation{nogueira2019passage}
-\citation{leguillarme2022taxonerd}
-\citation{leguillarme2022taxonerd}
 \@LN@col{1}
-\@writefile{toc}{\contentsline {paragraph}{Evaluation protocol.}{3}{section*.6}\protected@file@percent }
+\@LN{154}{2}
+\@LN{155}{2}
+\@LN{156}{2}
+\@LN{157}{2}
+\@LN{158}{2}
+\@LN{159}{2}
+\@LN{160}{2}
+\@LN{161}{2}
+\@LN{162}{2}
+\@LN{163}{2}
+\@writefile{toc}{\contentsline {paragraph}{Conditioning on the query.}{3}{section*.5}\protected@file@percent }
+\@LN{164}{2}
+\@LN{165}{2}
+\@LN{166}{2}
+\@LN{167}{2}
+\@LN{168}{2}
+\@LN{169}{2}
+\@LN{170}{2}
+\@LN{171}{2}
+\@LN{172}{2}
+\@LN{173}{2}
+\@LN{174}{2}
+\@LN{175}{2}
+\@LN{176}{2}
+\@LN{177}{2}
+\@LN{178}{2}
+\@LN{179}{2}
+\@LN{180}{2}
+\@LN{181}{2}
+\@writefile{toc}{\contentsline {paragraph}{Text mining for interaction databases.}{3}{section*.6}\protected@file@percent }
 \@LN{182}{2}
 \@LN{183}{2}
 \@LN{184}{2}
@@ -248,9 +275,14 @@
 \@LN{197}{2}
 \@LN{198}{2}
 \@LN{199}{2}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Method}{3}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{3}{3}{Method}{section.3}{}}
 \@LN{200}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Candidates and the decision}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:setting}{{3.1}{3}{Candidates and the decision}{subsection.3.1}{}}
 \@LN{201}{2}
 \@LN{202}{2}
+\@LN@col{2}
 \@LN{203}{2}
 \@LN{204}{2}
 \@LN{205}{2}
@@ -268,6 +300,9 @@
 \@LN{217}{2}
 \@LN{218}{2}
 \@LN{219}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Three formulations, one corpus}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:verifier}{{3.2}{3}{Three formulations, one corpus}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{The teacher.}{3}{section*.7}\protected@file@percent }
 \@LN{220}{2}
 \@LN{221}{2}
 \@LN{222}{2}
@@ -275,22 +310,19 @@
 \@LN{224}{2}
 \@LN{225}{2}
 \@LN{226}{2}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Two formulations, one corpus}{3}{section.3}\protected@file@percent }
-\newlabel{sec:verifier}{{3}{3}{Two formulations, one corpus}{section.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{The teacher.}{3}{section*.7}\protected@file@percent }
 \@LN{227}{2}
 \@LN{228}{2}
 \@LN{229}{2}
+\@writefile{toc}{\contentsline {paragraph}{The corpus.}{3}{section*.8}\protected@file@percent }
 \@LN{230}{2}
 \@LN{231}{2}
-\@LN@col{2}
 \@LN{232}{2}
 \@LN{233}{2}
 \@LN{234}{2}
 \@LN{235}{2}
-\@writefile{toc}{\contentsline {paragraph}{The corpus.}{3}{section*.8}\protected@file@percent }
 \@LN{236}{2}
 \@LN{237}{2}
+\@writefile{toc}{\contentsline {paragraph}{Three models, one recipe.}{3}{section*.9}\protected@file@percent }
 \@LN{238}{2}
 \@LN{239}{2}
 \@LN{240}{2}
@@ -298,7 +330,6 @@
 \@LN{242}{2}
 \@LN{243}{2}
 \@LN{244}{2}
-\@writefile{toc}{\contentsline {paragraph}{Three models, one recipe.}{3}{section*.9}\protected@file@percent }
 \@LN{245}{2}
 \@LN{246}{2}
 \@LN{247}{2}
@@ -307,45 +338,42 @@
 \@LN{250}{2}
 \@LN{251}{2}
 \@LN{252}{2}
-\@LN{253}{2}
-\@LN{254}{2}
-\@LN{255}{2}
-\@LN{256}{2}
-\@LN{257}{2}
-\@LN{258}{2}
-\@LN{259}{2}
-\@LN{260}{2}
-\@LN{261}{2}
-\@LN{262}{2}
-\@LN{263}{2}
-\@LN{264}{2}
-\@LN{265}{2}
-\@LN{266}{2}
-\@LN{267}{2}
-\@LN{268}{2}
-\@LN{269}{2}
-\@LN{270}{2}
-\@LN{271}{2}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{3}{section.4}\protected@file@percent }
-\newlabel{sec:results}{{4}{3}{Results}{section.4}{}}
-\@LN{272}{2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Conditioning on the pair}{3}{subsection.4.1}\protected@file@percent }
-\newlabel{sec:res-main}{{4.1}{3}{Conditioning on the pair}{subsection.4.1}{}}
-\@LN{273}{2}
-\@LN{274}{2}
-\@LN{275}{2}
-\@LN{276}{2}
-\@LN{277}{2}
-\@LN{278}{2}
-\@LN{279}{2}
-\@LN{280}{2}
+\citation{ruch2024biotxplorer}
 \citation{luo2022biored}
 \citation{lai2025bioredirect}
 \citation{islamaj2024overview}
+\citation{mcnemar1947note}
 \@LN@col{1}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The controlled comparison on 437 rows: one encoder, one corpus, only the input differs. AUPRC is the per-seed mean $\pm $ standard deviation over three seeds; P/R/F1 are three-checkpoint ensembles at block-held-out thresholds. The teacher's score is $P(\textsc  {yes})$ from its first answer token; its P/R/F1 use the same block-held-out thresholds, and the triple question is its labelling prompt, asked in both argument orders and maxed like the trained triple arm (prompts in Appendix~\ref  {app:prompts}). Against the sentence-level model, the pair-conditioned one fixes 75 items and breaks 22 (McNemar $p = 1.3\times 10^{-7}$) and the triple-conditioned one fixes 74 and breaks 32 ($p = 6.8\times 10^{-5}$); triple against pair, 20 fixed and 31 broken ($p = 0.16$). Per-seed values are in Appendix~\ref  {app:seeds}.\relax }}{4}{table.caption.10}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:main}{{1}{4}{The controlled comparison on 437 rows: one encoder, one corpus, only the input differs. AUPRC is the per-seed mean $\pm $ standard deviation over three seeds; P/R/F1 are three-checkpoint ensembles at block-held-out thresholds. The teacher's score is $P(\textsc {yes})$ from its first answer token; its P/R/F1 use the same block-held-out thresholds, and the triple question is its labelling prompt, asked in both argument orders and maxed like the trained triple arm (prompts in Appendix~\ref {app:prompts}). Against the sentence-level model, the pair-conditioned one fixes 75 items and breaks 22 (McNemar $p = 1.3\times 10^{-7}$) and the triple-conditioned one fixes 74 and breaks 32 ($p = 6.8\times 10^{-5}$); triple against pair, 20 fixed and 31 broken ($p = 0.16$). Per-seed values are in Appendix~\ref {app:seeds}.\relax }{table.caption.10}{}}
+\@LN{253}{3}
+\@LN{254}{3}
+\@LN{255}{3}
+\@LN{256}{3}
+\@LN{257}{3}
+\@LN{258}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}An expert-graded benchmark}{4}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:benchmark}{{3.3}{4}{An expert-graded benchmark}{subsection.3.3}{}}
+\@LN{259}{3}
+\@LN{260}{3}
+\@LN{261}{3}
+\@LN{262}{3}
+\@LN{263}{3}
+\@LN{264}{3}
+\@LN{265}{3}
+\@LN{266}{3}
+\@LN{267}{3}
+\@LN{268}{3}
+\@LN{269}{3}
+\@LN{270}{3}
+\@LN{271}{3}
+\@LN{272}{3}
+\@LN{273}{3}
+\@LN{274}{3}
+\@LN{275}{3}
+\@LN{276}{3}
+\@LN{277}{3}
+\@LN{278}{3}
+\@LN{279}{3}
+\@LN{280}{3}
 \@LN{281}{3}
 \@LN{282}{3}
 \@LN{283}{3}
@@ -358,7 +386,6 @@
 \@LN{290}{3}
 \@LN{291}{3}
 \@LN{292}{3}
-\@writefile{toc}{\contentsline {paragraph}{The same gap in the teacher.}{4}{section*.12}\protected@file@percent }
 \@LN{293}{3}
 \@LN{294}{3}
 \@LN{295}{3}
@@ -370,15 +397,15 @@
 \@LN{301}{3}
 \@LN{302}{3}
 \@LN{303}{3}
+\@LN@col{2}
 \@LN{304}{3}
 \@LN{305}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Replication setting: BioRED}{4}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:biored-setup}{{3.4}{4}{Replication setting: BioRED}{subsection.3.4}{}}
 \@LN{306}{3}
 \@LN{307}{3}
 \@LN{308}{3}
 \@LN{309}{3}
-\@LN@col{2}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Where the gain lives, AUPRC of the three ensembles. Taxa are counted as distinct mentions found in the passage by TaxoNERD \citep  {leguillarme2022taxonerd} (\texttt  {en\_ner\_eco\_biobert}); an argument ``is not a taxon'' when TaxoNERD does not recognise it in the passage. \textsc  {Test299} passages name $5.1$ taxa on average, \textsc  {Biotx100} $2.6$ and \textsc  {Reject50} $1.7$.\relax }}{4}{table.caption.11}\protected@file@percent }
-\newlabel{tab:where}{{2}{4}{Where the gain lives, AUPRC of the three ensembles. Taxa are counted as distinct mentions found in the passage by TaxoNERD \citep {leguillarme2022taxonerd} (\texttt {en\_ner\_eco\_biobert}); an argument ``is not a taxon'' when TaxoNERD does not recognise it in the passage. \textsc {Test299} passages name $5.1$ taxa on average, \textsc {Biotx100} $2.6$ and \textsc {Reject50} $1.7$.\relax }{table.caption.11}{}}
 \@LN{310}{3}
 \@LN{311}{3}
 \@LN{312}{3}
@@ -398,6 +425,8 @@
 \@LN{326}{3}
 \@LN{327}{3}
 \@LN{328}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Evaluation protocol}{4}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:protocol}{{3.5}{4}{Evaluation protocol}{subsection.3.5}{}}
 \@LN{329}{3}
 \@LN{330}{3}
 \@LN{331}{3}
@@ -407,33 +436,36 @@
 \@LN{335}{3}
 \@LN{336}{3}
 \@LN{337}{3}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}A public benchmark: BioRED}{4}{subsection.4.2}\protected@file@percent }
-\newlabel{sec:biored}{{4.2}{4}{A public benchmark: BioRED}{subsection.4.2}{}}
 \@LN{338}{3}
 \@LN{339}{3}
 \@LN{340}{3}
 \@LN{341}{3}
 \@LN{342}{3}
 \@LN{343}{3}
+\@LN{344}{3}
+\@LN{345}{3}
+\@LN{346}{3}
+\@LN{347}{3}
+\@LN{348}{3}
+\@LN{349}{3}
+\@LN{350}{3}
+\@LN{351}{3}
+\@LN{352}{3}
+\@LN{353}{3}
 \citation{zhou2022improved}
 \citation{lai2023biorex,lai2025bioredirect}
 \citation{islamaj2024overview}
-\citation{yasunaga2022linkbert}
+\citation{leguillarme2022taxonerd}
+\citation{leguillarme2022taxonerd}
 \@LN@col{1}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces BioRED, BioCreative VIII test set: 16{,}606 sentence-level candidates from 400 abstracts, $0.463$ positive, 538 from sentences naming two concepts. AUPRC is the per-seed mean $\pm $ standard deviation over three seeds; F1 is at the pre-specified threshold (mean of the checkpoints' development thresholds), the teacher's at its greedy answer. EP F1 is BioRED's document-level entity-pair F1, a pair scoring the maximum over the sentences that co-mention it. On the teacher's sample the trained models score $0.757$ and $0.860$. Pair against sentence-level: 2{,}642 items fixed, 1{,}064 broken (McNemar $p = 5.9\times 10^{-148}$).\relax }}{5}{table.caption.13}\protected@file@percent }
-\newlabel{tab:biored}{{3}{5}{BioRED, BioCreative VIII test set: 16{,}606 sentence-level candidates from 400 abstracts, $0.463$ positive, 538 from sentences naming two concepts. AUPRC is the per-seed mean $\pm $ standard deviation over three seeds; F1 is at the pre-specified threshold (mean of the checkpoints' development thresholds), the teacher's at its greedy answer. EP F1 is BioRED's document-level entity-pair F1, a pair scoring the maximum over the sentences that co-mention it. On the teacher's sample the trained models score $0.757$ and $0.860$. Pair against sentence-level: 2{,}642 items fixed, 1{,}064 broken (McNemar $p = 5.9\times 10^{-148}$).\relax }{table.caption.13}{}}
-\@LN{344}{4}
-\@LN{345}{4}
-\@LN{346}{4}
-\@LN{347}{4}
-\@LN{348}{4}
-\@LN{349}{4}
-\@LN{350}{4}
-\@LN{351}{4}
-\@LN{352}{4}
-\@LN{353}{4}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The controlled comparison: one encoder, one training corpus per benchmark, three seeds; only the input differs. AUPRC ($\pm $ standard deviation) and EP F1 (BioRED's document-level entity-pair F1) are per-seed means; F1 is that of three-checkpoint ensembles at block-held-out thresholds (biodiversity) or at the pre-specified threshold (BioRED). BioRED has no relation term, hence no triple-conditioned model. Accepting every candidate gives AUPRC $0.574$ and F1 $0.730$ on our benchmark; BioRED's base rate is $0.463$. Against the sentence-level model, the pair-conditioned one fixes 74 items and breaks 23 (McNemar $p = 3.8\times 10^{-7}$), and 2{,}642 and 1{,}064 on BioRED ($p = 5.9\times 10^{-148}$); the triple-conditioned one fixes 74 and breaks 32 ($p = 6.8\times 10^{-5}$), and against the pair-conditioned one 21 and 30 ($p = 0.26$). Per-seed values (biodiversity): Appendix~\ref  {app:seeds}.\relax }}{5}{table.caption.10}\protected@file@percent }
+\newlabel{tab:main}{{1}{5}{The controlled comparison: one encoder, one training corpus per benchmark, three seeds; only the input differs. AUPRC ($\pm $ standard deviation) and EP F1 (BioRED's document-level entity-pair F1) are per-seed means; F1 is that of three-checkpoint ensembles at block-held-out thresholds (biodiversity) or at the pre-specified threshold (BioRED). BioRED has no relation term, hence no triple-conditioned model. Accepting every candidate gives AUPRC $0.574$ and F1 $0.730$ on our benchmark; BioRED's base rate is $0.463$. Against the sentence-level model, the pair-conditioned one fixes 74 items and breaks 23 (McNemar $p = 3.8\times 10^{-7}$), and 2{,}642 and 1{,}064 on BioRED ($p = 5.9\times 10^{-148}$); the triple-conditioned one fixes 74 and breaks 32 ($p = 6.8\times 10^{-5}$), and against the pair-conditioned one 21 and 30 ($p = 0.26$). Per-seed values (biodiversity): Appendix~\ref {app:seeds}.\relax }{table.caption.10}{}}
 \@LN{354}{4}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{5}{section.4}\protected@file@percent }
+\newlabel{sec:results}{{4}{5}{Results}{section.4}{}}
 \@LN{355}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Asking about the pair}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:res-main}{{4.1}{5}{Asking about the pair}{subsection.4.1}{}}
 \@LN{356}{4}
 \@LN{357}{4}
 \@LN{358}{4}
@@ -455,15 +487,18 @@
 \@LN{374}{4}
 \@LN{375}{4}
 \@LN{376}{4}
-\@LN@col{2}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Degrading segment~A of the trained triple-conditioned model at inference, weights and its own block-held-out thresholds unchanged. Base rate $0.563$. Per-seed standard deviations on AUPRC are $\le 0.027$.\relax }}{5}{table.caption.14}\protected@file@percent }
-\newlabel{tab:ablation}{{4}{5}{Degrading segment~A of the trained triple-conditioned model at inference, weights and its own block-held-out thresholds unchanged. Base rate $0.563$. Per-seed standard deviations on AUPRC are $\le 0.027$.\relax }{table.caption.14}{}}
 \@LN{377}{4}
 \@LN{378}{4}
 \@LN{379}{4}
 \@LN{380}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}A public benchmark: BioRED}{5}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:biored}{{4.2}{5}{A public benchmark: BioRED}{subsection.4.2}{}}
 \@LN{381}{4}
 \@LN{382}{4}
+\@LN@col{2}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Operating curves on the 437 expert-graded candidates, three-checkpoint ensembles of the models in Table~\ref  {tab:main}. (a)~Precision against recall; markers at $\tau = 0.5$; dotted line, accepting every candidate. The triple-conditioned model is ahead only in the high-precision region and behind at the highest recall. (b)~Precision, recall and F1 of the pair-conditioned model against the decision threshold $\tau $, with the sentence-level model's F1; the shaded band spans the pair-conditioned model's three block-held-out thresholds. The pair-conditioned model is ahead at every one of 99 thresholds, by at least $0.054$ F1. Values at six thresholds: Appendix~\ref  {app:curve}.\relax }}{5}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:curves}{{2}{5}{Operating curves on the 437 expert-graded candidates, three-checkpoint ensembles of the models in Table~\ref {tab:main}. (a)~Precision against recall; markers at $\tau = 0.5$; dotted line, accepting every candidate. The triple-conditioned model is ahead only in the high-precision region and behind at the highest recall. (b)~Precision, recall and F1 of the pair-conditioned model against the decision threshold $\tau $, with the sentence-level model's F1; the shaded band spans the pair-conditioned model's three block-held-out thresholds. The pair-conditioned model is ahead at every one of 99 thresholds, by at least $0.054$ F1. Values at six thresholds: Appendix~\ref {app:curve}.\relax }{figure.caption.11}{}}
+\newlabel{fig:threshold}{{2}{5}{Operating curves on the 437 expert-graded candidates, three-checkpoint ensembles of the models in Table~\ref {tab:main}. (a)~Precision against recall; markers at $\tau = 0.5$; dotted line, accepting every candidate. The triple-conditioned model is ahead only in the high-precision region and behind at the highest recall. (b)~Precision, recall and F1 of the pair-conditioned model against the decision threshold $\tau $, with the sentence-level model's F1; the shaded band spans the pair-conditioned model's three block-held-out thresholds. The pair-conditioned model is ahead at every one of 99 thresholds, by at least $0.054$ F1. Values at six thresholds: Appendix~\ref {app:curve}.\relax }{figure.caption.11}{}}
 \@LN{383}{4}
 \@LN{384}{4}
 \@LN{385}{4}
@@ -475,8 +510,6 @@
 \@LN{391}{4}
 \@LN{392}{4}
 \@LN{393}{4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}The query, not the encoder}{5}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:res-ablation}{{4.3}{5}{The query, not the encoder}{subsection.4.3}{}}
 \@LN{394}{4}
 \@LN{395}{4}
 \@LN{396}{4}
@@ -486,26 +519,27 @@
 \@LN{400}{4}
 \@LN{401}{4}
 \@LN{402}{4}
-\@LN{403}{4}
-\@LN{404}{4}
-\@LN{405}{4}
-\@LN{406}{4}
-\@LN{407}{4}
-\@LN{408}{4}
-\@LN{409}{4}
-\@LN{410}{4}
-\@LN{411}{4}
-\@LN{412}{4}
-\@LN{413}{4}
-\@LN{414}{4}
-\@LN{415}{4}
-\@LN{416}{4}
-\citation{geifman2017selective}
+\citation{qwen2025technical}
+\citation{qwen2025technical}
 \@LN@col{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Precision, recall and F1 of the pair-conditioned model against the decision threshold on all 437 rows, with the sentence-level model's F1 for comparison (same corpus and encoder). The shaded band spans the three block-held-out thresholds. The pair model is ahead at every $\tau $.\relax }}{6}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:threshold}{{1}{6}{Precision, recall and F1 of the pair-conditioned model against the decision threshold on all 437 rows, with the sentence-level model's F1 for comparison (same corpus and encoder). The shaded band spans the three block-held-out thresholds. The pair model is ahead at every $\tau $.\relax }{figure.caption.15}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces The three models' operating curves on all 437 rows, three-checkpoint ensembles. Rows show the shape; the reported operating points are those of Table~\ref  {tab:main}.\relax }}{6}{table.caption.16}\protected@file@percent }
-\newlabel{tab:curve}{{5}{6}{The three models' operating curves on all 437 rows, three-checkpoint ensembles. Rows show the shape; the reported operating points are those of Table~\ref {tab:main}.\relax }{table.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Where the gain lives: AUPRC of the three-checkpoint ensembles by how many entities the passage names. Biodiversity: distinct taxa that TaxoNERD \citep  {leguillarme2022taxonerd} finds in the passage; an argument ``is not a taxon'' when TaxoNERD does not recognise it there. BioRED: gold-annotated concepts in the sentence; it has no relation term, hence no triple-conditioned model. The grey bar is the gain from asking about the pair. Exact values and per-block results: Appendices~\ref  {app:where} and~\ref  {app:biored}.\relax }}{6}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:where}{{3}{6}{Where the gain lives: AUPRC of the three-checkpoint ensembles by how many entities the passage names. Biodiversity: distinct taxa that TaxoNERD \citep {leguillarme2022taxonerd} finds in the passage; an argument ``is not a taxon'' when TaxoNERD does not recognise it there. BioRED: gold-annotated concepts in the sentence; it has no relation term, hence no triple-conditioned model. The grey bar is the gain from asking about the pair. Exact values and per-block results: Appendices~\ref {app:where} and~\ref {app:biored}.\relax }{figure.caption.12}{}}
+\@LN{403}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Where the gain lives}{6}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:where}{{4.3}{6}{Where the gain lives}{subsection.4.3}{}}
+\@LN{404}{5}
+\@LN{405}{5}
+\@LN{406}{5}
+\@LN{407}{5}
+\@LN{408}{5}
+\@LN{409}{5}
+\@LN{410}{5}
+\@LN{411}{5}
+\@LN{412}{5}
+\@LN{413}{5}
+\@LN{414}{5}
+\@LN{415}{5}
+\@LN{416}{5}
 \@LN{417}{5}
 \@LN{418}{5}
 \@LN{419}{5}
@@ -518,24 +552,23 @@
 \@LN{426}{5}
 \@LN{427}{5}
 \@LN{428}{5}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}An operating curve, not a verdict}{6}{subsection.4.4}\protected@file@percent }
-\newlabel{sec:opoint}{{4.4}{6}{An operating curve, not a verdict}{subsection.4.4}{}}
 \@LN{429}{5}
+\@LN@col{2}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The same gap in zero-shot language models: AUPRC of Qwen models \citep  {qwen2025technical} asked the sentence question (dashed, open squares) or the pair question (solid, filled circles) on (a)~the 437 expert-graded candidates and (b)~a 3{,}000-candidate BioRED sample. Dotted: the trained 110M models on the same rows (three-checkpoint ensembles); grey: base rate. From 1.7B on, the pair question leads at each size on both benchmarks, while the sentence question gains little with scale. $^*$Mixture of experts, placed by total size; the 32B model is the teacher. $^\dagger $Qwen3.5-122B, a later release, ran on the first 1{,}000 BioRED candidates (base rate $0.442$; trained models $0.714$ and $0.841$). Asked the triple question (our benchmark only), the models track or exceed the pair question (Appendix~\ref  {app:scaling}).\relax }}{6}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:scaling}{{4}{6}{The same gap in zero-shot language models: AUPRC of Qwen models \citep {qwen2025technical} asked the sentence question (dashed, open squares) or the pair question (solid, filled circles) on (a)~the 437 expert-graded candidates and (b)~a 3{,}000-candidate BioRED sample. Dotted: the trained 110M models on the same rows (three-checkpoint ensembles); grey: base rate. From 1.7B on, the pair question leads at each size on both benchmarks, while the sentence question gains little with scale. $^*$Mixture of experts, placed by total size; the 32B model is the teacher. $^\dagger $Qwen3.5-122B, a later release, ran on the first 1{,}000 BioRED candidates (base rate $0.442$; trained models $0.714$ and $0.841$). Asked the triple question (our benchmark only), the models track or exceed the pair question (Appendix~\ref {app:scaling}).\relax }{figure.caption.13}{}}
 \@LN{430}{5}
 \@LN{431}{5}
 \@LN{432}{5}
 \@LN{433}{5}
 \@LN{434}{5}
 \@LN{435}{5}
-\@LN@col{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Zero-shot language models}{6}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:zeroshot}{{4.4}{6}{Zero-shot language models}{subsection.4.4}{}}
 \@LN{436}{5}
 \@LN{437}{5}
 \@LN{438}{5}
 \@LN{439}{5}
 \@LN{440}{5}
-\@writefile{toc}{\contentsline {section}{\numberline {5}What the remaining errors are made of}{6}{section.5}\protected@file@percent }
-\newlabel{sec:errors}{{5}{6}{What the remaining errors are made of}{section.5}{}}
-\newlabel{sec:decomp}{{5}{6}{What the remaining errors are made of}{section.5}{}}
 \@LN{441}{5}
 \@LN{442}{5}
 \@LN{443}{5}
@@ -544,59 +577,52 @@
 \@LN{446}{5}
 \@LN{447}{5}
 \@LN{448}{5}
-\@LN{449}{5}
-\@LN{450}{5}
-\@LN{451}{5}
-\@LN{452}{5}
-\@LN{453}{5}
-\@LN{454}{5}
-\@LN{455}{5}
-\@LN{456}{5}
-\@LN{457}{5}
-\@LN{458}{5}
-\@LN{459}{5}
-\@LN{460}{5}
-\@LN{461}{5}
-\@LN{462}{5}
-\@LN{463}{5}
-\@writefile{toc}{\contentsline {paragraph}{A bound on component-wise verification.}{6}{section*.17}\protected@file@percent }
-\@LN{464}{5}
-\@LN{465}{5}
-\@LN{466}{5}
-\@LN{467}{5}
-\@LN{468}{5}
-\@LN{469}{5}
-\@LN{470}{5}
-\@LN{471}{5}
-\@LN{472}{5}
-\@LN{473}{5}
-\@LN{474}{5}
-\@LN{475}{5}
-\@LN{476}{5}
-\@LN{477}{5}
-\@LN{478}{5}
-\@LN{479}{5}
-\@LN{480}{5}
-\@LN{481}{5}
-\@LN{482}{5}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Candidate rules}{6}{section.6}\protected@file@percent }
-\newlabel{sec:rules}{{6}{6}{Candidate rules}{section.6}{}}
-\@LN{483}{5}
-\@LN{484}{5}
-\citation{gururangan-etal-2018-annotation,poliak-etal-2018-hypothesis}
-\citation{kaushik-lipton-2018-much}
-\citation{geirhos-etal-2020-shortcut,du-etal-2024-shortcut}
-\citation{thorne2018fever}
-\citation{schuster-etal-2019-towards}
-\citation{wiegand-etal-2019-detection,parmar-etal-2023-dont}
-\citation{feng-etal-2019-misleading}
 \@LN@col{1}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces The deployed model's four-way direction output against 97 expert direction labels. ``Answered'' counts \textsc  {Forward} or \textsc  {Reverse}; the rest are \textsc  {Uncertain}. The abstention level ($0.60$) was chosen by the expert after seeing this set's coverage curve, so the figures are optimistic.\relax }}{7}{table.caption.18}\protected@file@percent }
-\newlabel{tab:direction}{{6}{7}{The deployed model's four-way direction output against 97 expert direction labels. ``Answered'' counts \textsc {Forward} or \textsc {Reverse}; the rest are \textsc {Uncertain}. The abstention level ($0.60$) was chosen by the expert after seeing this set's coverage curve, so the figures are optimistic.\relax }{table.caption.18}{}}
+\@LN{449}{6}
+\@LN{450}{6}
+\@LN{451}{6}
+\@LN{452}{6}
+\@LN{453}{6}
+\@LN{454}{6}
+\@LN{455}{6}
+\@LN{456}{6}
+\@LN{457}{6}
+\@LN{458}{6}
+\@LN{459}{6}
+\@LN{460}{6}
+\@LN{461}{6}
+\@LN{462}{6}
+\@LN{463}{6}
+\@LN{464}{6}
+\@LN{465}{6}
+\@LN{466}{6}
+\@LN{467}{6}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}The question, not the encoder or the corpus}{7}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:res-ablation}{{4.5}{7}{The question, not the encoder or the corpus}{subsection.4.5}{}}
+\@LN{468}{6}
+\@LN{469}{6}
+\@LN{470}{6}
+\@LN{471}{6}
+\@LN{472}{6}
+\@LN{473}{6}
+\@LN{474}{6}
+\@LN{475}{6}
+\@LN{476}{6}
+\@LN{477}{6}
+\@LN{478}{6}
+\@LN{479}{6}
+\@LN{480}{6}
+\@LN{481}{6}
+\@LN{482}{6}
+\@LN{483}{6}
+\@LN{484}{6}
 \@LN{485}{6}
 \@LN{486}{6}
 \@LN{487}{6}
 \@LN{488}{6}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}What the remaining errors are made of}{7}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:errors}{{4.6}{7}{What the remaining errors are made of}{subsection.4.6}{}}
+\newlabel{sec:decomp}{{4.6}{7}{What the remaining errors are made of}{subsection.4.6}{}}
 \@LN{489}{6}
 \@LN{490}{6}
 \@LN{491}{6}
@@ -607,6 +633,7 @@
 \@LN{496}{6}
 \@LN{497}{6}
 \@LN{498}{6}
+\@LN@col{2}
 \@LN{499}{6}
 \@LN{500}{6}
 \@LN{501}{6}
@@ -619,11 +646,10 @@
 \@LN{508}{6}
 \@LN{509}{6}
 \@LN{510}{6}
+\@writefile{toc}{\contentsline {paragraph}{A bound on component-wise verification.}{7}{section*.14}\protected@file@percent }
 \@LN{511}{6}
 \@LN{512}{6}
 \@LN{513}{6}
-\@writefile{toc}{\contentsline {section}{\numberline {7}The deployed configuration}{7}{section.7}\protected@file@percent }
-\newlabel{sec:deploy}{{7}{7}{The deployed configuration}{section.7}{}}
 \@LN{514}{6}
 \@LN{515}{6}
 \@LN{516}{6}
@@ -634,13 +660,14 @@
 \@LN{521}{6}
 \@LN{522}{6}
 \@LN{523}{6}
-\@LN@col{2}
 \@LN{524}{6}
 \@LN{525}{6}
 \@LN{526}{6}
 \@LN{527}{6}
 \@LN{528}{6}
 \@LN{529}{6}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Candidate rules and a recommended configuration}{7}{subsection.4.7}\protected@file@percent }
+\newlabel{sec:rules}{{4.7}{7}{Candidate rules and a recommended configuration}{subsection.4.7}{}}
 \@LN{530}{6}
 \@LN{531}{6}
 \@LN{532}{6}
@@ -660,61 +687,43 @@
 \@LN{546}{6}
 \@LN{547}{6}
 \@LN{548}{6}
-\@LN{549}{6}
-\@LN{550}{6}
-\@LN{551}{6}
-\@LN{552}{6}
-\@LN{553}{6}
-\@LN{554}{6}
-\@LN{555}{6}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Related work}{7}{section.8}\protected@file@percent }
-\newlabel{sec:related}{{8}{7}{Related work}{section.8}{}}
-\@writefile{toc}{\contentsline {paragraph}{Classifiers that answer an easier question.}{7}{section*.19}\protected@file@percent }
-\@LN{556}{6}
-\@LN{557}{6}
-\@LN{558}{6}
-\@LN{559}{6}
-\@LN{560}{6}
-\@LN{561}{6}
-\@LN{562}{6}
-\@LN{563}{6}
-\@LN{564}{6}
-\@LN{565}{6}
-\@LN{566}{6}
-\@LN{567}{6}
-\@LN{568}{6}
-\@LN{569}{6}
-\@LN{570}{6}
-\@LN{571}{6}
-\citation{mintz2009distant}
-\citation{riedel2010modeling}
-\citation{zhang2017position}
-\citation{soares2019matching,wu2019enriching,zhou2022improved}
-\citation{rosenman2020exposing}
-\citation{peng2020learning,mtumbuka2024entity}
-\citation{taille-etal-2020-lets,ai2023endtoend}
-\citation{levy2017zero}
-\citation{obamuyide2018zero,sainz2021label}
-\citation{wadden2020fact}
-\citation{lehmann2012defacto}
-\citation{west2022symbolic,gekhman2023trueteacher}
 \citation{geifman2017selective}
-\citation{swaminathan2024selective}
-\citation{poelen2014global}
-\citation{dimitrova2020semantic}
-\citation{rodriguezesteban2006imitating}
-\citation{hirschman2012biocuration,britan2018nexta5,lee2018scaling}
-\citation{cuzick2023interspecies}
-\citation{keck2025extracting,farrell2024landscape,dsouza2025mining,zou2026llm}
-\citation{zou2026llm}
 \@LN@col{1}
+\@LN{549}{7}
+\@LN{550}{7}
+\@LN{551}{7}
+\@LN{552}{7}
+\@LN{553}{7}
+\newlabel{sec:deploy}{{4.7}{8}{The recommended configuration}{section*.15}{}}
+\@writefile{toc}{\contentsline {paragraph}{The recommended configuration.}{8}{section*.15}\protected@file@percent }
+\@LN{554}{7}
+\@LN{555}{7}
+\@LN{556}{7}
+\@LN{557}{7}
+\@LN{558}{7}
+\@LN{559}{7}
+\@LN{560}{7}
+\@LN{561}{7}
+\@LN{562}{7}
+\@LN{563}{7}
+\@LN{564}{7}
+\@LN{565}{7}
+\@LN{566}{7}
+\@LN{567}{7}
+\@LN{568}{7}
+\@LN{569}{7}
+\@LN{570}{7}
+\@LN{571}{7}
 \@LN{572}{7}
 \@LN{573}{7}
 \@LN{574}{7}
 \@LN{575}{7}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion and Conclusion}{8}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{8}{Discussion and Conclusion}{section.5}{}}
+\newlabel{sec:conclusion}{{5}{8}{Discussion and Conclusion}{section.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{The question, not the model.}{8}{section*.16}\protected@file@percent }
 \@LN{576}{7}
 \@LN{577}{7}
-\@writefile{toc}{\contentsline {paragraph}{The argument-ignoring failure is already named.}{8}{section*.20}\protected@file@percent }
 \@LN{578}{7}
 \@LN{579}{7}
 \@LN{580}{7}
@@ -723,6 +732,7 @@
 \@LN{583}{7}
 \@LN{584}{7}
 \@LN{585}{7}
+\@writefile{toc}{\contentsline {paragraph}{When the sentence question is enough.}{8}{section*.17}\protected@file@percent }
 \@LN{586}{7}
 \@LN{587}{7}
 \@LN{588}{7}
@@ -732,6 +742,9 @@
 \@LN{592}{7}
 \@LN{593}{7}
 \@LN{594}{7}
+\@LN@col{2}
+\newlabel{sec:opoint}{{5}{8}{A score, not a verdict}{section*.18}{}}
+\@writefile{toc}{\contentsline {paragraph}{A score, not a verdict.}{8}{section*.18}\protected@file@percent }
 \@LN{595}{7}
 \@LN{596}{7}
 \@LN{597}{7}
@@ -739,11 +752,11 @@
 \@LN{599}{7}
 \@LN{600}{7}
 \@LN{601}{7}
-\@writefile{toc}{\contentsline {paragraph}{Conditioning on the query.}{8}{section*.21}\protected@file@percent }
 \@LN{602}{7}
 \@LN{603}{7}
 \@LN{604}{7}
 \@LN{605}{7}
+\@writefile{toc}{\contentsline {paragraph}{What no verifier fixes.}{8}{section*.19}\protected@file@percent }
 \@LN{606}{7}
 \@LN{607}{7}
 \@LN{608}{7}
@@ -752,6 +765,7 @@
 \@LN{611}{7}
 \@LN{612}{7}
 \@LN{613}{7}
+\@writefile{toc}{\contentsline {paragraph}{Beyond species interactions.}{8}{section*.20}\protected@file@percent }
 \@LN{614}{7}
 \@LN{615}{7}
 \@LN{616}{7}
@@ -760,11 +774,10 @@
 \@LN{619}{7}
 \@LN{620}{7}
 \@LN{621}{7}
+\@writefile{toc}{\contentsline {paragraph}{Conclusion.}{8}{section*.21}\protected@file@percent }
 \@LN{622}{7}
-\@LN@col{2}
 \@LN{623}{7}
 \@LN{624}{7}
-\@writefile{toc}{\contentsline {paragraph}{Text mining for interaction databases.}{8}{section*.22}\protected@file@percent }
 \@LN{625}{7}
 \@LN{626}{7}
 \@LN{627}{7}
@@ -777,52 +790,48 @@
 \@LN{634}{7}
 \@LN{635}{7}
 \@LN{636}{7}
+\@writefile{toc}{\contentsline {paragraph}{One benchmark, mostly singly graded.}{8}{section*.23}\protected@file@percent }
 \@LN{637}{7}
 \@LN{638}{7}
 \@LN{639}{7}
 \@LN{640}{7}
 \@LN{641}{7}
 \@LN{642}{7}
-\@LN{643}{7}
-\@LN{644}{7}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{8}{section.9}\protected@file@percent }
-\newlabel{sec:conclusion}{{9}{8}{Conclusion}{section.9}{}}
-\@LN{645}{7}
-\@LN{646}{7}
-\@LN{647}{7}
-\@LN{648}{7}
-\@LN{649}{7}
-\@LN{650}{7}
-\@LN{651}{7}
-\@LN{652}{7}
-\@LN{653}{7}
-\@LN{654}{7}
-\@LN{655}{7}
-\@LN{656}{7}
-\@LN{657}{7}
-\@LN{658}{7}
-\@LN{659}{7}
-\@LN{660}{7}
-\@LN{661}{7}
-\@writefile{toc}{\contentsline {paragraph}{One benchmark, singly annotated.}{8}{section*.24}\protected@file@percent }
-\@LN{662}{7}
-\@LN{663}{7}
-\@LN{664}{7}
-\@LN{665}{7}
-\@LN{666}{7}
-\@LN{667}{7}
-\@LN{668}{7}
-\@LN{669}{7}
-\@LN{670}{7}
-\@LN{671}{7}
 \citation{lu2025feeding}
 \bibstyle{acl_natbib}
 \bibdata{references}
 \bibcite{ai2023endtoend}{{1}{2023}{{Ai and Kavuluru}}{{}}}
-\bibcite{soares2019matching}{{2}{2019}{{Baldini~Soares et~al.}}{{Baldini~Soares, FitzGerald, Ling, and Kwiatkowski}}}
-\bibcite{britan2018nexta5}{{3}{2018}{{Britan et~al.}}{{Britan, Cusin, Hinard, Mottin, Pasche, Gobeill, Rech~de Laval, Gleizes, Teixeira, Michel, Ruch, and Gaudet}}}
-\bibcite{bucilua2006model}{{4}{2006}{{Bucilu{\u {a}} et~al.}}{{Bucilu{\u {a}}, Caruana, and Niculescu-Mizil}}}
 \@LN@col{1}
+\@LN{643}{8}
+\@LN{644}{8}
+\@LN{645}{8}
+\@LN{646}{8}
+\@LN{647}{8}
+\@LN{648}{8}
+\@LN{649}{8}
+\@LN{650}{8}
+\@LN{651}{8}
+\@LN{652}{8}
+\@LN{653}{8}
+\@LN{654}{8}
+\@LN{655}{8}
+\@LN{656}{8}
+\@LN{657}{8}
+\@LN{658}{8}
+\@LN{659}{8}
+\@LN{660}{8}
+\@LN{661}{8}
+\@LN{662}{8}
+\@LN{663}{8}
+\@LN{664}{8}
+\@LN{665}{8}
+\@LN{666}{8}
+\@LN{667}{8}
+\@LN{668}{8}
+\@LN{669}{8}
+\@LN{670}{8}
+\@LN{671}{8}
+\@writefile{toc}{\contentsline {paragraph}{A selected block.}{9}{section*.24}\protected@file@percent }
 \@LN{672}{8}
 \@LN{673}{8}
 \@LN{674}{8}
@@ -831,9 +840,9 @@
 \@LN{677}{8}
 \@LN{678}{8}
 \@LN{679}{8}
+\@writefile{toc}{\contentsline {paragraph}{The rules are partly fitted by choice.}{9}{section*.25}\protected@file@percent }
 \@LN{680}{8}
 \@LN{681}{8}
-\@writefile{toc}{\contentsline {paragraph}{Top-ranked candidates only.}{9}{section*.25}\protected@file@percent }
 \@LN{682}{8}
 \@LN{683}{8}
 \@LN{684}{8}
@@ -841,21 +850,22 @@
 \@LN{686}{8}
 \@LN{687}{8}
 \@LN{688}{8}
-\@writefile{toc}{\contentsline {paragraph}{The rules are partly fitted by choice.}{9}{section*.26}\protected@file@percent }
 \@LN{689}{8}
+\@writefile{toc}{\contentsline {paragraph}{Fresh candidates are harder.}{9}{section*.26}\protected@file@percent }
 \@LN{690}{8}
 \@LN{691}{8}
 \@LN{692}{8}
+\@LN@col{2}
 \@LN{693}{8}
 \@LN{694}{8}
 \@LN{695}{8}
 \@LN{696}{8}
 \@LN{697}{8}
 \@LN{698}{8}
-\@writefile{toc}{\contentsline {paragraph}{Fresh candidates are harder.}{9}{section*.27}\protected@file@percent }
 \@LN{699}{8}
 \@LN{700}{8}
 \@LN{701}{8}
+\@writefile{toc}{\contentsline {paragraph}{The diagnosis is triple-level; the evaluation is pair-level.}{9}{section*.27}\protected@file@percent }
 \@LN{702}{8}
 \@LN{703}{8}
 \@LN{704}{8}
@@ -864,19 +874,18 @@
 \@LN{707}{8}
 \@LN{708}{8}
 \@LN{709}{8}
+\@writefile{toc}{\contentsline {paragraph}{BioRED's labels are document-level.}{9}{section*.28}\protected@file@percent }
 \@LN{710}{8}
 \@LN{711}{8}
-\@writefile{toc}{\contentsline {paragraph}{The diagnosis is triple-level; the evaluation is pair-level.}{9}{section*.28}\protected@file@percent }
 \@LN{712}{8}
 \@LN{713}{8}
 \@LN{714}{8}
 \@LN{715}{8}
 \@LN{716}{8}
 \@LN{717}{8}
+\@writefile{toc}{\contentsline {paragraph}{Teacher noise and pretraining exposure.}{9}{section*.29}\protected@file@percent }
 \@LN{718}{8}
 \@LN{719}{8}
-\@LN@col{2}
-\@writefile{toc}{\contentsline {paragraph}{BioRED's labels are document-level.}{9}{section*.29}\protected@file@percent }
 \@LN{720}{8}
 \@LN{721}{8}
 \@LN{722}{8}
@@ -884,52 +893,23 @@
 \@LN{724}{8}
 \@LN{725}{8}
 \@LN{726}{8}
+\@writefile{toc}{\contentsline {paragraph}{Upstream failures are out of reach.}{9}{section*.30}\protected@file@percent }
 \@LN{727}{8}
-\@writefile{toc}{\contentsline {paragraph}{Teacher noise and pretraining exposure.}{9}{section*.30}\protected@file@percent }
 \@LN{728}{8}
 \@LN{729}{8}
 \@LN{730}{8}
 \@LN{731}{8}
 \@LN{732}{8}
+\@writefile{toc}{\contentsline {paragraph}{One system, one domain.}{9}{section*.31}\protected@file@percent }
 \@LN{733}{8}
 \@LN{734}{8}
 \@LN{735}{8}
 \@LN{736}{8}
-\@writefile{toc}{\contentsline {paragraph}{Upstream failures are out of reach.}{9}{section*.31}\protected@file@percent }
 \@LN{737}{8}
 \@LN{738}{8}
-\@LN{739}{8}
-\@LN{740}{8}
-\@LN{741}{8}
-\@LN{742}{8}
-\@writefile{toc}{\contentsline {paragraph}{One system, one domain.}{9}{section*.32}\protected@file@percent }
-\@LN{743}{8}
-\@LN{744}{8}
-\@LN{745}{8}
-\@LN{746}{8}
-\@LN{747}{8}
-\@LN{748}{8}
-\@LN{749}{8}
-\@LN{750}{8}
-\@LN{751}{8}
-\@LN{752}{8}
-\@LN{753}{8}
-\@LN{754}{8}
-\@LN{755}{8}
-\@LN{756}{8}
-\@LN{757}{8}
-\@LN{758}{8}
-\@LN{759}{8}
-\@LN{760}{8}
-\@LN{761}{8}
-\@LN{762}{8}
-\@LN{763}{8}
-\@LN{764}{8}
-\@LN{765}{8}
-\@LN{766}{8}
-\@LN{767}{8}
-\@LN{768}{8}
-\@LN{769}{8}
+\bibcite{soares2019matching}{{2}{2019}{{Baldini~Soares et~al.}}{{Baldini~Soares, FitzGerald, Ling, and Kwiatkowski}}}
+\bibcite{britan2018nexta5}{{3}{2018}{{Britan et~al.}}{{Britan, Cusin, Hinard, Mottin, Pasche, Gobeill, Rech~de Laval, Gleizes, Teixeira, Michel, Ruch, and Gaudet}}}
+\bibcite{bucilua2006model}{{4}{2006}{{Bucilu{\u {a}} et~al.}}{{Bucilu{\u {a}}, Caruana, and Niculescu-Mizil}}}
 \bibcite{cuzick2023interspecies}{{5}{2023}{{Cuzick et~al.}}{{Cuzick, Seager, Wood, Urban, Rutherford, and Hammond-Kosack}}}
 \bibcite{dimitrova2020semantic}{{6}{2020}{{Dimitrova et~al.}}{{Dimitrova, Poelen, Zhelezov, Georgiev, Agosti, and Penev}}}
 \bibcite{dsouza2025mining}{{7}{2025}{{D'Souza et~al.}}{{D'Souza, Laubach, Al~Mustafa, Zarrie{\ss }, Fr{\"u}hst{\"u}ckl, and Illari}}}
@@ -946,11 +926,38 @@
 \bibcite{hinton2015distilling}{{18}{2015}{{Hinton et~al.}}{{Hinton, Vinyals, and Dean}}}
 \bibcite{hirschman2012biocuration}{{19}{2012}{{Hirschman et~al.}}{{Hirschman, Burns, Krallinger, Arighi, Cohen, Valencia, Wu, Chatr-Aryamontri, Dowell, Huala, Louren{\c c}o, Nash, Veuthey, Wiegers, and Winter}}}
 \bibcite{islamaj2024overview}{{20}{2024}{{Islamaj et~al.}}{{}}}
-\bibcite{kaushik-lipton-2018-much}{{21}{2018}{{Kaushik and Lipton}}{{}}}
-\bibcite{keck2025extracting}{{22}{2025}{{Keck et~al.}}{{Keck, Broadbent, and Altermatt}}}
-\bibcite{lai2023biorex}{{23}{2023}{{Lai et~al.}}{{Lai, Wei, Luo, Chen, and Lu}}}
-\bibcite{lai2025bioredirect}{{24}{2025}{{Lai et~al.}}{{Lai, Wei, Tian, Leaman, and Lu}}}
 \@LN@col{1}
+\@LN{739}{9}
+\@LN{740}{9}
+\@LN{741}{9}
+\@LN{742}{9}
+\@LN{743}{9}
+\@LN{744}{9}
+\@LN{745}{9}
+\@LN{746}{9}
+\@LN{747}{9}
+\@LN{748}{9}
+\@LN{749}{9}
+\@LN{750}{9}
+\@LN{751}{9}
+\@LN{752}{9}
+\@LN{753}{9}
+\@LN{754}{9}
+\@LN{755}{9}
+\@LN{756}{9}
+\@LN{757}{9}
+\@LN{758}{9}
+\@LN{759}{9}
+\@LN{760}{9}
+\@LN{761}{9}
+\@LN{762}{9}
+\@LN{763}{9}
+\@LN{764}{9}
+\@LN{765}{9}
+\@LN{766}{9}
+\@LN{767}{9}
+\@LN{768}{9}
+\@LN{769}{9}
 \@LN{770}{9}
 \@LN{771}{9}
 \@LN{772}{9}
@@ -976,6 +983,7 @@
 \@LN{792}{9}
 \@LN{793}{9}
 \@LN{794}{9}
+\@LN@col{2}
 \@LN{795}{9}
 \@LN{796}{9}
 \@LN{797}{9}
@@ -1006,7 +1014,6 @@
 \@LN{822}{9}
 \@LN{823}{9}
 \@LN{824}{9}
-\@LN@col{2}
 \@LN{825}{9}
 \@LN{826}{9}
 \@LN{827}{9}
@@ -1034,35 +1041,10 @@
 \@LN{849}{9}
 \@LN{850}{9}
 \@LN{851}{9}
-\@LN{852}{9}
-\@LN{853}{9}
-\@LN{854}{9}
-\@LN{855}{9}
-\@LN{856}{9}
-\@LN{857}{9}
-\@LN{858}{9}
-\@LN{859}{9}
-\@LN{860}{9}
-\@LN{861}{9}
-\@LN{862}{9}
-\@LN{863}{9}
-\@LN{864}{9}
-\@LN{865}{9}
-\@LN{866}{9}
-\@LN{867}{9}
-\@LN{868}{9}
-\@LN{869}{9}
-\@LN{870}{9}
-\@LN{871}{9}
-\@LN{872}{9}
-\@LN{873}{9}
-\@LN{874}{9}
-\@LN{875}{9}
-\@LN{876}{9}
-\@LN{877}{9}
-\@LN{878}{9}
-\@LN{879}{9}
-\@LN{880}{9}
+\bibcite{kaushik-lipton-2018-much}{{21}{2018}{{Kaushik and Lipton}}{{}}}
+\bibcite{keck2025extracting}{{22}{2025}{{Keck et~al.}}{{Keck, Broadbent, and Altermatt}}}
+\bibcite{lai2023biorex}{{23}{2023}{{Lai et~al.}}{{Lai, Wei, Luo, Chen, and Lu}}}
+\bibcite{lai2025bioredirect}{{24}{2025}{{Lai et~al.}}{{Lai, Wei, Tian, Leaman, and Lu}}}
 \bibcite{leguillarme2022taxonerd}{{25}{2022}{{Le~Guillarme and Thuiller}}{{}}}
 \bibcite{lee2018scaling}{{26}{2018}{{Lee et~al.}}{{Lee, Famiglietti, McMahon, Wei, MacArthur, Poux, Breuza, Bridge, Cunningham, Xenarios, and Lu}}}
 \bibcite{lehmann2012defacto}{{27}{2012}{{Lehmann et~al.}}{{Lehmann, Gerber, Morsey, and Ngonga~Ngomo}}}
@@ -1081,11 +1063,36 @@
 \bibcite{qwen2025technical}{{40}{2025}{{Qwen Team}}{{}}}
 \bibcite{rees2017opentree}{{41}{2017}{{Rees and Cranston}}{{}}}
 \bibcite{riedel2010modeling}{{42}{2010}{{Riedel et~al.}}{{Riedel, Yao, and McCallum}}}
-\bibcite{rodriguezesteban2006imitating}{{43}{2006}{{Rodriguez-Esteban et~al.}}{{Rodriguez-Esteban, Iossifov, and Rzhetsky}}}
-\bibcite{rosenman2020exposing}{{44}{2020}{{Rosenman et~al.}}{{Rosenman, Jacovi, and Goldberg}}}
-\bibcite{ruch2024biotxplorer}{{45}{2024}{{Ruch et~al.}}{{Ruch, Pasche, Michel, and Caucheteur}}}
-\bibcite{sainz2021label}{{46}{2021}{{Sainz et~al.}}{{Sainz, Lopez~de Lacalle, Labaka, Barrena, and Agirre}}}
 \@LN@col{1}
+\@LN{852}{10}
+\@LN{853}{10}
+\@LN{854}{10}
+\@LN{855}{10}
+\@LN{856}{10}
+\@LN{857}{10}
+\@LN{858}{10}
+\@LN{859}{10}
+\@LN{860}{10}
+\@LN{861}{10}
+\@LN{862}{10}
+\@LN{863}{10}
+\@LN{864}{10}
+\@LN{865}{10}
+\@LN{866}{10}
+\@LN{867}{10}
+\@LN{868}{10}
+\@LN{869}{10}
+\@LN{870}{10}
+\@LN{871}{10}
+\@LN{872}{10}
+\@LN{873}{10}
+\@LN{874}{10}
+\@LN{875}{10}
+\@LN{876}{10}
+\@LN{877}{10}
+\@LN{878}{10}
+\@LN{879}{10}
+\@LN{880}{10}
 \@LN{881}{10}
 \@LN{882}{10}
 \@LN{883}{10}
@@ -1111,6 +1118,7 @@
 \@LN{903}{10}
 \@LN{904}{10}
 \@LN{905}{10}
+\@LN@col{2}
 \@LN{906}{10}
 \@LN{907}{10}
 \@LN{908}{10}
@@ -1142,7 +1150,6 @@
 \@LN{934}{10}
 \@LN{935}{10}
 \@LN{936}{10}
-\@LN@col{2}
 \@LN{937}{10}
 \@LN{938}{10}
 \@LN{939}{10}
@@ -1168,37 +1175,10 @@
 \@LN{959}{10}
 \@LN{960}{10}
 \@LN{961}{10}
-\@LN{962}{10}
-\@LN{963}{10}
-\@LN{964}{10}
-\@LN{965}{10}
-\@LN{966}{10}
-\@LN{967}{10}
-\@LN{968}{10}
-\@LN{969}{10}
-\@LN{970}{10}
-\@LN{971}{10}
-\@LN{972}{10}
-\@LN{973}{10}
-\@LN{974}{10}
-\@LN{975}{10}
-\@LN{976}{10}
-\@LN{977}{10}
-\@LN{978}{10}
-\@LN{979}{10}
-\@LN{980}{10}
-\@LN{981}{10}
-\@LN{982}{10}
-\@LN{983}{10}
-\@LN{984}{10}
-\@LN{985}{10}
-\@LN{986}{10}
-\@LN{987}{10}
-\@LN{988}{10}
-\@LN{989}{10}
-\@LN{990}{10}
-\@LN{991}{10}
-\@LN{992}{10}
+\bibcite{rodriguezesteban2006imitating}{{43}{2006}{{Rodriguez-Esteban et~al.}}{{Rodriguez-Esteban, Iossifov, and Rzhetsky}}}
+\bibcite{rosenman2020exposing}{{44}{2020}{{Rosenman et~al.}}{{Rosenman, Jacovi, and Goldberg}}}
+\bibcite{ruch2024biotxplorer}{{45}{2024}{{Ruch et~al.}}{{Ruch, Pasche, Michel, and Caucheteur}}}
+\bibcite{sainz2021label}{{46}{2021}{{Sainz et~al.}}{{Sainz, Lopez~de Lacalle, Labaka, Barrena, and Agirre}}}
 \bibcite{schuster-etal-2019-towards}{{47}{2019}{{Schuster et~al.}}{{Schuster, Shah, Yeo, Roberto Filizzola~Ortiz, Santus, and Barzilay}}}
 \bibcite{swaminathan2024selective}{{48}{2024}{{Swaminathan et~al.}}{{Swaminathan, Lopez, Wang, Srivastava, Tran, Bhargava-Shah, Wu, Ren, Caoili, Bui, Alkhani, Lee, Mohit, Seo, Macedo, Cheng, Liu, Thomas, Chen, and Gevaert}}}
 \bibcite{taille-etal-2020-lets}{{49}{2020}{{Taill{\'e} et~al.}}{{Taill{\'e}, Guigue, Scoutheeten, and Gallinari}}}
@@ -1212,6 +1192,37 @@
 \bibcite{zhou2022improved}{{57}{2022}{{Zhou and Chen}}{{}}}
 \bibcite{zou2026llm}{{58}{2026}{{Zou et~al.}}{{Zou, Yang, Hajamaideen, Stein, Beltran, Freeman, Lindquist, Miller, Mengarelli, Probst, Valdovinos, Van~Berkel, Zarnetske, Weeks, and Zhu}}}
 \@LN@col{1}
+\@LN{962}{11}
+\@LN{963}{11}
+\@LN{964}{11}
+\@LN{965}{11}
+\@LN{966}{11}
+\@LN{967}{11}
+\@LN{968}{11}
+\@LN{969}{11}
+\@LN{970}{11}
+\@LN{971}{11}
+\@LN{972}{11}
+\@LN{973}{11}
+\@LN{974}{11}
+\@LN{975}{11}
+\@LN{976}{11}
+\@LN{977}{11}
+\@LN{978}{11}
+\@LN{979}{11}
+\@LN{980}{11}
+\@LN{981}{11}
+\@LN{982}{11}
+\@LN{983}{11}
+\@LN{984}{11}
+\@LN{985}{11}
+\@LN{986}{11}
+\@LN{987}{11}
+\@LN{988}{11}
+\@LN{989}{11}
+\@LN{990}{11}
+\@LN{991}{11}
+\@LN{992}{11}
 \@LN{993}{11}
 \@LN{994}{11}
 \@LN{995}{11}
@@ -1237,6 +1248,7 @@
 \@LN{1015}{11}
 \@LN{1016}{11}
 \@LN{1017}{11}
+\@LN@col{2}
 \@LN{1018}{11}
 \@LN{1019}{11}
 \@LN{1020}{11}
@@ -1270,9 +1282,6 @@
 \@LN{1048}{11}
 \@LN{1049}{11}
 \@LN{1050}{11}
-\@LN@col{2}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Per-seed figures on the 437 biodiversity rows, order-free scoring. The body reports three-checkpoint ensembles at block-held-out thresholds; a fixed $\tau = 0.5$ is shown here because the three models are calibrated differently, and a single shared threshold would favour one of them arbitrarily.\relax }}{12}{table.caption.34}\protected@file@percent }
-\newlabel{tab:perseed}{{7}{12}{Per-seed figures on the 437 biodiversity rows, order-free scoring. The body reports three-checkpoint ensembles at block-held-out thresholds; a fixed $\tau = 0.5$ is shown here because the three models are calibrated differently, and a single shared threshold would favour one of them arbitrarily.\relax }{table.caption.34}{}}
 \@LN{1051}{11}
 \@LN{1052}{11}
 \@LN{1053}{11}
@@ -1298,30 +1307,28 @@
 \@LN{1073}{11}
 \@LN{1074}{11}
 \@LN{1075}{11}
-\@LN{1076}{11}
-\@LN{1077}{11}
-\@LN{1078}{11}
-\@LN{1079}{11}
-\@LN{1080}{11}
-\@LN{1081}{11}
-\@LN{1082}{11}
-\@LN{1083}{11}
-\@LN{1084}{11}
-\@LN{1085}{11}
-\@LN{1086}{11}
-\@LN{1087}{11}
-\@LN{1088}{11}
-\@LN{1089}{11}
-\citation{yasunaga2022linkbert}
+\citation{leguillarme2022taxonerd}
+\citation{leguillarme2022taxonerd}
 \@LN@col{1}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces The three arms trained on the teacher's verdicts (the body's models) and on its probabilities, recipe and seeds unchanged; columns as in Tables~\ref  {tab:main} and~\ref  {tab:where}. Per-seed AUPRC with soft targets: $.847/.864/.861$, $.927/.917/.917$ and $.920/.921/.915$. Against the verdict-trained model of the same format, the soft-target model fixes 14 items and breaks 13 (sentence), 13 and 14 (pair), 19 and 7 (triple; McNemar $p = 1.0$, $1.0$, $0.03$).\relax }}{13}{table.caption.35}\protected@file@percent }
-\newlabel{tab:soft}{{8}{13}{The three arms trained on the teacher's verdicts (the body's models) and on its probabilities, recipe and seeds unchanged; columns as in Tables~\ref {tab:main} and~\ref {tab:where}. Per-seed AUPRC with soft targets: $.847/.864/.861$, $.927/.917/.917$ and $.920/.921/.915$. Against the verdict-trained model of the same format, the soft-target model fixes 14 items and breaks 13 (sentence), 13 and 14 (pair), 19 and 7 (triple; McNemar $p = 1.0$, $1.0$, $0.03$).\relax }{table.caption.35}{}}
+\@LN{1076}{12}
+\@LN{1077}{12}
+\@LN{1078}{12}
+\@LN{1079}{12}
+\@LN{1080}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Teacher prompts}{13}{appendix.A}\protected@file@percent }
+\newlabel{app:prompts}{{A}{13}{Teacher prompts}{appendix.A}{}}
+\@LN{1081}{12}
+\@LN{1082}{12}
+\@LN{1083}{12}
+\@LN{1084}{12}
+\@LN{1085}{12}
+\@LN{1086}{12}
+\@LN{1087}{12}
+\@LN{1088}{12}
+\@LN{1089}{12}
 \@LN{1090}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Per-seed results}{13}{appendix.A}\protected@file@percent }
-\newlabel{app:seeds}{{A}{13}{Per-seed results}{appendix.A}{}}
 \@LN{1091}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Soft-label distillation}{13}{appendix.B}\protected@file@percent }
-\newlabel{app:soft}{{B}{13}{Soft-label distillation}{appendix.B}{}}
+\@writefile{toc}{\contentsline {paragraph}{Sentence question.}{13}{section*.33}\protected@file@percent }
 \@LN{1092}{12}
 \@LN{1093}{12}
 \@LN{1094}{12}
@@ -1338,6 +1345,7 @@
 \@LN{1105}{12}
 \@LN{1106}{12}
 \@LN{1107}{12}
+\@writefile{toc}{\contentsline {paragraph}{Pair question.}{13}{section*.34}\protected@file@percent }
 \@LN{1108}{12}
 \@LN{1109}{12}
 \@LN{1110}{12}
@@ -1347,16 +1355,11 @@
 \@LN{1114}{12}
 \@LN{1115}{12}
 \@LN{1116}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Encoders}{13}{appendix.C}\protected@file@percent }
-\newlabel{app:encoders}{{C}{13}{Encoders}{appendix.C}{}}
 \@LN{1117}{12}
 \@LN{1118}{12}
 \@LN{1119}{12}
 \@LN{1120}{12}
 \@LN{1121}{12}
-\@LN@col{2}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces The arms under the encoders that were scored on test, recipe otherwise that of \S  \ref  {sec:verifier}: AUPRC (per-seed means, three seeds), EP F1 (sentence-level/pair-conditioned) and block-held-out F1. BiomedBERT-large was not trained on the biodiversity arms (Appendix~\ref  {sec:negative}). Against the base encoder's model of the same format, BioLinkBERT's pair model fixes 621 BioRED items and breaks 537 (McNemar $p = 0.015$) and on ours 20 and 26 ($p = 0.46$); its sentence-level model on ours, 43 and 19 ($p = 0.003$). No BioLinkBERT-large arm differs significantly from the base encoder's on ours ($p \ge 0.15$).\relax }}{13}{table.caption.36}\protected@file@percent }
-\newlabel{tab:encoders}{{9}{13}{The arms under the encoders that were scored on test, recipe otherwise that of \S \ref {sec:verifier}: AUPRC (per-seed means, three seeds), EP F1 (sentence-level/pair-conditioned) and block-held-out F1. BiomedBERT-large was not trained on the biodiversity arms (Appendix~\ref {sec:negative}). Against the base encoder's model of the same format, BioLinkBERT's pair model fixes 621 BioRED items and breaks 537 (McNemar $p = 0.015$) and on ours 20 and 26 ($p = 0.46$); its sentence-level model on ours, 43 and 19 ($p = 0.003$). No BioLinkBERT-large arm differs significantly from the base encoder's on ours ($p \ge 0.15$).\relax }{table.caption.36}{}}
 \@LN{1122}{12}
 \@LN{1123}{12}
 \@LN{1124}{12}
@@ -1370,6 +1373,10 @@
 \@LN{1132}{12}
 \@LN{1133}{12}
 \@LN{1134}{12}
+\@LN@col{2}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Per-seed figures on the 437 biodiversity rows, order-free scoring. The body reports F1 of three-checkpoint ensembles at block-held-out thresholds; a fixed $\tau = 0.5$ is shown here only for the spread across seeds, not to compare the models, because the three models are calibrated differently, and a single shared threshold would favour one of them arbitrarily.\relax }}{13}{table.caption.36}\protected@file@percent }
+\newlabel{tab:perseed}{{2}{13}{Per-seed figures on the 437 biodiversity rows, order-free scoring. The body reports F1 of three-checkpoint ensembles at block-held-out thresholds; a fixed $\tau = 0.5$ is shown here only for the spread across seeds, not to compare the models, because the three models are calibrated differently, and a single shared threshold would favour one of them arbitrarily.\relax }{table.caption.36}{}}
+\@writefile{toc}{\contentsline {paragraph}{Triple question (the labelling prompt).}{13}{section*.35}\protected@file@percent }
 \@LN{1135}{12}
 \@LN{1136}{12}
 \@LN{1137}{12}
@@ -1391,39 +1398,48 @@
 \@LN{1153}{12}
 \@LN{1154}{12}
 \@LN{1155}{12}
+\@LN{1156}{12}
+\@LN{1157}{12}
+\@LN{1158}{12}
+\@LN{1159}{12}
+\@LN{1160}{12}
+\@LN{1161}{12}
+\@LN{1162}{12}
+\@LN{1163}{12}
+\@LN{1164}{12}
+\@LN{1165}{12}
+\@LN{1166}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Per-seed results}{13}{appendix.B}\protected@file@percent }
+\newlabel{app:seeds}{{B}{13}{Per-seed results}{appendix.B}{}}
+\@LN{1167}{12}
+\@LN{1168}{12}
+\@LN{1169}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Values behind Figures~\ref  {fig:curves} and~\ref  {fig:where}}{13}{appendix.C}\protected@file@percent }
+\newlabel{app:curve}{{C}{13}{\texorpdfstring {Values behind Figures~\ref {fig:curves} and~\ref {fig:where}}{Values behind Figures 2 and 3}}{appendix.C}{}}
+\newlabel{app:where}{{C}{13}{\texorpdfstring {Values behind Figures~\ref {fig:curves} and~\ref {fig:where}}{Values behind Figures 2 and 3}}{appendix.C}{}}
+\@LN{1170}{12}
+\@LN{1171}{12}
+\@LN{1172}{12}
+\@LN{1173}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {D}BioRED in full}{13}{appendix.D}\protected@file@percent }
+\newlabel{app:biored}{{D}{13}{BioRED in full}{appendix.D}{}}
+\@LN{1174}{12}
+\@LN{1175}{12}
 \citation{qwen2025technical}
 \citation{qwen2025technical}
 \@LN@col{1}
-\@LN{1156}{13}
-\@LN{1157}{13}
-\@LN{1158}{13}
-\@LN{1159}{13}
-\@LN{1160}{13}
-\@LN{1161}{13}
-\@LN{1162}{13}
-\@LN{1163}{13}
-\@LN{1164}{13}
-\@LN{1165}{13}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Recall side}{14}{appendix.D}\protected@file@percent }
-\newlabel{sec:recall}{{D}{14}{Recall side}{appendix.D}{}}
-\@LN{1166}{13}
-\@LN{1167}{13}
-\@LN{1168}{13}
-\@LN{1169}{13}
-\@LN{1170}{13}
-\@LN{1171}{13}
-\@LN{1172}{13}
-\@LN{1173}{13}
-\@LN{1174}{13}
-\@LN{1175}{13}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Values behind Figure~\ref  {fig:curves}: the three models' operating curves on all 437 rows, three-checkpoint ensembles. Rows show the shape; the reported operating points are those of Table~\ref  {tab:main}.\relax }}{14}{table.caption.37}\protected@file@percent }
+\newlabel{tab:curve}{{3}{14}{Values behind Figure~\ref {fig:curves}: the three models' operating curves on all 437 rows, three-checkpoint ensembles. Rows show the shape; the reported operating points are those of Table~\ref {tab:main}.\relax }{table.caption.37}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Exact values of Figure~\ref  {fig:where} (biodiversity rows) and AUPRC by source block; all values are AUPRC of three-checkpoint ensembles. Taxa are counted as distinct mentions found in the passage by TaxoNERD \citep  {leguillarme2022taxonerd} (\texttt  {en\_ner\_eco\_biobert}); an argument ``is not a taxon'' when TaxoNERD does not recognise it in the passage. \textsc  {Test299} passages name $5.1$ taxa on average, \textsc  {Biotx100} $2.6$ and \textsc  {Reject50} $1.7$.\relax }}{14}{table.caption.38}\protected@file@percent }
+\newlabel{tab:where}{{4}{14}{Exact values of Figure~\ref {fig:where} (biodiversity rows) and AUPRC by source block; all values are AUPRC of three-checkpoint ensembles. Taxa are counted as distinct mentions found in the passage by TaxoNERD \citep {leguillarme2022taxonerd} (\texttt {en\_ner\_eco\_biobert}); an argument ``is not a taxon'' when TaxoNERD does not recognise it in the passage. \textsc {Test299} passages name $5.1$ taxa on average, \textsc {Biotx100} $2.6$ and \textsc {Reject50} $1.7$.\relax }{table.caption.38}{}}
 \@LN{1176}{13}
 \@LN{1177}{13}
 \@LN{1178}{13}
 \@LN{1179}{13}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Zero-shot scaling}{14}{appendix.E}\protected@file@percent }
+\newlabel{app:scaling}{{E}{14}{Zero-shot scaling}{appendix.E}{}}
 \@LN{1180}{13}
 \@LN{1181}{13}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Teacher prompts}{14}{appendix.E}\protected@file@percent }
-\newlabel{app:prompts}{{E}{14}{Teacher prompts}{appendix.E}{}}
 \@LN{1182}{13}
 \@LN{1183}{13}
 \@LN{1184}{13}
@@ -1434,12 +1450,14 @@
 \@LN{1189}{13}
 \@LN{1190}{13}
 \@LN{1191}{13}
-\@writefile{toc}{\contentsline {paragraph}{Sentence question.}{14}{section*.37}\protected@file@percent }
 \@LN{1192}{13}
 \@LN{1193}{13}
 \@LN{1194}{13}
 \@LN{1195}{13}
 \@LN{1196}{13}
+\@LN@col{2}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces BioRED, BioCreative VIII test set: 16{,}606 sentence-level candidates from 400 abstracts, $0.463$ positive, 538 from sentences naming two concepts. Headline rows repeat Table~\ref  {tab:main}. AUPRC is the per-seed mean $\pm $ standard deviation over three seeds (columns by concept count: three-checkpoint ensembles); F1 is at the pre-specified threshold (mean of the checkpoints' development thresholds), the teacher's at its greedy answer. EP F1 is BioRED's document-level entity-pair F1, a pair scoring the maximum over the sentences that co-mention it. On the teacher's sample the trained models' three-checkpoint ensembles score $0.757$ and $0.860$. Pair-conditioned against sentence-level: 2{,}642 items fixed, 1{,}064 broken (McNemar $p = 5.9\times 10^{-148}$).\relax }}{14}{table.caption.39}\protected@file@percent }
+\newlabel{tab:biored}{{5}{14}{BioRED, BioCreative VIII test set: 16{,}606 sentence-level candidates from 400 abstracts, $0.463$ positive, 538 from sentences naming two concepts. Headline rows repeat Table~\ref {tab:main}. AUPRC is the per-seed mean $\pm $ standard deviation over three seeds (columns by concept count: three-checkpoint ensembles); F1 is at the pre-specified threshold (mean of the checkpoints' development thresholds), the teacher's at its greedy answer. EP F1 is BioRED's document-level entity-pair F1, a pair scoring the maximum over the sentences that co-mention it. On the teacher's sample the trained models' three-checkpoint ensembles score $0.757$ and $0.860$. Pair-conditioned against sentence-level: 2{,}642 items fixed, 1{,}064 broken (McNemar $p = 5.9\times 10^{-148}$).\relax }{table.caption.39}{}}
 \@LN{1197}{13}
 \@LN{1198}{13}
 \@LN{1199}{13}
@@ -1451,8 +1469,6 @@
 \@LN{1205}{13}
 \@LN{1206}{13}
 \@LN{1207}{13}
-\@LN@col{2}
-\@writefile{toc}{\contentsline {paragraph}{Pair question.}{14}{section*.38}\protected@file@percent }
 \@LN{1208}{13}
 \@LN{1209}{13}
 \@LN{1210}{13}
@@ -1464,6 +1480,8 @@
 \@LN{1216}{13}
 \@LN{1217}{13}
 \@LN{1218}{13}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Soft-label distillation}{14}{appendix.F}\protected@file@percent }
+\newlabel{app:soft}{{F}{14}{Soft-label distillation}{appendix.F}{}}
 \@LN{1219}{13}
 \@LN{1220}{13}
 \@LN{1221}{13}
@@ -1472,138 +1490,141 @@
 \@LN{1224}{13}
 \@LN{1225}{13}
 \@LN{1226}{13}
-\@LN{1227}{13}
-\@LN{1228}{13}
-\@LN{1229}{13}
-\@LN{1230}{13}
-\@LN{1231}{13}
-\@LN{1232}{13}
-\@LN{1233}{13}
-\@LN{1234}{13}
-\@writefile{toc}{\contentsline {paragraph}{Triple question (the labelling prompt).}{14}{section*.39}\protected@file@percent }
-\@LN{1235}{13}
-\@LN{1236}{13}
-\@LN{1237}{13}
-\@LN{1238}{13}
-\@LN{1239}{13}
-\@LN{1240}{13}
-\@LN{1241}{13}
-\@LN{1242}{13}
-\@LN{1243}{13}
-\@LN{1244}{13}
-\@LN{1245}{13}
-\@LN{1246}{13}
-\@LN{1247}{13}
-\@LN{1248}{13}
-\@LN{1249}{13}
-\@LN{1250}{13}
-\@LN{1251}{13}
-\@LN{1252}{13}
-\@LN{1253}{13}
-\@LN{1254}{13}
-\@LN{1255}{13}
-\@LN{1256}{13}
-\@LN{1257}{13}
-\@LN{1258}{13}
-\@LN{1259}{13}
-\@LN{1260}{13}
-\@LN{1261}{13}
-\@LN{1262}{13}
-\@LN{1263}{13}
-\@LN{1264}{13}
-\@LN{1265}{13}
-\@LN{1266}{13}
-\@writefile{toc}{\contentsline {section}{\numberline {F}Zero-shot scaling}{14}{appendix.F}\protected@file@percent }
-\newlabel{app:scaling}{{F}{14}{Zero-shot scaling}{appendix.F}{}}
-\@LN{1267}{13}
-\@LN{1268}{13}
-\@LN{1269}{13}
-\@LN{1270}{13}
-\@LN{1271}{13}
+\citation{yasunaga2022linkbert}
 \@LN@col{1}
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces AUPRC of zero-shot Qwen3 \citep  {qwen2025technical} by size, asked the three questions of Appendix~\ref  {app:prompts} (4-bit builds served locally, thinking disabled; the triple question in both argument orders, maxed). 30B-A3B is a mixture of experts with 3B active parameters; Qwen3.5-122B, a later release, is a mixture of experts with 8 of 256 experts active per token, run partly on the CPU. Base rates $0.563$ and $0.476$. Last row: the trained three-checkpoint ensembles on the same rows. $^\dagger $On the first 1{,}000 candidates of the sample (base rate $0.442$), where the 32B model scores $0.527$ and $0.796$ and the trained models $0.714$ and $0.841$.\relax }}{15}{table.caption.40}\protected@file@percent }
-\newlabel{tab:scaling}{{10}{15}{AUPRC of zero-shot Qwen3 \citep {qwen2025technical} by size, asked the three questions of Appendix~\ref {app:prompts} (4-bit builds served locally, thinking disabled; the triple question in both argument orders, maxed). 30B-A3B is a mixture of experts with 3B active parameters; Qwen3.5-122B, a later release, is a mixture of experts with 8 of 256 experts active per token, run partly on the CPU. Base rates $0.563$ and $0.476$. Last row: the trained three-checkpoint ensembles on the same rows. $^\dagger $On the first 1{,}000 candidates of the sample (base rate $0.442$), where the 32B model scores $0.527$ and $0.796$ and the trained models $0.714$ and $0.841$.\relax }{table.caption.40}{}}
-\@LN{1272}{14}
-\@LN{1273}{14}
-\@LN{1274}{14}
-\@LN{1275}{14}
-\@LN{1276}{14}
-\@LN{1277}{14}
-\@LN{1278}{14}
-\@LN{1279}{14}
-\@LN{1280}{14}
-\@LN{1281}{14}
-\@LN{1282}{14}
-\@LN{1283}{14}
-\@LN{1284}{14}
-\@LN{1285}{14}
-\@LN{1286}{14}
-\@LN{1287}{14}
-\@LN{1288}{14}
-\@LN{1289}{14}
-\@LN{1290}{14}
-\@LN{1291}{14}
-\@writefile{toc}{\contentsline {section}{\numberline {G}Escalating uncertain candidates to the teacher}{15}{appendix.G}\protected@file@percent }
-\newlabel{app:cascade}{{G}{15}{Escalating uncertain candidates to the teacher}{appendix.G}{}}
-\@LN{1292}{14}
-\@LN{1293}{14}
-\@LN{1294}{14}
-\@LN{1295}{14}
-\@LN{1296}{14}
-\@LN{1297}{14}
-\@LN{1298}{14}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces AUPRC of zero-shot Qwen3 \citep  {qwen2025technical} by size, asked the three questions of Appendix~\ref  {app:prompts} (4-bit builds served locally, thinking disabled; the triple question in both argument orders, maxed). 30B-A3B is a mixture of experts with 3B active parameters; Qwen3.5-122B, a later release, is a mixture of experts with 8 of 256 experts active per token, run partly on the CPU. Base rates $0.574$ and $0.476$. Last row: the trained three-checkpoint ensembles on the same rows. $^\dagger $On the first 1{,}000 candidates of the sample (base rate $0.442$), where the 32B model scores $0.527$ and $0.796$ and the trained models $0.714$ and $0.841$.\relax }}{15}{table.caption.40}\protected@file@percent }
+\newlabel{tab:scaling}{{6}{15}{AUPRC of zero-shot Qwen3 \citep {qwen2025technical} by size, asked the three questions of Appendix~\ref {app:prompts} (4-bit builds served locally, thinking disabled; the triple question in both argument orders, maxed). 30B-A3B is a mixture of experts with 3B active parameters; Qwen3.5-122B, a later release, is a mixture of experts with 8 of 256 experts active per token, run partly on the CPU. Base rates $0.574$ and $0.476$. Last row: the trained three-checkpoint ensembles on the same rows. $^\dagger $On the first 1{,}000 candidates of the sample (base rate $0.442$), where the 32B model scores $0.527$ and $0.796$ and the trained models $0.714$ and $0.841$.\relax }{table.caption.40}{}}
+\@LN{1227}{14}
+\@LN{1228}{14}
+\@LN{1229}{14}
+\@LN{1230}{14}
+\@LN{1231}{14}
+\@LN{1232}{14}
+\@LN{1233}{14}
+\@LN{1234}{14}
+\@LN{1235}{14}
+\@LN{1236}{14}
+\@LN{1237}{14}
+\@LN{1238}{14}
+\@LN{1239}{14}
+\@LN{1240}{14}
+\@LN{1241}{14}
+\@LN{1242}{14}
+\@LN{1243}{14}
+\@writefile{toc}{\contentsline {section}{\numberline {G}Query ablation}{15}{appendix.G}\protected@file@percent }
+\newlabel{app:ablation}{{G}{15}{Query ablation}{appendix.G}{}}
+\@LN{1244}{14}
+\@LN{1245}{14}
+\@LN{1246}{14}
+\@LN{1247}{14}
+\@LN{1248}{14}
+\@LN{1249}{14}
+\@LN{1250}{14}
+\@LN{1251}{14}
+\@LN{1252}{14}
+\@LN{1253}{14}
 \@LN@col{2}
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces The deployed model with its candidate rules keeps its own decision except on the band of candidates whose score lies nearest its threshold, which take the zero-shot teacher's answer to the pair question; 437 rows. A rule rejection is final. Band $0\%$ is the deployed model alone, $100\%$ the teacher alone (with the rules).\relax }}{15}{table.caption.41}\protected@file@percent }
-\newlabel{tab:cascade}{{11}{15}{The deployed model with its candidate rules keeps its own decision except on the band of candidates whose score lies nearest its threshold, which take the zero-shot teacher's answer to the pair question; 437 rows. A rule rejection is final. Band $0\%$ is the deployed model alone, $100\%$ the teacher alone (with the rules).\relax }{table.caption.41}{}}
-\@LN{1299}{14}
-\@LN{1300}{14}
-\@LN{1301}{14}
-\@LN{1302}{14}
-\@LN{1303}{14}
-\@LN{1304}{14}
-\@LN{1305}{14}
-\@LN{1306}{14}
-\@LN{1307}{14}
-\@LN{1308}{14}
-\@LN{1309}{14}
-\@LN{1310}{14}
-\@LN{1311}{14}
-\@LN{1312}{14}
-\@LN{1313}{14}
-\@LN{1314}{14}
-\@writefile{toc}{\contentsline {section}{\numberline {H}Error examples}{15}{appendix.H}\protected@file@percent }
-\newlabel{app:examples}{{H}{15}{Error examples}{appendix.H}{}}
-\@LN{1315}{14}
-\@writefile{toc}{\contentsline {section}{\numberline {I}Candidate rules in detail}{15}{appendix.I}\protected@file@percent }
-\newlabel{app:rules}{{I}{15}{Candidate rules in detail}{appendix.I}{}}
-\@LN{1316}{14}
-\@LN{1317}{14}
-\@LN{1318}{14}
-\@LN{1319}{14}
-\@LN{1320}{14}
-\@LN{1321}{14}
-\@LN{1322}{14}
-\@LN{1323}{14}
-\@LN{1324}{14}
-\@LN{1325}{14}
-\@LN{1326}{14}
-\@LN{1327}{14}
-\@LN{1328}{14}
-\@LN{1329}{14}
-\@LN{1330}{14}
-\@LN{1331}{14}
-\@LN{1332}{14}
-\@LN{1333}{14}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces The sentence-level, pair-conditioned and triple-conditioned models trained on the teacher's verdicts (the body's models) and on its probabilities, recipe and seeds unchanged. AUPRC is the per-seed mean $\pm $ standard deviation; F1 (block-held-out thresholds) and AUPRC by the number of taxa the passage names are those of three-checkpoint ensembles, as in Tables~\ref  {tab:main} and~\ref  {tab:where}. Per-seed AUPRC with soft targets: $.866/.879/.875$, $.951/.946/.945$ and $.952/.952/.948$. Against the verdict-trained model of the same format, the soft-target model fixes 13 items and breaks 7 (sentence-level), 13 and 14 (pair-conditioned), 19 and 7 (triple-conditioned; McNemar $p = 0.26$, $1.0$, $0.03$).\relax }}{15}{table.caption.41}\protected@file@percent }
+\newlabel{tab:soft}{{7}{15}{The sentence-level, pair-conditioned and triple-conditioned models trained on the teacher's verdicts (the body's models) and on its probabilities, recipe and seeds unchanged. AUPRC is the per-seed mean $\pm $ standard deviation; F1 (block-held-out thresholds) and AUPRC by the number of taxa the passage names are those of three-checkpoint ensembles, as in Tables~\ref {tab:main} and~\ref {tab:where}. Per-seed AUPRC with soft targets: $.866/.879/.875$, $.951/.946/.945$ and $.952/.952/.948$. Against the verdict-trained model of the same format, the soft-target model fixes 13 items and breaks 7 (sentence-level), 13 and 14 (pair-conditioned), 19 and 7 (triple-conditioned; McNemar $p = 0.26$, $1.0$, $0.03$).\relax }{table.caption.41}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Degrading segment~A of the trained triple-conditioned model at inference, weights and its own block-held-out thresholds unchanged; AUPRC of the three-checkpoint ensemble. Base rate $0.574$. Per-seed standard deviations on AUPRC are $\le 0.032$.\relax }}{15}{table.caption.42}\protected@file@percent }
+\newlabel{tab:ablation}{{8}{15}{Degrading segment~A of the trained triple-conditioned model at inference, weights and its own block-held-out thresholds unchanged; AUPRC of the three-checkpoint ensemble. Base rate $0.574$. Per-seed standard deviations on AUPRC are $\le 0.032$.\relax }{table.caption.42}{}}
+\@LN{1254}{14}
+\@LN{1255}{14}
+\@LN{1256}{14}
+\@LN{1257}{14}
+\@LN{1258}{14}
+\@writefile{toc}{\contentsline {section}{\numberline {H}Encoders}{15}{appendix.H}\protected@file@percent }
+\newlabel{app:encoders}{{H}{15}{Encoders}{appendix.H}{}}
+\@LN{1259}{14}
+\@LN{1260}{14}
+\@LN{1261}{14}
+\@LN{1262}{14}
+\@LN{1263}{14}
+\@LN{1264}{14}
+\@LN{1265}{14}
+\@LN{1266}{14}
+\@LN{1267}{14}
+\@LN{1268}{14}
+\@LN{1269}{14}
+\@LN{1270}{14}
+\@LN{1271}{14}
+\@LN{1272}{14}
 \citation{rees2017opentree}
 \citation{gerner2010linnaeus}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }}{16}{table.caption.42}\protected@file@percent }
-\newlabel{tab:examples}{{12}{16}{One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }{table.caption.42}{}}
 \@LN@col{1}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Deterministic candidate rules applied before the model's decision, all 437 rows, block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair model, $0.18$ and $0.067$ on the triple model.\relax }}{16}{table.caption.43}\protected@file@percent }
-\newlabel{tab:rules}{{13}{16}{Deterministic candidate rules applied before the model's decision, all 437 rows, block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair model, $0.18$ and $0.067$ on the triple model.\relax }{table.caption.43}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces The three formulations under the encoders that were scored on test, recipe otherwise that of \S  \ref  {sec:verifier}: AUPRC and EP F1 (sentence-level/pair-conditioned) as per-seed means over three seeds, and block-held-out F1 of three-checkpoint ensembles. BiomedBERT-large was not trained on the biodiversity arms (Appendix~\ref  {sec:negative}). Against the base encoder's model of the same format, BioLinkBERT's pair-conditioned model fixes 621 BioRED items and breaks 537 (McNemar $p = 0.015$) and on ours 19 and 32 ($p = 0.093$); its sentence-level model on ours, 42 and 20 ($p = 0.0077$). No BioLinkBERT-large model differs significantly from the base encoder's on ours ($p \ge 0.23$).\relax }}{16}{table.caption.43}\protected@file@percent }
+\newlabel{tab:encoders}{{9}{16}{The three formulations under the encoders that were scored on test, recipe otherwise that of \S \ref {sec:verifier}: AUPRC and EP F1 (sentence-level/pair-conditioned) as per-seed means over three seeds, and block-held-out F1 of three-checkpoint ensembles. BiomedBERT-large was not trained on the biodiversity arms (Appendix~\ref {sec:negative}). Against the base encoder's model of the same format, BioLinkBERT's pair-conditioned model fixes 621 BioRED items and breaks 537 (McNemar $p = 0.015$) and on ours 19 and 32 ($p = 0.093$); its sentence-level model on ours, 42 and 20 ($p = 0.0077$). No BioLinkBERT-large model differs significantly from the base encoder's on ours ($p \ge 0.23$).\relax }{table.caption.43}{}}
+\@LN{1273}{15}
+\@LN{1274}{15}
+\@LN{1275}{15}
+\@LN{1276}{15}
+\@LN{1277}{15}
+\@LN{1278}{15}
+\@LN{1279}{15}
+\@LN{1280}{15}
+\@LN{1281}{15}
+\@LN{1282}{15}
+\@LN{1283}{15}
+\@LN{1284}{15}
+\@LN{1285}{15}
+\@LN{1286}{15}
+\@LN{1287}{15}
+\@LN{1288}{15}
+\@LN{1289}{15}
+\@LN{1290}{15}
+\@LN{1291}{15}
+\@LN{1292}{15}
+\@LN{1293}{15}
+\@LN{1294}{15}
+\@LN{1295}{15}
+\@LN{1296}{15}
+\@LN{1297}{15}
+\@LN{1298}{15}
+\@LN{1299}{15}
+\@LN{1300}{15}
+\@LN{1301}{15}
+\@LN{1302}{15}
+\@LN{1303}{15}
+\@LN{1304}{15}
+\@LN{1305}{15}
+\@LN@col{2}
+\@LN{1306}{15}
+\@LN{1307}{15}
+\@LN{1308}{15}
+\@LN{1309}{15}
+\@LN{1310}{15}
+\@LN{1311}{15}
+\@LN{1312}{15}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Recall side}{16}{appendix.I}\protected@file@percent }
+\newlabel{sec:recall}{{I}{16}{Recall side}{appendix.I}{}}
+\@LN{1313}{15}
+\@LN{1314}{15}
+\@LN{1315}{15}
+\@LN{1316}{15}
+\@LN{1317}{15}
+\@LN{1318}{15}
+\@LN{1319}{15}
+\@LN{1320}{15}
+\@LN{1321}{15}
+\@LN{1322}{15}
+\@LN{1323}{15}
+\@LN{1324}{15}
+\@LN{1325}{15}
+\@LN{1326}{15}
+\@LN{1327}{15}
+\@writefile{toc}{\contentsline {section}{\numberline {J}Error examples}{16}{appendix.J}\protected@file@percent }
+\newlabel{app:examples}{{J}{16}{Error examples}{appendix.J}{}}
+\@LN{1328}{15}
+\@LN{1329}{15}
+\@LN{1330}{15}
+\@writefile{toc}{\contentsline {section}{\numberline {K}Where the reformulation stops}{16}{appendix.K}\protected@file@percent }
+\newlabel{sec:notfixed}{{K}{16}{Where the reformulation stops}{appendix.K}{}}
+\@LN{1331}{15}
+\@writefile{toc}{\contentsline {paragraph}{Entity disambiguation, and a gate that cannot fix it.}{16}{section*.45}\protected@file@percent }
+\@LN{1332}{15}
+\@LN{1333}{15}
 \@LN{1334}{15}
 \@LN{1335}{15}
-\@writefile{toc}{\contentsline {paragraph}{How they were validated, and what that licenses.}{16}{section*.44}\protected@file@percent }
 \@LN{1336}{15}
 \@LN{1337}{15}
 \@LN{1338}{15}
@@ -1615,58 +1636,60 @@
 \@LN{1344}{15}
 \@LN{1345}{15}
 \@LN{1346}{15}
+\@writefile{toc}{\contentsline {paragraph}{Direction needs its own gold.}{16}{section*.46}\protected@file@percent }
 \@LN{1347}{15}
 \@LN{1348}{15}
 \@LN{1349}{15}
 \@LN{1350}{15}
 \@LN{1351}{15}
 \@LN{1352}{15}
-\@LN{1353}{15}
-\@LN{1354}{15}
-\@LN@col{2}
-\@LN{1355}{15}
-\@writefile{toc}{\contentsline {section}{\numberline {J}Where the reformulation stops}{16}{appendix.J}\protected@file@percent }
-\newlabel{sec:notfixed}{{J}{16}{Where the reformulation stops}{appendix.J}{}}
-\@LN{1356}{15}
-\@writefile{toc}{\contentsline {paragraph}{Entity disambiguation, and a gate that cannot fix it.}{16}{section*.45}\protected@file@percent }
-\@LN{1357}{15}
-\@LN{1358}{15}
-\@LN{1359}{15}
-\@LN{1360}{15}
-\@LN{1361}{15}
-\@LN{1362}{15}
-\@LN{1363}{15}
-\@LN{1364}{15}
-\@LN{1365}{15}
-\@LN{1366}{15}
-\@LN{1367}{15}
-\@LN{1368}{15}
-\@LN{1369}{15}
-\@LN{1370}{15}
-\@LN{1371}{15}
-\@LN{1372}{15}
-\@writefile{toc}{\contentsline {paragraph}{Direction needs its own gold.}{16}{section*.46}\protected@file@percent }
-\@LN{1373}{15}
-\@LN{1374}{15}
-\@LN{1375}{15}
-\@LN{1376}{15}
-\@LN{1377}{15}
-\@LN{1378}{15}
-\@LN{1379}{15}
-\@LN{1380}{15}
-\@LN{1381}{15}
-\@LN{1382}{15}
-\@LN{1383}{15}
-\@LN{1384}{15}
-\@LN{1385}{15}
-\@LN{1386}{15}
-\@LN{1387}{15}
-\@LN{1388}{15}
-\@LN{1389}{15}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }}{17}{table.caption.44}\protected@file@percent }
+\newlabel{tab:examples}{{10}{17}{One example of each mechanism among the pair-conditioned model's false positives. The relation's true argument is italicised where it is not the queried taxon; in the entity case a place name was matched as a taxon.\relax }{table.caption.44}{}}
 \@LN@col{1}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Deterministic candidate rules applied before the model's decision, all 437 rows, three-checkpoint ensembles at block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair-conditioned model, $0.50$ and $0.17$ on the triple-conditioned model.\relax }}{17}{table.caption.47}\protected@file@percent }
+\newlabel{tab:rules}{{11}{17}{Deterministic candidate rules applied before the model's decision, all 437 rows, three-checkpoint ensembles at block-held-out thresholds. ``Fixed'' and ``broken'' are relative to the same model without rules. McNemar: $p = 1.00$ and $1.00$ on the pair-conditioned model, $0.50$ and $0.17$ on the triple-conditioned model.\relax }{table.caption.47}{}}
+\@LN{1353}{16}
+\@LN{1354}{16}
+\@LN{1355}{16}
+\@LN{1356}{16}
+\@LN{1357}{16}
+\@LN{1358}{16}
+\@LN{1359}{16}
+\@LN{1360}{16}
+\@LN{1361}{16}
+\@LN{1362}{16}
+\@LN{1363}{16}
+\@LN{1364}{16}
+\@writefile{toc}{\contentsline {section}{\numberline {L}Candidate rules in detail}{17}{appendix.L}\protected@file@percent }
+\newlabel{app:rules}{{L}{17}{Candidate rules in detail}{appendix.L}{}}
+\@LN{1365}{16}
+\@LN{1366}{16}
+\@LN{1367}{16}
+\@LN{1368}{16}
+\@LN{1369}{16}
+\@LN{1370}{16}
+\@LN{1371}{16}
+\@LN{1372}{16}
+\@LN{1373}{16}
+\@LN{1374}{16}
+\@LN@col{2}
+\@LN{1375}{16}
+\@LN{1376}{16}
+\@LN{1377}{16}
+\@LN{1378}{16}
+\@LN{1379}{16}
+\@LN{1380}{16}
+\@LN{1381}{16}
+\@LN{1382}{16}
+\@LN{1383}{16}
+\@LN{1384}{16}
+\@LN{1385}{16}
+\@writefile{toc}{\contentsline {paragraph}{How they were validated, and what that licenses.}{17}{section*.48}\protected@file@percent }
+\@LN{1386}{16}
+\@LN{1387}{16}
+\@LN{1388}{16}
+\@LN{1389}{16}
 \@LN{1390}{16}
-\@writefile{toc}{\contentsline {section}{\numberline {K}Artifacts and compute}{17}{appendix.K}\protected@file@percent }
-\newlabel{app:artifacts}{{K}{17}{Artifacts and compute}{appendix.K}{}}
 \@LN{1391}{16}
 \@LN{1392}{16}
 \@LN{1393}{16}
@@ -1681,47 +1704,136 @@
 \@LN{1402}{16}
 \@LN{1403}{16}
 \@LN{1404}{16}
-\@writefile{toc}{\contentsline {section}{\numberline {L}Negative results and cost}{17}{appendix.L}\protected@file@percent }
-\newlabel{sec:negative}{{L}{17}{Negative results and cost}{appendix.L}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Six plausible design choices that measurably do not pay.\relax }}{17}{table.caption.47}\protected@file@percent }
-\newlabel{tab:negative}{{14}{17}{Six plausible design choices that measurably do not pay.\relax }{table.caption.47}{}}
 \@LN{1405}{16}
+\@writefile{toc}{\contentsline {section}{\numberline {M}Direction head}{17}{appendix.M}\protected@file@percent }
+\newlabel{app:direction}{{M}{17}{Direction head}{appendix.M}{}}
 \@LN{1406}{16}
 \@LN{1407}{16}
 \@LN{1408}{16}
 \@LN{1409}{16}
-\@LN{1410}{16}
-\@LN{1411}{16}
-\@LN{1412}{16}
-\@LN{1413}{16}
-\@LN{1414}{16}
-\@LN{1415}{16}
-\@LN{1416}{16}
-\@LN{1417}{16}
-\@LN{1418}{16}
-\@LN{1419}{16}
-\@LN{1420}{16}
-\@LN{1421}{16}
-\@LN{1422}{16}
-\@LN{1423}{16}
-\@LN{1424}{16}
+\@LN@col{1}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces The recommended model's four-way direction output against 97 expert-graded direction labels. ``Answered'' counts \textsc  {Forward} or \textsc  {Reverse}; the rest are \textsc  {Uncertain}. The abstention level ($0.60$) was chosen by the expert after seeing this set's coverage curve, so the figures are optimistic.\relax }}{18}{table.caption.49}\protected@file@percent }
+\newlabel{tab:direction}{{12}{18}{The recommended model's four-way direction output against 97 expert-graded direction labels. ``Answered'' counts \textsc {Forward} or \textsc {Reverse}; the rest are \textsc {Uncertain}. The abstention level ($0.60$) was chosen by the expert after seeing this set's coverage curve, so the figures are optimistic.\relax }{table.caption.49}{}}
+\@LN{1410}{17}
+\@LN{1411}{17}
+\@LN{1412}{17}
+\@LN{1413}{17}
+\@LN{1414}{17}
+\@LN{1415}{17}
+\@LN{1416}{17}
+\@LN{1417}{17}
+\@LN{1418}{17}
+\@LN{1419}{17}
+\@LN{1420}{17}
+\@LN{1421}{17}
+\@LN{1422}{17}
+\@LN{1423}{17}
+\@LN{1424}{17}
+\@LN{1425}{17}
+\@LN{1426}{17}
+\@LN{1427}{17}
+\@LN{1428}{17}
+\@LN{1429}{17}
+\@LN{1430}{17}
+\@LN{1431}{17}
+\@LN{1432}{17}
+\@LN{1433}{17}
+\@LN{1434}{17}
+\@LN{1435}{17}
+\@writefile{toc}{\contentsline {section}{\numberline {N}Escalating uncertain candidates to the teacher}{18}{appendix.N}\protected@file@percent }
+\newlabel{app:cascade}{{N}{18}{Escalating uncertain candidates to the teacher}{appendix.N}{}}
+\@LN{1436}{17}
+\@LN{1437}{17}
+\@LN{1438}{17}
+\@LN{1439}{17}
+\@LN{1440}{17}
+\@LN{1441}{17}
+\@LN{1442}{17}
+\@LN{1443}{17}
+\@LN{1444}{17}
+\@LN{1445}{17}
+\@LN{1446}{17}
+\@LN{1447}{17}
+\@LN{1448}{17}
 \@LN@col{2}
-\@LN{1425}{16}
-\@LN{1426}{16}
-\@LN{1427}{16}
-\@LN{1428}{16}
-\@LN{1429}{16}
-\@LN{1430}{16}
-\@LN{1431}{16}
-\@LN{1432}{16}
-\@LN{1433}{16}
-\@LN{1434}{16}
-\@LN{1435}{16}
-\@LN{1436}{16}
-\@LN{1437}{16}
-\@LN{1438}{16}
-\@LN{1439}{16}
-\@LN{1440}{16}
-\@LN{1441}{16}
-\@LN{1442}{16}
-\gdef \@abspage@last{17}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces The recommended model with its candidate rules keeps its own decision except on the band of candidates whose score lies nearest its threshold, which take a zero-shot LLM's answer to the pair question (Qwen3-32B, the teacher, or Qwen3.5-122B); 437 rows. A rule rejection is final. Band $0\%$ is the recommended model alone, $100\%$ the LLM alone (with the rules).\relax }}{18}{table.caption.50}\protected@file@percent }
+\newlabel{tab:cascade}{{13}{18}{The recommended model with its candidate rules keeps its own decision except on the band of candidates whose score lies nearest its threshold, which take a zero-shot LLM's answer to the pair question (Qwen3-32B, the teacher, or Qwen3.5-122B); 437 rows. A rule rejection is final. Band $0\%$ is the recommended model alone, $100\%$ the LLM alone (with the rules).\relax }{table.caption.50}{}}
+\@LN{1449}{17}
+\@LN{1450}{17}
+\@LN{1451}{17}
+\@LN{1452}{17}
+\@LN{1453}{17}
+\@LN{1454}{17}
+\@LN{1455}{17}
+\@LN{1456}{17}
+\@LN{1457}{17}
+\@LN{1458}{17}
+\@writefile{toc}{\contentsline {section}{\numberline {O}Artifacts and compute}{18}{appendix.O}\protected@file@percent }
+\newlabel{app:artifacts}{{O}{18}{Artifacts and compute}{appendix.O}{}}
+\@LN{1459}{17}
+\@LN{1460}{17}
+\@LN{1461}{17}
+\@LN{1462}{17}
+\@LN{1463}{17}
+\@LN{1464}{17}
+\@LN{1465}{17}
+\@LN{1466}{17}
+\@LN{1467}{17}
+\@LN{1468}{17}
+\@LN{1469}{17}
+\@LN{1470}{17}
+\@LN{1471}{17}
+\@LN{1472}{17}
+\@LN{1473}{17}
+\@LN{1474}{17}
+\@LN{1475}{17}
+\@LN{1476}{17}
+\@LN{1477}{17}
+\@LN{1478}{17}
+\@LN{1479}{17}
+\@writefile{toc}{\contentsline {section}{\numberline {P}Negative results and cost}{18}{appendix.P}\protected@file@percent }
+\newlabel{sec:negative}{{P}{18}{Negative results and cost}{appendix.P}{}}
+\@LN{1480}{17}
+\@LN{1481}{17}
+\@LN{1482}{17}
+\@LN@col{1}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Six plausible design choices that measurably do not pay. Rows two to five were measured under an earlier version of the evaluation (see text); the last row compares per-seed means.\relax }}{19}{table.caption.51}\protected@file@percent }
+\newlabel{tab:negative}{{14}{19}{Six plausible design choices that measurably do not pay. Rows two to five were measured under an earlier version of the evaluation (see text); the last row compares per-seed means.\relax }{table.caption.51}{}}
+\@LN{1483}{18}
+\@LN{1484}{18}
+\@LN{1485}{18}
+\@LN{1486}{18}
+\@LN{1487}{18}
+\@LN{1488}{18}
+\@LN{1489}{18}
+\@LN{1490}{18}
+\@LN{1491}{18}
+\@LN{1492}{18}
+\@LN{1493}{18}
+\@LN{1494}{18}
+\@LN{1495}{18}
+\@LN{1496}{18}
+\@LN{1497}{18}
+\@LN{1498}{18}
+\@LN{1499}{18}
+\@LN{1500}{18}
+\@LN{1501}{18}
+\@LN{1502}{18}
+\@LN{1503}{18}
+\@LN{1504}{18}
+\@LN{1505}{18}
+\@LN{1506}{18}
+\@LN{1507}{18}
+\@LN{1508}{18}
+\@LN{1509}{18}
+\@LN{1510}{18}
+\@LN{1511}{18}
+\@LN{1512}{18}
+\@LN{1513}{18}
+\@LN{1514}{18}
+\@LN{1515}{18}
+\@LN{1516}{18}
+\@LN@col{2}
+\@LN{1517}{18}
+\@LN{1518}{18}
+\gdef \@abspage@last{19}

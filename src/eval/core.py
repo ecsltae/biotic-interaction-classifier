@@ -55,32 +55,75 @@ def sha256(path: str | Path) -> str:
 # rows; 9 are flagged `in_train` (exact match with a training passage) and the 5-gram scan of
 # scripts/scan_contamination.py finds 3 more (Jaccard 1.000, all biotx100). Scripts that dropped
 # only `in_train` scored 440 rows, so their numbers did not line up with the papers' 437.
+#
+# Gold revisions (each leaves a frozen copy of the file before it, listed in LABEL_VERSIONS):
+#   2026-09-25  row 400 (Acanthamoeba / Pseudomonas) 1 -> 0                       -> 246 clean positives
+#   2026-10-06  blind re-annotation of 22 items (11 contested, 11 random controls;
+#               labels and scores hidden): 7 labels changed, rows 66, 121, 126,
+#               177, 189 and 232 0 -> 1, row 416 1 -> 0 (gold_rev 2, gold_note)  -> 251 clean positives
 
 UNIFIED = BASE / "data/evaluation/unified_test_set.csv"
-UNIFIED_SHA = "057416074764bdb1c6697d95fa58b68b9755176f6b2d2ad2e78b4ae3656b547b"  # after the 2026-09-25 row-400 fix
+UNIFIED_SHA = "c17cc4bec6ae6c04d0b3eb923167df4f6e3e874ea81833116200a10a0f9dc856"  # after the 2026-10-06 re-annotation
 CONTAM = BASE / "results/test_contamination_scan.csv"
 JACCARD_MAX = 0.5          # no row sits at exactly 0.5, so > and >= agree
-CLEAN_N, CLEAN_POS = 437, 246
+CLEAN_N, CLEAN_POS = 437, 251   # CLEAN_POS: positives under the "current" labels
+
+# Label versions of the benchmark. Every version is a full 449-row copy with the same rows,
+# sentences, sources and `in_train` flags, so the clean mask is the same in all of them; only labels
+# differ. "current" is what the paper reports; the frozen copies keep earlier numbers reproducible.
+LABEL_VERSIONS = {
+    "current": {"path": UNIFIED, "sha256": UNIFIED_SHA, "positives": CLEAN_POS},
+    "pre_review_2026-10-06": {
+        "path": BASE / "data/evaluation/unified_test_set.pre_review_2026-10-06.csv",
+        "sha256": "057416074764bdb1c6697d95fa58b68b9755176f6b2d2ad2e78b4ae3656b547b", "positives": 246,
+        "note": "after the 2026-09-25 row-400 fix, before the 2026-10-06 blind re-annotation"},
+    "pre_goldfix": {
+        "path": BASE / "data/evaluation/unified_test_set.pre_goldfix.csv",
+        "sha256": "cac7dc60dd8385f217c1bf2a4ec1a6b2ea821acab467ca441b982a715d27ded2", "positives": 247,
+        "note": "before the 2026-09-25 revision of row 400"},
+}
 
 
-def clean_mask() -> np.ndarray:
-    """Boolean mask over the 449 benchmark rows: True for the 437 clean ones."""
-    if sha256(UNIFIED) != UNIFIED_SHA:
-        raise ValueError(f"{UNIFIED} changed (sha {sha256(UNIFIED)}); refusing to score a mutated benchmark")
-    d = pd.read_csv(UNIFIED)
+def label_version(labels: str = "current") -> dict:
+    """The file, SHA-256 and expected clean positives of one label version."""
+    if labels not in LABEL_VERSIONS:
+        raise ValueError(f"unknown label version {labels!r}; one of {sorted(LABEL_VERSIONS)}")
+    return LABEL_VERSIONS[labels]
+
+
+def clean_mask(labels: str = "current") -> np.ndarray:
+    """Boolean mask over the 449 benchmark rows: True for the 437 clean ones.
+
+    The mask is computed as it always was (``in_train`` or 5-gram Jaccard > 0.5); ``labels`` picks
+    which copy of the file is hash-checked and whose positives are counted.
+    """
+    v = label_version(labels)
+    path = v["path"]
+    got = sha256(path)
+    if got != v["sha256"]:
+        raise ValueError(f"{path} changed (sha {got}); refusing to score a mutated benchmark")
+    d = pd.read_csv(path)
     scan = pd.read_csv(CONTAM)
     if len(scan) != len(d) or not (scan.sentence.values == d.sentence.values).all():
-        raise ValueError(f"{CONTAM} is not row-aligned with {UNIFIED}")
+        raise ValueError(f"{CONTAM} is not row-aligned with {path}")
     keep = ~(d.in_train.to_numpy().astype(bool) | (scan.maxj.to_numpy() > JACCARD_MAX))
-    if keep.sum() != CLEAN_N or int(d.label.to_numpy()[keep].sum()) != CLEAN_POS:
-        raise ValueError(f"clean benchmark is {keep.sum()} rows / {int(d.label.to_numpy()[keep].sum())} positive, "
-                         f"expected {CLEAN_N} / {CLEAN_POS}")
+    if keep.sum() != CLEAN_N or int(d.label.to_numpy()[keep].sum()) != v["positives"]:
+        raise ValueError(f"clean benchmark ({labels}) is {keep.sum()} rows / {int(d.label.to_numpy()[keep].sum())} "
+                         f"positive, expected {CLEAN_N} / {v['positives']}")
     return keep
 
 
-def clean_benchmark() -> pd.DataFrame:
-    """The 437 clean rows of unified_test_set.csv (246 positive), in file order."""
-    return pd.read_csv(UNIFIED)[clean_mask()].reset_index(drop=True)
+def clean_benchmark(labels: str = "current") -> pd.DataFrame:
+    """The 437 clean rows of the benchmark in file order, labelled by ``labels``
+    (current labels: 251 positive)."""
+    return pd.read_csv(label_version(labels)["path"])[clean_mask(labels)].reset_index(drop=True)
+
+
+def benchmark_provenance(labels: str = "current") -> dict:
+    """What a result file should record about the labels it was scored against."""
+    v = label_version(labels)
+    return {"labels": labels, "file": str(Path(v["path"]).relative_to(BASE)), "sha256": v["sha256"],
+            "n": CLEAN_N, "positives": v["positives"]}
 
 
 def to_clean(a) -> np.ndarray:
@@ -250,7 +293,7 @@ def precision_at_prevalence(tpr: float, fpr: float, prevalence: float) -> float:
 # ── uncertainty ───────────────────────────────────────────────────────────
 
 def _one_metric(probs, labels, threshold, metric):
-    """Compute a single metric cheaply — the bootstrap must not recompute
+    """Compute a single metric cheaply, the bootstrap must not recompute
     AUC and AUPRC ten thousand times to report an F1 interval."""
     if metric == "auc":
         return roc_auc_score(labels, probs)

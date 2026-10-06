@@ -65,7 +65,7 @@ Campylobacter jejuni,Feeding on,Human,1,0.9067,,UNCERTAIN,0.6611,0.3221,0,1,0,0,
 Dolichogenidea gelechiidivoris,parasitoid of,Tuta absoluta,1,0.999,,FORWARD,0.9988,0.9976,0,1,0,0,1,biotx100
 Paramecium,invade,Holospora,1,0.9984,,REVERSE,0.0264,0.9472,0,1,0,0,1,biotx100
 Human,Symbiont,Ruminococcus gnavus E1,1,0.9957,,UNCERTAIN,0.391,0.2181,0,1,0,0,1,biotx100
-bat tick,feed on,humans,1,0.9993,,FORWARD,0.998,0.996,0,1,0,0,0,biotx100
+bat tick,feed on,humans,1,0.9993,,FORWARD,0.998,0.996,0,1,0,0,1,biotx100
 Humans,depends on,Brucella,1,0.9989,,BIDIRECTIONAL,,,1,1,0,0,1,biotx100
 copia,symbiont,Symbiodinium microadriaticum,1,0.6702,,UNCERTAIN,0.5082,0.0164,0,1,0,0,0,biotx100
 human,exposed to,Actinomyces viscosus,1,0.9974,,FORWARD,0.9997,0.9995,0,1,0,0,1,biotx100
@@ -115,11 +115,11 @@ Alternaria solani,pathogen of,Phytophthora infestans,0,0.002,,UNCERTAIN,0.6264,0
 Australia,contamination,Alice,0,0.0018,,UNCERTAIN,0.4629,0.0743,0,1,0,0,0,reject50
 Streptococcus,exposed to,Neisseria,0,0.0011,,UNCERTAIN,0.5241,0.0482,0,1,0,0,0,reject50
 Fusarium oxysporum,negatively regulates,chickpea,1,0.9985,,UNCERTAIN,0.6534,0.3067,0,1,0,0,0,reject50
-wasps,prey,spiders,1,0.9937,,REVERSE,0.161,0.678,0,1,0,0,0,reject50
+wasps,prey,spiders,1,0.9937,,REVERSE,0.161,0.678,0,1,0,0,1,reject50
 Clostridium difficile,pathogens,amoeba,0,0.0022,,UNCERTAIN,0.4983,0.0034,0,1,0,0,0,reject50
 paralysis,migration,Yersinia pestis,0,0.0182,,UNCERTAIN,,,1,1,0,0,0,reject50
 Prospero,regulated by,Drosophila,0,0.0994,,UNCERTAIN,0.9918,0.9836,0,1,0,0,0,reject50
-nervous necrosis virus,affecting,European sea bass,1,0.9981,,UNCERTAIN,0.3857,0.2286,0,1,0,0,0,reject50
+nervous necrosis virus,affecting,European sea bass,1,0.9981,,UNCERTAIN,0.3857,0.2286,0,1,0,0,1,reject50
 viruses,pathogens,Aphanomyces astaci,0,0.0709,,UNCERTAIN,0.713,0.426,0,1,0,0,0,reject50
 pilus,adjacent to,Salmonella,0,0.0054,,UNCERTAIN,,,1,1,0,0,0,reject50
 Brassica napus,contaminated,Enterobacter sp. MN17,1,0.996,,UNCERTAIN,0.636,0.272,0,1,0,0,0,reject50
@@ -164,7 +164,7 @@ Capillaria erinacei,endoparasites,Crenosoma striatum,0,0.0018,,UNCERTAIN,0.4329,
 Notemigonus crysoleucas,infected with,Neochasmus,1,0.9048,,FORWARD,0.943,0.8861,0,1,0,0,1,test299
 Geophaps smithii,host,Petrophassa rufipennis,0,0.0094,,UNCERTAIN,0.4565,0.0871,0,1,0,0,0,test299
 Rana pipiens,infection,leopard,0,0.1152,,UNCERTAIN,0.4711,0.0579,0,1,0,0,0,test299
-equine,infections,human,1,0.9963,,UNCERTAIN,0.6592,0.3184,0,1,0,0,0,test299
+equine,infections,human,1,0.9963,,UNCERTAIN,0.6592,0.3184,0,1,0,0,1,test299
 Hylomantis lemur,infection,Atelopus zeteki,0,0.0089,,UNCERTAIN,0.3162,0.3677,0,1,0,0,0,test299
 moose,infected with,Pneumostrongylus tenuis,1,0.9988,,UNCERTAIN,0.5591,0.1182,0,1,0,0,1,test299
 Moloch horridus,prey,Phrynosoma platyrhinos,0,0.0028,,UNCERTAIN,0.4999,0.0003,0,1,0,0,0,test299
@@ -176,7 +176,7 @@ Diglyphus isaea,Parasitoids,Halticoptera arduine,1,0.9591,,UNCERTAIN,0.2238,0.55
 Phytomyza prava,host,Dizygomyza,0,0.003,,UNCERTAIN,0.7394,0.4788,0,1,0,0,0,test299
 Rhizopus,infection,Absidia orchidis,0,0.0023,,UNCERTAIN,0.5629,0.1257,0,1,0,0,0,test299
 X. glabratus,attracted,swampbay|Persea palustris,0,0.3177,,UNCERTAIN,0.9758,0.9517,0,1,0,0,1,test299
-Agelena labyrinthica,prey,honey bee,1,0.9979,,REVERSE,0.0216,0.9568,0,1,0,0,0,test299
+Agelena labyrinthica,prey,honey bee,1,0.9979,,REVERSE,0.0216,0.9568,0,1,0,0,1,test299
 M. hiratsukanum,pathogen,Alnus incana,1,0.9972,,UNCERTAIN,0.7314,0.4629,0,1,0,0,1,test299
 Acrobates pygmaeus,infection,Australia,0,0.0058,,UNCERTAIN,0.6036,0.2073,0,1,0,0,0,test299
 Chaetosphaeria,host,Phialosporostilbe,0,0.0049,,UNCERTAIN,0.2628,0.4745,0,1,0,0,0,test299
@@ -219,7 +219,7 @@ goose,hunting,Anser brachyrhynchus,1,0.7315,,FORWARD,0.982,0.964,0,1,0,0,0,test2
 Phymaturus extrilidus,infection,Parapharyngodon riojensis,1,0.9991,,FORWARD,0.8768,0.7536,0,1,0,0,1,test299
 Tupaia tana,infections,Cryptococcus neoformans,1,0.9948,,UNCERTAIN,0.5304,0.0608,0,1,0,0,1,test299
 Eriogonum arborescens,grazing,Artemisia californica,0,0.0037,,UNCERTAIN,0.6821,0.3642,0,1,0,0,0,test299
-striped mullet,parasite of,Metamicrocotyla macracantha,1,0.9993,,REVERSE,0.001,0.9981,0,1,0,0,0,test299
+striped mullet,parasite of,Metamicrocotyla macracantha,1,0.9993,,REVERSE,0.001,0.9981,0,1,0,0,1,test299
 Prokelisia crocea,parasitoid,Anagrus columbi,0,0.0672,,UNCERTAIN,0.0557,0.8886,0,1,0,0,1,test299
 red lionfish|Pterois volitans,prey,Chromis viridis,1,0.9989,,REVERSE,0.0751,0.8498,0,1,0,0,1,test299
 Ursus arctos horribilis,feces,greater kudu|Tragelaphus strepsiceros,0,0.0044,,UNCERTAIN,0.724,0.4479,0,1,1,0,0,test299
@@ -403,7 +403,7 @@ Candida albicans,derived from,Penicilliummarneffei,0,0.002,,UNCERTAIN,0.2632,0.4
 Sulfolobus islandicus,host,lysis,0,0.0228,,UNCERTAIN,0.2272,0.5456,0,1,0,0,0,test299
 Micrococcus luteus,inhibited,Lactobacillus acidophilus,0,0.0016,,UNCERTAIN,0.8328,0.6655,0,1,1,0,0,test299
 Saccharomyces cerevisiae,communication,Schizosaccharomyces pombe|fission yeast,0,0.072,,UNCERTAIN,0.5038,0.0075,0,1,1,0,0,test299
-Philodryas chamissonis,predator,Dusicyon culpaeus,0,0.0075,,UNCERTAIN,0.3533,0.2933,0,1,0,0,1,test299
+Philodryas chamissonis,predator,Dusicyon culpaeus,0,0.0075,,UNCERTAIN,0.3533,0.2933,0,1,0,0,0,test299
 Pseudosida variabilis,alter,Daphnia magna,0,0.0026,,UNCERTAIN,0.2826,0.4347,0,1,1,0,0,test299
 Citrobacter,copy,Proteus,0,0.0019,,UNCERTAIN,0.601,0.2021,0,1,1,0,0,test299
 Burkholderia pseudomallei,interacts with,Proteus mirabilis,0,0.0032,,UNCERTAIN,,,1,1,0,0,0,test299

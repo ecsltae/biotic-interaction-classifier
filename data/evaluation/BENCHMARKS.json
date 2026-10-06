@@ -16,7 +16,7 @@
   },
   "unified_test_set": {
     "path": "data/evaluation/unified_test_set.csv",
-    "sha256": "057416074764bdb1c6697d95fa58b68b9755176f6b2d2ad2e78b4ae3656b547b",
-    "note": "449 rows, 250 positive. Species-level labels (do these two taxa interact per this passage?) -- NOT triples_ok_full. 12 rows are near-duplicates of training passages (9 flagged in_train + 3 mojibake duplicates found by 5-gram Jaccard); the clean evaluation set is 437 rows, 246 positive. gold_rev=2 on row 400 (Acanthamoeba/Pseudomonas co-occurrence, corrected 1->0, 2026-09-25). Update this hash deliberately whenever gold changes."
+    "sha256": "c17cc4bec6ae6c04d0b3eb923167df4f6e3e874ea81833116200a10a0f9dc856",
+    "note": "449 rows, 255 positive. Species-level labels (do these two taxa interact per this passage?) -- NOT triples_ok_full. 12 rows are near-duplicates of training passages (9 flagged in_train + 3 mojibake duplicates found by 5-gram Jaccard); the clean evaluation set is 437 rows, 251 positive. gold_rev=2 on row 400 (Acanthamoeba/Pseudomonas co-occurrence, corrected 1->0, 2026-09-25) and on rows 66, 121, 126, 177, 189, 232 (0->1) and 416 (1->0) after the 2026-10-06 blind re-annotation of 22 items (gold_note records each). Frozen copies of earlier label versions: unified_test_set.pre_goldfix.csv and unified_test_set.pre_review_2026-10-06.csv (src/eval/core.py LABEL_VERSIONS). Update this hash deliberately whenever gold changes."
   }
 }

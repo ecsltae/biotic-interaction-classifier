@@ -1,0 +1,30 @@
+Overnight (2026-10-05, unattended, local models only): analysis, literature, writer and reviewer stages built and checked a separate sentence-level draft of Paper A. paperA.tex is untouched. The reviewer audited 92 new number claims (0 wrong) and 80 citations (3 misattributions fixed). Fixes: 2 causal overclaims narrowed, provisional flags added, the closing line hedged. The build is clean (0 errors, 0 overfull boxes), the body ends on p8 and the abstract is 197 words. Local commits b078ccf and 739a441, not pushed.
+
+Key sentence-level numbers:
+- BioRED (2,582 BC8 test sentences, labels derived from the gold pair labels): pair-max AUPRC 0.965, sentence-label model 0.955 (+0.010 [-0.001, +0.021], not significant), candidate-trained sentence arm 0.930 (+0.035 [+0.024, +0.047]). F1 0.954 vs 0.930 (McNemar p = 2e-17). The edge is in single-pair sentences.
+- Biodiversity, PROVISIONAL (191 pair-negative passages labelled by LLMs): the fair competitor wins. It is BiomedBERT trained on Qwen3-32B's answers to the sentence question: AUPRC 0.985-0.987 vs pair-max 0.966-0.977 under all three label definitions. Its whole edge lies on the LLM-labelled passages, so it is partly circular.
+- These hold without silver labels: a perfect sentence filter has pair precision 0.536 on BioRED (0.724 on ours, provisional). Asked the sentence question, the teacher says no on 34.5% of corpus passages.
+
+Recommendation: adopt the reframe only after human SENTENCE labels exist for the pair-negative passages, because today its new result on our own benchmark is provisional and partly circular. I estimate it would score about 2.5 with reviewers, against 3.0 for the submission. Until then submit paperA.tex, but soften "answered before it is asked" (the 34.5% contradicts it; wording in REVIEW.md §8).
+
+Files to open:
+~/MetaP/classifier/paperA/paperA_reframe.pdf
+~/MetaP/classifier/paperA/REFRAME_NOTES.md
+~/MetaP/classifier/results/reframe_2026-10-05/REVIEW.md
+~/MetaP/classifier/results/reframe_2026-10-05/ANALYSIS.md
+~/MetaP/classifier/results/reframe_2026-10-05/gold_review_22.md
+
+Gold review: your PAIR answers agree with the gold on 15/22 (kappa 0.36; 11/11 controls). The 7 proposed flips (items 2, 3, 4, 10, 12, 16, 18) are NOT applied. With them, every arm would gain: pair AUPRC 0.923 -> 0.947, sentence 0.855 -> 0.871, pair-sentence gap +0.067 -> +0.076, and the triple arm would draw level with the pair arm (0.948).
+
+What needs you:
+1. The 7 gold flips: your decision.
+2. SENTENCE (column F) in data/evaluation/second_annotation_2026-10-04_BLIND.xlsx. Minimum: the 177 unanswered pair-negative rows, which are scattered across the sheet, so answer it in order to stay blind. Better: all 417 non-SKIP rows, SENTENCE+PAIR, about 3.5 h. Then run scripts/sentence_level/make_sentence_tables.py.
+3. The decisions in REVIEW.md §8:
+   - the submission wording;
+   - title and closing line;
+   - reporting the gold review;
+   - wording that hints at access to the retrieval pool;
+   - a curator-initials file name in the anonymous mirror;
+   - Qwen3.8-27B licence;
+   - the XXXX code URL;
+   - two untested controls.

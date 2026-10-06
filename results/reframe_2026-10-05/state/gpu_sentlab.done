@@ -1,0 +1,8 @@
+A1 (gpu_sentlab) finished at 2026-10-05 04:26:15
+labelled passages: 34242 of 34242 (YES rate 0.6545), sample only: 0
+labels: data/training/distill/v3_sentence_teacher_qwen3-32b.csv; split: data/training/distill/v3_sentence_teacher_qwen3-32b_{train,dev}.csv
+models: models/sentence_level/biodiv_sentlab_s{1,2,3}
+results: results/paperA_v2/sentence_level/biodiv_sentlab.json
+majority3: sentence AUPRC 0.957 F1 0.849; pair-own AUPRC 0.962 F1 0.876; pair-max AUPRC 0.966 F1 0.897; sentlab AUPRC 0.985 F1 0.929
+nonteacher2: sentence AUPRC 0.963 F1 0.863; pair-own AUPRC 0.974 F1 0.898; pair-max AUPRC 0.977 F1 0.909; sentlab AUPRC 0.987 F1 0.937
+q122b: sentence AUPRC 0.958 F1 0.870; pair-own AUPRC 0.968 F1 0.875; pair-max AUPRC 0.974 F1 0.910; sentlab AUPRC 0.986 F1 0.941

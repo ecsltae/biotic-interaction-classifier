@@ -1,0 +1,704 @@
+{
+  "description": "cost of the pair enumeration behind pair-max on the 437-passage biodiversity benchmark; written by scripts/sentence_level/taxonerd_cost.py",
+  "enumeration": {
+    "source": "sandbox/sentence_level/results/taxonerd_mentions.json",
+    "n_passages": 437,
+    "mentions_per_passage": {
+      "mean": 4.233409610983982,
+      "median": 3.0,
+      "max": 29,
+      "total": 1850,
+      "distribution": {
+        "0": {
+          "passages": 21,
+          "share": 0.04805491990846682
+        },
+        "1": {
+          "passages": 70,
+          "share": 0.16018306636155608
+        },
+        "2": {
+          "passages": 69,
+          "share": 0.15789473684210525
+        },
+        "3": {
+          "passages": 62,
+          "share": 0.14187643020594964
+        },
+        "4-5": {
+          "passages": 96,
+          "share": 0.21967963386727687
+        },
+        "6-9": {
+          "passages": 85,
+          "share": 0.1945080091533181
+        },
+        ">=10": {
+          "passages": 34,
+          "share": 0.07780320366132723
+        }
+      }
+    },
+    "pairs_per_passage_incl_candidate": {
+      "mean": 14.308924485125859,
+      "median": 4.0,
+      "p90": 29.0,
+      "max": 407.0,
+      "total": 6253,
+      "p90_method": "numpy linear interpolation"
+    },
+    "share_candidate_only_pair": 0.2288329519450801,
+    "passages_candidate_only_pair": 100,
+    "candidate_both_strings_in_mentions": {
+      "note": "crude check: case-insensitive exact string match of species1 and species2 against the passage's TaxoNERD mention strings; misses spelling variants, abbreviations ('A. aegypti'), plurals and partial spans",
+      "share_exact": 0.3501144164759725,
+      "passages_exact": 153,
+      "share_allowing_pipe_alternatives": 0.41189931350114417,
+      "share_at_least_one_string_allowing_pipe_alternatives": 0.8352402745995423,
+      "candidates_with_pipe_alternatives": 50
+    },
+    "top10pct_passages_by_pairs": {
+      "n_passages": 44,
+      "pairs": 3559,
+      "share_of_all_scored_pairs": 0.5691667999360307,
+      "min_pairs_in_top": 29
+    },
+    "candidate_scored_twice_as_reversed_mention_pair": 71,
+    "forward_passes_per_passage": {
+      "pair_max": {
+        "formula": "2 orders x pairs x 3 seeds",
+        "mean": 85.85354691075516,
+        "total": 37518
+      },
+      "sentence": {
+        "formula": "1 x 3 seeds",
+        "mean": 3.0,
+        "total": 1311
+      },
+      "pair_own": {
+        "formula": "2 orders x 1 pair x 3 seeds",
+        "mean": 6.0,
+        "total": 2622
+      }
+    },
+    "tokens": {
+      "note": "tokens per encoded sequence after truncation at the checkpoint's max_len; padded = sum over batches of 64 (in scoring order) of batch size x longest sequence in the batch; totals multiply by argument orders and seeds",
+      "pair_max": {
+        "input_format": "pair",
+        "max_len": 256,
+        "sequences_one_pass": 6253,
+        "tokens_per_sequence_mean": 119.41580041580042,
+        "tokens_per_sequence_max": 256,
+        "sequences_truncated_at_max_len": 407,
+        "tokens_total_all_seeds_orders": 4480242,
+        "padded_tokens_total_all_seeds_orders": 5526618
+      },
+      "pair_own": {
+        "input_format": "pair",
+        "max_len": 256,
+        "sequences_one_pass": 437,
+        "tokens_per_sequence_mean": 68.22654462242564,
+        "tokens_per_sequence_max": 256,
+        "sequences_truncated_at_max_len": 1,
+        "tokens_total_all_seeds_orders": 178890,
+        "padded_tokens_total_all_seeds_orders": 451350
+      },
+      "sentence": {
+        "input_format": "sentence",
+        "max_len": 256,
+        "sequences_one_pass": 437,
+        "tokens_per_sequence_mean": 57.100686498855836,
+        "tokens_per_sequence_max": 256,
+        "sequences_truncated_at_max_len": 1,
+        "tokens_total_all_seeds_orders": 74859,
+        "padded_tokens_total_all_seeds_orders": 210645
+      },
+      "ratio_pair_max_to_sentence_tokens_total_all_seeds_orders": 59.849076263375146,
+      "ratio_pair_max_to_pair_own_tokens_total_all_seeds_orders": 25.044675498909946,
+      "ratio_pair_max_to_sentence_padded_tokens_total_all_seeds_orders": 26.23664459161148,
+      "ratio_pair_max_to_pair_own_padded_tokens_total_all_seeds_orders": 12.24463941508807
+    }
+  },
+  "taxonerd_extraction_time": {
+    "sample": {
+      "n": 50,
+      "seed": 0,
+      "indices": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        12,
+        13,
+        16,
+        29,
+        34,
+        37,
+        53,
+        69,
+        73,
+        105,
+        112,
+        113,
+        120,
+        127,
+        162,
+        172,
+        180,
+        199,
+        201,
+        204,
+        220,
+        227,
+        228,
+        229,
+        243,
+        247,
+        255,
+        258,
+        268,
+        275,
+        281,
+        290,
+        293,
+        304,
+        318,
+        322,
+        330,
+        333,
+        353,
+        354,
+        363,
+        364,
+        380,
+        390,
+        422
+      ],
+      "mean_chars": 215.38,
+      "mean_chars_all_437": 233.65217391304347
+    },
+    "torch_num_threads": 8,
+    "timing_excludes": "construction + model load (reported as load_seconds) and one warm-up call",
+    "cpu": {
+      "load_seconds": 15.482562733930536,
+      "warmup_call_seconds": 0.06099374499171972,
+      "seconds_per_passage": {
+        "n": 50,
+        "mean": 0.049181030394975095,
+        "median": 0.04517799004679546,
+        "p90": 0.06246872530318797,
+        "max": 0.08358439698349684,
+        "total": 2.459051519748755
+      },
+      "mentions_vs_cache": {
+        "passages_identical_list": 50,
+        "passages_same_set_case_insensitive": 50,
+        "passages_mismatch": 0,
+        "mismatches": []
+      },
+      "wall_seconds_incl_load": 18.006775617599487
+    },
+    "gpu": {
+      "attempted": true,
+      "cupy_installed": false,
+      "status": "skipped",
+      "error": "ValueError: Cannot use GPU, CuPy is not installed",
+      "why": "TaxoNERD(prefer_gpu=True) calls spacy.require_gpu(), which needs cupy; cupy is not installed in the environment and installing packages was not allowed, so GPU extraction was not timed"
+    }
+  },
+  "environment_per_part": {
+    "stats": {
+      "date_time": "2026-10-05T02:14:03",
+      "python": "3.10.12",
+      "torch": "2.11.0+cu128",
+      "transformers": "4.49.0",
+      "cpu_model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+      "cpu_logical_cores": 16,
+      "load_average_1_5_15": [
+        2.94970703125,
+        3.390625,
+        2.60009765625
+      ],
+      "cuda_visible_devices": "0",
+      "spacy": "3.7.5",
+      "taxonerd": "1.5.4",
+      "gpu_name_torch": "GRID A100D-80C"
+    },
+    "taxonerd": {
+      "date_time": "2026-10-05T02:04:44",
+      "python": "3.10.12",
+      "torch": "2.11.0+cu128",
+      "transformers": "4.49.0",
+      "cpu_model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+      "cpu_logical_cores": 16,
+      "load_average_1_5_15": [
+        2.345703125,
+        2.15576171875,
+        1.5859375
+      ],
+      "cuda_visible_devices": "0",
+      "spacy": "3.7.5",
+      "taxonerd": "1.5.4",
+      "gpu_name_torch": "GRID A100D-80C"
+    },
+    "gpu": {
+      "date_time": "2026-10-05T02:05:14",
+      "python": "3.10.12",
+      "torch": "2.11.0+cu128",
+      "transformers": "4.49.0",
+      "cpu_model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+      "cpu_logical_cores": 16,
+      "load_average_1_5_15": [
+        2.5302734375,
+        2.220703125,
+        1.62744140625
+      ],
+      "cuda_visible_devices": "0",
+      "spacy": "3.7.5",
+      "taxonerd": "1.5.4",
+      "gpu_name_torch": "GRID A100D-80C"
+    },
+    "check": {
+      "date_time": "2026-10-05T02:14:03",
+      "python": "3.10.12",
+      "torch": "2.11.0+cu128",
+      "transformers": "4.49.0",
+      "cpu_model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+      "cpu_logical_cores": 16,
+      "load_average_1_5_15": [
+        2.94970703125,
+        3.390625,
+        2.60009765625
+      ],
+      "cuda_visible_devices": "0",
+      "spacy": "3.7.5",
+      "taxonerd": "1.5.4",
+      "gpu_name_torch": "GRID A100D-80C"
+    },
+    "cpu": {
+      "date_time": "2026-10-05T02:17:23",
+      "python": "3.10.12",
+      "torch": "2.11.0+cu128",
+      "transformers": "4.49.0",
+      "cpu_model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+      "cpu_logical_cores": 16,
+      "load_average_1_5_15": [
+        5.39892578125,
+        4.70751953125,
+        3.27490234375
+      ],
+      "cuda_visible_devices": "",
+      "spacy": "3.7.5",
+      "taxonerd": "1.5.4"
+    }
+  },
+  "xenc_scoring_time_gpu": {
+    "device": "GRID A100D-80C",
+    "batch_size": 64,
+    "precision": "fp32",
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "n_passages": 437,
+    "n_pairs": 6253,
+    "nvidia_smi_before": {
+      "time": "2026-10-05T02:05:14",
+      "gpu": "GRID A100D-80C",
+      "driver": "570.158.01",
+      "mem_used_mib": 30004,
+      "mem_total_mib": 81920,
+      "util_pct": 74,
+      "processes": [
+        {
+          "pid": "1379236",
+          "process": "ollama",
+          "mem_mib": "30003"
+        }
+      ]
+    },
+    "timing_includes": "input building, tokenisation (CPU), forward pass, softmax, copy to host",
+    "timing_excludes": "model loading (load_seconds) and one untimed warm-up pass",
+    "note": "the GPU was shared with another job during the measurement (see nvidia_smi_*), so these timings are upper bounds for a dedicated GPU",
+    "load_seconds_pair_models": [
+      2.610562442918308,
+      0.218922536005266,
+      0.21589881996624172
+    ],
+    "warmup_seconds_pair_own": 15.451970872934908,
+    "load_seconds_sentence_models": [
+      0.2826500949449837,
+      0.26019956602249295,
+      0.24700737604871392
+    ],
+    "warmup_seconds_sentence": 5.0023250239901245,
+    "peak_memory_allocated_by_this_job_mib": 1810.08251953125,
+    "nvidia_smi_after": {
+      "time": "2026-10-05T02:12:45",
+      "gpu": "GRID A100D-80C",
+      "driver": "570.158.01",
+      "mem_used_mib": 30531,
+      "mem_total_mib": 81920,
+      "util_pct": 98,
+      "processes": [
+        {
+          "pid": "1379236",
+          "process": "ollama",
+          "mem_mib": "30003"
+        },
+        {
+          "pid": "1386995",
+          "process": "python3",
+          "mem_mib": "527"
+        }
+      ]
+    },
+    "reproduces_paper_scores": {
+      "pair_own_vs_S_biodiv_pair_npy_max_abs_diff": 0.0010985136032104492,
+      "sentence_vs_S_biodiv_sentence_npy_max_abs_diff": 0.0006683170795440674,
+      "pair_max_silver_auprc_per_seed": [
+        0.9611095614715165,
+        0.9661953771519045,
+        0.9612343423253358
+      ],
+      "pair_max_silver_auprc_per_seed_sandbox": [
+        0.9611095614715165,
+        0.9661953771519045,
+        0.9612343423253358
+      ],
+      "pair_max_silver_auprc_max_abs_diff": 0.0
+    },
+    "repetitions": [
+      {
+        "pair_max": {
+          "seconds_total": 193.88486095808912,
+          "seconds_per_seed": [
+            70.72703490394633,
+            52.565269704093225,
+            70.59255635004956
+          ],
+          "sequences_encoded": 37518,
+          "sequences_per_second": 193.50659878550306
+        },
+        "pair_own": {
+          "seconds_total": 17.36001980502624,
+          "seconds_per_seed": [
+            5.802797571988776,
+            5.803020857041702,
+            5.754201375995763
+          ],
+          "sequences_encoded": 2622,
+          "sequences_per_second": 151.03669405036354
+        },
+        "nvidia_smi_during": {
+          "n_samples": 207,
+          "mem_used_mib_min": 33171,
+          "mem_used_mib_max": 36603,
+          "util_pct_mean": 98.60386473429952,
+          "util_pct_min": 85,
+          "util_pct_max": 99
+        },
+        "sentence": {
+          "seconds_total": 4.99681818310637,
+          "seconds_per_seed": [
+            1.6850009550107643,
+            1.6912451010430232,
+            1.6205721270525828
+          ],
+          "sequences_encoded": 1311,
+          "sequences_per_second": 262.3669607255934
+        },
+        "nvidia_smi_during_sentence": {
+          "n_samples": 5,
+          "mem_used_mib_min": 33079,
+          "mem_used_mib_max": 33079,
+          "util_pct_mean": 98.0,
+          "util_pct_min": 98,
+          "util_pct_max": 98
+        }
+      },
+      {
+        "pair_max": {
+          "seconds_total": 193.85975587693974,
+          "seconds_per_seed": [
+            71.00540951802395,
+            71.2412761989981,
+            51.6130701599177
+          ],
+          "sequences_encoded": 37518,
+          "sequences_per_second": 193.53165813236686
+        },
+        "pair_own": {
+          "seconds_total": 10.57442251208704,
+          "seconds_per_seed": [
+            3.5330317920306697,
+            3.4821761309867725,
+            3.5592145890695974
+          ],
+          "sequences_encoded": 2622,
+          "sequences_per_second": 247.95680303136518
+        },
+        "nvidia_smi_during": {
+          "n_samples": 200,
+          "mem_used_mib_min": 33171,
+          "mem_used_mib_max": 36603,
+          "util_pct_mean": 98.405,
+          "util_pct_min": 78,
+          "util_pct_max": 99
+        },
+        "sentence": {
+          "seconds_total": 4.949716413975693,
+          "seconds_per_seed": [
+            1.6087530580116436,
+            1.6719502130290493,
+            1.6690131429350004
+          ],
+          "sequences_encoded": 1311,
+          "sequences_per_second": 264.86365891555863
+        },
+        "nvidia_smi_during_sentence": {
+          "n_samples": 5,
+          "mem_used_mib_min": 33079,
+          "mem_used_mib_max": 33079,
+          "util_pct_mean": 98.0,
+          "util_pct_min": 98,
+          "util_pct_max": 98
+        }
+      }
+    ],
+    "arms": {
+      "pair_max": {
+        "seconds_total_per_rep": [
+          193.88486095808912,
+          193.85975587693974
+        ],
+        "seconds_total_min": 193.85975587693974,
+        "ms_per_passage_per_rep": [
+          443.67245070500945,
+          443.6150020067271
+        ],
+        "ms_per_passage_min": 443.6150020067271,
+        "forward_passes_per_passage": 85.85354691075514,
+        "forward_passes_total": 37518
+      },
+      "sentence": {
+        "seconds_total_per_rep": [
+          4.99681818310637,
+          4.949716413975693
+        ],
+        "seconds_total_min": 4.949716413975693,
+        "ms_per_passage_per_rep": [
+          11.434366551730825,
+          11.32658218301074
+        ],
+        "ms_per_passage_min": 11.32658218301074,
+        "forward_passes_per_passage": 3.0,
+        "forward_passes_total": 1311
+      },
+      "pair_own": {
+        "seconds_total_per_rep": [
+          17.36001980502624,
+          10.57442251208704
+        ],
+        "seconds_total_min": 10.57442251208704,
+        "ms_per_passage_per_rep": [
+          39.72544577809209,
+          24.197763185553868
+        ],
+        "ms_per_passage_min": 24.197763185553868,
+        "forward_passes_per_passage": 6.0,
+        "forward_passes_total": 2622
+      }
+    },
+    "ratio_pair_max_to_sentence_per_rep": [
+      38.80166414971632,
+      39.16583086044487
+    ],
+    "ratio_pair_max_to_pair_own_per_rep": [
+      11.168470032617918,
+      18.33289294572345
+    ]
+  },
+  "scorer_check": {
+    "device": "cuda",
+    "nvidia_smi_before": {
+      "time": "2026-10-05T02:14:05",
+      "gpu": "GRID A100D-80C",
+      "driver": "570.158.01",
+      "mem_used_mib": 31531,
+      "mem_total_mib": 81920,
+      "util_pct": 92,
+      "processes": [
+        {
+          "pid": "1379236",
+          "process": "ollama",
+          "mem_mib": "30003"
+        },
+        {
+          "pid": "1390485",
+          "process": "python3",
+          "mem_mib": "1527"
+        }
+      ]
+    },
+    "pair_own": {
+      "timed_scorer_vs_order_free_now_max_abs_diff_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "order_free_now_vs_saved_npy_max_abs_diff": 0.0010985136032104492,
+      "order_free_now_vs_saved_npy_mean_abs_diff": 9.714220504974946e-05,
+      "saved_npy": "results/paperA_v2/S_biodiv_pair.npy"
+    },
+    "sentence": {
+      "timed_scorer_vs_order_free_now_max_abs_diff_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "order_free_now_vs_saved_npy_max_abs_diff": 0.0006683170795440674,
+      "order_free_now_vs_saved_npy_mean_abs_diff": 6.679252692265436e-05,
+      "saved_npy": "results/paperA_v2/S_biodiv_sentence.npy"
+    }
+  },
+  "xenc_scoring_time_cpu": {
+    "device": "cpu",
+    "torch_num_threads": 8,
+    "rayon_num_threads_tokenizer": "8",
+    "seed_used": 1,
+    "batch_size": 64,
+    "precision": "fp32",
+    "sample": {
+      "n": 50,
+      "seed": 0,
+      "pairs": 475,
+      "pairs_per_passage": 9.5,
+      "pairs_per_passage_all_437": 14.308924485125859
+    },
+    "load_average_before": [
+      5.39892578125,
+      4.70751953125,
+      3.27490234375
+    ],
+    "timing_includes": "input building, tokenisation, forward pass, softmax",
+    "timing_excludes": "model loading (load_seconds) and a one-batch warm-up",
+    "load_seconds": {
+      "pair": 2.4826038780156523,
+      "sentence": 0.0725886719301343
+    },
+    "repetitions": [
+      {
+        "pair_max": {
+          "seconds_total": 28.733601441956125,
+          "seconds_per_seed": [
+            28.733601441956125
+          ],
+          "sequences_encoded": 950,
+          "sequences_per_second": 33.062336509367476
+        },
+        "pair_own": {
+          "seconds_total": 3.842521791928448,
+          "seconds_per_seed": [
+            3.842521791928448
+          ],
+          "sequences_encoded": 100,
+          "sequences_per_second": 26.024575894418795
+        },
+        "sentence": {
+          "seconds_total": 1.8213893770007417,
+          "seconds_per_seed": [
+            1.8213893770007417
+          ],
+          "sequences_encoded": 50,
+          "sequences_per_second": 27.451571109047727
+        }
+      },
+      {
+        "pair_max": {
+          "seconds_total": 28.527354839956388,
+          "seconds_per_seed": [
+            28.527354839956388
+          ],
+          "sequences_encoded": 950,
+          "sequences_per_second": 33.301370047439434
+        },
+        "pair_own": {
+          "seconds_total": 4.295037584030069,
+          "seconds_per_seed": [
+            4.295037584030069
+          ],
+          "sequences_encoded": 100,
+          "sequences_per_second": 23.282683339448027
+        },
+        "sentence": {
+          "seconds_total": 1.987972688046284,
+          "seconds_per_seed": [
+            1.987972688046284
+          ],
+          "sequences_encoded": 50,
+          "sequences_per_second": 25.15125097072556
+        }
+      }
+    ],
+    "arms": {
+      "pair_max": {
+        "seconds_one_seed_sample_per_rep": [
+          28.733601441956125,
+          28.527354839956388
+        ],
+        "seconds_one_seed_sample_min": 28.527354839956388,
+        "sequences_one_seed_sample": 950,
+        "ms_per_passage_one_seed": 570.5470967991278,
+        "ms_per_passage_three_seeds_extrapolated": 1711.6412903973833,
+        "ms_per_sequence": 30.028794568375144,
+        "padded_tokens_one_seed_sample": 111898,
+        "padded_tokens_three_seeds_all_437": 5526618,
+        "est_seconds_all_437_three_seeds_by_passage": 747.9872439036565,
+        "est_seconds_all_437_three_seeds_by_sequence": 1126.6203146162989,
+        "est_seconds_all_437_three_seeds_by_padded_tokens": 1408.9598808816072,
+        "est_ms_per_passage_three_seeds_by_padded_tokens": 3224.1644871432663
+      },
+      "pair_own": {
+        "seconds_one_seed_sample_per_rep": [
+          3.842521791928448,
+          4.295037584030069
+        ],
+        "seconds_one_seed_sample_min": 3.842521791928448,
+        "sequences_one_seed_sample": 100,
+        "ms_per_passage_one_seed": 76.85043583856896,
+        "ms_per_passage_three_seeds_extrapolated": 230.55130751570687,
+        "ms_per_sequence": 38.42521791928448,
+        "padded_tokens_one_seed_sample": 16000,
+        "padded_tokens_three_seeds_all_437": 451350,
+        "est_seconds_all_437_three_seeds_by_passage": 100.7509213843639,
+        "est_seconds_all_437_three_seeds_by_sequence": 100.7509213843639,
+        "est_seconds_all_437_three_seeds_by_padded_tokens": 108.39513817418157,
+        "est_ms_per_passage_three_seeds_by_padded_tokens": 248.04379444892808
+      },
+      "sentence": {
+        "seconds_one_seed_sample_per_rep": [
+          1.8213893770007417,
+          1.987972688046284
+        ],
+        "seconds_one_seed_sample_min": 1.8213893770007417,
+        "sequences_one_seed_sample": 50,
+        "ms_per_passage_one_seed": 36.42778754001483,
+        "ms_per_passage_three_seeds_extrapolated": 109.2833626200445,
+        "ms_per_sequence": 36.42778754001483,
+        "padded_tokens_one_seed_sample": 7450,
+        "padded_tokens_three_seeds_all_437": 210645,
+        "est_seconds_all_437_three_seeds_by_passage": 47.756829464959445,
+        "est_seconds_all_437_three_seeds_by_sequence": 47.756829464959445,
+        "est_seconds_all_437_three_seeds_by_padded_tokens": 51.49886782796258,
+        "est_ms_per_passage_three_seeds_by_padded_tokens": 117.84637946902191
+      }
+    },
+    "ratio_pair_max_to_sentence": 15.662414198841994,
+    "ratio_pair_max_to_pair_own": 7.4241231109946035,
+    "ratio_pair_max_to_sentence_by_padded_tokens_estimate": 27.35904574811988,
+    "note": "one seed timed on the 50-passage sample; three-seed and full-benchmark figures are linear extrapolations by passages, by encoded sequences, and by padded tokens (batches of 64 in scoring order). The sample is lighter than the benchmark (pairs per passage 9.50 vs 14.31), so the per-passage extrapolation understates pair-max; the padded-token estimate also corrects for sequence length and batch padding"
+  }
+}

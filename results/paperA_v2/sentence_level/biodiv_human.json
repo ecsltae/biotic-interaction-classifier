@@ -1,0 +1,108 @@
+{
+  "benchmark_source": "second_annotation_2026-10-04 sheet: the 437 rows in a block-balanced random order; its 20 SKIP rows (gold-review items) never get answers there",
+  "sentence_labels": {
+    "question": "SENTENCE",
+    "sheet": "second_annotation",
+    "gold_review_complete": true,
+    "answers": 0,
+    "unsure_dropped": 0,
+    "other_dropped": 0,
+    "labelled_rows": 0
+  },
+  "pair_labels": {
+    "question": "PAIR",
+    "sheet": "second_annotation",
+    "gold_review_complete": true,
+    "answers": 0,
+    "unsure_dropped": 0,
+    "other_dropped": 0,
+    "labelled_rows": 0
+  },
+  "answer_counts": {
+    "gold_review": {
+      "rows": 22,
+      "SENTENCE": {
+        "YES": 15,
+        "NO": 4,
+        "UNSURE": 3
+      },
+      "PAIR": {
+        "NO": 11,
+        "YES": 11
+      }
+    },
+    "second_annotation": {
+      "rows": 417,
+      "SENTENCE": {
+        "(empty)": 417
+      },
+      "PAIR": {
+        "(empty)": 417
+      }
+    }
+  },
+  "status": "no human labels yet (437-row sheet)",
+  "gold_review_spot_check": {
+    "use": "spot check of the silver sentence labels only, NOT a benchmark result: 22 items, 11 of them selected by model-vs-gold disagreement; answered by adjudicating a model's pre-filled sheet (not blind). Item-level comparison with the gold: results/reframe_2026-10-05/gold_review_22.md",
+    "sheet": "data/evaluation/gold_review_2026-10-02_v2_eg_curated.xlsx",
+    "sentence_labels": {
+      "question": "SENTENCE",
+      "sheet": "gold_review",
+      "gold_review_complete": true,
+      "answers": 22,
+      "unsure_dropped": 3,
+      "other_dropped": 0,
+      "labelled_rows": 19
+    },
+    "pair_labels": {
+      "question": "PAIR",
+      "sheet": "gold_review",
+      "gold_review_complete": true,
+      "answers": 22,
+      "unsure_dropped": 0,
+      "other_dropped": 0,
+      "labelled_rows": 22
+    },
+    "status": "19 items with a SENTENCE YES/NO answer",
+    "sentence_vs_silver": {
+      "majority3": {
+        "n": 19,
+        "agreement": 0.7894736842105263,
+        "kappa": 0.46478873239436613,
+        "human_no_silver_yes": 1,
+        "human_yes_silver_no": 3
+      },
+      "nonteacher2": {
+        "n": 14,
+        "agreement": 0.9285714285714286,
+        "kappa": 0.8108108108108107,
+        "human_no_silver_yes": 0,
+        "human_yes_silver_no": 1
+      },
+      "q122b": {
+        "n": 19,
+        "agreement": 0.8947368421052632,
+        "kappa": 0.6833333333333333,
+        "human_no_silver_yes": 1,
+        "human_yes_silver_no": 1
+      }
+    },
+    "silver_yes_forced_by_pair_gold": 5,
+    "pair_answers_vs_current_pair_gold": {
+      "n": 22,
+      "agreement": 0.6818181818181818,
+      "kappa": 0.36363636363636365
+    },
+    "sentence_vs_pair_answers": {
+      "n": 19,
+      "sentence_yes_pair_no": 5,
+      "sentence_no_pair_yes": 0,
+      "both_yes": 10,
+      "both_no": 4
+    },
+    "rows_answered_in_both_sheets": {
+      "n": 0,
+      "same_sentence_answer": 0
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "n": 200,
+  "model": "qwen3:32b",
+  "url": "http://localhost:11434/api/generate",
+  "workers_1": {
+    "seconds": 68.88294100761414,
+    "sec_per_passage": 0.3444147050380707,
+    "yes_rate": 0.645
+  },
+  "workers_4": {
+    "seconds": 40.65457820892334,
+    "sec_per_passage": 0.2032728910446167,
+    "yes_rate": 0.645
+  }
+}

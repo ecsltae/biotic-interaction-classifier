@@ -8,11 +8,14 @@ results/v1_decisions_449.npy (scripts/build_v1_decisions.py). Thresholds are pre
 bound, not an operating point.
 
 `--labels pre_goldfix` scores against the labels before the 2026-09-25 revision of row 400, so
-the identity of every stored array can be checked against the numbers the card used to print.
+the identity of every stored array can be checked against the numbers the card used to print;
+`--labels pre_review_2026-10-06` against the labels before the 2026-10-06 blind re-annotation of
+seven rows. The label versions are defined in src/eval/core.py (LABEL_VERSIONS), hash-checked.
 
 Usage
   python3 scripts/model_card_tables.py
   python3 scripts/model_card_tables.py --labels pre_goldfix
+  python3 scripts/model_card_tables.py --labels pre_review_2026-10-06
 """
 from __future__ import annotations
 
@@ -29,7 +32,7 @@ from sklearn.metrics import average_precision_score, f1_score, precision_score, 
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
-from eval.core import clean_mask, to_clean  # noqa: E402
+from eval.core import LABEL_VERSIONS, clean_benchmark, clean_mask, to_clean  # noqa: E402
 
 GRID = np.arange(0.01, 1.0, 0.01)          # generations table
 GRID_V1 = np.arange(0.005, 1.0, 0.005)     # V1-oracle figures, as first computed
@@ -68,12 +71,10 @@ def key(sentence, s1, s2):
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--labels", choices=("current", "pre_goldfix"), default="current")
+    ap.add_argument("--labels", choices=sorted(LABEL_VERSIONS), default="current")
     a = ap.parse_args()
-    keep = clean_mask()
-    bench = REPO / ("data/evaluation/unified_test_set.csv" if a.labels == "current"
-                    else "data/evaluation/unified_test_set.pre_goldfix.csv")
-    d = pd.read_csv(bench)[keep].reset_index(drop=True)
+    keep = clean_mask(a.labels)          # the same 437 rows in every label version
+    d = clean_benchmark(a.labels)
     y = d.label.to_numpy()
     V = np.load(REPO / "results/v1_decisions_449.npy")[keep]
     z = np.load(REPO / "results/final_v4/scores.npz")

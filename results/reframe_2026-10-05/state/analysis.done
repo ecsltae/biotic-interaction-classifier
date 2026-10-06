@@ -1,0 +1,18 @@
+analysis stage, done 2026-10-05 04:35. Read results/reframe_2026-10-05/ANALYSIS.md (all numbers -> results/paperA_v2/sentence_level/*.json; flat index sentence_tables.json).
+Regenerate everything: source MPvenv; python3 scripts/sentence_level/make_sentence_tables.py (~2-3 min, cached scores).
+HEADLINE (adversarial): the claim "ask about the pair, even if you want the sentence" is NOT supported as worded.
+- Biodiversity, fair competitor (A1 sentlab = BiomedBERT on qwen3:32b's answers to the sentence question, all 34,242 passages):
+  sentlab beats pair-max under all 3 silver definitions (AUPRC 0.985/0.987/0.986 vs 0.966/0.977/0.974; diffs -0.020/-0.010/-0.012, CIs < 0; McNemar p 0.005-0.027).
+  Its whole edge is on the 191 pair-negative passages whose silver label is an LLM answer to the same sentence prompt (circular); on gold pair-positives vs silver negatives sentlab ~ pair-max ~ pair-own (n.s.).
+- Biodiversity vs the paper's candidate-trained sentence arm: pair-max > pair-own > sentence under all 3 silver definitions; AUPRC gap significant only under nonteacher2/q122b.
+- BioRED (gold-derived "co-mentions a related pair" labels): pair-max vs sentlab AUPRC +0.010 (CI excludes 0 over sentences, NOT with abstract clusters); F1 +0.024, McNemar p 2e-17. The edge is in single-pair sentences, not multi-pair ones (DiD -0.038), so not "pairs competing". vs paper's sentence arm: +0.035, robust.
+- Zero-shot LLMs, BioRED: pair-max beats the sentence question (qwen3:32b on 500 random sentences +0.051 [+0.025,+0.079]; other sizes only on a biased 149-sentence subset).
+- Robust on both benchmarks: a perfect sentence filter caps pair precision at 0.724 (biodiv) / 0.536 (BioRED); sentence scores are poor pair filters (pair-gold AUPRC sentlab 0.794, pair-max 0.840 vs pair-own 0.923).
+- Supported framing (§9): ask the pair question for the pairs and the sentence question for the sentence (the same teacher can label both; labels differ on 1/3 of passages, kappa 0.26). No combination of the two was tested.
+CAVEATS: biodiversity sentence labels are silver (LLM-decided for 191 pair-negative passages); 22-item gold review (user upload 02:32, eg_curated.xlsx) is non-blind and non-random -> spot check only (kappa vs silver: nonteacher2 0.81, q122b 0.68, majority3 0.46); 437-row human sheet still empty.
+A0: parent session wrote gold_review_22.md (+.parent.md): PAIR 15/22 vs gold (kappa 0.36), 7 proposed flips, NOT applied. gold_review_report.py writes gold_review_22.script.md and never replaces the parent's file.
+Never call the gold review "blind". Paper comparison LLMs: only Qwen3 3.0 family + Qwen3.5-122B (JSON rows tagged paper_comparison_model).
+New data files (none overwritten): data/training/distill/v3_sentence_teacher_qwen3-32b{,_train,_dev}.csv. Models: models/sentence_level/biodiv_sentlab_s{1,2,3} (not for git).
+Still running, detached, harmless: unit reframe-biodiv-llm-enum (qwen3:32b on 6,253 biodiversity pairs, for a future human-label LLM pair-max row; ends by itself).
+Nothing committed (the writer commits). Committable: scripts/sentence_level/*.py,*.sh and results/paperA_v2/sentence_level/*.json (all < 10 MB).
+Do NOT commit (benchmark text): results/paperA_v2/sentence_level/llm/*.csv, results/paperA_v2/sentence_level/taxonerd_mentions.json; nor scores/*.npy, models/, data/training/distill/v3_sentence_teacher_* (corpus text).

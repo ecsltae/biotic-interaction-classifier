@@ -20,10 +20,36 @@ from itertools import combinations
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-SOURCES = [*sorted((REPO / "results/paperA_v2").glob("*.json")),
+# Superseded snapshots and one-off outputs scored with old labels, models or protocols. Left in the
+# sources they make a stale printed number look explained, so they are not read:
+SUPERSEDED = {
+    "results/paperA_v2/tables_biodiv.pre_llm.json",             # 2026-10-02 snapshot
+    "results/paperA_v2/tables_biored.original_protocol.json",
+    "results/paperA_v2/tables_biored.pre_llmpair.json",
+}
+# Every file in results/paperA_rebuild_2026-09-28 is superseded or scored on old labels:
+# ablation.json, eval_student_v3.json, vs_v1_full.json, rules_eval.json, joint_rules_eval.json and
+# rebuild_Verifier-{base,PC}.json (superseded models, thresholds or protocols), and
+# rebuild_Sentence-baseline.json (old labels; its per-seed F1 at tau = 0.5 is now in
+# results/paperA_v2/derived_biodiv.json). That directory is no longer a source.
+SOURCES = [*(f for f in sorted((REPO / "results/paperA_v2").glob("*.json"))
+             if str(f.relative_to(REPO)) not in SUPERSEDED),
            REPO / "results/shipping_2026-10-02/eval_a05.json",
-           REPO / "results/shipping_2026-10-02/eval_v3.json",
-           *sorted((REPO / "results/paperA_rebuild_2026-09-28").glob("*.json"))]
+           REPO / "results/shipping_2026-10-02/eval_v3.json"]
+for _f in ("derived_biodiv.json", "cascade.json"):   # label-dependent numbers no other file holds
+    if REPO / "results/paperA_v2" / _f not in SOURCES:
+        SOURCES.append(REPO / "results/paperA_v2" / _f)
+# The four body figures' scripts write the values each figure and its caption rely on, computed
+# from the files above (and, for Figure 4's BioRED base rates, from the label column of
+# results/paperA_v2/llm/biored_*_pair.csv, which no JSON holds).
+for _f in ("fig_concept.json", "fig_curves.json", "fig_where.json", "fig_scaling.json"):
+    if REPO / "paperA/fig" / _f not in SOURCES:
+        SOURCES.append(REPO / "paperA/fig" / _f)
+# In those figure files, the plotted series (thousands of curve points) and the layout values
+# would explain almost any three-decimal number by coincidence, so they are not read.
+FIGURE_SKIP = re.compile(r"\.(panel_a\.curves|panel_b\.(tau|pair_P|pair_R|pair_F1|sentence_F1|band)"
+                         r"|\w*_at_recall|layout_in|size_in|width_in|height_in|x_positions|x_span|ylim"
+                         r"|separator_x)\b")
 
 
 def walk(o, path=""):
@@ -47,6 +73,8 @@ def collect():
         except Exception:
             continue
         flat = list(walk(o, f.stem))
+        if f.parent == REPO / "paperA/fig":
+            flat = [(p, v) for p, v in flat if not FIGURE_SKIP.search(p)]
         vals += flat
         vals += [(p + "*100", v * 100) for p, v in flat if abs(v) <= 1.0]
         # differences between sibling metrics of two arms (e.g. pair.auprc_mean - sentence.auprc_mean)
@@ -63,7 +91,9 @@ def collect():
     return vals
 
 
-NUM = re.compile(r"(?<![\w.\\{])([+-]?\d+(?:\{,\}\d{3})*(?:\.\d+)?)(?:\s*\\times\s*10\^\{(-?\d+)\})?")
+# Also matches numbers written without a leading zero, as in table cells (".858") and subscripts
+# ("_{\pm .006}").
+NUM = re.compile(r"(?<![\w.\\{])([+-]?(?:\d+(?:\{,\}\d{3})*(?:\.\d+)?|\.\d+))(?:\s*\\times\s*10\^\{(-?\d+)\})?")
 
 
 def explained(tok, exp, vals):

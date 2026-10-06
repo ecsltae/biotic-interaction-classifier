@@ -12,8 +12,13 @@ Gold codes: 1/F -> FORWARD, 2/R -> REVERSE, ? -> UNCERTAIN, bidirectionnal -> BI
 N (the pair does not interact) and ! (flagged) are reported separately, never scored as a
 direction.
 
+The benchmark rows and labels come from src/eval/core.py's clean_benchmark() (hash-checked), for
+the label version given by --labels.
+
 Usage
   python3 scripts/eval_shipping.py --model models/dirhead/joint_a05_s1 --name a05
+  python3 scripts/eval_shipping.py --model models/dirhead/joint_a05_s1 --name a05 \
+      --labels pre_review_2026-10-06 --out-dir <dir>
 """
 from __future__ import annotations
 
@@ -31,17 +36,17 @@ REPO = Path(__file__).resolve().parents[1]
 HANDOFF = REPO / "handoff/biotic_verifier"
 sys.path.insert(0, str(HANDOFF))
 import predict as PR  # noqa: E402
+sys.path.insert(0, str(REPO / "src"))
+from eval.core import LABEL_VERSIONS, benchmark_provenance, clean_benchmark  # noqa: E402
 
 OUT = REPO / "results/shipping_2026-10-02"
 CODE = {"1": "FORWARD", "F": "FORWARD", "2": "REVERSE", "R": "REVERSE", "?": "UNCERTAIN",
         "BIDIRECTIONNAL": "BIDIRECTIONAL", "BIDIRECTIONAL": "BIDIRECTIONAL"}
 
 
-def benchmark():
-    d = pd.read_csv(REPO / "data/evaluation/unified_test_set.csv")
-    scan = pd.read_csv(REPO / "results/test_contamination_scan.csv")
-    keep = ~(d.in_train.to_numpy() | (scan.maxj.to_numpy() > 0.5))
-    return d[keep].reset_index(drop=True)
+def benchmark(labels="current"):
+    """The 437 clean rows, through the one hash-checked loader."""
+    return clean_benchmark(labels)
 
 
 def direction_gold():
@@ -67,18 +72,24 @@ def main() -> None:
     ap.add_argument("--name", required=True)
     ap.add_argument("--threshold", type=float, default=None,
                     help="interaction threshold; default the checkpoint's recorded threshold_dev")
+    ap.add_argument("--labels", choices=sorted(LABEL_VERSIONS), default="current",
+                    help="label version of the benchmark (src/eval/core.py LABEL_VERSIONS)")
+    ap.add_argument("--out-dir", default=str(OUT), help=f"output directory (default {OUT.relative_to(REPO)})")
     a = ap.parse_args()
-    OUT.mkdir(parents=True, exist_ok=True)
+    out_dir = Path(a.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     m, tok, cfg = PR.load(REPO / a.model, device=dev)
     thr = a.threshold if a.threshold is not None else float(cfg.get("threshold_dev", 0.5))
     PR.INTERACT_THR = thr
     max_len = int(cfg.get("max_len", 256))
+    prov = benchmark_provenance(a.labels)
     out = {"model": a.model, "name": a.name, "threshold": thr, "n_pol": m.dir.n_pol,
-           "has_undirected_branch": m.dir.h is not None}
+           "has_undirected_branch": m.dir.h is not None,
+           "labels": prov["labels"], "benchmark_sha256": prov["sha256"]}
 
     # ---- interaction, 437 rows -------------------------------------------------------------
-    d = benchmark(); y = d.label.to_numpy()
+    d = benchmark(a.labels); y = d.label.to_numpy()
     for rules in (False, True):
         r = PR.predict(m, tok, d.species1, d.species2, d.relation, d.sentence, device=dev,
                        bs=32, max_len=max_len, rules=rules)
@@ -90,7 +101,7 @@ def main() -> None:
             out["auprc"] = float(average_precision_score(y, r.p_interact))
             out["truncated_rows"] = int(r.truncated.sum())
             out["taxon_not_located_rows"] = int((r.both_taxa_located == 0).sum())
-            r.assign(label=y, source=d.source).to_csv(OUT / f"bench_{a.name}.csv", index=False)
+            r.assign(label=y, source=d.source).to_csv(out_dir / f"bench_{a.name}.csv", index=False)
 
     # ---- direction, expert gold, four categories --------------------------------------------
     g = direction_gold()
@@ -104,7 +115,7 @@ def main() -> None:
                              np.where(r.p_species1_is_subject.fillna(0.5) >= 0.5, "FORWARD", "REVERSE")))
     head = np.where(r.both_taxa_located == 1, head, "UNCERTAIN")
     g["pred_head"] = head
-    g.to_csv(OUT / f"direction_{a.name}.csv", index=False)
+    g.to_csv(out_dir / f"direction_{a.name}.csv", index=False)
     scored = g[g.gold.notna()]
     dr = scored[scored.gold.isin(["FORWARD", "REVERSE"])]
     res = {}
@@ -127,7 +138,7 @@ def main() -> None:
     out["direction_no_interaction_gold"] = {
         "items": int((g.raw.str.upper() == "N").sum()),
         "model_says_no_interaction": int(((g.raw.str.upper() == "N") & (g.interacts == 0)).sum())}
-    (OUT / f"eval_{a.name}.json").write_text(json.dumps(out, indent=2, default=float))
+    (out_dir / f"eval_{a.name}.json").write_text(json.dumps(out, indent=2, default=float))
     print(json.dumps({k: v for k, v in out.items() if k != "direction"}, indent=2, default=float))
     for col, v in res.items():
         print(f"\n[{col}] directional {v['directional_items']}: coverage {v['coverage']:.3f}, "

@@ -1,0 +1,98 @@
+{
+  "benchmark": "BioRED BC8 test sentences with >= 1 candidate pair; label = co-mentions a related pair",
+  "precision": "fp32",
+  "n_sentences": 2582,
+  "positive_rate": 0.8381099922540666,
+  "trivial_accept_all": {
+    "P": 0.8381099922540666,
+    "R": 1.0,
+    "F1": 0.9119258322798146,
+    "accepts": 2582
+  },
+  "trivial_ap_negative_class": 0.16189000774593343,
+  "arms": {
+    "sentlab": {
+      "auprc_per_seed": [
+        0.9492006422446306,
+        0.952918755889883,
+        0.9552262762068902
+      ],
+      "auprc_mean": 0.9524485581138012,
+      "auprc_sd": 0.00304021062152904,
+      "auprc_ensemble": 0.9550211808062474,
+      "threshold_dev": 0.27,
+      "P": 0.8781788351107465,
+      "R": 0.9893715341959335,
+      "F1": 0.930465015210778,
+      "accepts": 2438,
+      "secondary": {
+        "auroc": 0.8355893304088653,
+        "ap_negative_class": 0.6151592502449285
+      }
+    },
+    "sentence": {
+      "auprc_per_seed": [
+        0.9308562966941768,
+        0.9279522213549498,
+        0.9274171708630827
+      ],
+      "auprc_mean": 0.9287418963040697,
+      "auprc_sd": 0.0018505638369089937,
+      "auprc_ensemble": 0.9298313016982235,
+      "threshold_dev": 0.13,
+      "P": 0.8724194880264244,
+      "R": 0.9764325323475046,
+      "F1": 0.9215002180549499,
+      "accepts": 2422,
+      "secondary": {
+        "auroc": 0.761757201354925,
+        "ap_negative_class": 0.4920680858153849
+      }
+    },
+    "pair-max": {
+      "auprc_per_seed": [
+        0.9685665960606404,
+        0.9620616146528259,
+        0.9673092266305219
+      ],
+      "auprc_mean": 0.9659791457813295,
+      "auprc_sd": 0.0034504394036187014,
+      "auprc_ensemble": 0.9649653090816805,
+      "threshold_dev": 0.41000000000000003,
+      "P": 0.9298553266111355,
+      "R": 0.9801293900184843,
+      "F1": 0.9543307086614173,
+      "accepts": 2281,
+      "secondary": {
+        "auroc": 0.8946395563770795,
+        "ap_negative_class": 0.758673552272524
+      }
+    }
+  },
+  "reproduction_of_sandbox": {
+    "sentlab": {
+      "auprc_per_seed": true,
+      "auprc_ensemble": false,
+      "threshold_dev": true,
+      "P": true,
+      "R": true,
+      "F1": true
+    },
+    "sentence": {
+      "auprc_per_seed": true,
+      "auprc_ensemble": true,
+      "threshold_dev": true,
+      "P": true,
+      "R": true,
+      "F1": true
+    },
+    "pair-max": {
+      "auprc_per_seed": true,
+      "auprc_ensemble": false,
+      "threshold_dev": true,
+      "P": true,
+      "R": true,
+      "F1": true
+    }
+  }
+}

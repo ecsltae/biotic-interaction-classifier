@@ -1,0 +1,10 @@
+{
+  "labelled_passages": 34242,
+  "labels_file_passages": 34242,
+  "corpus_passages": 34242,
+  "train_passages": 30818,
+  "dev_passages": 3424,
+  "train_pos_rate": 0.6548445713544032,
+  "dev_pos_rate": 0.6515771028037384,
+  "sample_only": false
+}

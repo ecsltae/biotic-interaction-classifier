@@ -1,0 +1,2142 @@
+{
+  "benchmark": "BioRED BC8 test sentences with >= 1 candidate pair; label = co-mentions a related pair",
+  "precision": "tf32 (paper convention)",
+  "n_sentences": 2582,
+  "positive_rate": 0.8381099922540666,
+  "trivial_accept_all": {
+    "P": 0.8381099922540666,
+    "R": 1.0,
+    "F1": 0.9119258322798146,
+    "accepts": 2582
+  },
+  "trivial_ap_negative_class": 0.16189000774593343,
+  "arms": {
+    "sentlab": {
+      "auprc_per_seed": [
+        0.9492044014386457,
+        0.9529109116024083,
+        0.9552831181282473
+      ],
+      "auprc_mean": 0.9524661437231003,
+      "auprc_sd": 0.003063668225829651,
+      "auprc_ensemble": 0.9550236690852578,
+      "threshold_dev": 0.27,
+      "P": 0.8781788351107465,
+      "R": 0.9893715341959335,
+      "F1": 0.930465015210778,
+      "accepts": 2438,
+      "secondary": {
+        "auroc": 0.8356048076838037,
+        "ap_negative_class": 0.6151240264350866
+      }
+    },
+    "sentence": {
+      "auprc_per_seed": [
+        0.9308476556055778,
+        0.9279458729060914,
+        0.9274227477801646
+      ],
+      "auprc_mean": 0.9287387587639446,
+      "auprc_sd": 0.0018449930598329566,
+      "auprc_ensemble": 0.9298227635102173,
+      "threshold_dev": 0.13,
+      "P": 0.8724194880264244,
+      "R": 0.9764325323475046,
+      "F1": 0.9215002180549499,
+      "accepts": 2422,
+      "secondary": {
+        "auroc": 0.7617516737567327,
+        "ap_negative_class": 0.4920842574392341
+      }
+    },
+    "pair-max": {
+      "auprc_per_seed": [
+        0.9685777120504009,
+        0.9620870979269172,
+        0.9673201710686313
+      ],
+      "auprc_mean": 0.9659949936819832,
+      "auprc_sd": 0.0034422506089119135,
+      "auprc_ensemble": 0.9649564576560653,
+      "threshold_dev": 0.41000000000000003,
+      "P": 0.9298553266111355,
+      "R": 0.9801293900184843,
+      "F1": 0.9543307086614173,
+      "accepts": 2281,
+      "secondary": {
+        "auroc": 0.8946207625432259,
+        "ap_negative_class": 0.7586781540522077
+      }
+    }
+  },
+  "bootstrap_auprc_sentences": {
+    "B": 10000,
+    "seed": 0,
+    "resample": "items",
+    "degenerate_dropped": 0,
+    "auprc_ci95": {
+      "sentlab": [
+        0.9451920954628105,
+        0.9640242226780791
+      ],
+      "sentence": [
+        0.9168342708320798,
+        0.9423951630383662
+      ],
+      "pair-max": [
+        0.9538501240082106,
+        0.9752025529748819
+      ]
+    },
+    "diff": {
+      "pair-max - sentlab": {
+        "observed": 0.009932788570807483,
+        "ci95": [
+          0.00021334242754688962,
+          0.019618627257028277
+        ],
+        "p_le_0": 0.0226,
+        "p_ge_0": 0.9774
+      },
+      "pair-max - sentence": {
+        "observed": 0.03513369414584799,
+        "ci95": [
+          0.02495342114055594,
+          0.04568901122000008
+        ],
+        "p_le_0": 0.0,
+        "p_ge_0": 1.0
+      },
+      "sentlab - sentence": {
+        "observed": 0.02520090557504051,
+        "ci95": [
+          0.01561543653641106,
+          0.034821769304354266
+        ],
+        "p_le_0": 0.0,
+        "p_ge_0": 1.0
+      }
+    }
+  },
+  "bootstrap_auprc_abstracts": {
+    "B": 10000,
+    "seed": 0,
+    "resample": "clusters",
+    "degenerate_dropped": 0,
+    "auprc_ci95": {
+      "sentlab": [
+        0.9427769496963823,
+        0.9659528181117912
+      ],
+      "sentence": [
+        0.9141959004851218,
+        0.9446696317460546
+      ],
+      "pair-max": [
+        0.9517242237546722,
+        0.9770272394541162
+      ]
+    },
+    "diff": {
+      "pair-max - sentlab": {
+        "observed": 0.009932788570807483,
+        "ci95": [
+          -0.001301892170228577,
+          0.020827656371393256
+        ],
+        "p_le_0": 0.0408,
+        "p_ge_0": 0.9592
+      },
+      "pair-max - sentence": {
+        "observed": 0.03513369414584799,
+        "ci95": [
+          0.023653474187713148,
+          0.04749440707177813
+        ],
+        "p_le_0": 0.0,
+        "p_ge_0": 1.0
+      },
+      "sentlab - sentence": {
+        "observed": 0.02520090557504051,
+        "ci95": [
+          0.016316234730655278,
+          0.034209633768580244
+        ],
+        "p_le_0": 0.0,
+        "p_ge_0": 1.0
+      }
+    }
+  },
+  "bootstrap_f1_sentences": {
+    "B": 10000,
+    "seed": 0,
+    "f1_ci95": {
+      "sentlab": [
+        0.9227024706696848,
+        0.937838729362289
+      ],
+      "sentence": [
+        0.9134133042529989,
+        0.929327858223471
+      ],
+      "pair-max": [
+        0.947942652508271,
+        0.9605527078225986
+      ]
+    },
+    "diff": {
+      "pair-max - sentlab": {
+        "observed": 0.02386569345063938,
+        "ci95": [
+          0.018044018526871916,
+          0.029832803617770725
+        ]
+      },
+      "pair-max - sentence": {
+        "observed": 0.03283049060646748,
+        "ci95": [
+          0.026526645434174198,
+          0.03929669089097455
+        ]
+      },
+      "sentlab - sentence": {
+        "observed": 0.008964797155828097,
+        "ci95": [
+          0.004614188099860944,
+          0.013412210359792131
+        ]
+      }
+    }
+  },
+  "bootstrap_f1_abstracts": {
+    "B": 10000,
+    "seed": 0,
+    "f1_ci95": {
+      "sentlab": [
+        0.9196649165677313,
+        0.9405359487128165
+      ],
+      "sentence": [
+        0.9102206676468355,
+        0.9319757709991285
+      ],
+      "pair-max": [
+        0.9455058497673968,
+        0.9624227009040314
+      ]
+    },
+    "diff": {
+      "pair-max - sentlab": {
+        "observed": 0.02386569345063938,
+        "ci95": [
+          0.016733973550386604,
+          0.03142977246241144
+        ]
+      },
+      "pair-max - sentence": {
+        "observed": 0.03283049060646748,
+        "ci95": [
+          0.025110625682144207,
+          0.04096399385935844
+        ]
+      },
+      "sentlab - sentence": {
+        "observed": 0.008964797155828097,
+        "ci95": [
+          0.004239616115317546,
+          0.013984034135181702
+        ]
+      }
+    }
+  },
+  "mcnemar_exact": {
+    "pair-max vs sentlab": {
+      "p_exact": 2.1257893303906954e-17,
+      "fixes": 158,
+      "breaks": 41
+    },
+    "pair-max vs sentence": {
+      "p_exact": 3.761145537296982e-27,
+      "fixes": 193,
+      "breaks": 36
+    },
+    "sentlab vs sentence": {
+      "p_exact": 0.00017238430132681824,
+      "fixes": 75,
+      "breaks": 35
+    }
+  },
+  "per_seed_auprc_differences": {
+    "pair-max - sentlab": [
+      0.01937331061175518,
+      0.009176186324508895,
+      0.012037052940384041
+    ],
+    "pair-max - sentence": [
+      0.03773005644482308,
+      0.03414122502082573,
+      0.03989742328846668
+    ],
+    "sentlab - sentence": [
+      0.0183567458330679,
+      0.024965038696316832,
+      0.02786037034808264
+    ]
+  },
+  "strata": {
+    "note": "entities_in_candidate_pairs and candidate_pairs are reported separately but may be the same partition; same_partition says whether they are on this split",
+    "same_partition": true,
+    "concepts_in_sentence": {
+      "2": {
+        "n": 538,
+        "positives": 417,
+        "positive_rate": 0.775092936802974,
+        "trivial_accept_all_F1": 0.8732984293193717,
+        "arms": {
+          "sentlab": {
+            "auprc_ensemble": 0.8917600680636684,
+            "P": 0.8203592814371258,
+            "R": 0.9856115107913669,
+            "F1": 0.8954248366013072,
+            "accepts": 501
+          },
+          "sentence": {
+            "auprc_ensemble": 0.9088395612165012,
+            "P": 0.7961538461538461,
+            "R": 0.9928057553956835,
+            "F1": 0.8836712913553896,
+            "accepts": 520
+          },
+          "pair-max": {
+            "auprc_ensemble": 0.9022551667614866,
+            "P": 0.868995633187773,
+            "R": 0.9544364508393285,
+            "F1": 0.9097142857142857,
+            "accepts": 458
+          }
+        },
+        "bootstrap_auprc_sentences": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "items",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.8535048676406087,
+              0.9276857309670898
+            ],
+            "sentence": [
+              0.8765520014897652,
+              0.9380189722771396
+            ],
+            "pair-max": [
+              0.8646926576902874,
+              0.938413561206193
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.010495098697818284,
+              "ci95": [
+                -0.02102919391297032,
+                0.04500701310168574
+              ],
+              "p_le_0": 0.2644,
+              "p_ge_0": 0.7356
+            },
+            "pair-max - sentence": {
+              "observed": -0.006584394455014575,
+              "ci95": [
+                -0.03573411771336277,
+                0.02251387080860633
+              ],
+              "p_le_0": 0.6455,
+              "p_ge_0": 0.3545
+            },
+            "sentlab - sentence": {
+              "observed": -0.01707949315283286,
+              "ci95": [
+                -0.047722008847901516,
+                0.012617291522120808
+              ],
+              "p_le_0": 0.8642,
+              "p_ge_0": 0.1358
+            }
+          }
+        },
+        "bootstrap_auprc_abstracts": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "clusters",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.8448390962965239,
+              0.933423336576251
+            ],
+            "sentence": [
+              0.8748235699348275,
+              0.9393411840119886
+            ],
+            "pair-max": [
+              0.8549431831514275,
+              0.9444311720743604
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.010495098697818284,
+              "ci95": [
+                -0.025165163967611214,
+                0.04922709386399571
+              ],
+              "p_le_0": 0.2814,
+              "p_ge_0": 0.7186
+            },
+            "pair-max - sentence": {
+              "observed": -0.006584394455014575,
+              "ci95": [
+                -0.040426475464667856,
+                0.02589517986102574
+              ],
+              "p_le_0": 0.6014,
+              "p_ge_0": 0.3986
+            },
+            "sentlab - sentence": {
+              "observed": -0.01707949315283286,
+              "ci95": [
+                -0.04771008926920504,
+                0.011461539225761808
+              ],
+              "p_le_0": 0.8696,
+              "p_ge_0": 0.1304
+            }
+          }
+        },
+        "mcnemar_exact": {
+          "pair-max vs sentlab": {
+            "p_exact": 0.024092907698449295,
+            "fixes": 34,
+            "breaks": 17
+          },
+          "pair-max vs sentence": {
+            "p_exact": 0.0002268823828832806,
+            "fixes": 47,
+            "breaks": 17
+          },
+          "sentlab vs sentence": {
+            "p_exact": 0.004425048828125,
+            "fixes": 16,
+            "breaks": 3
+          }
+        }
+      },
+      ">=3": {
+        "n": 2044,
+        "positives": 1747,
+        "positive_rate": 0.8546966731898239,
+        "trivial_accept_all_F1": 0.921656554998681,
+        "arms": {
+          "sentlab": {
+            "auprc_ensemble": 0.9655475689926342,
+            "P": 0.8931337119256583,
+            "R": 0.9902690326273612,
+            "F1": 0.9391965255157437,
+            "accepts": 1937
+          },
+          "sentence": {
+            "auprc_ensemble": 0.945139583344835,
+            "P": 0.8932702418506835,
+            "R": 0.9725243274184316,
+            "F1": 0.931214031241436,
+            "accepts": 1902
+          },
+          "pair-max": {
+            "auprc_ensemble": 0.978074064189525,
+            "P": 0.9451453647833242,
+            "R": 0.9862621637092158,
+            "F1": 0.965266106442577,
+            "accepts": 1823
+          }
+        },
+        "bootstrap_auprc_sentences": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "items",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.9567144549007272,
+              0.9736593315192743
+            ],
+            "sentence": [
+              0.9320162065590996,
+              0.9570585546210386
+            ],
+            "pair-max": [
+              0.9681096591580461,
+              0.9868629791001508
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.012526495196890863,
+              "ci95": [
+                0.0037085480141952954,
+                0.02081418140707027
+              ],
+              "p_le_0": 0.0027,
+              "p_ge_0": 0.9973
+            },
+            "pair-max - sentence": {
+              "observed": 0.03293448084468997,
+              "ci95": [
+                0.02289948217220684,
+                0.043798565546559545
+              ],
+              "p_le_0": 0.0,
+              "p_ge_0": 1.0
+            },
+            "sentlab - sentence": {
+              "observed": 0.02040798564779911,
+              "ci95": [
+                0.012432990328412639,
+                0.028902395098566274
+              ],
+              "p_le_0": 0.0,
+              "p_ge_0": 1.0
+            }
+          }
+        },
+        "bootstrap_auprc_abstracts": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "clusters",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.9544473617939712,
+              0.9750377820617462
+            ],
+            "sentence": [
+              0.928336316530815,
+              0.9600478536515042
+            ],
+            "pair-max": [
+              0.9663735871131967,
+              0.9879956125228009
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.012526495196890863,
+              "ci95": [
+                0.0028211307653269848,
+                0.022614971526785394
+              ],
+              "p_le_0": 0.0061,
+              "p_ge_0": 0.9939
+            },
+            "pair-max - sentence": {
+              "observed": 0.03293448084468997,
+              "ci95": [
+                0.022347872206442,
+                0.04575428215865969
+              ],
+              "p_le_0": 0.0,
+              "p_ge_0": 1.0
+            },
+            "sentlab - sentence": {
+              "observed": 0.02040798564779911,
+              "ci95": [
+                0.01172387671945351,
+                0.029822964373115223
+              ],
+              "p_le_0": 0.0,
+              "p_ge_0": 1.0
+            }
+          }
+        },
+        "mcnemar_exact": {
+          "pair-max vs sentlab": {
+            "p_exact": 1.8925795508009764e-17,
+            "fixes": 124,
+            "breaks": 24
+          },
+          "pair-max vs sentence": {
+            "p_exact": 1.8613009251278727e-25,
+            "fixes": 146,
+            "breaks": 19
+          },
+          "sentlab vs sentence": {
+            "p_exact": 0.00610552107452477,
+            "fixes": 59,
+            "breaks": 32
+          }
+        }
+      },
+      "difference_in_differences": {
+        "pair-max - sentlab": {
+          "observed": 0.0020313964990725797,
+          "ci95": [
+            -0.03214868579408279,
+            0.03515767713272282
+          ],
+          "p_le_0": 0.4472
+        },
+        "pair-max - sentence": {
+          "observed": 0.03951887529970455,
+          "ci95": [
+            0.008093207498852976,
+            0.07095194384016001
+          ],
+          "p_le_0": 0.0053
+        }
+      }
+    },
+    "entities_in_candidate_pairs": {
+      "2": {
+        "n": 777,
+        "positives": 575,
+        "positive_rate": 0.7400257400257401,
+        "trivial_accept_all_F1": 0.8505917159763313,
+        "arms": {
+          "sentlab": {
+            "auprc_ensemble": 0.8523213268434853,
+            "P": 0.782668500687758,
+            "R": 0.9895652173913043,
+            "F1": 0.8740399385560675,
+            "accepts": 727
+          },
+          "sentence": {
+            "auprc_ensemble": 0.8916884899341537,
+            "P": 0.7606382978723404,
+            "R": 0.9947826086956522,
+            "F1": 0.8620949510173324,
+            "accepts": 752
+          },
+          "pair-max": {
+            "auprc_ensemble": 0.8963890755599118,
+            "P": 0.8549382716049383,
+            "R": 0.9634782608695652,
+            "F1": 0.9059689288634505,
+            "accepts": 648
+          }
+        },
+        "bootstrap_auprc_sentences": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "items",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.8169583384440737,
+              0.8881669748275057
+            ],
+            "sentence": [
+              0.862809711695405,
+              0.9193759856107446
+            ],
+            "pair-max": [
+              0.8653421726263101,
+              0.9280560047068135
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.04406774871642649,
+              "ci95": [
+                0.01565060316799884,
+                0.07340636641298123
+              ],
+              "p_le_0": 0.001,
+              "p_ge_0": 0.999
+            },
+            "pair-max - sentence": {
+              "observed": 0.004700585625758036,
+              "ci95": [
+                -0.02006167999415834,
+                0.029963055246955958
+              ],
+              "p_le_0": 0.3446,
+              "p_ge_0": 0.6554
+            },
+            "sentlab - sentence": {
+              "observed": -0.039367163090668456,
+              "ci95": [
+                -0.06614280713770641,
+                -0.01279928474946498
+              ],
+              "p_le_0": 0.9987,
+              "p_ge_0": 0.0013
+            }
+          }
+        },
+        "bootstrap_auprc_abstracts": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "clusters",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.8037317999049509,
+              0.8980340235371691
+            ],
+            "sentence": [
+              0.8567696808186549,
+              0.9241219040264742
+            ],
+            "pair-max": [
+              0.857269166289834,
+              0.9347752791711567
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.04406774871642649,
+              "ci95": [
+                0.011809327449976785,
+                0.07889246609826757
+              ],
+              "p_le_0": 0.0031,
+              "p_ge_0": 0.9969
+            },
+            "pair-max - sentence": {
+              "observed": 0.004700585625758036,
+              "ci95": [
+                -0.022424120103319872,
+                0.03180731591927013
+              ],
+              "p_le_0": 0.3415,
+              "p_ge_0": 0.6585
+            },
+            "sentlab - sentence": {
+              "observed": -0.039367163090668456,
+              "ci95": [
+                -0.0685131555068795,
+                -0.011642102265225914
+              ],
+              "p_le_0": 0.9982,
+              "p_ge_0": 0.0018
+            }
+          }
+        },
+        "mcnemar_exact": {
+          "pair-max vs sentlab": {
+            "p_exact": 1.2351631890150023e-07,
+            "fixes": 68,
+            "breaks": 19
+          },
+          "pair-max vs sentence": {
+            "p_exact": 1.3991901162745083e-11,
+            "fixes": 87,
+            "breaks": 19
+          },
+          "sentlab vs sentence": {
+            "p_exact": 0.00015652179718017578,
+            "fixes": 22,
+            "breaks": 3
+          }
+        }
+      },
+      ">=3": {
+        "n": 1805,
+        "positives": 1589,
+        "positive_rate": 0.8803324099722992,
+        "trivial_accept_all_F1": 0.9363582793164408,
+        "arms": {
+          "sentlab": {
+            "auprc_ensemble": 0.9804684777157577,
+            "P": 0.9187609585037989,
+            "R": 0.9893014474512272,
+            "F1": 0.9527272727272728,
+            "accepts": 1711
+          },
+          "sentence": {
+            "auprc_ensemble": 0.9720918815115885,
+            "P": 0.922754491017964,
+            "R": 0.9697923222152297,
+            "F1": 0.945688861613992,
+            "accepts": 1670
+          },
+          "pair-max": {
+            "auprc_ensemble": 0.9863558342755204,
+            "P": 0.9595835884874464,
+            "R": 0.9861548143486469,
+            "F1": 0.9726877715704532,
+            "accepts": 1633
+          }
+        },
+        "bootstrap_auprc_sentences": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "items",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.974315091835789,
+              0.9859211160706219
+            ],
+            "sentence": [
+              0.9634824649206335,
+              0.9797705587359244
+            ],
+            "pair-max": [
+              0.9772247388893104,
+              0.9934824095720873
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.005887356559762691,
+              "ci95": [
+                -0.0027294024362334024,
+                0.013748304569418127
+              ],
+              "p_le_0": 0.0794,
+              "p_ge_0": 0.9206
+            },
+            "pair-max - sentence": {
+              "observed": 0.014263952763931886,
+              "ci95": [
+                0.006754793116700414,
+                0.02200636525500165
+              ],
+              "p_le_0": 0.0001,
+              "p_ge_0": 0.9999
+            },
+            "sentlab - sentence": {
+              "observed": 0.008376596204169195,
+              "ci95": [
+                0.002380677053793928,
+                0.01485367960307702
+              ],
+              "p_le_0": 0.0028,
+              "p_ge_0": 0.9972
+            }
+          }
+        },
+        "bootstrap_auprc_abstracts": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "clusters",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.9727036096455877,
+              0.9867138569998065
+            ],
+            "sentence": [
+              0.9616250533868516,
+              0.9807946937869663
+            ],
+            "pair-max": [
+              0.9767961167545702,
+              0.9938349262803993
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.005887356559762691,
+              "ci95": [
+                -0.003180642019692914,
+                0.014637711157875766
+              ],
+              "p_le_0": 0.0946,
+              "p_ge_0": 0.9054
+            },
+            "pair-max - sentence": {
+              "observed": 0.014263952763931886,
+              "ci95": [
+                0.0060057640615855,
+                0.023297723838865126
+              ],
+              "p_le_0": 0.0003,
+              "p_ge_0": 0.9997
+            },
+            "sentlab - sentence": {
+              "observed": 0.008376596204169195,
+              "ci95": [
+                0.0020731660526215113,
+                0.015316513909359203
+              ],
+              "p_le_0": 0.0047,
+              "p_ge_0": 0.9953
+            }
+          }
+        },
+        "mcnemar_exact": {
+          "pair-max vs sentlab": {
+            "p_exact": 5.974214670852322e-11,
+            "fixes": 90,
+            "breaks": 22
+          },
+          "pair-max vs sentence": {
+            "p_exact": 6.645909113631135e-17,
+            "fixes": 106,
+            "breaks": 17
+          },
+          "sentlab vs sentence": {
+            "p_exact": 0.029456361785778883,
+            "fixes": 53,
+            "breaks": 32
+          }
+        }
+      },
+      "difference_in_differences": {
+        "pair-max - sentlab": {
+          "observed": -0.0381803921566638,
+          "ci95": [
+            -0.06888229712002009,
+            -0.007997408035639692
+          ],
+          "p_le_0": 0.9935
+        },
+        "pair-max - sentence": {
+          "observed": 0.00956336713817385,
+          "ci95": [
+            -0.016535831065974473,
+            0.03555952234501117
+          ],
+          "p_le_0": 0.2433
+        }
+      }
+    },
+    "candidate_pairs": {
+      "1": {
+        "n": 777,
+        "positives": 575,
+        "positive_rate": 0.7400257400257401,
+        "trivial_accept_all_F1": 0.8505917159763313,
+        "arms": {
+          "sentlab": {
+            "auprc_ensemble": 0.8523213268434853,
+            "P": 0.782668500687758,
+            "R": 0.9895652173913043,
+            "F1": 0.8740399385560675,
+            "accepts": 727
+          },
+          "sentence": {
+            "auprc_ensemble": 0.8916884899341537,
+            "P": 0.7606382978723404,
+            "R": 0.9947826086956522,
+            "F1": 0.8620949510173324,
+            "accepts": 752
+          },
+          "pair-max": {
+            "auprc_ensemble": 0.8963890755599118,
+            "P": 0.8549382716049383,
+            "R": 0.9634782608695652,
+            "F1": 0.9059689288634505,
+            "accepts": 648
+          }
+        },
+        "bootstrap_auprc_sentences": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "items",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.8169583384440737,
+              0.8881669748275057
+            ],
+            "sentence": [
+              0.862809711695405,
+              0.9193759856107446
+            ],
+            "pair-max": [
+              0.8653421726263101,
+              0.9280560047068135
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.04406774871642649,
+              "ci95": [
+                0.01565060316799884,
+                0.07340636641298123
+              ],
+              "p_le_0": 0.001,
+              "p_ge_0": 0.999
+            },
+            "pair-max - sentence": {
+              "observed": 0.004700585625758036,
+              "ci95": [
+                -0.02006167999415834,
+                0.029963055246955958
+              ],
+              "p_le_0": 0.3446,
+              "p_ge_0": 0.6554
+            },
+            "sentlab - sentence": {
+              "observed": -0.039367163090668456,
+              "ci95": [
+                -0.06614280713770641,
+                -0.01279928474946498
+              ],
+              "p_le_0": 0.9987,
+              "p_ge_0": 0.0013
+            }
+          }
+        },
+        "bootstrap_auprc_abstracts": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "clusters",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.8037317999049509,
+              0.8980340235371691
+            ],
+            "sentence": [
+              0.8567696808186549,
+              0.9241219040264742
+            ],
+            "pair-max": [
+              0.857269166289834,
+              0.9347752791711567
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.04406774871642649,
+              "ci95": [
+                0.011809327449976785,
+                0.07889246609826757
+              ],
+              "p_le_0": 0.0031,
+              "p_ge_0": 0.9969
+            },
+            "pair-max - sentence": {
+              "observed": 0.004700585625758036,
+              "ci95": [
+                -0.022424120103319872,
+                0.03180731591927013
+              ],
+              "p_le_0": 0.3415,
+              "p_ge_0": 0.6585
+            },
+            "sentlab - sentence": {
+              "observed": -0.039367163090668456,
+              "ci95": [
+                -0.0685131555068795,
+                -0.011642102265225914
+              ],
+              "p_le_0": 0.9982,
+              "p_ge_0": 0.0018
+            }
+          }
+        },
+        "mcnemar_exact": {
+          "pair-max vs sentlab": {
+            "p_exact": 1.2351631890150023e-07,
+            "fixes": 68,
+            "breaks": 19
+          },
+          "pair-max vs sentence": {
+            "p_exact": 1.3991901162745083e-11,
+            "fixes": 87,
+            "breaks": 19
+          },
+          "sentlab vs sentence": {
+            "p_exact": 0.00015652179718017578,
+            "fixes": 22,
+            "breaks": 3
+          }
+        }
+      },
+      ">=2": {
+        "n": 1805,
+        "positives": 1589,
+        "positive_rate": 0.8803324099722992,
+        "trivial_accept_all_F1": 0.9363582793164408,
+        "arms": {
+          "sentlab": {
+            "auprc_ensemble": 0.9804684777157577,
+            "P": 0.9187609585037989,
+            "R": 0.9893014474512272,
+            "F1": 0.9527272727272728,
+            "accepts": 1711
+          },
+          "sentence": {
+            "auprc_ensemble": 0.9720918815115885,
+            "P": 0.922754491017964,
+            "R": 0.9697923222152297,
+            "F1": 0.945688861613992,
+            "accepts": 1670
+          },
+          "pair-max": {
+            "auprc_ensemble": 0.9863558342755204,
+            "P": 0.9595835884874464,
+            "R": 0.9861548143486469,
+            "F1": 0.9726877715704532,
+            "accepts": 1633
+          }
+        },
+        "bootstrap_auprc_sentences": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "items",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.974315091835789,
+              0.9859211160706219
+            ],
+            "sentence": [
+              0.9634824649206335,
+              0.9797705587359244
+            ],
+            "pair-max": [
+              0.9772247388893104,
+              0.9934824095720873
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.005887356559762691,
+              "ci95": [
+                -0.0027294024362334024,
+                0.013748304569418127
+              ],
+              "p_le_0": 0.0794,
+              "p_ge_0": 0.9206
+            },
+            "pair-max - sentence": {
+              "observed": 0.014263952763931886,
+              "ci95": [
+                0.006754793116700414,
+                0.02200636525500165
+              ],
+              "p_le_0": 0.0001,
+              "p_ge_0": 0.9999
+            },
+            "sentlab - sentence": {
+              "observed": 0.008376596204169195,
+              "ci95": [
+                0.002380677053793928,
+                0.01485367960307702
+              ],
+              "p_le_0": 0.0028,
+              "p_ge_0": 0.9972
+            }
+          }
+        },
+        "bootstrap_auprc_abstracts": {
+          "B": 10000,
+          "seed": 0,
+          "resample": "clusters",
+          "degenerate_dropped": 0,
+          "auprc_ci95": {
+            "sentlab": [
+              0.9727036096455877,
+              0.9867138569998065
+            ],
+            "sentence": [
+              0.9616250533868516,
+              0.9807946937869663
+            ],
+            "pair-max": [
+              0.9767961167545702,
+              0.9938349262803993
+            ]
+          },
+          "diff": {
+            "pair-max - sentlab": {
+              "observed": 0.005887356559762691,
+              "ci95": [
+                -0.003180642019692914,
+                0.014637711157875766
+              ],
+              "p_le_0": 0.0946,
+              "p_ge_0": 0.9054
+            },
+            "pair-max - sentence": {
+              "observed": 0.014263952763931886,
+              "ci95": [
+                0.0060057640615855,
+                0.023297723838865126
+              ],
+              "p_le_0": 0.0003,
+              "p_ge_0": 0.9997
+            },
+            "sentlab - sentence": {
+              "observed": 0.008376596204169195,
+              "ci95": [
+                0.0020731660526215113,
+                0.015316513909359203
+              ],
+              "p_le_0": 0.0047,
+              "p_ge_0": 0.9953
+            }
+          }
+        },
+        "mcnemar_exact": {
+          "pair-max vs sentlab": {
+            "p_exact": 5.974214670852322e-11,
+            "fixes": 90,
+            "breaks": 22
+          },
+          "pair-max vs sentence": {
+            "p_exact": 6.645909113631135e-17,
+            "fixes": 106,
+            "breaks": 17
+          },
+          "sentlab vs sentence": {
+            "p_exact": 0.029456361785778883,
+            "fixes": 53,
+            "breaks": 32
+          }
+        }
+      },
+      "difference_in_differences": {
+        "pair-max - sentlab": {
+          "observed": -0.0381803921566638,
+          "ci95": [
+            -0.06888229712002009,
+            -0.007997408035639692
+          ],
+          "p_le_0": 0.9935
+        },
+        "pair-max - sentence": {
+          "observed": 0.00956336713817385,
+          "ci95": [
+            -0.016535831065974473,
+            0.03555952234501117
+          ],
+          "p_le_0": 0.2433
+        }
+      }
+    }
+  },
+  "perfect_filter_pair_precision": {
+    "positive_candidates": 7684,
+    "candidates_in_positive_sentences": 14348,
+    "precision": 0.5355450236966824,
+    "wilson95": [
+      0.5273759940161444,
+      0.5436950251925512
+    ],
+    "by_candidate_pairs": {
+      "1": {
+        "precision": 1.0,
+        "candidates": 575
+      },
+      ">=2": {
+        "precision": 0.5161547956146083,
+        "candidates": 13773
+      }
+    }
+  },
+  "paper_pair_level_reference": {
+    "source": "results/paperA_v2/tables_biored.json",
+    "sentence": {
+      "P": 0.664087542831878,
+      "R": 0.7818844351900052,
+      "F1": 0.718187795110872,
+      "auprc_ensemble": 0.7423079384911633,
+      "threshold_prespecified": 0.33666666666666667
+    },
+    "pair": {
+      "P": 0.7406584100772732,
+      "R": 0.9105934409161894,
+      "F1": 0.8168816764929075,
+      "auprc_ensemble": 0.8511479565232379,
+      "threshold_prespecified": 0.4766666666666666
+    }
+  },
+  "sentlab_training_sentences": {
+    "n": 3277,
+    "positive_rate": 0.8690875801037534,
+    "share_with_ge2_candidate_pairs": 0.6139761977418371,
+    "positive_rate_ge2_pairs": 0.9165009940357853,
+    "positive_rate_1_pair": 0.7936758893280632
+  },
+  "label_semantics": {
+    "file": "results/paperA_v2/sentence_level/biored_label_semantics.json"
+  },
+  "llm": {
+    "coverage": {
+      "qwen3-0.6b": {
+        "pair_rows": 3000,
+        "complete_sentences": 149
+      },
+      "qwen3-1.7b": {
+        "pair_rows": 3000,
+        "complete_sentences": 149
+      },
+      "qwen3-14b": {
+        "pair_rows": 3000,
+        "complete_sentences": 149
+      },
+      "qwen3-30b-a3b-q4_K_M": {
+        "pair_rows": 3000,
+        "complete_sentences": 149
+      },
+      "qwen3-32b": {
+        "pair_rows": 3000,
+        "complete_sentences": 149
+      },
+      "qwen3-4b-q4_K_M": {
+        "pair_rows": 3000,
+        "complete_sentences": 149
+      },
+      "qwen3-8b": {
+        "pair_rows": 3000,
+        "complete_sentences": 149
+      },
+      "qwen3.5-122b": {
+        "pair_rows": 1000,
+        "complete_sentences": 49
+      },
+      "qwen3-32b random500": {
+        "pair_rows": 5598,
+        "complete_sentences": 500
+      }
+    },
+    "subsets": {
+      "paper_run_complete": "sentences whose every candidate the paper's 3,000-candidate run scored; biased to single-pair sentences (a sentence with many candidates is rarely complete)",
+      "random500": "qwen3-32b only: 500 random test sentences (seed 0), completed by biored_llm_fill.py"
+    },
+    "qwen3-0.6b": {
+      "paper_comparison_model": true,
+      "n_sentences": 149,
+      "positive_rate": 0.7651006711409396,
+      "n_pairs_distribution": {
+        "1": 143,
+        "2": 4,
+        "3": 2
+      },
+      "trivial_accept_all_F1": 0.8669201520912547,
+      "llm pair-max": {
+        "auprc": 0.7323917567546274,
+        "greedy": {
+          "P": 0.7651006711409396,
+          "R": 1.0,
+          "F1": 0.8669201520912547,
+          "accepts": 149
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.7647636722855655,
+        "greedy": {
+          "P": 0.7651006711409396,
+          "R": 1.0,
+          "F1": 0.8669201520912547,
+          "accepts": 149
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.8473778352955899,
+          "P": 0.7862068965517242,
+          "R": 1.0,
+          "F1": 0.8803088803088803,
+          "accepts": 145
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9289092939554773,
+          "P": 0.7808219178082192,
+          "R": 1.0,
+          "F1": 0.8769230769230769,
+          "accepts": 146
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9318034407669142,
+          "P": 0.8828125,
+          "R": 0.9912280701754386,
+          "F1": 0.9338842975206612,
+          "accepts": 128
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.647039455363688,
+            0.8369712153242191
+          ],
+          "llm sentence": [
+            0.6786039486802792,
+            0.8550885922782298
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": -0.0323719155309381,
+            "ci95": [
+              -0.10200485519155968,
+              0.03955515882704516
+            ],
+            "p_le_0": 0.8062,
+            "p_ge_0": 0.1938
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 143,
+          "positive_rate": 0.7692307692307693,
+          "llm pair-max": 0.736367052574002,
+          "llm sentence": 0.7724231512729174,
+          "sentlab": 0.845021882839784,
+          "sentence": 0.9313284986224923,
+          "pair-max": 0.9314947896635286
+        }
+      }
+    },
+    "qwen3-1.7b": {
+      "paper_comparison_model": true,
+      "n_sentences": 149,
+      "positive_rate": 0.7651006711409396,
+      "n_pairs_distribution": {
+        "1": 143,
+        "2": 4,
+        "3": 2
+      },
+      "trivial_accept_all_F1": 0.8669201520912547,
+      "llm pair-max": {
+        "auprc": 0.8734431508374595,
+        "greedy": {
+          "P": 0.7687074829931972,
+          "R": 0.9912280701754386,
+          "F1": 0.8659003831417624,
+          "accepts": 147
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.7981530935432122,
+        "greedy": {
+          "P": 0.7651006711409396,
+          "R": 1.0,
+          "F1": 0.8669201520912547,
+          "accepts": 149
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.8473778352955899,
+          "P": 0.7862068965517242,
+          "R": 1.0,
+          "F1": 0.8803088803088803,
+          "accepts": 145
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9289092939554773,
+          "P": 0.7808219178082192,
+          "R": 1.0,
+          "F1": 0.8769230769230769,
+          "accepts": 146
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9318034407669142,
+          "P": 0.8828125,
+          "R": 0.9912280701754386,
+          "F1": 0.9338842975206612,
+          "accepts": 128
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.8065052808916215,
+            0.9308477073824818
+          ],
+          "llm sentence": [
+            0.7132760949346522,
+            0.8815623960471759
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.07529005729424731,
+            "ci95": [
+              0.018153568326163928,
+              0.13321147771492828
+            ],
+            "p_le_0": 0.0048,
+            "p_ge_0": 0.9952
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 143,
+          "positive_rate": 0.7692307692307693,
+          "llm pair-max": 0.8829074608710783,
+          "llm sentence": 0.7955853514256566,
+          "sentlab": 0.845021882839784,
+          "sentence": 0.9313284986224923,
+          "pair-max": 0.9314947896635286
+        }
+      }
+    },
+    "qwen3-14b": {
+      "paper_comparison_model": true,
+      "n_sentences": 149,
+      "positive_rate": 0.7651006711409396,
+      "n_pairs_distribution": {
+        "1": 143,
+        "2": 4,
+        "3": 2
+      },
+      "trivial_accept_all_F1": 0.8669201520912547,
+      "llm pair-max": {
+        "auprc": 0.9361206728829681,
+        "greedy": {
+          "P": 0.816793893129771,
+          "R": 0.9385964912280702,
+          "F1": 0.8734693877551021,
+          "accepts": 131
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.8285483147616559,
+        "greedy": {
+          "P": 0.7794117647058824,
+          "R": 0.9298245614035088,
+          "F1": 0.848,
+          "accepts": 136
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.8473778352955899,
+          "P": 0.7862068965517242,
+          "R": 1.0,
+          "F1": 0.8803088803088803,
+          "accepts": 145
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9289092939554773,
+          "P": 0.7808219178082192,
+          "R": 1.0,
+          "F1": 0.8769230769230769,
+          "accepts": 146
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9318034407669142,
+          "P": 0.8828125,
+          "R": 0.9912280701754386,
+          "F1": 0.9338842975206612,
+          "accepts": 128
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.8944037669919029,
+            0.9687347061182708
+          ],
+          "llm sentence": [
+            0.7524630669419605,
+            0.8979371264551181
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.10757235812131216,
+            "ci95": [
+              0.042244356696727374,
+              0.1772499258186969
+            ],
+            "p_le_0": 0.0004,
+            "p_ge_0": 0.9996
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 143,
+          "positive_rate": 0.7692307692307693,
+          "llm pair-max": 0.9410155638320459,
+          "llm sentence": 0.8252158004464388,
+          "sentlab": 0.845021882839784,
+          "sentence": 0.9313284986224923,
+          "pair-max": 0.9314947896635286
+        }
+      }
+    },
+    "qwen3-30b-a3b-q4_K_M": {
+      "paper_comparison_model": true,
+      "n_sentences": 149,
+      "positive_rate": 0.7651006711409396,
+      "n_pairs_distribution": {
+        "1": 143,
+        "2": 4,
+        "3": 2
+      },
+      "trivial_accept_all_F1": 0.8669201520912547,
+      "llm pair-max": {
+        "auprc": 0.917178963944405,
+        "greedy": {
+          "P": 0.8372093023255814,
+          "R": 0.9473684210526315,
+          "F1": 0.8888888888888888,
+          "accepts": 129
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.8643372042540504,
+        "greedy": {
+          "P": 0.7941176470588235,
+          "R": 0.9473684210526315,
+          "F1": 0.864,
+          "accepts": 136
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.8473778352955899,
+          "P": 0.7862068965517242,
+          "R": 1.0,
+          "F1": 0.8803088803088803,
+          "accepts": 145
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9289092939554773,
+          "P": 0.7808219178082192,
+          "R": 1.0,
+          "F1": 0.8769230769230769,
+          "accepts": 146
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9318034407669142,
+          "P": 0.8828125,
+          "R": 0.9912280701754386,
+          "F1": 0.9338842975206612,
+          "accepts": 128
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.8622779304613045,
+            0.9599145868439327
+          ],
+          "llm sentence": [
+            0.7983973110064144,
+            0.9200574040019638
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.05284175969035465,
+            "ci95": [
+              0.006126027785245248,
+              0.10431544230940047
+            ],
+            "p_le_0": 0.0137,
+            "p_ge_0": 0.9863
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 143,
+          "positive_rate": 0.7692307692307693,
+          "llm pair-max": 0.9160862733518641,
+          "llm sentence": 0.861093350634567,
+          "sentlab": 0.845021882839784,
+          "sentence": 0.9313284986224923,
+          "pair-max": 0.9314947896635286
+        }
+      }
+    },
+    "qwen3-32b": {
+      "paper_comparison_model": true,
+      "n_sentences": 149,
+      "positive_rate": 0.7651006711409396,
+      "n_pairs_distribution": {
+        "1": 143,
+        "2": 4,
+        "3": 2
+      },
+      "trivial_accept_all_F1": 0.8669201520912547,
+      "llm pair-max": {
+        "auprc": 0.9209420464609814,
+        "greedy": {
+          "P": 0.8222222222222222,
+          "R": 0.9736842105263158,
+          "F1": 0.891566265060241,
+          "accepts": 135
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.8112382772870335,
+        "greedy": {
+          "P": 0.782608695652174,
+          "R": 0.9473684210526315,
+          "F1": 0.8571428571428571,
+          "accepts": 138
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.8473778352955899,
+          "P": 0.7862068965517242,
+          "R": 1.0,
+          "F1": 0.8803088803088803,
+          "accepts": 145
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9289092939554773,
+          "P": 0.7808219178082192,
+          "R": 1.0,
+          "F1": 0.8769230769230769,
+          "accepts": 146
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9318034407669142,
+          "P": 0.8828125,
+          "R": 0.9912280701754386,
+          "F1": 0.9338842975206612,
+          "accepts": 128
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.8669049521165783,
+            0.9631215136298582
+          ],
+          "llm sentence": [
+            0.7282034090259804,
+            0.890495330849004
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.10970376917394797,
+            "ci95": [
+              0.04203425330859903,
+              0.1795211457291117
+            ],
+            "p_le_0": 0.0004,
+            "p_ge_0": 0.9996
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 143,
+          "positive_rate": 0.7692307692307693,
+          "llm pair-max": 0.9231559074655459,
+          "llm sentence": 0.8073198468414147,
+          "sentlab": 0.845021882839784,
+          "sentence": 0.9313284986224923,
+          "pair-max": 0.9314947896635286
+        }
+      }
+    },
+    "qwen3-4b-q4_K_M": {
+      "paper_comparison_model": true,
+      "n_sentences": 149,
+      "positive_rate": 0.7651006711409396,
+      "n_pairs_distribution": {
+        "1": 143,
+        "2": 4,
+        "3": 2
+      },
+      "trivial_accept_all_F1": 0.8669201520912547,
+      "llm pair-max": {
+        "auprc": 0.893570586649265,
+        "greedy": {
+          "P": 0.8347826086956521,
+          "R": 0.8421052631578947,
+          "F1": 0.8384279475982532,
+          "accepts": 115
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.8232701491887112,
+        "greedy": {
+          "P": 0.7635135135135135,
+          "R": 0.9912280701754386,
+          "F1": 0.8625954198473282,
+          "accepts": 148
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.8473778352955899,
+          "P": 0.7862068965517242,
+          "R": 1.0,
+          "F1": 0.8803088803088803,
+          "accepts": 145
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9289092939554773,
+          "P": 0.7808219178082192,
+          "R": 1.0,
+          "F1": 0.8769230769230769,
+          "accepts": 146
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9318034407669142,
+          "P": 0.8828125,
+          "R": 0.9912280701754386,
+          "F1": 0.9338842975206612,
+          "accepts": 128
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.8289677385999996,
+            0.9457652464306584
+          ],
+          "llm sentence": [
+            0.7475304688242246,
+            0.8938157925813575
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.07030043746055381,
+            "ci95": [
+              0.006436099431144897,
+              0.13821574324321453
+            ],
+            "p_le_0": 0.0158,
+            "p_ge_0": 0.9842
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 143,
+          "positive_rate": 0.7692307692307693,
+          "llm pair-max": 0.8948848061423994,
+          "llm sentence": 0.8195004918090167,
+          "sentlab": 0.845021882839784,
+          "sentence": 0.9313284986224923,
+          "pair-max": 0.9314947896635286
+        }
+      }
+    },
+    "qwen3-8b": {
+      "paper_comparison_model": true,
+      "n_sentences": 149,
+      "positive_rate": 0.7651006711409396,
+      "n_pairs_distribution": {
+        "1": 143,
+        "2": 4,
+        "3": 2
+      },
+      "trivial_accept_all_F1": 0.8669201520912547,
+      "llm pair-max": {
+        "auprc": 0.9509873307067787,
+        "greedy": {
+          "P": 0.8283582089552238,
+          "R": 0.9736842105263158,
+          "F1": 0.8951612903225806,
+          "accepts": 134
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.8154607421924224,
+        "greedy": {
+          "P": 0.7829457364341085,
+          "R": 0.8859649122807017,
+          "F1": 0.831275720164609,
+          "accepts": 129
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.8473778352955899,
+          "P": 0.7862068965517242,
+          "R": 1.0,
+          "F1": 0.8803088803088803,
+          "accepts": 145
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9289092939554773,
+          "P": 0.7808219178082192,
+          "R": 1.0,
+          "F1": 0.8769230769230769,
+          "accepts": 146
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9318034407669142,
+          "P": 0.8828125,
+          "R": 0.9912280701754386,
+          "F1": 0.9338842975206612,
+          "accepts": 128
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.912406532754546,
+            0.9801953955523491
+          ],
+          "llm sentence": [
+            0.7350201712690093,
+            0.8904868760044544
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.13552658851435628,
+            "ci95": [
+              0.07310591339942123,
+              0.20029449809891403
+            ],
+            "p_le_0": 0.0,
+            "p_ge_0": 1.0
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 143,
+          "positive_rate": 0.7692307692307693,
+          "llm pair-max": 0.9512678356036737,
+          "llm sentence": 0.8108447166731276,
+          "sentlab": 0.845021882839784,
+          "sentence": 0.9313284986224923,
+          "pair-max": 0.9314947896635286
+        }
+      }
+    },
+    "qwen3.5-122b": {
+      "paper_comparison_model": true,
+      "n_sentences": 49,
+      "positive_rate": 0.7346938775510204,
+      "n_pairs_distribution": {
+        "1": 49
+      },
+      "trivial_accept_all_F1": 0.8470588235294118,
+      "llm pair-max": {
+        "auprc": 0.9200680821439912,
+        "greedy": {
+          "P": 0.825,
+          "R": 0.9166666666666666,
+          "F1": 0.868421052631579,
+          "accepts": 40
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.777045709367797,
+        "greedy": {
+          "P": 0.7441860465116279,
+          "R": 0.8888888888888888,
+          "F1": 0.810126582278481,
+          "accepts": 43
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.7834623440071228,
+          "P": 0.75,
+          "R": 1.0,
+          "F1": 0.8571428571428571,
+          "accepts": 48
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9273755860257172,
+          "P": 0.7346938775510204,
+          "R": 1.0,
+          "F1": 0.8470588235294118,
+          "accepts": 49
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.8742722908734367,
+          "P": 0.8333333333333334,
+          "R": 0.9722222222222222,
+          "F1": 0.8974358974358975,
+          "accepts": 42
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.8214328580361381,
+            0.9838893460152804
+          ],
+          "llm sentence": [
+            0.629728960864787,
+            0.9243585342748176
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.14302237277619412,
+            "ci95": [
+              0.009599506931428045,
+              0.2753287642437059
+            ],
+            "p_le_0": 0.0151,
+            "p_ge_0": 0.9849
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 49,
+          "positive_rate": 0.7346938775510204,
+          "llm pair-max": 0.9200680821439912,
+          "llm sentence": 0.777045709367797,
+          "sentlab": 0.7834623440071228,
+          "sentence": 0.9273755860257172,
+          "pair-max": 0.8742722908734367
+        }
+      }
+    },
+    "qwen3-32b random500": {
+      "paper_comparison_model": true,
+      "n_sentences": 500,
+      "positive_rate": 0.854,
+      "n_pairs_distribution": {
+        "1": 140,
+        "2": 54,
+        "3": 88,
+        "4": 218
+      },
+      "trivial_accept_all_F1": 0.9212513484358145,
+      "llm pair-max": {
+        "auprc": 0.9591349680333914,
+        "greedy": {
+          "P": 0.9014989293361885,
+          "R": 0.9859484777517564,
+          "F1": 0.941834451901566,
+          "accepts": 467
+        }
+      },
+      "llm sentence": {
+        "auprc": 0.9080637807712211,
+        "greedy": {
+          "P": 0.8755364806866953,
+          "R": 0.955503512880562,
+          "F1": 0.9137737961926092,
+          "accepts": 466
+        }
+      },
+      "trained_arms_same_sentences": {
+        "sentlab": {
+          "auprc_ensemble": 0.9579262853540034,
+          "P": 0.8851774530271399,
+          "R": 0.9929742388758782,
+          "F1": 0.9359823399558499,
+          "accepts": 479
+        },
+        "sentence": {
+          "auprc_ensemble": 0.9413462938552102,
+          "P": 0.8860759493670886,
+          "R": 0.9836065573770492,
+          "F1": 0.9322974472807991,
+          "accepts": 474
+        },
+        "pair-max": {
+          "auprc_ensemble": 0.9733713753687893,
+          "P": 0.9373601789709173,
+          "R": 0.9812646370023419,
+          "F1": 0.9588100686498856,
+          "accepts": 447
+        }
+      },
+      "bootstrap_auprc": {
+        "B": 10000,
+        "seed": 0,
+        "resample": "items",
+        "degenerate_dropped": 0,
+        "auprc_ci95": {
+          "llm pair-max": [
+            0.9342920586016018,
+            0.9793290349126006
+          ],
+          "llm sentence": [
+            0.875036460433324,
+            0.9386245777616425
+          ]
+        },
+        "diff": {
+          "llm pair-max - llm sentence": {
+            "observed": 0.0510711872621703,
+            "ci95": [
+              0.025064114924353186,
+              0.07939881218774715
+            ],
+            "p_le_0": 0.0001,
+            "p_ge_0": 0.9999
+          }
+        }
+      },
+      "by_n_pairs": {
+        "1_pair": {
+          "n": 140,
+          "positive_rate": 0.75,
+          "llm pair-max": 0.9209620921206323,
+          "llm sentence": 0.8228418145892111,
+          "sentlab": 0.8721161056345502,
+          "sentence": 0.9231809646674458,
+          "pair-max": 0.9183390766109789
+        },
+        "ge2_pairs": {
+          "n": 360,
+          "positive_rate": 0.8944444444444445,
+          "llm pair-max": 0.9671676219874576,
+          "llm sentence": 0.9325020332795665,
+          "sentlab": 0.9777709349547288,
+          "sentence": 0.9719589377400195,
+          "pair-max": 0.9892207293316055
+        }
+      }
+    }
+  },
+  "difference_from_sandbox_fp32": {
+    "sentlab": {
+      "auprc_mean": 1.7585609299097804e-05,
+      "auprc_ensemble": 2.1963465536289917e-06,
+      "threshold_dev_equal": true,
+      "F1": 0.0
+    },
+    "sentence": {
+      "auprc_mean": -3.137540125042193e-06,
+      "auprc_ensemble": -8.538188006168568e-06,
+      "threshold_dev_equal": true,
+      "F1": 0.0
+    },
+    "pair-max": {
+      "auprc_mean": 1.5847900653676028e-05,
+      "auprc_ensemble": -9.124809190685923e-06,
+      "threshold_dev_equal": true,
+      "F1": 0.0
+    }
+  }
+}

@@ -1,0 +1,828 @@
+{
+ "generated": "2026-10-05 04:32",
+ "script": "scripts/sentence_level/biored_label_semantics.py",
+ "command": "python3 scripts/sentence_level/biored_label_semantics.py --split test dev",
+ "raw_source_found": true,
+ "annotation_inventory": {
+  "benchmark_csv_columns": {
+   "data/benchmarks/biored_bc8": [
+    "pmid",
+    "sent_id",
+    "text",
+    "source_species",
+    "interaction_type",
+    "target_species",
+    "type1",
+    "type2",
+    "label",
+    "n_concepts",
+    "cid1",
+    "cid2"
+   ],
+   "data/benchmarks/biored_bc8_doc": [
+    "pmid",
+    "text",
+    "source_species",
+    "interaction_type",
+    "target_species",
+    "label",
+    "cid1",
+    "cid2",
+    "type1",
+    "type2",
+    "n_concepts",
+    "co_mentioned"
+   ],
+   "data/benchmarks/biored_bc8_doc_typed": [
+    "pmid",
+    "text",
+    "source_species",
+    "interaction_type",
+    "target_species",
+    "label",
+    "cid1",
+    "cid2",
+    "type1",
+    "type2",
+    "n_concepts",
+    "co_mentioned"
+   ],
+   "data/benchmarks/biored_bc8_sentence": [
+    "sent_id",
+    "text",
+    "label",
+    "n_candidates",
+    "source_species",
+    "target_species",
+    "interaction_type"
+   ],
+   "data/benchmarks/biored_verify": [
+    "pmid",
+    "sent_id",
+    "text",
+    "source_species",
+    "interaction_type",
+    "target_species",
+    "type1",
+    "type2",
+    "label",
+    "n_concepts"
+   ]
+  },
+  "raw_pubtator_field_counts": {
+   "../../biored_baseline/bioredirect/bioredirect_bc8_test.pubtator": {
+    "1": 800,
+    "4": 5021,
+    "5": 6036,
+    "6": 15404
+   },
+   "../../biored_baseline/bioredirect/bioredirect_dev.pubtator": {
+    "1": 200,
+    "4": 1095,
+    "5": 1162,
+    "6": 3533
+   },
+   "../../biored_baseline/bioredirect/bioredirect_test.pubtator": {
+    "1": 200,
+    "4": 1045,
+    "5": 1163,
+    "6": 3535
+   },
+   "../../biored_baseline/bioredirect/bioredirect_train.pubtator": {
+    "1": 800,
+    "4": 3703,
+    "5": 4177,
+    "6": 13351
+   },
+   "../../biored_baseline/bioredirect/bioredirect_train_dev.pubtator": {
+    "1": 1000,
+    "4": 4798,
+    "5": 5339,
+    "6": 16884
+   }
+  },
+  "raw_pubtator_line_kinds": {
+   "1": "title line (pmid|t|text) or abstract line (pmid|a|text)",
+   "4": "direction: pmid, id1, id2, Subject:<id>",
+   "5": "relation: pmid, relation type, id1, id2, novelty (Novel / No)",
+   "6": "entity mention: pmid, start, end, surface string, entity type, concept ID(s)"
+  },
+  "bioredirect_processed_tsv": {
+   "files": [
+    "../../biored_baseline/bioredirect/processed/bc8_test.tsv",
+    "../../biored_baseline/bioredirect/processed/dev.tsv",
+    "../../biored_baseline/bioredirect/processed/test.tsv",
+    "../../biored_baseline/bioredirect/processed/test_swap2.tsv",
+    "../../biored_baseline/bioredirect/processed/test_swapped.tsv",
+    "../../biored_baseline/bioredirect/processed/train.tsv",
+    "../../biored_baseline/bioredirect/processed/train_and_dev.tsv"
+   ],
+   "field_counts": {
+    "bc8_test.tsv": {
+     "9": 28734
+    },
+    "dev.tsv": {
+     "9": 6334
+    },
+    "test.tsv": {
+     "9": 7047
+    },
+    "test_swap2.tsv": {
+     "9": 7047
+    },
+    "test_swapped.tsv": {
+     "9": 7047
+    },
+    "train.tsv": {
+     "9": 21755
+    },
+    "train_and_dev.tsv": {
+     "9": 28089
+    }
+   },
+   "columns": [
+    "pmid",
+    "type1",
+    "type2",
+    "id1",
+    "id2",
+    "whole-abstract model input",
+    "relation type",
+    "novelty",
+    "subject id"
+   ]
+  },
+  "finding": "No sentence-level or evidence annotation anywhere: relations are (pmid, id1, id2, type, novelty) plus a subject role; no record points to a sentence or text span."
+ },
+ "definitions": {
+  "positive_sentence": "co-mentions >= 1 candidate concept pair that BioRED relates anywhere in the abstract",
+  "related_pair_concept_key_unit": "(pmid, unordered pair of concept keys) with label 1 in the candidate CSV",
+  "related_pair_gold_relation_unit": "(pmid, unordered ID pair) of a BioRED relation line, co-mentioned by a positive candidate row",
+  "k": "number of sentences of the abstract holding a candidate row for the related pair",
+  "with_a_k1_pair": "positive sentence holding >= 1 related pair co-mentioned in no other sentence",
+  "ambiguous_only": "positive sentence all of whose related pairs are co-mentioned in >= 2 sentences",
+  "non_stating": "positive sentence that states none of its related pairs",
+  "max_if_each_pair_stated_in_at_least_one_co_mentioning_sentence": "P minus the minimum number of positive sentences that co-mention every related pair (exact set cover per abstract)",
+  "expected_uniform_model_illustrative": "sum over positive sentences of prod_p (1 - 1/k_p): expected non-stating count if each pair's stating sentence were uniform among its k; not a bound",
+  "title_sentence": "sentence that starts inside the PubTator title span; for 384/400 test abstracts this is exactly sentence index 0 (see raw.title_check)"
+ },
+ "splits": {
+  "test": {
+   "split_role": "BioCreative VIII BioRED test (400 abstracts)",
+   "files": {
+    "candidates": "data/benchmarks/biored_bc8/test.csv",
+    "sentences": "data/benchmarks/biored_bc8_sentence/test.csv"
+   },
+   "n_documents_with_candidates": 398,
+   "n_sentences": 2582,
+   "n_positive_sentences": 2164,
+   "positive_rate": 0.8381,
+   "title_rule": "sentence starting inside the title span (raw PubTator title)",
+   "n_title_sentences": 285,
+   "positive_rate_title": 0.9579,
+   "positive_rate_other": 0.8232,
+   "sentence_label_equals_max_candidate_label": true,
+   "concept_key_unit": {
+    "k_distribution": {
+     "n_related_pairs_co_mentioned": 4496,
+     "k=1": {
+      "n": 2928,
+      "share": 0.6512
+     },
+     "k=2": {
+      "n": 752,
+      "share": 0.1673
+     },
+     "k=3": {
+      "n": 401,
+      "share": 0.0892
+     },
+     "k>=4": {
+      "n": 415,
+      "share": 0.0923
+     },
+     "k_mean": 1.709,
+     "k_median": 1.0,
+     "k_max": 10
+    },
+    "positive_sentences": {
+     "n_positive_sentences": 2164,
+     "with_a_k1_pair": {
+      "n": 968,
+      "share": 0.4473
+     },
+     "ambiguous_only": {
+      "n": 1196,
+      "share": 0.5527
+     },
+     "n_related_pairs_per_positive_sentence": {
+      "1": {
+       "n": 704,
+       "share": 0.3253
+      },
+      "2": {
+       "n": 422,
+       "share": 0.195
+      },
+      ">=3": {
+       "n": 1038,
+       "share": 0.4797
+      }
+     },
+     "non_stating_bounds": {
+      "optimistic_every_co_mention_states": {
+       "n": 0,
+       "share": 0.0
+      },
+      "simple_bound_ambiguous_only": {
+       "n": 1196,
+       "share": 0.5527
+      },
+      "max_if_each_pair_stated_in_at_least_one_co_mentioning_sentence": {
+       "n": 1017,
+       "share": 0.47,
+       "min_stating_sentences_needed": 1147,
+       "method": "exact minimum set cover per abstract (0/1 integer program)",
+       "titles_among_them_range_over_optimal_solutions": [
+        122,
+        205
+       ],
+       "other_sentences_among_them_range": [
+        812,
+        895
+       ]
+      },
+      "expected_uniform_model_illustrative": {
+       "n": 582.04,
+       "share": 0.269
+      },
+      "no_assumption": {
+       "n": 2164,
+       "share": 1.0
+      }
+     },
+     "by_position": {
+      "title_sentences": {
+       "n_positive_sentences": 273,
+       "with_a_k1_pair": {
+        "n": 64,
+        "share": 0.2344
+       },
+       "ambiguous_only": {
+        "n": 209,
+        "share": 0.7656
+       },
+       "max_non_stating_this_position_alone": {
+        "n": 209,
+        "share": 0.7656
+       },
+       "expected_non_stating_uniform_model": {
+        "n": 91.59,
+        "share": 0.3355
+       }
+      },
+      "other_sentences": {
+       "n_positive_sentences": 1891,
+       "with_a_k1_pair": {
+        "n": 904,
+        "share": 0.4781
+       },
+       "ambiguous_only": {
+        "n": 987,
+        "share": 0.5219
+       },
+       "max_non_stating_this_position_alone": {
+        "n": 895,
+        "share": 0.4733
+       },
+       "expected_non_stating_uniform_model": {
+        "n": 490.45,
+        "share": 0.2594
+       }
+      }
+     }
+    }
+   },
+   "crosscheck_doc_csv": {
+    "file": "data/benchmarks/biored_bc8_doc/test.csv",
+    "related_concept_pairs": 6179,
+    "related_pairs_never_sharing_a_sentence": {
+     "n": 1680,
+     "share": 0.2719
+    },
+    "note": "concept-key pairs after the candidate filters; sentence of a mention = sentence of its start"
+   },
+   "raw": {
+    "raw_file": "../../biored_baseline/bioredirect/bioredirect_bc8_test.pubtator",
+    "n_documents": 400,
+    "relation_lines": 6036,
+    "relation_types": {
+     "Association": 2759,
+     "Positive_Correlation": 1751,
+     "Negative_Correlation": 1192,
+     "Cotreatment": 172,
+     "Bind": 136,
+     "Comparison": 13,
+     "Conversion": 13
+    },
+    "novelty": {
+     "Novel": 3683,
+     "No": 2353
+    },
+    "direction_lines_subject_role": 5021,
+    "line_kinds_by_field_count": {
+     "1": 800,
+     "4": 5021,
+     "5": 6036,
+     "6": 15404
+    },
+    "reproduction_check": {
+     "candidate_rows_csv": 16606,
+     "candidate_rows_rebuilt": 16606,
+     "rows_identical": true,
+     "sentence_texts_identical": true
+    },
+    "title_check": {
+     "n_documents": 400,
+     "sentence_0_equals_title": 384,
+     "title_split_over_several_sentences": 12,
+     "sentence_0_runs_into_abstract": 4,
+     "benchmark_sentences_title_by_index_0": 283,
+     "benchmark_sentences_title_by_span": 285,
+     "rule_used": "title = sentence starting inside the title span"
+    },
+    "gold_relation_unit": {
+     "k_distribution": {
+      "n_related_pairs_co_mentioned": 4684,
+      "k=1": {
+       "n": 2884,
+       "share": 0.6157
+      },
+      "k=2": {
+       "n": 859,
+       "share": 0.1834
+      },
+      "k=3": {
+       "n": 454,
+       "share": 0.0969
+      },
+      "k>=4": {
+       "n": 487,
+       "share": 0.104
+      },
+      "k_mean": 1.787,
+      "k_median": 1.0,
+      "k_max": 10,
+      "self_relations_among_them": 2
+     },
+     "positive_sentences": {
+      "n_positive_sentences": 2164,
+      "with_a_k1_pair": {
+       "n": 922,
+       "share": 0.4261
+      },
+      "ambiguous_only": {
+       "n": 1242,
+       "share": 0.5739
+      },
+      "n_related_pairs_per_positive_sentence": {
+       "1": {
+        "n": 657,
+        "share": 0.3036
+       },
+       "2": {
+        "n": 427,
+        "share": 0.1973
+       },
+       ">=3": {
+        "n": 1080,
+        "share": 0.4991
+       }
+      },
+      "non_stating_bounds": {
+       "optimistic_every_co_mention_states": {
+        "n": 0,
+        "share": 0.0
+       },
+       "simple_bound_ambiguous_only": {
+        "n": 1242,
+        "share": 0.5739
+       },
+       "max_if_each_pair_stated_in_at_least_one_co_mentioning_sentence": {
+        "n": 1051,
+        "share": 0.4857,
+        "min_stating_sentences_needed": 1113,
+        "method": "exact minimum set cover per abstract (0/1 integer program)",
+        "titles_among_them_range_over_optimal_solutions": [
+         122,
+         212
+        ],
+        "other_sentences_among_them_range": [
+         839,
+         929
+        ]
+       },
+       "expected_uniform_model_illustrative": {
+        "n": 579.53,
+        "share": 0.2678
+       },
+       "no_assumption": {
+        "n": 2164,
+        "share": 1.0
+       }
+      },
+      "by_position": {
+       "title_sentences": {
+        "n_positive_sentences": 273,
+        "with_a_k1_pair": {
+         "n": 57,
+         "share": 0.2088
+        },
+        "ambiguous_only": {
+         "n": 216,
+         "share": 0.7912
+        },
+        "max_non_stating_this_position_alone": {
+         "n": 216,
+         "share": 0.7912
+        },
+        "expected_non_stating_uniform_model": {
+         "n": 89.55,
+         "share": 0.328
+        }
+       },
+       "other_sentences": {
+        "n_positive_sentences": 1891,
+        "with_a_k1_pair": {
+         "n": 865,
+         "share": 0.4574
+        },
+        "ambiguous_only": {
+         "n": 1026,
+         "share": 0.5426
+        },
+        "max_non_stating_this_position_alone": {
+         "n": 929,
+         "share": 0.4913
+        },
+        "expected_non_stating_uniform_model": {
+         "n": 489.98,
+         "share": 0.2591
+        }
+       }
+      }
+     }
+    },
+    "document_level_relations": {
+     "n_relations_unique_unordered_pairs": 6031,
+     "self_relations_excluded": 5,
+     "co_mentioned_by_a_sentence_candidate": {
+      "n": 4682,
+      "share": 0.7763
+     },
+     "co_mentioned_but_no_candidate_row": {
+      "n": 1,
+      "share": 0.0002
+     },
+     "never_co_mentioned_in_one_sentence": {
+      "n": 1336,
+      "share": 0.2215
+     },
+     "id_not_in_entity_annotations": {
+      "n": 12,
+      "share": 0.002
+     }
+    }
+   }
+  },
+  "dev": {
+   "split_role": "BioRED test (100 abstracts)",
+   "files": {
+    "candidates": "data/benchmarks/biored_bc8/dev.csv",
+    "sentences": "data/benchmarks/biored_bc8_sentence/dev.csv"
+   },
+   "n_documents_with_candidates": 100,
+   "n_sentences": 668,
+   "n_positive_sentences": 559,
+   "positive_rate": 0.8368,
+   "title_rule": "sentence starting inside the title span (raw PubTator title)",
+   "n_title_sentences": 85,
+   "positive_rate_title": 0.9412,
+   "positive_rate_other": 0.8216,
+   "sentence_label_equals_max_candidate_label": true,
+   "concept_key_unit": {
+    "k_distribution": {
+     "n_related_pairs_co_mentioned": 841,
+     "k=1": {
+      "n": 547,
+      "share": 0.6504
+     },
+     "k=2": {
+      "n": 130,
+      "share": 0.1546
+     },
+     "k=3": {
+      "n": 72,
+      "share": 0.0856
+     },
+     "k>=4": {
+      "n": 92,
+      "share": 0.1094
+     },
+     "k_mean": 1.757,
+     "k_median": 1.0,
+     "k_max": 9
+    },
+    "positive_sentences": {
+     "n_positive_sentences": 559,
+     "with_a_k1_pair": {
+      "n": 218,
+      "share": 0.39
+     },
+     "ambiguous_only": {
+      "n": 341,
+      "share": 0.61
+     },
+     "n_related_pairs_per_positive_sentence": {
+      "1": {
+       "n": 236,
+       "share": 0.4222
+      },
+      "2": {
+       "n": 121,
+       "share": 0.2165
+      },
+      ">=3": {
+       "n": 202,
+       "share": 0.3614
+      }
+     },
+     "non_stating_bounds": {
+      "optimistic_every_co_mention_states": {
+       "n": 0,
+       "share": 0.0
+      },
+      "simple_bound_ambiguous_only": {
+       "n": 341,
+       "share": 0.61
+      },
+      "max_if_each_pair_stated_in_at_least_one_co_mentioning_sentence": {
+       "n": 289,
+       "share": 0.517,
+       "min_stating_sentences_needed": 270,
+       "method": "exact minimum set cover per abstract (0/1 integer program)",
+       "titles_among_them_range_over_optimal_solutions": [
+        36,
+        58
+       ],
+       "other_sentences_among_them_range": [
+        231,
+        253
+       ]
+      },
+      "expected_uniform_model_illustrative": {
+       "n": 189.83,
+       "share": 0.3396
+      },
+      "no_assumption": {
+       "n": 559,
+       "share": 1.0
+      }
+     },
+     "by_position": {
+      "title_sentences": {
+       "n_positive_sentences": 80,
+       "with_a_k1_pair": {
+        "n": 21,
+        "share": 0.2625
+       },
+       "ambiguous_only": {
+        "n": 59,
+        "share": 0.7375
+       },
+       "max_non_stating_this_position_alone": {
+        "n": 59,
+        "share": 0.7375
+       },
+       "expected_non_stating_uniform_model": {
+        "n": 29.77,
+        "share": 0.3721
+       }
+      },
+      "other_sentences": {
+       "n_positive_sentences": 479,
+       "with_a_k1_pair": {
+        "n": 197,
+        "share": 0.4113
+       },
+       "ambiguous_only": {
+        "n": 282,
+        "share": 0.5887
+       },
+       "max_non_stating_this_position_alone": {
+        "n": 253,
+        "share": 0.5282
+       },
+       "expected_non_stating_uniform_model": {
+        "n": 160.06,
+        "share": 0.3342
+       }
+      }
+     }
+    }
+   },
+   "crosscheck_doc_csv": {
+    "file": "data/benchmarks/biored_bc8_doc/dev.csv",
+    "related_concept_pairs": 1143,
+    "related_pairs_never_sharing_a_sentence": {
+     "n": 302,
+     "share": 0.2642
+    },
+    "note": "concept-key pairs after the candidate filters; sentence of a mention = sentence of its start"
+   },
+   "raw": {
+    "raw_file": "../../biored_baseline/bioredirect/bioredirect_test.pubtator",
+    "n_documents": 100,
+    "relation_lines": 1163,
+    "relation_types": {
+     "Association": 635,
+     "Positive_Correlation": 325,
+     "Negative_Correlation": 171,
+     "Cotreatment": 14,
+     "Bind": 9,
+     "Comparison": 6,
+     "Drug_Interaction": 2,
+     "Conversion": 1
+    },
+    "novelty": {
+     "Novel": 859,
+     "No": 304
+    },
+    "direction_lines_subject_role": 1045,
+    "line_kinds_by_field_count": {
+     "1": 200,
+     "4": 1045,
+     "5": 1163,
+     "6": 3535
+    },
+    "reproduction_check": {
+     "candidate_rows_csv": 3277,
+     "candidate_rows_rebuilt": 3277,
+     "rows_identical": true,
+     "sentence_texts_identical": true
+    },
+    "title_check": {
+     "n_documents": 100,
+     "sentence_0_equals_title": 98,
+     "title_split_over_several_sentences": 1,
+     "sentence_0_runs_into_abstract": 1,
+     "benchmark_sentences_title_by_index_0": 85,
+     "benchmark_sentences_title_by_span": 85,
+     "rule_used": "title = sentence starting inside the title span"
+    },
+    "gold_relation_unit": {
+     "k_distribution": {
+      "n_related_pairs_co_mentioned": 944,
+      "k=1": {
+       "n": 620,
+       "share": 0.6568
+      },
+      "k=2": {
+       "n": 128,
+       "share": 0.1356
+      },
+      "k=3": {
+       "n": 90,
+       "share": 0.0953
+      },
+      "k>=4": {
+       "n": 106,
+       "share": 0.1123
+      },
+      "k_mean": 1.755,
+      "k_median": 1.0,
+      "k_max": 9,
+      "self_relations_among_them": 0
+     },
+     "positive_sentences": {
+      "n_positive_sentences": 559,
+      "with_a_k1_pair": {
+       "n": 212,
+       "share": 0.3792
+      },
+      "ambiguous_only": {
+       "n": 347,
+       "share": 0.6208
+      },
+      "n_related_pairs_per_positive_sentence": {
+       "1": {
+        "n": 228,
+        "share": 0.4079
+       },
+       "2": {
+        "n": 123,
+        "share": 0.22
+       },
+       ">=3": {
+        "n": 208,
+        "share": 0.3721
+       }
+      },
+      "non_stating_bounds": {
+       "optimistic_every_co_mention_states": {
+        "n": 0,
+        "share": 0.0
+       },
+       "simple_bound_ambiguous_only": {
+        "n": 347,
+        "share": 0.6208
+       },
+       "max_if_each_pair_stated_in_at_least_one_co_mentioning_sentence": {
+        "n": 293,
+        "share": 0.5242,
+        "min_stating_sentences_needed": 266,
+        "method": "exact minimum set cover per abstract (0/1 integer program)",
+        "titles_among_them_range_over_optimal_solutions": [
+         36,
+         59
+        ],
+        "other_sentences_among_them_range": [
+         234,
+         257
+        ]
+       },
+       "expected_uniform_model_illustrative": {
+        "n": 190.94,
+        "share": 0.3416
+       },
+       "no_assumption": {
+        "n": 559,
+        "share": 1.0
+       }
+      },
+      "by_position": {
+       "title_sentences": {
+        "n_positive_sentences": 80,
+        "with_a_k1_pair": {
+         "n": 20,
+         "share": 0.25
+        },
+        "ambiguous_only": {
+         "n": 60,
+         "share": 0.75
+        },
+        "max_non_stating_this_position_alone": {
+         "n": 60,
+         "share": 0.75
+        },
+        "expected_non_stating_uniform_model": {
+         "n": 29.78,
+         "share": 0.3723
+        }
+       },
+       "other_sentences": {
+        "n_positive_sentences": 479,
+        "with_a_k1_pair": {
+         "n": 192,
+         "share": 0.4008
+        },
+        "ambiguous_only": {
+         "n": 287,
+         "share": 0.5992
+        },
+        "max_non_stating_this_position_alone": {
+         "n": 257,
+         "share": 0.5365
+        },
+        "expected_non_stating_uniform_model": {
+         "n": 161.16,
+         "share": 0.3364
+        }
+       }
+      }
+     }
+    },
+    "document_level_relations": {
+     "n_relations_unique_unordered_pairs": 1163,
+     "self_relations_excluded": 0,
+     "co_mentioned_by_a_sentence_candidate": {
+      "n": 944,
+      "share": 0.8117
+     },
+     "co_mentioned_but_no_candidate_row": {
+      "n": 0,
+      "share": 0.0
+     },
+     "never_co_mentioned_in_one_sentence": {
+      "n": 219,
+      "share": 0.1883
+     },
+     "id_not_in_entity_annotations": {
+      "n": 0,
+      "share": 0.0
+     }
+    }
+   }
+  }
+ }
+}

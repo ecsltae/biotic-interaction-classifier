@@ -1,0 +1,20 @@
+{
+  "labelled_passages": 34242,
+  "corpus_passages": 34242,
+  "sentence_yes_rate": 0.6545178435839029,
+  "any_positive_candidate_rate": 0.3309094094971088,
+  "well_formed_answers": 1.0,
+  "p_yes_between_0.1_and_0.9": 0.12487588341802465,
+  "crosstab": {
+    "sentence_yes_candidate_pos": 9909,
+    "sentence_yes_no_candidate_pos": 12503,
+    "sentence_no_candidate_pos": 1422,
+    "sentence_no_no_candidate_pos": 10408
+  },
+  "sentence_yes_rate_by_candidates": {
+    "1": 0.5527682080644378,
+    ">=2": 0.8083327220714442
+  },
+  "note": "sentence_no_candidate_pos counts passages where the teacher said a candidate pair interacts but answered NO to 'does the passage describe a biotic interaction?' (inconsistent answers)",
+  "kappa_sentence_vs_any_candidate": 0.2636294635667289
+}

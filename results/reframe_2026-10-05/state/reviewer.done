@@ -1,0 +1,24 @@
+reviewer stage: done 2026-10-05 05:36 (session 1). All 3 subagents finished; none running.
+PRODUCED
+- results/reframe_2026-10-05/REVIEW.md: number audit, citations, format, ACL-style review (2.5/5; submission ~3.0),
+  RECOMMENDATION, the 16 fixes applied, 12 judgement calls for the user (§8).
+- review_work/{number_audit,citations,citations_refsbib_part,critical_review,lead_notes}.md, audit_reframe_numbers.py,
+  check_references_{out,final}.txt, email_body.txt; pre-review backups paperA_reframe.before_review.{tex,pdf} (not in git).
+- paperA/paperA_reframe.tex/.pdf fixed and rebuilt: 0 errors, 0 overfull, Conclusion ends on the LAST line of p8
+  (any further body edit must be length-neutral), abstract 197 words (submission's counter), review mode, anonymous.
+- Local commit 739a441 (explicit paths, no attribution, not pushed). paperA.tex/.pdf/references.bib untouched.
+- Memory: paragraph appended to memory/project_paper_a.md; MEMORY.md line 20 updated.
+- E-mail sent 05:35 ("Paper A: sentence-level reframe draft ready for your review").
+CHECKS
+- Numbers: 92 claims (~190 values), 0 wrong, 0 untraceable; 1 context fix (48,338 rows, not passages).
+- Citations: 80 keys resolve; check_references 20 OK + 2 NOT FOUND hand-verified (zhong2021, dasanmartino2019);
+  3 misattributions fixed (lai EP gap, dsouza/farrell, farkas), cf. li2021dual, + zeng2015distant.
+- Overclaims fixed: "depends on what the sentence label counts" (x2), "what the two benchmarks measure",
+  closing line now "Pending human sentence labels, ask each question separately; one teacher labels both.",
+  provisional flags in contributions/setting/conclusion, BioRED "pair-derived" labels, Qwen-family voter caveat.
+RECOMMENDATION: adopt the reframe only after human SENTENCE labels on the 177 unanswered pair-negative rows of
+second_annotation_2026-10-04_BLIND.xlsx (ideally all 417 non-SKIP rows); until then submit paperA.tex with its
+"answered before it is asked" softened (contradicted by the teacher's 34.5% "no"; user's decision, not applied).
+OPEN (user): 7 gold flips (not applied); second annotation; XXXX URL; inherited privileged-access wording;
+curator-initials file name in the anon mirror (globi-relax_..._curation_EP.tsv; mirror untouched); Qwen3.8-27B licence;
+two untested controls (BioRED sentence model with entity marks; route combination).

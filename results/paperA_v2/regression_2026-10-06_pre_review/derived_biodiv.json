@@ -1,0 +1,411 @@
+{
+  "benchmark": {
+    "labels": "pre_review_2026-10-06",
+    "file": "data/evaluation/unified_test_set.pre_review_2026-10-06.csv",
+    "sha256": "057416074764bdb1c6697d95fa58b68b9755176f6b2d2ad2e78b4ae3656b547b",
+    "n": 437,
+    "positives": 246
+  },
+  "inputs": {
+    "scores": "results/paperA_v2/regression_2026-10-06_pre_review",
+    "deployed_scores": "results/paperA_v2/regression_2026-10-06_pre_review/shipping/bench_a05.csv",
+    "n_taxa": "results/paperA_rebuild_2026-09-28/n_taxa_per_row.csv",
+    "arg_recognition": "results/paperA_v2/arg_recognition.csv",
+    "llm": "results/paperA_v2/llm/biodiv_*.csv (p_yes, verdict)"
+  },
+  "positives_ge3_taxa": {
+    "positives": 154,
+    "of_positives": 246,
+    "share": 0.6260162601626016
+  },
+  "biotx100_halves": {
+    "globi": {
+      "n": 50,
+      "positives": 43
+    },
+    "random": {
+      "n": 47,
+      "positives": 32
+    }
+  },
+  "strata": {
+    "le2_taxa": {
+      "n": 161,
+      "positives": 92,
+      "negatives": 69,
+      "auprc": {
+        "sentence": 0.8761446840629294,
+        "pair": 0.9183110001141144,
+        "triple": 0.8790006126656189
+      },
+      "gain_pair_vs_sentence": 0.04216631605118493,
+      "gain_triple_vs_sentence": 0.0028559286026894615
+    },
+    "ge3_taxa": {
+      "n": 276,
+      "positives": 154,
+      "negatives": 122,
+      "auprc": {
+        "sentence": 0.8456592817739399,
+        "pair": 0.9303524804067903,
+        "triple": 0.9298721303060371
+      },
+      "gain_pair_vs_sentence": 0.08469319863285041,
+      "gain_triple_vs_sentence": 0.0842128485320972
+    },
+    "both_taxa_le2": {
+      "n": 33,
+      "positives": 20,
+      "negatives": 13,
+      "auprc": {
+        "sentence": 0.9447618712556793,
+        "pair": 0.9703994668042655,
+        "triple": 0.9563075609031493
+      },
+      "gain_pair_vs_sentence": 0.025637595548586134,
+      "gain_triple_vs_sentence": 0.011545689647469937
+    },
+    "both_taxa_ge3": {
+      "n": 227,
+      "positives": 129,
+      "negatives": 98,
+      "auprc": {
+        "sentence": 0.8776687815855352,
+        "pair": 0.9469687299299847,
+        "triple": 0.9450582364546608
+      },
+      "gain_pair_vs_sentence": 0.06929994834444952,
+      "gain_triple_vs_sentence": 0.06738945486912562
+    },
+    "not_a_taxon_le2": {
+      "n": 128,
+      "positives": 72,
+      "negatives": 56,
+      "auprc": {
+        "sentence": 0.8560627931825597,
+        "pair": 0.9080000837145623,
+        "triple": 0.8608588255584827
+      },
+      "gain_pair_vs_sentence": 0.05193729053200258,
+      "gain_triple_vs_sentence": 0.004796032375922965
+    },
+    "not_a_taxon_ge3": {
+      "n": 49,
+      "positives": 25,
+      "negatives": 24,
+      "auprc": {
+        "sentence": 0.6283447151818964,
+        "pair": 0.8080591651264724,
+        "triple": 0.8385283027994096
+      },
+      "gain_pair_vs_sentence": 0.17971444994457597,
+      "gain_triple_vs_sentence": 0.2101835876175132
+    },
+    "not_a_taxon": {
+      "n": 177,
+      "positives": 97,
+      "negatives": 80,
+      "auprc": {
+        "sentence": 0.8042674602586024,
+        "pair": 0.8795331826396957,
+        "triple": 0.8527799228910182
+      },
+      "gain_pair_vs_sentence": 0.0752657223810933,
+      "gain_triple_vs_sentence": 0.04851246263241582
+    },
+    "both_taxa": {
+      "n": 260,
+      "positives": 149,
+      "negatives": 111,
+      "auprc": {
+        "sentence": 0.8864349252364727,
+        "pair": 0.9495708144949733,
+        "triple": 0.9454645578943501
+      },
+      "gain_pair_vs_sentence": 0.06313588925850055,
+      "gain_triple_vs_sentence": 0.05902963265787742
+    }
+  },
+  "coinciding_stratum": {
+    "stratum": "both_taxa_le2",
+    "n": 33,
+    "positives": 20,
+    "negatives": 13
+  },
+  "share_with_a_non_taxon_argument": 0.40503432494279173,
+  "per_seed": {
+    "sentence": {
+      "auprc": {
+        "per_seed": [
+          0.8578246906758211,
+          0.8512540469838672,
+          0.8449341458726854
+        ],
+        "mean": 0.8513376278441246,
+        "sd": 0.0064456788355116675
+      },
+      "f1_at_0.5": {
+        "per_seed": [
+          0.6321243523316062,
+          0.697560975609756,
+          0.6633165829145728
+        ],
+        "mean": 0.6643339702853117,
+        "sd": 0.0327301729953911
+      }
+    },
+    "pair": {
+      "auprc": {
+        "per_seed": [
+          0.9222218215960344,
+          0.9209268982326121,
+          0.9122419275799581
+        ],
+        "mean": 0.9184635491362015,
+        "sd": 0.005426844176970497
+      },
+      "f1_at_0.5": {
+        "per_seed": [
+          0.789838337182448,
+          0.7576470588235295,
+          0.7882882882882883
+        ],
+        "mean": 0.7785912280980886,
+        "sd": 0.01815473307004573
+      }
+    },
+    "triple": {
+      "auprc": {
+        "per_seed": [
+          0.9122701576704914,
+          0.9051267166176267,
+          0.9086357701218789
+        ],
+        "mean": 0.9086775481366657,
+        "sd": 0.003571903774015724
+      },
+      "f1_at_0.5": {
+        "per_seed": [
+          0.8421052631578947,
+          0.8471615720524017,
+          0.8344370860927153
+        ],
+        "mean": 0.8412346404343373,
+        "sd": 0.006406763900725963
+      }
+    }
+  },
+  "fig4": {
+    "thresholds": 99,
+    "pair_ahead": 99,
+    "min_gap": 0.05835713582192459,
+    "min_gap_tau": 0.01
+  },
+  "rules": {
+    "pair": {
+      "no_rules": {
+        "P": 0.8494208494208494,
+        "R": 0.8943089430894309,
+        "F1": 0.8712871287128713,
+        "accepts": 259
+      },
+      "rules7": {
+        "P": 0.8582677165354331,
+        "R": 0.8861788617886179,
+        "F1": 0.872,
+        "accepts": 254,
+        "mcnemar_p": 1.0,
+        "fixed": 3,
+        "broken": 2
+      },
+      "rules8": {
+        "P": 0.8669354838709677,
+        "R": 0.8739837398373984,
+        "F1": 0.8704453441295547,
+        "accepts": 248,
+        "mcnemar_p": 1.0,
+        "fixed": 6,
+        "broken": 5
+      }
+    },
+    "triple": {
+      "no_rules": {
+        "P": 0.8195488721804511,
+        "R": 0.8861788617886179,
+        "F1": 0.8515625,
+        "accepts": 266
+      },
+      "rules7": {
+        "P": 0.8404669260700389,
+        "R": 0.8780487804878049,
+        "F1": 0.8588469184890656,
+        "accepts": 257,
+        "mcnemar_p": 0.18242243945173198,
+        "fixed": 7,
+        "broken": 2
+      },
+      "rules8": {
+        "P": 0.8623481781376519,
+        "R": 0.8658536585365854,
+        "F1": 0.8640973630831643,
+        "accepts": 247,
+        "mcnemar_p": 0.0664574200169312,
+        "fixed": 14,
+        "broken": 5
+      }
+    }
+  },
+  "pair_false_positives": {
+    "n": 39,
+    "ge3_taxa": 27,
+    "non_taxon_argument": 17,
+    "caught_by_8_rules": 6,
+    "caught_by_7_rules": 3,
+    "by_rule": {
+      "co_listed": 3,
+      "same_organism": 1,
+      "non_biotic_relation": 1,
+      "negated": 1
+    },
+    "file": "false_positives_pair.csv"
+  },
+  "reject50": {
+    "sentence": {
+      "recovered": 7,
+      "of_positives": 9,
+      "readmitted": 15,
+      "of_negatives": 32,
+      "F1": 0.45161290322580644
+    },
+    "pair": {
+      "recovered": 4,
+      "of_positives": 9,
+      "readmitted": 7,
+      "of_negatives": 32,
+      "F1": 0.4
+    },
+    "triple": {
+      "recovered": 6,
+      "of_positives": 9,
+      "readmitted": 5,
+      "of_negatives": 32,
+      "F1": 0.6
+    }
+  },
+  "basesample_triple": {
+    "checkpoints": [
+      "models/student/xenc_s1",
+      "models/student/xenc_s2",
+      "models/student/xenc_s3"
+    ],
+    "auprc": {
+      "per_seed": [
+        0.9199804774885478,
+        0.9181340053911233,
+        0.9144559528454788
+      ],
+      "mean": 0.9175234785750499,
+      "sd": 0.0028124100657315023
+    },
+    "auprc_ensemble": 0.9186739566258454,
+    "block_held_out": {
+      "P": 0.8494208494208494,
+      "R": 0.8943089430894309,
+      "F1": 0.8712871287128713,
+      "accepts": 259,
+      "thresholds": {
+        "biotx100": 0.09,
+        "reject50": 0.060000000000000005,
+        "test299": 0.04
+      }
+    },
+    "f1_at_0.5": {
+      "per_seed": [
+        0.8237885462555066,
+        0.8185840707964602,
+        0.8035714285714286
+      ],
+      "mean": 0.8153146818744652,
+      "sd": 0.01049760162158065
+    }
+  },
+  "deployed": {
+    "threshold": 0.5,
+    "auprc": 0.9344932247978099,
+    "no_rules": {
+      "P": 0.8514492753623188,
+      "R": 0.9552845528455285,
+      "F1": 0.9003831417624522,
+      "accepts": 276,
+      "FP": 41,
+      "FN": 11
+    },
+    "with_rules": {
+      "P": 0.8694029850746269,
+      "R": 0.9471544715447154,
+      "F1": 0.9066147859922179,
+      "accepts": 268,
+      "FP": 35,
+      "FN": 13
+    },
+    "rules_vs_no_rules": {
+      "mcnemar_p": 0.2888443663464818,
+      "fixed": 6,
+      "broken": 2
+    },
+    "rejected_by_rules": {
+      "non_biotic_relation": 3,
+      "pathogen_modifier": 2,
+      "negated": 2,
+      "authority": 1
+    },
+    "co_listed_on_accept_set": {
+      "fires": 4,
+      "removes_fp": 1,
+      "removes_tp": 3,
+      "mcnemar_p": 0.6170750774519739,
+      "fixed": 1,
+      "broken": 3
+    }
+  },
+  "teacher_gaps": {
+    "teacher": "qwen3-32b",
+    "auprc": {
+      "sentence": 0.7885509600204265,
+      "pair": 0.9434143403422546,
+      "triple": 0.9457170519176772
+    },
+    "pair_minus_sentence": 0.15486338032182811,
+    "pair_minus_sentence_ge3": 0.17999984224581966,
+    "pair_minus_sentence_le2": 0.10406715379740439,
+    "triple_minus_pair": 0.0023027115754226113,
+    "student_pair_minus_sentence_per_seed": 0.06712592129207695,
+    "student_pair_minus_sentence_ge3": 0.08469319863285041,
+    "student_pair_minus_sentence_le2": 0.04216631605118493,
+    "student_triple_minus_pair_per_seed": -0.00978600099953586,
+    "student_pair_minus_teacher_sentence": 0.12991258911577508,
+    "teacher_triple_minus_student_pair": 0.027253502781475647,
+    "student_pair_F1": 0.8712871287128713,
+    "teacher_triple_F1": 0.8702594810379242
+  },
+  "scaling_pair_minus_sentence": {
+    "qwen3-0.6b": 0.003821606306921854,
+    "qwen3-1.7b": 0.04029550159988615,
+    "qwen3-4b-q4_K_M": 0.12377356415498775,
+    "qwen3-8b": 0.0960358183434169,
+    "qwen3-14b": 0.1232002209651809,
+    "qwen3-30b-a3b-q4_K_M": 0.12416176772183074,
+    "qwen3-32b": 0.15486338032182811,
+    "qwen3.5-122b": 0.19500407287313126
+  },
+  "scaling_sentence_auprc": {
+    "qwen3-0.6b": 0.6401281473407927,
+    "qwen3-1.7b": 0.753247972594997,
+    "qwen3-4b-q4_K_M": 0.7398663348759571,
+    "qwen3-8b": 0.8020615253556285,
+    "qwen3-14b": 0.7967526142469832,
+    "qwen3-30b-a3b-q4_K_M": 0.7774646750446232,
+    "qwen3-32b": 0.7885509600204265,
+    "qwen3.5-122b": 0.7734756910654592
+  }
+}

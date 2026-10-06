@@ -1,0 +1,24 @@
+OK        dietterich1997solving                    Solving the multiple instance problem with axis-parallel rectangles
+OK        hoffmann2011knowledge                    Knowledge-Based Weak Supervision for Information Extraction of Overlap
+OK        ilse2018attention                        Attention-based Deep Multiple Instance Learning
+OK        chowdhury2013exploiting                  Exploiting the Scope of Negations and Heterogeneous Features for Relat
+OK        xie2021revisiting                        Revisiting the Negative Data of Distantly Supervised Relation Extracti
+OK        krallinger2008overview                   Overview of the protein-protein interaction annotation extraction task
+OK        islamajdogan2019overview                 Overview of the {BioCreative} {VI} Precision Medicine Track: mining pr
+OK        polajnar2011protein                      Protein interaction sentence detection using multiple semantic kernels
+OK        lim2016minter                            @{MInter}: automated text-mining of microbial interactions
+OK        lee2020biobert                           {BioBERT}: a pre-trained biomedical language representation model for 
+NOT FOUND zhong2021frustratingly                   A Frustratingly Easy Approach for Entity and Relation Extraction
+OK        mraz2026fewshot                          Few-Shot Biomedical Relation Extraction with Large Language Models: A 
+OK        jiang2019challenge                       A Challenge Dataset and Effective Models for Aspect-Based Sentiment An
+OK        pyysalo2008comparative                   Comparative analysis of five protein-protein interaction corpora
+OK        tikk2013detailed                         A detailed error analysis of 13 kernel methods for protein-protein int
+OK        rei2019jointly                           Jointly Learning to Label Sentences and Tokens
+NOT FOUND dasanmartino2019fine                     Fine-Grained Analysis of Propaganda in News Articles
+OK        farkas2010conll                          The {C}o{NLL}-2010 Shared Task: Learning to Detect Hedges and their Sc
+OK        li2021dual                               Dual-stream Multiple Instance Learning Network for Whole Slide Image C
+OK        magge2021deepademiner                    {DeepADEMiner}: a deep learning pharmacovigilance pipeline for extract
+OK        pavlopoulos2022from                      From the Detection of Toxic Spans in Online Discussions to the Analysi
+
+19 OK, 0 CHECK, 2 NOT FOUND, of 21 cited entries
+EXIT 0

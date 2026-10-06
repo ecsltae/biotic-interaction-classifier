@@ -1,0 +1,31 @@
+{
+  "seed": 1,
+  "pairs": 6253,
+  "order": {
+    "max_abs_score_diff": 0.0,
+    "auprc_fixed_order": 0.9610916191142979,
+    "auprc_shuffled_order": 0.9610916191142979
+  },
+  "precision": {
+    "max_abs_score_diff_tf32_vs_fp32": 0.0059188008308410645,
+    "auprc_tf32": 0.9610916191142979,
+    "auprc_fp32": 0.9611095614715165
+  },
+  "sandbox_auprc": 0.9611095614715165,
+  "fp32_reproduces_sandbox_exactly": true,
+  "fp32_all_seeds": {
+    "auprc_per_seed": [
+      0.9611095614715165,
+      0.9661953771519045,
+      0.9612343423253358
+    ],
+    "sandbox_per_seed": [
+      0.9611095614715165,
+      0.9661953771519045,
+      0.9612343423253358
+    ],
+    "auprc_ensemble": 0.9655056788892911,
+    "sandbox_ensemble": 0.9655056788892911
+  },
+  "fp32_all_identical": true
+}
