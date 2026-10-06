@@ -127,9 +127,9 @@
     ],
     "input_strip_right": 2.99,
     "columns": {
-      "sentence": 1.46,
-      "pair": 2.31,
-      "correct": 2.844
+      "sentence": 1.557,
+      "pair": 2.407,
+      "correct": 2.893
     }
   }
 }

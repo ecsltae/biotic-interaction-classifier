@@ -53,6 +53,7 @@ STEM = "fig_scaling"
 
 # Okabe-Ito, as in make_threshold_figure.py; greys and ink as in the blueprint (section 4)
 BLUE, VERM, GREY, DARK, INK, GRID = "#0072B2", "#D55E00", "#9a9a95", "#55554f", "#1a1a19", "#e8e8e4"
+GREEN = "#009E73"
 DASHED, DOTTED = (0, (4, 2)), (0, (1, 1.2))
 
 DAGGER = "\u2020"
@@ -66,7 +67,7 @@ MODELS = [
     ("qwen3-14b", "14B", "14B"),
     ("qwen3-30b-a3b-q4_K_M", "30B-A3B*", "30B-A3B*"),
     ("qwen3-32b", "32B\nteacher", "32B\nteacher"),
-    ("qwen3.5-122b", "122B*", "122B*" + DAGGER),
+    ("qwen3.5-122b", "122B*", "122B*"),
 ]
 KEYS = [m for m, _, _ in MODELS]
 N_QWEN3 = 7          # lines join the seven Qwen3 models; Qwen3.5-122B, a later release, stands alone
@@ -85,16 +86,14 @@ PRINTED = {
         "base_rate": 0.574,
     },
     "biored": {
-        "sentence": [0.522, 0.533, 0.546, 0.524, 0.555, 0.571, 0.566, 0.490],
-        "pair": [0.523, 0.648, 0.745, 0.800, 0.805, 0.792, 0.813, 0.811],
+        "sentence": [0.522, 0.533, 0.546, 0.524, 0.555, 0.571, 0.566, 0.519],
+        "pair": [0.523, 0.648, 0.745, 0.800, 0.805, 0.792, 0.813, 0.820],
         "trained": {"sentence": 0.757, "pair": 0.860},
-        "trained_122b": {"sentence": 0.714, "pair": 0.841},
         "base_rate": 0.476,
-        "base_rate_122b": 0.442,
     },
     # text and appendix: the pair question's lead from 1.7B on, and the sentence question's range
-    "gap_from_1.7B_2dp": {"biodiv": [0.04, 0.20], "biored": [0.11, 0.32]},
-    "sentence_range_2dp": {"biodiv_from_4B": [0.76, 0.82], "biored_all": [0.49, 0.57]},
+    "gap_from_1.7B_2dp": {"biodiv": [0.04, 0.20], "biored": [0.11, 0.30]},
+    "sentence_range_2dp": {"biodiv_from_4B": [0.76, 0.82], "biored_all": [0.52, 0.57]},
 }
 TOL = 1e-9
 
@@ -181,7 +180,7 @@ def biored_values(res):
             k = f"biored_{m}_{q}"
             o = pd.read_csv(res / "llm" / f"{k}.csv")
             n = len(o)
-            check(n == (1000 if m == LATER else 3000), f"{k}: n = {n}")
+            check(n == 3000, f"{k}: n = {n}")
             check((o[["row", "label"]].to_numpy() == ref[["row", "label"]].to_numpy()[:n]).all(),
                   f"{k}: rows are not the sample's first {n}")
             t = tab["llm"][k]
@@ -192,17 +191,15 @@ def biored_values(res):
             for arm in ("sentence", "pair"):
                 a = float(ap(o.label.to_numpy(), S[arm][o.row.to_numpy()]))
                 check(abs(t["trained_arms_same_rows"][arm] - a) < TOL, f"{k}: trained_arms_same_rows.{arm}")
-            if q == "pair" and m in (TEACHER, LATER):
+            if q == "pair" and m == TEACHER:
                 same_rows[k] = {arm: t["trained_arms_same_rows"][arm] for arm in ("sentence", "pair")}
-            if m not in (LATER,):                            # one set of rows for the seven Qwen3 models
+            if True:                                         # one set of rows for every model
                 for arm in ("sentence", "pair"):
                     check(abs(t["trained_arms_same_rows"][arm]
                               - tab["llm"][f"biored_{TEACHER}_pair"]["trained_arms_same_rows"][arm]) < TOL,
                           f"{k}: not on the teacher's rows")
     lab_3000 = ref.label.to_numpy()
-    lab_1000 = pd.read_csv(res / "llm" / f"biored_{LATER}_pair.csv").label.to_numpy()
-    return {"n_sample": int(len(lab_3000)), "n_first_1000": int(len(lab_1000)),
-            "base_rate_sample": float(lab_3000.mean()), "base_rate_first_1000": float(lab_1000.mean()),
+    return {"n_sample": int(len(lab_3000)), "base_rate_sample": float(lab_3000.mean()),
             "llm": llm, "trained_arms_same_rows": same_rows}
 
 
@@ -223,11 +220,8 @@ def assert_printed(bd, br):
     check(r3(bd["pair.auprc_ensemble"]) == P["biodiv"]["trained"]["pair"], "biodiv trained pair")
     check(r3(bd["base_rate"]) == P["biodiv"]["base_rate"], "biodiv base rate")
     t32 = br["trained_arms_same_rows"][f"biored_{TEACHER}_pair"]
-    t122 = br["trained_arms_same_rows"][f"biored_{LATER}_pair"]
     check({a: r3(v) for a, v in t32.items()} == P["biored"]["trained"], f"biored trained {t32}")
-    check({a: r3(v) for a, v in t122.items()} == P["biored"]["trained_122b"], f"biored trained 122B {t122}")
     check(r3(br["base_rate_sample"]) == P["biored"]["base_rate"], "biored base rate")
-    check(r3(br["base_rate_first_1000"]) == P["biored"]["base_rate_122b"], "biored 122B base rate")
 
 
 def claims(bd, br):
@@ -342,7 +336,6 @@ def draw(bd, br, serif):
     x = np.arange(len(KEYS), dtype=float)
     q3 = slice(0, N_QWEN3)
     t32 = br["trained_arms_same_rows"][f"biored_{TEACHER}_pair"]
-    t122 = br["trained_arms_same_rows"][f"biored_{LATER}_pair"]
     panels = [
         dict(ax=ax_a, bench="biodiv", vals=bd, ylim=YLIM_A,
              title="(a) Biodiversity, 437 expert-graded candidates",
@@ -355,8 +348,7 @@ def draw(bd, br, serif):
              title="(b) BioRED, 3,000-candidate sample",
              ticks=[b for _, _, b in MODELS],
              trained={"pair": t32["pair"], "sentence": t32["sentence"]},
-             trained_lone={"pair": t122["pair"], "sentence": t122["sentence"]},
-             base=br["base_rate_sample"], base_lone=br["base_rate_first_1000"],
+             trained_lone=None, base=br["base_rate_sample"], base_lone=None,
              side={"pair": -1, "sentence": -1, "base": -1}),
     ]
     plotted, labels_drawn = {}, []
@@ -371,6 +363,10 @@ def draw(bd, br, serif):
         ax.plot(x[q3], pr[q3], color=BLUE, lw=1.5, zorder=3.2)
         ax.plot(x, s, ls="none", marker="s", ms=3.5, mfc="white", mec=VERM, mew=0.9, zorder=4)
         ax.plot(x, pr, ls="none", marker="o", ms=3.9, mfc=BLUE, mec="white", mew=0.45, zorder=4.2)
+        if bench == "biodiv":                        # the triple question: thin line, small diamonds
+            tq = np.array(series(p["vals"], bench, "triple"))
+            ax.plot(x[q3], tq[q3], color=GREEN, lw=0.7, zorder=2.9)
+            ax.plot(x, tq, ls="none", marker="D", ms=2.2, mfc=GREEN, mec="none", zorder=4.1)
         ax.axvline(SEP, color=GREY, lw=0.6, ls=(0, (1, 2)), zorder=1.5)
 
         # trained 110M models (dotted, arm colours) and the base rate (grey dotted)
@@ -379,7 +375,7 @@ def draw(bd, br, serif):
                 "sentence": (p["trained"]["sentence"], VERM, "110M sentence-level")}
         for arm, (yv, col, text) in refs.items():
             own = ax.plot([XLIM[0], x_end], [yv, yv], color=col, lw=0.9, ls=DOTTED, zorder=2)[0]
-            labels_drawn.append((inline(ax, XLIM[0], yv, text, col, p["side"][arm]), own))
+            labels_drawn.append((inline(ax, XLIM[0], yv, text, INK, p["side"][arm]), own))
             if p["trained_lone"] is not None:
                 ax.plot(LONE, [p["trained_lone"][arm]] * 2, color=col, lw=0.9, ls=DOTTED, zorder=2)
         own = ax.plot([XLIM[0], x_end], [p["base"]] * 2, color=GREY, lw=0.7, ls=(0, (1, 1.6)), zorder=1.6)[0]
@@ -409,6 +405,8 @@ def draw(bd, br, serif):
                              "x_span": [XLIM[0], float(x_end)]},
             "base_rate": {"y": float(p["base"]), "x_span": [XLIM[0], float(x_end)]},
         }
+        if bench == "biodiv":
+            plotted[pn]["triple_question"] = dict(zip(KEYS, map(float, tq)))
         if p["trained_lone"] is not None:
             plotted[pn]["trained_110m_at_122B"] = {"pair": float(p["trained_lone"]["pair"]),
                                                    "sentence": float(p["trained_lone"]["sentence"]),
@@ -423,9 +421,11 @@ def draw(bd, br, serif):
     handles = [
         Line2D([], [], color=BLUE, lw=1.5, marker="o", ms=3.9, mfc=BLUE, mec="white", mew=0.45),
         Line2D([], [], color=VERM, lw=1.2, ls=DASHED, marker="s", ms=3.5, mfc="white", mec=VERM, mew=0.9),
+        Line2D([], [], color=GREEN, lw=0.7, marker="D", ms=2.2, mfc=GREEN, mec="none"),
         TrainedHandle(),
     ]
-    leg = fig.legend(handles, ["pair question", "sentence question", "trained 110M (same rows)"],
+    leg = fig.legend(handles, ["pair question", "sentence question", "triple question (a)",
+                               "trained 110M (same rows)"],
                      handler_map={TrainedHandle: TrainedHandler()}, loc="upper center",
                      bbox_to_anchor=((L_LEFT + (W - L_LEFT - L_RIGHT) / 2) / W, 1.0), ncol=2,
                      frameon=False, handlelength=2.6, handletextpad=0.5, columnspacing=1.8,
@@ -546,15 +546,11 @@ def main():
                                                   "pair.auprc_ensemble", "llm")},
         "tables_biored.json": {"llm": br["llm"], "trained_arms_same_rows": br["trained_arms_same_rows"]},
         "llm/biored_qwen3-32b_pair.csv": {"n": br["n_sample"], "label_mean": br["base_rate_sample"]},
-        "llm/biored_qwen3.5-122b_pair.csv": {"n": br["n_first_1000"], "label_mean": br["base_rate_first_1000"],
-                                             "rows": "the first 1,000 of the 3,000-candidate sample"},
         "plotted": plotted,
         "caption": {
-            "n_biodiv": bd["n"], "n_biored_sample": br["n_sample"], "n_biored_122b": br["n_first_1000"],
+            "n_biodiv": bd["n"], "n_biored_sample": br["n_sample"],
             "trained_model_size": "110M", "teacher": TEACHER, "pair_leads_from": "qwen3-1.7b",
             "base_rate_biodiv": bd["base_rate"], "base_rate_biored_sample": br["base_rate_sample"],
-            "base_rate_biored_122b": br["base_rate_first_1000"],
-            "trained_biored_122b": br["trained_arms_same_rows"][f"biored_{LATER}_pair"],
             "mixture_of_experts": ["qwen3-30b-a3b-q4_K_M", "qwen3.5-122b"],
         },
         "claims": c,

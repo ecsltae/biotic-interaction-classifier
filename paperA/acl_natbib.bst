@@ -573,7 +573,7 @@ FUNCTION {format.names}
         {
           nameptr #19	% truncate after 19 names
           #1 + =
-          numnames #20	% if there are more than 20 names
+          numnames #99	% if there are more than 99 names (was 20; print all authors)
           > and
             { "others" 't :=
               #1 'namesleft := }

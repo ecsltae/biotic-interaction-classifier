@@ -366,7 +366,7 @@ def draw(item: dict, F: Fonts):
         "pairs": ["Possible pairs"],
         "sent": ["Sentence question:", "does the passage", "describe an interaction?"],
         "pair": ["Pair question:", "do these two", "interact?"],
-        "gold": ["Correct"],
+        "gold": ["Gold"],
     }
     hw = {k: max(width_in(t, fh) for t in v) for k, v in head.items()}
     cell_w, cell_h, gap = 0.42, 0.18, 0.12

@@ -1,4 +1,4 @@
-\begin{thebibliography}{58}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Ai and Kavuluru(2023)}]{ai2023endtoend}
@@ -164,11 +164,19 @@ Lynette Hirschman, Gully A. P.~C. Burns, Martin Krallinger, Cecilia Arighi,
   biocuration workflow}.
 \newblock \emph{Database}, 2012:bas020.
 
-\bibitem[{Islamaj et~al.(2024)}]{islamaj2024overview}
-Rezarta Islamaj and 1 others. 2024.
-\newblock The overview of the {BioRED} ({Biomedical Relation Extraction
-  Dataset}) track at {BioCreative VIII}.
-\newblock \emph{Database}, 2024.
+\bibitem[{Islamaj et~al.(2024)Islamaj, Lai, Wei, Luo, Almeida, Jonker,
+  Concei{\c{c}}{\~a}o, Sousa, Phan, Chiang, Li, Pan, Meesawad, Tsai, Sarol,
+  Hong, Valiev, Tutubalina, Lee, Hsu, Li, Verspoor, and
+  Lu}]{islamaj2024overview}
+Rezarta Islamaj, Po-Ting Lai, Chih-Hsuan Wei, Ling Luo, Tiago Almeida, Richard
+  A.~A. Jonker, Sofia I.~R. Concei{\c{c}}{\~a}o, Diana~F. Sousa, Cong-Phuoc
+  Phan, Jung-Hsien Chiang, Jiru Li, Dinghao Pan, Wilailack Meesawad, Richard
+  Tzong-Han Tsai, M.~Janina Sarol, Gibong Hong, Airat Valiev, Elena Tutubalina,
+  Shao-Man Lee, Yi-Yu Hsu, Mingjie Li, Karin Verspoor, and Zhiyong Lu. 2024.
+\newblock \href {https://doi.org/10.1093/database/baae069} {The overview of the
+  {BioRED} ({Biomedical Relation Extraction Dataset}) track at {BioCreative
+  VIII}}.
+\newblock \emph{Database}, 2024:baae069.
 
 \bibitem[{Kaushik and Lipton(2018)}]{kaushik-lipton-2018-much}
 Divyansh Kaushik and Zachary~C. Lipton. 2018.
@@ -315,6 +323,12 @@ Adam Poliak, Jason Naradowsky, Aparajita Haldar, Rachel Rudinger, and Benjamin
 {Qwen Team}. 2025.
 \newblock Qwen3 technical report.
 \newblock \emph{arXiv preprint arXiv:2505.09388}.
+
+\bibitem[{{Qwen Team}(2026)}]{qwen2026qwen35}
+{Qwen Team}. 2026.
+\newblock {Qwen3.5}: Towards native multimodal agents.
+\newblock \url{https://qwen.ai/blog?id=qwen3.5}.
+\newblock Model card: \url{https://huggingface.co/Qwen/Qwen3.5-122B-A10B}.
 
 \bibitem[{Rees and Cranston(2017)}]{rees2017opentree}
 Jonathan~A. Rees and Karen Cranston. 2017.

@@ -157,9 +157,18 @@ def main() -> None:
         probe = [job(r)[1] for r in d.head(8).itertuples(index=False)]
         if not any(t.split("/")[0].strip().upper().startswith(("YES", "NO")) for t in probe):
             raise SystemExit(f"{a.model} answers {probe[:3]} instead of YES/NO; not running {form}")
+        # resume: a shorter earlier run (e.g. --n 1000) is a prefix of the seed-0 sample, so its rows are reused
+        prev = pd.read_csv(out) if out.exists() and "row" in d else None
+        if prev is not None and len(prev) < len(d) and (prev.row.to_numpy() == d.row.to_numpy()[:len(prev)]).all():
+            print(f"resuming {out.name}: reusing {len(prev)} rows", flush=True)
+        else:
+            prev = None
+        todo = d.iloc[len(prev):] if prev is not None else d
         with ThreadPoolExecutor(a.workers) as ex:
-            res = list(ex.map(job, d.itertuples(index=False)))
-        o = d.assign(p_yes=[x[0] for x in res], raw=[x[1] for x in res], verdict=[x[2] for x in res])
+            res = list(ex.map(job, todo.itertuples(index=False)))
+        o = todo.assign(p_yes=[x[0] for x in res], raw=[x[1] for x in res], verdict=[x[2] for x in res])
+        if prev is not None:
+            o = pd.concat([prev[o.columns], o], ignore_index=True)
         o.to_csv(out, index=False)
         from sklearn.metrics import average_precision_score, f1_score, precision_score, recall_score
         y = o.label.to_numpy()

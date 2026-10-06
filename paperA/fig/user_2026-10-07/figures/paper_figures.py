@@ -45,6 +45,11 @@ STYLE = {
 }
 NAMES = {"sentence": "sentence-level", "pair": "pair-conditioned", "triple": "triple-conditioned"}
 
+from matplotlib import font_manager  # noqa: E402
+for _f in font_manager.findSystemFonts(fontext="ttf"):  # register Liberation Serif (TrueType; TeX Gyre is CFF)
+    if "LiberationSerif" in _f:
+        font_manager.fontManager.addfont(_f)
+
 plt.rcParams.update({
     "font.family": "serif",
     "font.serif": ["Liberation Serif", "TeX Gyre Termes", "Times New Roman", "DejaVu Serif"],
@@ -94,7 +99,26 @@ FIG3_ROWS = [
 ]
 
 
-def fig3(stem="fig3_gain_by_taxa"):
+STATS_KEYS = ["le2_taxa", "both_taxa_le2", "not_a_taxon_le2", "ge3_taxa", "both_taxa_ge3",
+              "not_a_taxon_ge3", "2_concepts", "ge3_concepts"]  # data rows of FIG3_ROWS, in order
+
+
+def load_fig3_stats(path):
+    """pos and bootstrap 95% intervals from paperA/fig/fig3_stats.py; point values must match."""
+    import json
+    st = {r["key"]: r for r in json.load(open(path))["rows"]}
+    for r, k in zip([r for r in FIG3_ROWS if r["kind"] != "head"], STATS_KEYS):
+        assert st[k]["n"] == r["n"], k
+        for arm in ("sentence", "pair", "triple"):
+            if r[arm] is not None:
+                assert round(st[k]["auprc"][arm], 3) == r[arm], (k, arm)
+        r["pos"], r["ci"] = st[k]["pos"], st[k]["ci95"]
+
+
+def fig3(stem="fig3_gain_by_taxa", stats=None):
+    if stats:
+        load_fig3_stats(stats)
+    XLO = 0.4 if stats else 0.6   # room for the widest interval (0.45 on 49 rows)
     fig = plt.figure(figsize=(COL_W, 2.5))
     ax = fig.add_axes([0.5, 0.13, 0.37, 0.795])  # x-extent is fitted to the labels below
     lab = blended_transform_factory(fig.transFigure, ax.transData)
@@ -118,7 +142,7 @@ def fig3(stem="fig3_gain_by_taxa"):
             start = yy if start is None else start
             prev = yy
     for lo, hi in spans:
-        ax.vlines(np.arange(0.6, 1.01, 0.1), lo, hi, color=GRID, lw=0.5, zorder=0)
+        ax.vlines(np.arange(XLO, 1.01, 0.2), lo, hi, color=GRID, lw=0.5, zorder=0)
 
     dodge = 0.27  # triple marker sits just below its row so it never hides the pair marker
     labels, deltas = [], []
@@ -128,6 +152,12 @@ def fig3(stem="fig3_gain_by_taxa"):
                      fontsize=8, fontweight="bold")
             continue
         s, p, t = r["sentence"], r["pair"], r["triple"]
+        ci = r.get("ci") or {}
+        for arm, v, off in (("sentence", s, -0.27), ("pair", p, 0.0), ("triple", t, dodge)):
+            if v is not None and arm in ci and r["n"] < 100:   # intervals drawn for the small rows
+                lo, hi = ci[arm]
+                ax.plot([lo, hi], [yy + off] * 2, color=STYLE[arm]["color"], lw=0.7, zorder=2,
+                        solid_capstyle="butt")
         ax.plot([s, p], [yy, yy], color=GAIN, lw=2.6, solid_capstyle="butt", zorder=1)
         st = {k: v for k, v in STYLE["sentence"].items() if k not in ("ls", "color")}
         ax.plot(s, yy, ls="none", zorder=3, **st)
@@ -137,7 +167,7 @@ def fig3(stem="fig3_gain_by_taxa"):
             st = {k: v for k, v in STYLE["triple"].items() if k not in ("ls", "color")}
             ax.plot(t, yy + dodge, ls="none", zorder=4, **st)
 
-        extra = f", {r['pos']:.0%} pos." if r.get("pos") is not None else ""
+        extra = f", {r['pos']:.0%}" if r.get("pos") is not None else ""
         text = f"{r['label']} ({r['n']:,}{extra})"
         group = r["kind"] == "group"
         labels.append(fig.text(0.03 if group else 0.058, yy, text, transform=lab, va="center",
@@ -159,10 +189,10 @@ def fig3(stem="fig3_gain_by_taxa"):
     pos = ax.get_position()
     ax.set_position([left, pos.y0, right - left, pos.height])
 
-    ax.set_xlim(0.6, 1.0)
+    ax.set_xlim(XLO, 1.0)
     ax.set_ylim(y - 0.4, -0.6)
-    ax.set_xticks(np.arange(0.6, 1.01, 0.1))
-    ax.set_xticklabels([f"{v:.1f}" for v in np.arange(0.6, 1.01, 0.1)])
+    ax.set_xticks(np.arange(XLO, 1.01, 0.2))
+    ax.set_xticklabels([f"{v:.1f}" for v in np.arange(XLO, 1.01, 0.2)])
     ax.set_yticks([])
     ax.spines["left"].set_visible(False)
     ax.set_xlabel("AUPRC", labelpad=2)
@@ -294,9 +324,11 @@ def main():
     ap.add_argument("figure", choices=["fig2", "fig3"])
     ap.add_argument("--scores", help="per-row CSV for fig2 (see header)")
     ap.add_argument("--demo", action="store_true", help="fig2 on synthetic scores, watermarked")
+    ap.add_argument("--stats", help="fig3: JSON from paperA/fig/fig3_stats.py (pos, 95% intervals)")
+    ap.add_argument("--stem", help="output path without extension")
     a = ap.parse_args()
     if a.figure == "fig3":
-        fig3()
+        fig3(a.stem or "fig3_gain_by_taxa", a.stats)
     elif a.demo:
         fig2(*synthetic_scores(), stem="fig2_LAYOUT_PREVIEW_synthetic", demo=True)
     elif a.scores:
