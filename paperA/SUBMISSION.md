@@ -6,7 +6,7 @@
   table and four body figures). The four figures are in, each built by a script in `paperA/fig/`
   (`make_{concept,curves,where,scaling}_figure.py`) that reads only the result files, asserts the
   values the paper prints and writes them to a JSON next to the figure. 19 pages: 8-page body (the
-  Conclusion ends on page 8, about 7 lines short of the limit), Limitations, references,
+  Conclusion ends on page 8, about 14 lines short of the limit), Limitations, references,
   appendices. Figure 1 is on page 1, Table 1 and Figure 2 on page 5, Figures 3 and 4 on page 6; no
   body float comes after the Limitations heading.
   Review mode with line numbers, author "Anonymous ACL submission", no title or author in the PDF
@@ -59,7 +59,7 @@
 
 ## OpenReview fields
 
-- **Title:** Pair-Conditioned Verification of Literature-Mined Species Interactions
+- **Title:** Pair-Conditioned Verification of Literature-Mined Taxa Interactions
 - **Type:** long paper
 - **Area (suggested):** Information Extraction (alternatives: NLP Applications; Resources and Evaluation)
 - **Keywords:** relation extraction; candidate verification; knowledge base population; biotic
@@ -69,7 +69,7 @@
   comparison, a public benchmark and zero-shot LLMs all favour the pair question.
 - **Abstract (plain text, 199 words; same text as the PDF):**
 
-Species interaction databases (who eats, infects or pollinates whom) are partly built by mining the literature. Candidates are proposed when a passage names two taxa near an interaction term, and the obvious filter asks whether the passage describes an interaction. A passage naming several taxa may support only some of its pairs, yet this filter gives them all the same answer. In our benchmark, passages naming three or more taxa hold 62% of the interacting pairs. Keeping a 110M-parameter encoder and its LLM-labelled training data fixed, we vary the input: the passage alone, the passage with the candidate pair, or the passage with the pair and its interaction term. On 437 expert-graded candidates, adding the pair raises the area under the precision-recall curve (AUPRC) from 0.867 to 0.942, and the interaction term adds no significant further gain. The gain is largest on passages naming three or more taxa. It replicates on the public BioRED corpus and in zero-shot Qwen models from 1.7B to 122B parameters, whose answers improve with size much more when asked about the pair. Asked only about the passage, the 32B model that labelled our training data ranks candidates below the 110M encoder given the pair.
+Taxa interaction databases (who eats, infects or pollinates whom) are partly built by mining the literature. Candidates are proposed when a passage names two taxa near an interaction term, and the obvious filter asks whether the passage describes an interaction. A passage naming several taxa may support only some of its pairs, yet this filter gives them all the same answer. In our benchmark, passages naming three or more taxa hold 62% of the interacting pairs. Keeping a 110M-parameter encoder and its LLM-labelled training data fixed, we vary the input: the passage alone, the passage with the candidate pair, or the passage with the pair and its interaction term. On 437 expert-graded candidates, adding the pair raises the area under the precision-recall curve (AUPRC) from 0.867 to 0.942, and the interaction term adds no significant further gain. The gain is largest on passages naming three or more taxa. It replicates on the public BioRED corpus and in zero-shot Qwen models from 1.7B to 122B parameters, whose answers improve with size much more when asked about the pair. Asked only about the passage, the 32B model that labelled our training data ranks candidates below the 110M encoder given the pair.
 
 ## Responsible NLP checklist: draft answers
 
@@ -105,13 +105,14 @@ Species interaction databases (who eats, infects or pollinates whom) are partly 
   appendix makes this a full Yes.
 
 **D. Human annotators**: needs your input
-- D1 Instructions: two annotation efforts are reported. (i) The benchmark's original labels: Biotx100
+- D1 Instructions: two annotation efforts are reported. (i) The benchmark labels: Biotx100
   is a domain expert's four-axis grading; Reject50 has its own curator field in
   `biotx_rejected_50_testset.csv` (keep names and initials out of OpenReview); Test299 comes from
   expert-graded pair-level sets (keep internal set names and curators' initials out of OpenReview). Say who
-  graded each and with which guideline. (ii) The 22-item blind re-annotation (Limitations): its
-  instructions are the "how to" tab of `gold_review_2026-10-02_v2_BLIND.xlsx` (SENTENCE / PAIR questions; UNSURE allowed), which can be
-  quoted or added as a short appendix to make D1 a Yes. "Not applicable" is not an option: the paper
+  graded each and with which guideline. (ii) The blind second annotation of 22 candidates that
+  adjudicated the labels (Limitations): its instructions are the "how to" tab of
+  `gold_review_2026-10-02_v2_BLIND.xlsx` (SENTENCE / PAIR questions; UNSURE allowed); quote them or
+  add them as a short appendix to make D1 a Yes. "Not applicable" is not an option: the paper
   reports annotation made for this work (also the 97 direction labels and the 150 teacher checks).
 - D2 Recruitment and payment; D3 consent; D4 ethics review; D5 demographics: answer for the
   benchmark's graders and for the second annotator (say if they are authors).

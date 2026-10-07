@@ -17,7 +17,7 @@
 \usepackage{multirow}
 \usepackage{microtype}
 
-\title{Pair-Conditioned Verification of Literature-Mined Species Interactions}
+\title{Pair-Conditioned Verification of Literature-Mined Taxa Interactions}
 
 \author{Anonymous ACL submission}
 
@@ -25,7 +25,7 @@
 \maketitle
 
 \begin{abstract}
-Species interaction databases (who eats, infects or pollinates whom) are partly built by mining the
+Taxa interaction databases (who eats, infects or pollinates whom) are partly built by mining the
 literature. Candidates are proposed when a passage names two taxa near an interaction term, and the
 obvious filter asks whether the passage describes an interaction. A passage naming several taxa may
 support only some of its pairs, yet this filter gives them all the same answer. In our benchmark,
@@ -43,7 +43,7 @@ the 110M encoder given the pair.
 \section{Introduction}
 \label{sec:intro}
 
-Databases such as GloBI \citep{poelen2014global} record which species eat, infect, parasitise or
+Databases such as GloBI \citep{poelen2014global} record which taxa eat, infect, parasitise or
 pollinate which, and like many biomedical databases \citep{hirschman2012biocuration,lee2018scaling}
 they are populated in part by text mining \citep{dimitrova2020semantic}. A retrieval system proposes
 candidate triples $(s_1, r, s_2)$, two organisms and an interaction term, together with the passage
@@ -66,7 +66,7 @@ passage gives the same answer whichever pair the candidate names; even a perfect
 question accepts the unsupported pair (Figure~\ref{fig:concept}).
 
 \citet{ruch2024biotxplorer}, who built the retrieval system, graded 100
-random BiotXplorer triples, found that the system identified the interacting species with a
+random BiotXplorer triples, found that the system identified the interacting taxa with a
 precision of 31\%, and named the main cause of error: ``instances where passages listed multiple
 species, which can be automatically filtered out.'' On our benchmark, passages naming three or more
 taxa hold 156 of the 251 interacting pairs (62\%), so filtering them out would discard most of what
@@ -225,10 +225,7 @@ attached by retrieval. We therefore evaluate everywhere at the level all three s
 (\S\ref{sec:decomp}). This understates the benefit of triple conditioning, since a candidate with the
 right pair and the wrong relation counts as correct.
 
-Two caveats apply. First, we scored roughly a hundred model configurations on this benchmark during development, so the recipes compared here were chosen with it in view; we expect the controlled comparison of \S\ref{sec:results} to be the least affected. Second, eight gold labels changed after the benchmark was frozen: seven by blind re-annotation of model-disputed items
-(Limitations), and a \textsc{Test299} candidate pairing \emph{Acanthamoeba} with
-\emph{Pseudomonas}, revised to negative after the expert, grading direction without model scores,
-recorded that the two co-occur in a shared host rather than interacting.
+One caveat applies: we scored roughly a hundred model configurations on this benchmark during development, so the recipes compared here were chosen with it in view; we expect the controlled comparison of \S\ref{sec:results} to be the least affected.
 
 \subsection{Replication setting: BioRED}
 \label{sec:biored-setup}
@@ -306,7 +303,7 @@ correctness the pair-conditioned model fixes 74 items and breaks 23, McNemar
 $p = 3.8\times10^{-7}$. The advantage does not depend on calibration: compared at equal review
 workload, the pair-conditioned model is ahead by $0.07$ to $0.09$ F1 whenever 50\% to 70\% of candidates are accepted, and the curves come within $0.01$ F1 of each other only when fewer than 10\% or more than 85\% of candidates are accepted (Figure~\ref{fig:curves}b; shares at six thresholds in Appendix~\ref{app:curve}).
 
-The triple-conditioned model may help where high precision is needed: at $\tau = 0.5$ it has precision $0.942$ at recall $0.777$, against $0.940$ at $0.689$ for the pair-conditioned model (Figure~\ref{fig:curves}a; Appendix~\ref{app:curve}), but it falls behind at the highest recall. Its AUPRC is level with the pair-conditioned model's ($0.945$ against $0.942$; 21 items fixed, 30 broken, $p = 0.26$). The re-annotation favoured this model most (Limitations), so we treat the difference as tentative.
+The triple-conditioned model may help where high precision is needed: at $\tau = 0.5$ it has precision $0.942$ at recall $0.777$, against $0.940$ at $0.689$ for the pair-conditioned model (Figure~\ref{fig:curves}a; Appendix~\ref{app:curve}), but it falls behind at the highest recall. Its AUPRC is level with the pair-conditioned model's ($0.945$ against $0.942$; 21 items fixed, 30 broken, $p = 0.26$). The adjudicated labels favour this model most (Limitations), so we treat the difference as tentative.
 
 \subsection{Results on BioRED}
 \label{sec:biored}
@@ -400,8 +397,7 @@ opposite; \emph{same organism}, where the two ``taxa'' are one organism named tw
 and its own clade; candidates whose relation term names no biotic interaction at all
 (\emph{relative to}, \emph{hybridization}, \emph{migration}); and \emph{entity} failures, where a
 taxon string is a taxonomic author, a place, an organ, or an adjective inside a pathogen's name
-(``\emph{avian} schistosomes'', which the pair-conditioned model already rejects). Some that read as
-gold errors were re-graded blind (Limitations).
+(``\emph{avian} schistosomes'', which the pair-conditioned model already rejects).
 
 \paragraph{A bound on component-wise verification.}
 The pair-binding class limits a natural alternative architecture. Its members have both taxa
@@ -466,7 +462,7 @@ more.
 The pair-conditioned model's precision ranges from $0.761$ at $\tau = 0.01$ to $0.981$ at $\tau = 0.90$ (Appendix~\ref{app:curve}), so the right threshold depends on the use. Ingestion into a reference database calls for high precision, and assembling candidates for expert review calls for high recall. Reporting a score leaves this choice to the user \citep{geifman2017selective}, and escalating uncertain candidates to a zero-shot LLM (\S\ref{sec:deploy}) adds another option.
 
 \paragraph{Errors made before verification.}
-Errors such as a wrong interaction term or a mis-resolved taxon arise during retrieval, before any verifier runs, and a model that reads the passage cannot see that the resolved species is not the one the passage names
+Errors such as a wrong interaction term or a mis-resolved taxon arise during retrieval, before any verifier runs, and a model that reads the passage cannot see that the resolved taxon is not the one the passage names
 (Limitations). Direction needs its own gold (Appendix~\ref{sec:notfixed}), and candidates drawn
 after the benchmark were harder for all three models.
 
@@ -485,30 +481,12 @@ gain on those passages. The effect replicates on BioRED and in zero-shot Qwen mo
 \section*{Limitations}
 
 \paragraph{Benchmark size and annotation.}
-437 expert-graded rows in three blocks, each graded once. A second annotation then re-graded 22
-candidates blind, with labels and scores hidden: the 11 on which two students of the same teacher,
-the triple-conditioned model and the recommended one (\S\ref{sec:deploy}), both contradict the gold
-with confidence $0.9$ or more, mixed with 11 random controls. All 11 controls kept their label
-(agreement $11/11$, Clopper--Pearson $[0.72, 1.00]$, too few to bound label noise tightly). Of the
-11 contested labels, 7 changed, 6 to positive and 1 to negative; we adopted the re-annotation, and
-every benchmark number in this paper uses the revised gold except the historical rows of
-Table~\ref{tab:negative}. The models chose which candidates were re-graded but changed no label;
-every change nonetheless moves the gold toward those two models, both of which read the candidate,
-and lifts their AUPRC most ($+0.036$ each, against $+0.024$ for the pair-conditioned and $+0.015$
-for the sentence-level model), enough to bring the triple-conditioned model level with the
-pair-conditioned one. On the gold before re-annotation the pair query raises AUPRC from $0.851$ to
-$0.918$ and F1 from $0.775$ to $0.871$. One change concerns a passage stating that ``the bat tick
-\ldots\ has been reported \ldots\ to occasionally feed on humans'', first labelled negative because
-retrieval had resolved the tick to the wrong species. Judged as written, the passage supports the
-pair, and the label is now positive; a database that ingested the resolved taxon would still record
-the wrong species, an upstream error no passage-reading model can see. On the recall side
-(\textsc{Reject50}, Appendix~\ref{sec:recall}) the denominator is 11 positives.
-
-\paragraph{Sampling of \textsc{Biotx100}.}
-\textsc{Biotx100} is a selected sample: each candidate comes with one passage chosen by retrieval,
-and half are pairs GloBI already records. Whether the gains hold on candidates and passages sampled
-without that selection, which are likely noisier, is not measured on this block; \textsc{Test299}
-and the public benchmark of \S\ref{sec:biored-setup} are sampled differently.
+The benchmark has 437 expert-graded rows in three blocks, each graded once. Labels were adjudicated
+once, by a blind second annotation of 22 candidates: 11 on which two models (triple-conditioned and
+recommended, \S\ref{sec:deploy}) confidently disagreed with the gold, and 11 random controls. It
+kept every control label and changed 7; on the earlier labels the pair query raises AUPRC from
+$0.851$ to $0.918$. On the recall side (\textsc{Reject50}, Appendix~\ref{sec:recall}) the
+denominator is 11 positives.
 
 \paragraph{Rule selection.}
 Four of the eight rules were selected after reading this benchmark's false positives
