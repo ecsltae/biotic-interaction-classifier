@@ -52,7 +52,7 @@
    register as a reviewer by 14 October** (ARR: otherwise the paper may be desk-rejected).
 4. **Responsible NLP checklist**: draft answers below. The question on AI assistance (E) is yours to
    answer according to ACL's policy.
-5. Done 2026-10-06: the 22-item blind gold review (`gold_review_2026-10-02_v2_eg_curated.xlsx`),
+5. Done 2026-10-06: the 22-item blind gold review (the completed review sheet),
    7 labels changed (benchmark now 251/437 positive; `data/evaluation/BENCHMARKS.json`), every table
    regenerated, agreement on the controls in the Limitations. The 437-row second annotation
    (`second_annotation_2026-10-04_BLIND.xlsx`) is follow-up work, not needed for this submission.
