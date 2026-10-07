@@ -33,9 +33,9 @@
 1. **Anonymous code link.** Publish the mirror through anonymous.4open.science (steps in
    `results/overnight_2026-10-03/ANONYMOUS_4OPEN_SCIENCE.md`), then replace `XXXX` in `paperA.tex`
    (search `ANONYMOUS LINK`: a footnote at the end of the Contributions list) and rebuild:
-   `pdflatex paperA; bibtex paperA; pdflatex paperA; pdflatex paperA; pdflatex paperA` (with `;`,
-   not `&&`: bibtex exits 2 on a harmless duplicate-\bibstyle message, which would stop an `&&`
-   chain). Keep the fourth pdflatex pass: from a clean directory the third pass still leaves a
+   `pdflatex paperA; bibtex paperA; pdflatex paperA; pdflatex paperA; pdflatex paperA` (bibtex
+   now exits cleanly: `acl.sty` sets the bibliography style, so `paperA.tex` no longer repeats
+   `\bibliographystyle`). Keep the fourth pdflatex pass: from a clean directory the third pass still leaves a
    "Rerun" warning in `paperA.log` and misplaces some review line numbers. When syncing the
    mirror, copy from `paperA/fig/` only the four `make_{concept,curves,where,scaling}_figure.py`
    scripts and their `fig_*` outputs (plus the `make_threshold_figure.py` and `fig4_threshold*`

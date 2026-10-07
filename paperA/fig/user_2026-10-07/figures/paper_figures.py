@@ -284,7 +284,7 @@ def fig2(gold, scores, stem, demo=False):
     # (a) precision-recall
     axa.axhline(base, color=MUTED, lw=0.9, ls=(0, (1, 1.5)), zorder=1)
     axa.text(0.01, base + 0.012, "accept everything", color=INK2, fontsize=7.2, va="bottom")
-    axa.text(0.01, 0.905, "database ingestion", color=MUTED, fontsize=7.2, style="italic")
+    axa.text(0.01, 0.835, "database ingestion", color=MUTED, fontsize=7.2, style="italic")
     axa.text(0.88, 0.645, "expert review", color=MUTED, fontsize=7.2, style="italic", ha="right")
     axa.set_xlim(0, 1.0)
     axa.set_ylim(0.5, 1.01)

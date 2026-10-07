@@ -78,8 +78,8 @@ with the candidate pair (\emph{pair-conditioned}), or the passage with the whole
 (\emph{triple-conditioned}), and compare them on 437 expert-graded candidates. Everything except the input is held fixed. Telling the model which pair it is judging raises the area under the
 precision-recall curve (AUPRC, which summarises precision over all recall levels; a random ranking
 scores the share of positives) from $0.867$ to $0.942$ and F1 from $0.790$ to $0.882$ (McNemar
-$p = 3.8\times10^{-7}$), and at equal review workload keeps F1 ahead or level at every share of candidates accepted except 93\% to 96\%, where it trails by at most $0.003$; adding the relation term
-helps only at strict operating points. On BioRED \citep{luo2022biored}, a public biomedical corpus, the same comparison raises
+$p = 3.8\times10^{-7}$), and at equal review workload keeps F1 higher at every share of candidates accepted from 4\% to 89\% (Figure~\ref{fig:curves}b); adding the relation term
+may help at strict operating points (\S\ref{sec:res-main}). On BioRED \citep{luo2022biored}, a public biomedical corpus, the same comparison raises
 AUPRC from $0.738$ to $0.843$ and entity-pair F1 from $57.5$ to $67.1$, with the gain where the
 argument predicts: absent on sentences that name only two entities, large on sentences that name
 more. Zero-shot Qwen models from 1.7B to 122B parameters show the same gap, and the verifier runs
@@ -171,7 +171,7 @@ taxon surface forms against a taxonomy and interaction surface forms against a v
 from the Relation Ontology, and emits candidate $(s_1, r, s_2)$ triples with the passage, the matched
 surface strings and their canonical forms. We use it only as a source of candidates: no component of
 it is a baseline in this paper. The pool we study has $175{,}588$ candidate rows over $165{,}325$
-distinct passages and $115{,}404$ distinct triplet keys. Canonical strings often differ from what
+distinct passages and $115{,}404$ distinct triple keys. Canonical strings often differ from what
 the passage says, so we always query with the surface form, which is what the model can see. The
 decision to make is whether the passage asserts an interaction between the candidate's two
 organisms, in either direction (\S\ref{sec:protocol}).
@@ -286,7 +286,7 @@ Pair-conditioned   & 0.942\sd{.007} & \textbf{0.882}$^\dagger$ & \textbf{0.843}\
 Triple-conditioned & \textbf{0.945}\sd{.005} & 0.867$^\dagger$ & -- & -- & -- \\
 \bottomrule
 \end{tabular}}
-\caption{Within each benchmark, all models share one encoder and one training corpus; only the input differs. AUPRC: mean $\pm$ s.d.\ over three seeds. F1: three-checkpoint ensemble at block-held-out thresholds (biodiversity) or the pre-specified threshold (BioRED). EP F1: BioRED's document-level entity-pair F1 (\%), seed mean. Accept all gives the base rate. $^\dagger$McNemar $p<10^{-4}$ against the sentence-level model; pair- against triple-conditioned, $p=0.26$. BioRED has no relation term, hence no triple-conditioned model.}
+\caption{Within each benchmark, all models share one encoder and one training corpus; only the input differs. AUPRC: mean $\pm$ s.d.\ over three seeds. F1: three-checkpoint ensemble at block-held-out thresholds (biodiversity) or the pre-specified threshold (BioRED). EP F1: BioRED's document-level entity-pair F1 (\%), seed mean. Accept all gives the base rate. $^\dagger$McNemar $p<10^{-4}$ against the sentence-level model; pair- against triple-conditioned, $p=0.26$. BioRED has no relation term, hence no triple-conditioned model. Per-seed values (biodiversity): Appendix~\ref{app:seeds}.}
 \label{tab:main}
 \end{table}
 
@@ -304,7 +304,7 @@ per-seed AUPRC from $0.867 \pm 0.006$ to $0.942 \pm 0.007$ and, at block-held-ou
 from $0.790$ to $0.882$ (precision $0.752$ to $0.869$, recall $0.833$ to $0.896$). On decision
 correctness the pair-conditioned model fixes 74 items and breaks 23, McNemar
 $p = 3.8\times10^{-7}$. The advantage does not depend on calibration: compared at equal review
-workload, it is ahead by $0.07$ to $0.09$ F1 whenever 50\% to 70\% of candidates are accepted, and the curves come within $0.01$ F1 of each other only when fewer than 5\% or more than 89\% of candidates are accepted (Figure~\ref{fig:curves}b; shares at six thresholds in Appendix~\ref{app:curve}).
+workload, the pair-conditioned model is ahead by $0.07$ to $0.09$ F1 whenever 50\% to 70\% of candidates are accepted, and the curves come within $0.01$ F1 of each other only when fewer than 10\% or more than 85\% of candidates are accepted (Figure~\ref{fig:curves}b; shares at six thresholds in Appendix~\ref{app:curve}).
 
 The triple-conditioned model may help where high precision is needed: at $\tau = 0.5$ it has precision $0.942$ at recall $0.777$, against $0.940$ at $0.689$ for the pair-conditioned model (Figure~\ref{fig:curves}a; Appendix~\ref{app:curve}), but it falls behind at the highest recall. Its AUPRC is level with the pair-conditioned model's ($0.945$ against $0.942$; 21 items fixed, 30 broken, $p = 0.26$). The re-annotation favoured this model most (Limitations), so we treat the difference as tentative.
 
@@ -330,7 +330,7 @@ precision $0.646$). The published systems also classify entity pairs, so the rem
 
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{fig/fig3_gain_by_taxa.pdf}
-\caption{AUPRC by the number of entities the passage names (three-checkpoint ensembles). Biodiversity: distinct taxa that TaxoNERD~\citep{leguillarme2022taxonerd} finds in the passage; an argument ``is not a taxon'' when TaxoNERD does not recognise it there. BioRED: gold-annotated concepts in the sentence; BioRED has no relation term, so there is no triple-conditioned model. Triple-conditioned markers sit just below their row so they do not hide the pair-conditioned ones. Grey bars and the $\Delta$ column give the gain from adding the pair (pair-conditioned minus sentence-level). Parentheses give the number of candidates and the share of positives. Thin lines on the rows under 100 candidates are bootstrap 95\% intervals (2{,}000 resamples of candidates, fixed seed; values in \texttt{fig3\_gain\_by\_taxa.json}). Exact values: Appendices~\ref{app:where} and~\ref{app:biored}.}
+\caption{AUPRC by the number of entities the passage names (three-checkpoint ensembles). Biodiversity: distinct taxa that TaxoNERD~\citep{leguillarme2022taxonerd} finds in the passage; an argument ``is not a taxon'' when TaxoNERD does not recognise it there. BioRED: gold-annotated concepts in the sentence; BioRED has no relation term, so there is no triple-conditioned model. Triple-conditioned markers sit just below their row so they do not hide the pair-conditioned ones. Grey bars and the $\Delta$ column give the gain from adding the pair (pair-conditioned minus sentence-level). Parentheses give the number of candidates and the share of positives. Thin lines on the rows under 100 candidates are bootstrap 95\% intervals (2{,}000 resamples of candidates, fixed seed; values released with the code). Exact values: Appendices~\ref{app:where} and~\ref{app:biored}.}
 \label{fig:where}
 \end{figure}
 
@@ -363,7 +363,7 @@ student; asked about the pair, $0.960$. Its gap, $+0.156$, is twice the student'
 the same place: $+0.179$ on passages naming three or more taxa against $+0.107$ on the rest, where
 the student's is $+0.098$ against $+0.043$. The 110M pair-conditioned student, about 300 times smaller than its teacher, scores $0.14$ AUPRC higher than the teacher asked the sentence question. As with the student, the
 relation term adds nothing at this size ($0.964$ against $0.960$), although zero-shot models from
-1.7B to 30B-A3B do gain from it (Appendix~\ref{app:scaling}). From Qwen3-1.7B to Qwen3.5-122B-A10B the pair question leads at each size, by $+0.04$ to $+0.20$ AUPRC on our
+1.7B to 30B-A3B do gain from it (Appendix~\ref{app:scaling}). From Qwen3-1.7B to Qwen3.5-122B-A10B \citep{qwen2026qwen35} the pair question leads at each size, by $+0.04$ to $+0.20$ AUPRC on our
 benchmark and $+0.11$ to $+0.30$ on BioRED, while the sentence question gains little with size. On
 BioRED the teacher, asked the sentence question, accepts 92\% of its sample (AUPRC $0.566$ at a base
 rate of $0.48$); asked about the pair, $0.813$, still behind the trained pair-conditioned model
@@ -472,7 +472,7 @@ after the benchmark were harder for all three models.
 
 \paragraph{Other domains.}
 Any pipeline that proposes candidates by co-occurrence and filters them passage by passage gives
-every candidate from a passage the same answer; BioRED shows the remedy carrying over to genes, chemicals and diseases.
+every candidate from a passage the same answer; BioRED shows the remedy carrying over to genes, chemicals and diseases. For another pipeline, the first quantity to measure is the share of passages that name more than the candidate pair.
 
 \paragraph{Conclusion.}
 When candidates come from co-occurrence retrieval, the model that verifies them should see the
@@ -480,7 +480,7 @@ candidate pair as well as the passage. A classifier that reads only the passage 
 it the same answer, and 62\% of the interacting pairs in our benchmark come from passages naming
 three or more taxa. Giving the model the pair raises AUPRC from $0.867$ to $0.942$, with the largest
 gain on those passages. The effect replicates on BioRED and in zero-shot Qwen models from 1.7B to
-122B parameters. The verifier runs on a CPU, fast enough to score every candidate in the pool. For another pipeline, the first quantity to measure is the share of passages that name more than the candidate pair.
+122B parameters. The verifier runs on a CPU, fast enough to score every candidate in the pool.
 
 \section*{Limitations}
 
@@ -553,7 +553,6 @@ We study one retrieval system with one interaction vocabulary, on interactions b
 mechanism, a pair-agnostic decision over passages that name several organisms, is not specific to
 this pool, but we have not shown that other pools fail the same way.
 
-\bibliographystyle{acl_natbib}
 \bibliography{references}
 
 \appendix
@@ -1203,7 +1202,7 @@ version of the evaluation; deltas are directions only (see text). The last row c
 Table~\ref{tab:negative} collects interventions that did not help, because each is a plausible first
 thing to try. Self-distillation at equal capacity is null, suggesting the teacher's knowledge is
 already saturated in the student. Compressing to six layers nearly doubles CPU throughput, which this setting does not need, and costs $0.088$ precision. Reweighting the corpus toward the signal distribution of the retrieval
-pool cost $0.059$ AUPRC. The fifth row is the most informative. before the candidate rules existed, we
+pool cost $0.059$ AUPRC. The fifth row is the most informative. Before the candidate rules existed, we
 turned the same mechanisms into training data (synthetic negatives for the same-organism,
 own-clade and authority classes, and in a second variant for co-listing) and retrained. The first
 variant left AUPRC unchanged within seed noise and the second cost $0.037$. For properties of the candidate itself, rules worked better than extra training data. Deltas in
